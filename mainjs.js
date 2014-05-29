@@ -5,16 +5,11 @@ $(document).ready(function(){
 
 var $loaderGif = $('#loaderGif');
 
-var deviceAgent = navigator.userAgent.toLowerCase();			
-var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);//Detect ipad
-//var windowsDetect = deviceAgent.match(/(windows)/);
+
+var isTablet = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 
 
-/* if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
- // some code..
-} */
-
-if ( agentID ) {	// if ipad then bring in ipad.css
+if ( isTablet ) {	// if ipad then bring in ipad.css
 
 	$("<link/>", {
 	   rel: "stylesheet",
@@ -227,7 +222,7 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 		
 			$('#site-nav').find('#showInit').addClass('siteNavClass');
 
-			if (agentID) {
+			if (isTablet) {
 				$('#subtitleText').text('Tablet device must be rotated to landscape mode').animate({opacity: 1},600).animate({opacity: 0},600).animate({opacity: 1},600);
 				$('#introSearch').remove();
 			} 
