@@ -196,7 +196,6 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 						category: '[data-abc]'
 				}, 
 				sortBy: 'category',		
-				animationEngine: 'best-available',
 				transformsEnabled: true,
 				transitionDuration: '0.7s',
 				}).isotope({ filter: recentParent });
