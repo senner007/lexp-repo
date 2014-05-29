@@ -1,0 +1,489 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>AJAX: POST</title>
+	 <link href="css/sortMakerCss.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+<div id="containerOut"  style="display: none">
+
+
+<div id="container">
+
+	<h1>Quiz form</h1>
+
+	<p>Question Title(One word)</p>
+	<input id="inputTitle" type="text"></input>
+
+	<p>Question Headline</p>
+	<input id="inputHeadline" type="text"></input>
+	
+	<p>Question Subtitle</p>
+	<input id="subTitle" type="text"></input>
+	
+	<p>Align text to the center(true/false)</p>
+	<input id="alignCenter" type="text"></input>
+	
+	<p>Use words only (true/false)</p>
+	<input id="wordsOnly" type="text"></input>
+
+
+	
+
+	<button>Submit to Xml</button>
+
+</div>
+
+<div id="questionList">
+
+<div class="container2">
+	<p>question</p>
+	<input id="inputQuestion1" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer</p>
+	<input id="inputAnswer1" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question2</p>
+	<input id="inputQuestion2" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer2</p>
+	<input id="inputAnswer2" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question3</p>
+	<input id="inputQuestion3" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer3</p>
+	<input id="inputAnswer3" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question4</p>
+	<input id="inputQuestion4" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer4</p>
+	<input id="inputAnswer4" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question5</p>
+	<input id="inputQuestion5" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer5</p>
+	<input id="inputAnswer5" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question6</p>
+	<input id="inputQuestion6" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer6</p>
+	<input id="inputAnswer6" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question7</p>
+	<input id="inputQuestion7" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer7</p>
+	<input id="inputAnswer7" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question8</p>
+	<input id="inputQuestion8" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer8</p>
+	<input id="inputAnswer8" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question9</p>
+	<input id="inputQuestion9" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer9</p>
+	<input id="inputAnswer9" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question10</p>
+	<input id="inputQuestion10" type="text"></input>
+</div>
+
+<div class="container3">
+	<p>answer10</p>
+	<input id="inputAnswer10" type="text"></input>
+</div>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+<div class="wrapper">
+	
+	<div id="content">
+		<div class="main">
+			<h1>Login</h1>
+			<div id="formwrapper">
+			<form method="get" action="login.php" id="login">
+	
+		<p>Username:</p>
+		<input type="text" name="username" id="username">
+	
+	
+		<p>Password: </p>
+		<input type="password" name="password" id="password">
+
+	<p>
+		<input type="submit" name="button" id="button" value="Submit" >
+	</p>
+</form>
+</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+<!-- <script src="../quiz/js/cssNoCacheScript.js" type="text/javascript"></script>	 -->
+<script src="../quiz/js/jquery-2.0.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+			$('#password').val('');
+$('#username').val('');
+										
+			$('input').focus()	
+
+		$('#containerOut').hide();
+			
+			$('#login').submit(function() {
+   var formData = $(this).serialize();
+      $.get('login.php',formData,processData).error('ouch');
+      function processData(data) {
+		 // console.log(data);
+        if (data=='pass') {
+           $('#content').html('<p>You have successfully logged in!</p>');
+		   $('#containerOut').show();
+		   $('input').focus();	
+		   
+        } else {
+           if (! $('#fail').length) {
+             $('#formwrapper').prepend('<p id="fail">Incorrect login information. Please try again</p>');
+           }
+         }
+       } // end processData
+       return false;
+   }); // end submit
+			
+
+			$('button').click(function() {
+				
+				  $textTitle = $("#inputTitle").val()
+				  $textHeadline = $("#inputHeadline").val()
+				  $textsubTitle = $("#subTitle").val()
+				  $alignCenter = $("#alignCenter").val()
+				  $wordsOnly = $("#wordsOnly").val()
+				  
+					  $textQuestion1 = $("#inputQuestion1").val()
+					  $textAnswer1 = $("#inputAnswer1").val()
+					  $textQuestion2 = $("#inputQuestion2").val()
+					  $textAnswer2 = $("#inputAnswer2").val()
+					  $textQuestion3 = $("#inputQuestion3").val()
+					  $textAnswer3 = $("#inputAnswer3").val()
+					  $textQuestion4 = $("#inputQuestion4").val()
+					  $textAnswer4 = $("#inputAnswer4").val()
+					  $textQuestion5 = $("#inputQuestion5").val()
+					  $textAnswer5 = $("#inputAnswer5").val()
+					  $textQuestion6 = $("#inputQuestion6").val()
+					  $textAnswer6 = $("#inputAnswer6").val()
+					  $textQuestion7 = $("#inputQuestion7").val()
+					  $textAnswer7 = $("#inputAnswer7").val()
+					  $textQuestion8 = $("#inputQuestion8").val()
+					  $textAnswer8 = $("#inputAnswer8").val()
+					  $textQuestion9 = $("#inputQuestion9").val()
+					  $textAnswer9 = $("#inputAnswer9").val()
+					  $textQuestion10 = $("#inputQuestion10").val()
+					  $textAnswer10 = $("#inputAnswer10").val()
+			
+					  
+					  
+					  
+				  
+				  var question1 = ( '<sentences>' 
+													+ '<sentence>'								
+														 + $textQuestion1 
+												 +  '</sentence>' 
+												 +  '<answer>'	
+												 + $textAnswer1 
+												 +  '</answer>' 
+									+ '</sentences>' 
+												 );
+					
+					if ($textQuestion2 != '')
+					{
+												 
+				    var question2 = ('<sentences>' 
+													+ '<sentence>'								
+														+ $textQuestion2
+												 +  '</sentence>' 
+												 +  '<answer>'	
+												 +  $textAnswer2 
+												 +  '</answer>'
+												 
+										+ 	'</sentences>'	 
+												 );
+												 
+					}
+					else { var question2 = '';}
+					
+					if ($textQuestion3 != '')
+					{
+												 
+				    var question3 = ('<sentences>'
+													+ '<sentence>'									
+														+ $textQuestion3
+												 +  '</sentence>'
+												 +  '<answer>'	
+												 +  $textAnswer3 
+												 +  '</answer>'
+												 
+										+ 	'</sentences>'	 
+												 );
+												 
+					}
+					else { var question3 = '';}
+					
+					if ($textQuestion4 != '')
+					{
+												 
+				    var question4 = ('<sentences>'
+													+ '<sentence>'									
+														+ $textQuestion4
+												 +  '</sentence>'
+												 +  '<answer>'	
+												 +  $textAnswer4 
+												 +  '</answer>'
+												 
+										+ 	'</sentences>'	 
+												 );
+												 
+					}
+					else { var question4 = '';}
+					
+					if ($textQuestion5 != '')
+					{
+												 
+				    var question5 = ('<sentences>'
+													+ '<sentence>'									
+														+ $textQuestion5
+												 +  '</sentence>'
+												 +  '<answer>'	
+												 +  $textAnswer5
+												 +  '</answer>'
+												 
+										+ 	'</sentences>'	 
+												 );
+												 
+					}
+					else { var question5 = '';}
+					
+					if ($textQuestion6 != '')
+					{
+												 
+				    var question6 = ('<sentences>'
+													+ '<sentence>'									
+														+ $textQuestion6
+												 +  '</sentence>'
+												 +  '<answer>'	
+												 +  $textAnswer6
+												 +  '</answer>'
+												 
+										+ 	'</sentences>'	 
+												 );
+												 
+					}
+					else { var question6 = '';}
+					
+					if ($textQuestion7 != '')
+					{
+												 
+				    var question7 = ('<sentences>'
+													+ '<sentence>'									
+														+ $textQuestion7
+												 +  '</sentence>'
+												 +  '<answer>'	
+												 +  $textAnswer7
+												 +  '</answer>'
+												 
+										+ 	'</sentences>'	 
+												 );
+												 
+					}
+					else { var question7 = '';}
+					
+					
+					if ($textQuestion8 != '')
+					{
+												 
+				    var question8 = ('<sentences>'
+													+ '<sentence>'									
+														+ $textQuestion8
+												 +  '</sentence>'
+												 +  '<answer>'	
+												 +  $textAnswer8
+												 +  '</answer>'
+												 
+										+ 	'</sentences>'	 
+												 );
+												 
+					}
+					else { var question8 = '';}
+					
+					if ($textQuestion9 != '')
+					{
+												 
+				    var question9 = ('<sentences>'
+													+ '<sentence>'									
+														+ $textQuestion9
+												 +  '</sentence>'
+												 +  '<answer>'	
+												 +  $textAnswer9
+												 +  '</answer>'
+												 
+										+ 	'</sentences>'	 
+												 );
+												 
+					}
+					else { var question9 = '';}
+					
+					if ($textQuestion10 != '')
+					{
+												 
+				    var question10 = ('<sentences>'
+													+ '<sentence>'									
+														+ $textQuestion10
+												 +  '</sentence>'
+												 +  '<answer>'	
+												 +  $textAnswer10
+												 +  '</answer>'
+												 
+										+ 	'</sentences>'	 
+												 );
+												 
+					}
+					else { var question10 = '';}
+					
+			
+					
+					
+					
+					
+					
+					
+												 
+					
+				
+				  var shout_text = ('<sortable' + ' title="' + $textsubTitle + '">' 
+										       +'<' + $textTitle + '>'
+													+ '<info>'
+														+  '<title>' + $textTitle + '</title>'
+														+  '<headline>' + $textHeadline + '</headline>'
+														+  '<subTitle>' + $textsubTitle + '</subTitle>'
+														+  ' <wordsOnly>' + $wordsOnly + '</wordsOnly>'
+														+  ' <alignCenter>' + $alignCenter + '</alignCenter>'
+													+  '</info>'
+												
+													+ question1
+												
+												    + question2
+													
+													+ question3
+													
+													+ question4
+													
+													+ question5
+													
+													+ question6
+												 
+													+ question7
+													
+													+ question8
+													
+													+ question9
+													
+													+ question10
+																																	 
+											 +'</' + $textTitle + '>'
+										 + '</sortable>'
+										 + '</quizes>'
+									 
+																	);
+				  
+					
+					//console.log(shout_text);
+
+					var shout = $.ajax({
+						  type: 'POST',
+						  url: "quizMaker.php",
+						  async: false,
+						  cache: false,
+						  data: {message:shout_text},
+						 
+						  
+						  success: function(){ 
+						  alert('quiz saved');
+					
+						  }
+					});
+
+				});
+
+
+	});
+
+
+	
+
+	// grab textarea content
+
+	// post content to script, and save
+</script>
+	
+</body>
+</html>
+
+
+

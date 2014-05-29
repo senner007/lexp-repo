@@ -1,0 +1,49 @@
+<!doctype html><head>
+
+	 <meta charset="utf-8" />
+  <title>Verbs: To be</title>
+ <link href="css/rules.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+
+	
+
+
+<div id="container">
+	<div id="bContainer">
+		<button id="closingButton">X</button>
+	</div>
+
+
+	<div id="innerText">
+		
+
+	</div>  <!-- end inner text -->
+	
+</div>	<!-- end container  -->
+	
+
+
+<script src="../quiz/js/jquery-2.0.0.min.js"></script>
+<script src="../quiz/js/jquery.columnizer.js"></script>
+<script src="../quiz/js/jQuery.fastClick.js"></script>
+<script>
+$(document).ready(function() {
+	$.get('subjectText.html', function(data) {
+	  $('#innerText').html(data).animate({opacity: 1}, 300, function () {
+	  
+				  $('#innerText').columnize({ width: 490, height: 550 }).css({width: '1000px'})
+				  
+	  });
+;
+	});
+
+});
+  
+
+</script>
+</body>
+</html>

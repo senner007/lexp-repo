@@ -1,0 +1,232 @@
+<!doctype html>
+
+<head>
+ <meta charset="utf-8" />
+  <title>The Language Explorer</title>
+	
+	<link href="maincss.css" rel="stylesheet" type="text/css">
+	<link href="fancybox/jquery.fancybox.css" rel="stylesheet">
+	<!-- <link href="quiz/css/animate-custom.css" rel="stylesheet" type="text/css" /> -->
+
+	<!-- <link href="fancybox/helpers/jquery.fancybox-thumbs.css" rel="stylesheet"> -->
+	<!-- <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0" > -->
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+ 
+<!-- 	<script src="pace/pace.min.js"></script>
+  <link href="pace/normal.css" rel="stylesheet" /> -->
+
+</head>
+
+<body>
+
+<img id="loaderGif" src="fancybox/fancybox_loading.gif"/>		
+<div id="containerOuter"> 
+	
+	
+<!-- 	<div id="site-nav2">
+		<ul>
+		
+		</ul>
+	</div>  -->
+
+	<div id="secondContainer">
+		<div id="mainHeader">
+			<div id="topHeader">
+				<a id="navChangelog" data-fancybox-type="iframe" href="history/history.html">Change log</a>
+				<a id="quizMenu" class="quizMenu" data-fancybox-type="iframe" href="quizMenu/quizMenu.html" >About/Misc.</a>
+			</div>
+		
+			<!-- <div class="beta-ribbon-wrapper">
+				<div class="beta-ribbon">beta</div>
+			</div> -->
+			
+			<div id="headline">
+				<h1>Language Explorer</h1>
+			</div>	
+			<div id="textThe">The</div>
+			<div id="subtitleText"></div>
+
+			<div id="site-nav">
+				<ul>
+				<li id="showInit"  title="Main">Intro Screen</li>
+				<li id="showAll"  title="Main">Show All</li>
+				<li id="navRules"  title="Main">Rules/Text</li>
+				<li id="navImages"  title="Main">Images</li>
+				<li id="navGrammar" title="Main">Grammar practice</li>
+				<li id="navVocab" title="Main">Vocabulary </li>
+				<li id="navThemesTrueFalse" title="Main">Theme</li>
+				<li id="introSearch"><img id="img1" src="img/search_small2.png"/><input type="text"  id="searchM"/></li>
+			   </ul>
+			</div> <!-- #site-nav -->
+		</div>
+
+		<div id="container">
+			<div id='stamped'></div>
+			 <div id="introText" data-abc="Aaaaaaaa" class="item recent isotope-item" title="introText">
+			<p id="introParagraph">Welcome. To the right (and below) you will see the most recently added items from each of the 6 categories:</p>
+			<ul id="introUl" >
+				<li><span class="shrink">Rules:</span> Items will display grammar rules.</li>
+				<li><span class="shrink">Text:</span> Items that display text.</li>
+				<li><span class="shrink">Images:</span> Items that display images.</li>
+				<li><span class="shrink">Grammar:</span> Exercises that are related to grammar.</li>
+				<li><span class="shrink">Vocabulary:</span> Exercises that will help to build and memorize vocabulary.</li>
+				<!-- <li><span class="shrink">True/False:</span> Answer true or false in relation to a given topic/theme.</li> -->
+				<li><span class="shrink">Theme:</span> Exercises related to a given topic/theme.</li>
+				<!-- <li><span class="shrink">Esl:</span>Exercises for beginner to pre-intermediate students.</li> -->
+				
+
+			</ul> 
+			</div>
+		
+		
+		<a data-abc="UncountNouns" rel="gallery" id="UncountNounsImg" href="img/uncountableNouns.jpg" class="item colimg2 fancybox recent" title="Not many"><img src="img/uncountableNounsSmall.jpg" /></a>
+		
+
+		  <div data-abc="Adverbs" class="item coltext2" title="Adverbs"> 
+		  			  <div class="factbox">Word Class</div>
+					 <p class="firstP">
+					  A<span class="bold">dverbs</span> modify adjectives, verbs, and other adverbs. An adverb answers how, when, or where.</p> <br>
+							<ul>
+							<li>I am driving <span class="bold">slowly.</span></li>
+							<li>How am I driving? <span class="bold">slowly</span></li><br>
+											
+							<li>I went to the movies <span class="bold">yesterday.</span></li>
+							<li>When did I go to the movies? <span class="bold">yesterday</span></li><br>
+							
+							<li>I put the chair <span class="bold">upstairs.</span></li>
+							<li>Where did I put the chair? <span class="bold">upstairs</span></li>
+							</ul>  
+		</div>
+		
+		
+        <div data-abc="Pronouns" class="item coltext3" title="Pronouns"> 
+		 <div class="factbox">Word Class</div>
+		  <p class="firstP">P<span class="bold">ronouns</span> are small words that take the place of a noun. We can use a pronoun instead of a noun. </p><br>
+                      <ul>
+								<li><span class="underline">Personal pronouns: </span><span class="bold">
+								I, me, you, he, him, she, her...</span></li>
+								<li><span class="underline">Demonstrative pronouns: </span><span class="bold">
+								this, that, these, those</span></li>
+								<li><span class="underline">Possessive pronouns: </span><span class="bold">
+								mine, yours, his...</span></li>
+								<li><span class="underline">Interrogative pronouns: </span><span class="bold">
+								  who, what, which...</span></li>
+								<li><span class="underline">Reflexive pronouns: </span><span class="bold">
+								  myself, yourself, himself...</span></li>
+								<li><span class="underline">Indefinite Pronouns: </span><span class="bold">
+								  another, much, nobody, few, such...</span></li>
+								<li><span class="underline">Relative pronouns: </span><span class="bold">
+								  who, whom, which...</span></li>
+                      </ul>
+			</div>
+			
+			
+			
+		<div data-abc="Prepositions" class="item coltext2" title="Prepositions"> 
+		 <div class="factbox">Word Class</div>
+		  <p class="firstP">P<span class="bold">repositions</span> are used to show place, time, direction etc.</p><br>
+                      <ul>
+						<li>She left <span class="bold">before</span> breakfast.</li>
+						<li>He was born <span class="bold">on</span> January 2.</li>
+						<li>Divide the drinks <span class="bold">between</span> the two of you.</li>
+						<li>It is a container <span class="bold">for</span> chemicals.</li>
+						
+				</ul>
+		</div>
+		 
+		<!--  <div  data-abc="Coherence" data-fancybox-type="iframe" href="_slyDemo/indexSly.html" title="cohesionCoherence" class="item colRules1 recent variousRules">Rule<br><span class="bold">Cohesion Coherence</span></div> -->
+		  <div  data-abc="Subject" data-fancybox-type="iframe" href="rules/theSubject.html" title="simpleSubject" class="item colRules1 variousRules"><span class='ruleHighlight'>Rule</span><br><span class="bold">The subject</span></div>
+		<!--   <div  data-abc="VerbsFiniteNonFinite" data-fancybox-type="iframe" href="rules/verbsFiniteNonFinite.html" title="simpleSubject" class="item colRules1 variousRules">Rule<br><span class="bold">Verbs:<br></span><span class="shrink"> finite/Non-finite</span></div> -->
+		  <div  data-abc="VerbsIrregularTable" data-fancybox-type="iframe" href="verbTable/verbTable.html" title="verbsIrregular" class="item recent colRules1 variousRules"><span class='ruleHighlight'>Rule</span><br><span class="bold">Verbs:<br></span><span class="shrink"> Irregular</span></div>
+		  
+		  		  	
+			<div data-abc="Adjectives" class="item coltext1" title="Adjectives">
+				<div class="factbox">Word Class</div><p class="firstP">A<span class="bold">djectives</span>
+				are words that describe nouns or pronouns. They may come before or after the word they describe.</p><br>
+				<ul>
+				<li>This is a <span class="bold">large</span> building. </li>
+				<li>That building is <span class="bold">large</span>.</li>
+				</ul>
+		   </div>
+		  
+		  <div data-abc="Verbs"  class="item coltext1" title="Verbs">
+				<div class="factbox">Word Class</div><p class="firstP">V<span class="bold">erbs</span> - (udsagnsord)<br> 
+				 are words that show action:<br>(runs, hits, slides,...) (handlingsverber). </p><br>
+				 <ul>
+					
+					<li>They <span class="bold">talked</span> all night</li> 
+					<li>He <span class="bold">ran</span> around the block</li> 
+				</ul><br>	
+					
+					or state of being:<br>(is, are, was,...).(tilstandsverber)
+				<ul><br>
+					<li>You <span class="bold">are</span> my friend</li>
+					<li>She <span class="bold">looks</span> sad</li>
+				</ul><br>
+				Verbs are words that tell us what a subject does or is.
+		   </div>
+	<!-- 	<div id="introText"><p>Welcome to The Language Explorer</p></div> -->
+			
+			 
+			<div data-abc="Nouns" class="item coltext3 recent" title="Nouns"> 
+			 <div class="factbox">Word Class</div>
+			  <p class="firstP">N<span class="bold">ouns</span> are words that refers to a person, place, thing or abstract idea. A noun can tell you who or what.</p><br>
+						  <ul>
+															
+									<li><span class="underline">Countable nouns( with singular and plural form ): </span><br>
+										<ul><span class="bold">
+											<li>one book, two books - one apple, two apples...</span></li>
+										</ul>
+									</li><br>
+									
+									<li><span class="underline">Uncountable Nouns( cannot be counted ): </span><br>
+										<ul><span class="bold">
+											<li>water, information, coffee, money, milk, furniture...</span></li>
+										</ul>
+									</li><br>
+									<li><span class="underline">Common Nouns( category of people, places, things or ideas ): </span><br>
+										<ul><span class="bold">
+											<li></span></li>
+										</ul>
+									</li><br>
+									<li><span class="underline">Proper Nouns( specific person, place, thing or organization ): </span><br>
+										<ul><span class="bold">
+											<li>John, Mary, Ford, Sony, England, London, January...</span></li>
+										</ul>
+									</li><br>
+									<li><span class="underline">Compound Nouns</span><br>
+									<li><span class="underline">Gerund Nouns</span><br>
+									
+						  </ul>
+				</div>
+		
+		</div>
+			
+	</div><!-- #secondContainer -->
+
+</div> 
+
+<script src="quiz/js/jquery-2.0.0.min.js"></script>
+<!-- <script src="quiz/js/jquery.transit.min.js"></script> -->
+<!-- 
+<script src="quiz/js/jQuery.fastClick.js"> -->
+<script src="quiz/js/jquery.tapclick.min.js"></script>
+<!-- <script src="quiz/js/special.fastclick.js"></script> -->
+<script src="isotope2.min.js"></script>
+<script src="packeryMode.min.js"></script>
+<!-- <script src="quiz/js/jquery.finger.min.js"></script> -->
+
+<!-- <script src="quiz/js/jquery.highlight.js" type="text/javascript"></script> -->
+<!-- <script src="quiz/js/modernizr-transitions.js"></script> -->
+<!-- <script src="fancybox/jquery.fancybox215Mod.js"></script> -->
+<!-- <script src="jquery.tinysort15.min.js"></script> -->
+<!-- <script src="fancybox/helpers/jquery.fancybox-thumbs.js"></script> -->
+<!-- <script type="text/JavaScript" src="quiz/js/ellipsis.js"></script>
+  <script src="quiz/js/jquery.lettering.js"></script> -->
+<!--  <script src="quiz/js/jquery.hammer.min.js"></script> -->
+  
+<!-- <script src="quiz/js/touchPunchPointer.min.js"></script> -->
+<script src="https://raw.githubusercontent.com/senner007/lexp-mainjs/master/mainjs.js"></script>
+
+</body>
+</html>

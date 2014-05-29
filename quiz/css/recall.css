@@ -1,0 +1,208 @@
+*{
+margin:0;
+padding:0;
+}
+
+.shrink
+{
+position: absolute;
+font-size: 18px;
+font-family: Sans-serif;
+margin-left: 3px;
+margin-top: -4px;
+width: 400px;
+
+}
+
+body{
+
+  font-family:Helvetica, Arial, Verdana;
+}
+@font-face {
+    font-family: 'UnderwoodChampionRegular';
+    src: url('underwood_champion-webfont.eot');
+    src: url('underwood_champion-webfont.eot?#iefix') format('embedded-opentype'),
+         url('underwood_champion-webfont.woff') format('woff'),
+         url('underwood_champion-webfont.ttf') format('truetype'),
+         url('underwood_champion-webfont.svg#UnderwoodChampionRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} 
+
+h1 {
+font-family: 'UnderwoodChampionRegular';
+position: absolute;
+font-size: 52px;
+
+}
+
+#container {
+margin-left: 3px;
+position: absolute;
+background-image:url('cssImg/paper7.jpg');
+height: 520px;
+width: 540px;
+padding: 20px;
+  -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+	border: 1px solid #000000;
+  border-top: 5px solid #000000;
+
+}
+
+#tutorial-memorygame{
+
+  width:300px;
+}
+
+.text-style1{
+width: 100px;
+font-size:13pt;
+color:#56605f;
+font-weight:bold;
+
+padding-top: 40px;
+line-height:16pt;
+}
+
+img {
+max-width: 100%; 
+max-height:100%;
+
+
+}
+button {
+ position: absolute;
+margin-left: 400px;
+margin-top: 20px;
+background:transparent url('cssImg/shuffleButton.png') 5% center no-repeat;
+	padding:7px 3px 7px 27px;
+	width:137px;
+	font-size:20px;
+	
+	font-weight: bold;
+	border:solid 1px #000000;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright:3px;
+    -moz-border-radius-bottomleft:3px;
+    -moz-border-radius-bottomright:3px;
+    -webkit-border-top-left-radius:3px;
+    -webkit-border-top-right-radius:3px;
+    -webkit-border-bottom-left-radius:3px;
+    -webkit-border-bottom-right-radius:3px;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+	
+	    -moz-box-shadow: 0px 0px 1px #000000;
+    -webkit-box-shadow: 0px 0px 1px #000000;
+    box-shadow: 0px 0px 1px #000000;
+	
+	color:black;
+	cursor:pointer;
+
+}
+
+/*
+ CSS for Memogry game plugin
+ Author: Yane Frenski
+*/
+
+/* the stle for the wrapper element */
+.quizy-memorygame{
+  position:relative;
+  width:100%;
+}
+
+/* styles of the card to show */
+.quizy-memorygame .mgcard-show{
+  width:100px;
+  height:100px;
+  background:url('cssImg/mg-mcard-small.png');
+  
+}
+
+.quizy-memorygame .quizy-mg-item{
+  position:absolute;
+  cursor:pointer;
+  text-align:center;
+  margin-top: 90px;
+ -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.7);
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.7);
+
+}
+
+.quizy-memorygame .quizy-mg-item .quizy-mg-item-bottom, .quizy-memorygame .quizy-mg-item .quizy-mg-item-top{
+  position:absolute;
+  top:0;
+  left:0;
+  text-align:center;
+}
+
+.quizy-mg-item .quizy-mg-item-top{
+  background:url('cssImg/quizy-mg-item-top-small.png');
+}
+
+/* styles for the popup notifications */
+.quizy-mg-notification-fly{
+  width:50px;
+  height:50px;
+  position:absolute;
+ 
+  z-index:1000;
+  display:none;
+  -moz-box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+}
+
+.quizy-mg-notification-fly-neg{
+  background:url('cssImg/quizy-mg-notif-neg-small.png');
+}
+
+.quizy-mg-notification-fly-pos{
+  background:url('cssImg/quizy-mg-notif-pos-small.png');
+}
+
+/* styles for the game summary */
+#quizy-game-summary {
+  width:300px;
+  height:120px;
+  position:absolute;
+  z-index:1001;
+  background: #515b69;
+  box-shadow: rgba(0,0,0,0.7) 0 0 4px, inset 0 0 20px rgba(0, 0, 0, 0.4);
+  border:1px solid #000;
+  cursor:pointer;
+  display:none;
+}
+
+#quizy-game-summary div{
+  width:75px;
+  float:left;
+  padding:10px 0 10px 20px;
+  color:#fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+  text-align:center;
+}
+
+#quizy-game-summary #gs-column1{
+  font-size:16px;
+  padding-top:30px;
+}
+
+#quizy-game-summary #gs-column2{
+  font-size:12px;
+  padding-top: 65px;
+  background:url('cssImg/mg-timeicon.png') no-repeat 70% 25%;
+}
+
+#quizy-game-summary #gs-column3{
+  font-size:12px;
+  padding-top: 65px;
+  background:url('cssImg/mg-clickicon.png') no-repeat 70% 25%;
+}
+    

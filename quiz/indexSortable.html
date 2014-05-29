@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Smooth sortable</title>
+
+	<link rel="stylesheet" href="css/sortCss.css" title="ios">
+	<link href="css/letterSplit.css" rel="stylesheet" type="text/css" /> 
+
+
+</head>
+<body>
+
+<div id="container">
+		<!-- <p id="scoreText"><p> -->
+		
+
+	 <h1></h1>
+	 <div id="indexText"></div>
+	<button id="closingButton">X</button>
+
+
+	<div id="allLists">		
+		 
+			<div id="staticList">
+	 
+				 <div id="static">
+				 <ul> </ul>
+				</div>
+					
+			</div>
+		
+
+
+			<div id="answerList">
+				<div id="new">
+				<ul class="smooth-sortable"></ul>
+				 </div>
+			</div>
+	</div>	 
+		 
+	<button id="restart">shuffle</button>
+	<button id="check">check</button>
+	<div id="feedback"><div class="feedtext">Sort the endings to create correct and meaningful sentences.</div></div>
+		
+			
+	<div id="quoteText"></div>	  
+ </div>		
+
+
+<script src="js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript">
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='js/jquery-2.0.0.min.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+<script src="js/jQuery.fastClick.js"></script>
+<script src="js/squiggle.min.js"></script>
+
+<script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+<script src="js/jquery.transit.min.js"></script>
+<!-- <script type="text/JavaScript" src="js/jquery.browser.js"></script> -->
+<script src="js/sortSmooth.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsQuiz/sortable.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+
+</body>
+</html>

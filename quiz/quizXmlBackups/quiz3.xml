@@ -1,0 +1,234 @@
+
+  <gapFill>
+    <gapFillJackMetKate>
+      <info>
+        <title>gapFillJackMetKate</title>
+        <headline>Esl</headline>
+        <subTitle>Jack met Kate</subTitle>
+        <inputText>Insert the missing words</inputText>
+      </info>
+      <questions>
+        <question>The first time I ever met Kate, she was working in a store with ... in California. I was feeling very embarrassed because I wanted to buy a scarf for my sister and there were 20 women in the store. I was the only man. I was standing by the scarves, hats and ... when Kate suddenly came over to me.</question>
+        <answer>fashion clothes</answer>
+      </questions>
+      <questions>
+        <answer>gloves</answer>
+      </questions>
+      <questions>
+        <question>She looked very beautiful and wore a very elegant ....  I was wearing a boring ....  For 10 seconds, I couldn't say anything. I just looked at her. Finally, I said, "what size scarves do you have?" and then I knew that it was a very stupid ....  I came out of the store five seconds later with empty hands.</question>
+        <answer>blue dress</answer>
+      </questions>
+      <questions>
+        <answer>black T-shirt</answer>
+      </questions>
+      <questions>
+        <answer>question</answer>
+      </questions>
+      <questions>
+        <question>Two days later, I was sitting in a ... listening to ... music. I heard a voice behind me say, "did you ever find the scarf you were looking for?" I turned around and I saw the same beautiful girl from the clothes store. We laughed about it and drank coffee together.</question>
+        <answer>coffee bar</answer>
+      </questions>
+      <questions>
+        <answer>saxophone</answer>
+      </questions>
+      <questions>
+        <question>Two weeks later, I asked Kate to go and see a ... with me. I was very sad when she said that she could not go with me. She told me that she would call me another time, but I didn't believe her. The next morning, my ... rang and I saw her number on the screen. She said she was free and asked if I still wanted to go and see a movie. That was seven years ago and now we've been ... for 5 years.</question>
+        <answer>movie</answer>
+      </questions>
+      <questions>
+        <answer>cell phone</answer>
+      </questions>
+      <questions>
+        <answer>married</answer>
+      </questions>
+    </gapFillJackMetKate>
+  </gapFill>
+  <jumbled>
+    <quizJackMetKateJumbled>
+      <info>
+        <title>quizJackMetKateJumbled</title>
+        <headline>Esl</headline>
+        <subTitle>Jack met Kate II</subTitle>
+      </info>
+      <questions>
+        <question>Rich women wear ...</question>
+        <answer>fashion clothes</answer>
+      </questions>
+      <questions>
+        <question>They have been ... for five years.</question>
+        <answer>married</answer>
+      </questions>
+      <questions>
+        <question>The store also had a section with ...</question>
+        <answer>gloves</answer>
+      </questions>
+      <questions>
+        <question>I saw her in a very elegant ...</question>
+        <answer>blue dress</answer>
+      </questions>
+      <questions>
+        <question>Jack always wore a ...</question>
+        <answer>black T-shirt</answer>
+      </questions>
+      <questions>
+        <question>When he met her, he asked her a stupid ...</question>
+        <answer>question</answer>
+      </questions>
+      <questions>
+        <question>Jack was sitting in a ...</question>
+        <answer>coffee bar</answer>
+      </questions>
+      <questions>
+        <question>Jack was listening to ... music</question>
+        <answer>saxophone</answer>
+      </questions>
+      <questions>
+        <question>At first, Jack was too scared to invite Kate to see a ...</question>
+        <answer>movie</answer>
+      </questions>
+      <questions>
+        <question>One morning Jack's ... rang. </question>
+        <answer>cell phone</answer>
+      </questions>
+    </quizJackMetKateJumbled>
+  </jumbled>
+  <sortable>
+    <quizJackMetKateSortable>
+      <info>
+        <title>quizJackMetKateSortable</title>
+        <headline>Esl</headline>
+        <subTitle>Jack met Kate III</subTitle>
+        <wordsOnly>false</wordsOnly>
+        <alignCenter>true</alignCenter>
+      </info>
+      <sentences>
+        <sentence>1. Jack met Kate in a store that sold clothes</sentence>
+        <answer>Jack mødte Kate i en forretning, der solgte tøj</answer>
+      </sentences>
+      <sentences>
+        <sentence>2. Jack was feeling very embarrassed</sentence>
+        <answer>Jack syntes det var pinligt</answer>
+      </sentences>
+      <sentences>
+        <sentence>3. He went over to find a scarf</sentence>
+        <answer>Han gik over for at finde et halstørklæde</answer>
+      </sentences>
+      <sentences>
+        <sentence>4. She looked very beautiful</sentence>
+        <answer>Hun så meget pæn ud</answer>
+      </sentences>
+      <sentences>
+        <sentence>5. Jack asked her a stupid question</sentence>
+        <answer>Jack stillede et dumt spørgsmål</answer>
+      </sentences>
+      <sentences>
+        <sentence>6. They saw each other a few days later</sentence>
+        <answer>De så hinanden et par dage senere.</answer>
+      </sentences>
+      <sentences>
+        <sentence>7. They were both listening to the music</sentence>
+        <answer>De lyttede begge til musikken</answer>
+      </sentences>
+      <sentences>
+        <sentence>8. He invited her to go and see a movie</sentence>
+        <answer>Han inviterede hende i biografen.</answer>
+      </sentences>
+      <sentences>
+        <sentence>9. Jack's phone rang the next morning</sentence>
+        <answer>Næste morgen ringede Jack's telefon.</answer>
+      </sentences>
+      <sentences>
+        <sentence>10. They have been married for five years</sentence>
+        <answer>De har være gift i fem år</answer>
+      </sentences>
+    </quizJackMetKateSortable>
+  </sortable>
+  <scrambled>
+    <quizJackMetKateScrambled>
+      <info>
+        <title>quizJackMetKateScrambled</title>
+        <headline>Esl</headline>
+        <subTitle>Jack met Kate IV</subTitle>
+        <lowerCaseCharacters>false</lowerCaseCharacters>
+        <selectWords>Kate few go for</selectWords>
+      </info>
+      <sentences>
+        <sentence>Jack met Kate in a store that sold clothes.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>Jack was feeling very embarrassed.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>He went over to find a scarf.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>She looked very beautiful.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>Jack asked her a stupid question.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>They saw each other a few days later.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>They were both listening to the music.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>He invited her to go and see a movie.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>Jack's phone rang the next morning.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>They have been married for five years.</sentence>
+      </sentences>
+    </quizJackMetKateScrambled>
+  </scrambled>
+     <gapFill>
+    <gapFillWomanDies>
+      <info>
+        <title>gapFillWomanDies</title>
+        <headline>Esl</headline>
+        <subTitle>Woman dies in house fire</subTitle>
+        <inputText>Insert the words</inputText>
+        <quote>from '100 free short English stories for ESL learners'</quote>
+      </info>
+      <questions>
+        <question>An 80 year ... died Tuesday afternoon in a .... It started about 2:30 p.m. at a home on Sunnyside Avenue. The victim was Mary Cass. Her husband, Roy Cass, 80, was not at home at the time of the fire. ... from the local fire station were trying to find out hot the fire began. They said it looked like the woman had fallen asleep on the ... with a ... in her hand.</question>
+		<answer>old woman</answer>
+	  </questions>
+	<questions>
+        <answer>fire</answer>
+      </questions>
+	  <questions>
+		<answer>Firemen</answer>
+	  </questions>
+	  <questions>
+		<answer>sofa</answer>
+	  </questions>
+	   <questions>
+		<answer>cigarette</answer>
+	  </questions>
+	  <questions>
+        <question>The value of the home was  $700,000. The Casses were ... in 1945. Both of them had been smokers most of their lives.</question>
+		<answer>married</answer>
+        </questions>
+	  <questions>
+        <question>Mr. Cass said, “Six months ago, we quit smoking, because we wanted to live to be 100. So we went to a clinic. The clinic worked!  At least I thought so. I can't believe she was smoking behind my back.”</question>
+      </questions>
+	  <questions>
+        <question>Mr. Cass started ... after his interview. "He kept crying out his wife’s name", wrote the .... They took him to a nursing home where he could be taken care of.</question>
+		<answer>crying</answer>
+		</questions>
+		<questions>
+		<answer>reporter</answer>
+	  </questions>
+		<questions>
+        <question>“We’ve had too many accidents with married couples who, if they find out their partner is dead, kill themselves within 48 hours,” said the .... “Mr. Cass has been ... lately. We are going to have to watch him closely.”</question>
+		<answer>nurse</answer>
+        </questions>
+		<questions>
+		<answer>depressed</answer>
+	  </questions>
+      </gapFillWomanDies>
+  </gapFill>

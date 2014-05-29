@@ -1,0 +1,29 @@
+
+
+#main {
+	position: absolute;
+	margin-left: 1400px;
+	
+	width: 300px;
+	background: #ececec;
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+
+#image-list {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#image-list li {
+	background: #fff;
+	border: 1px solid #ccc;
+	text-align:center;
+	padding:20px;
+	margin-bottom:19px;
+}
+#image-list li img {
+	width: 258px;
+	vertical-align: middle;
+	border:1px solid #474747;
+}

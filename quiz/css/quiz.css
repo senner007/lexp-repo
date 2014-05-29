@@ -1,0 +1,367 @@
+*{
+  margin:0;
+  padding:0;
+ 
+ /*  -webkit-tap-highlight-color: rgba(0,0,0,0); */
+}
+#buttonContainer {
+width: 310px;
+height: 200px;
+margin-top: 290px;
+margin-left: 342px;
+position: absolute;
+
+
+}
+
+.highlighted {
+
+position: relative;
+margin: 0 auto;
+}
+
+button {
+
+position: absolute;
+
+
+}
+.buttonClass {
+ -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+#button1 {
+width: 150px;
+height: 45px;
+
+
+
+
+
+}
+#button2 {
+width: 150px;
+height: 45px;
+margin-left: 160px;
+
+
+
+}
+#button3 {
+width: 150px;
+height: 45px;
+margin-top: 50px;
+
+
+
+
+}
+#button4 {
+width: 150px;
+height: 45px;
+margin-top: 50px;
+margin-left: 160px;
+
+
+}
+
+#continueButton {
+width: 310px;
+height: 45px;
+
+margin-top: 100px;
+
+
+}
+
+
+
+
+.wrapped {
+text-decoration:underline;
+
+  font-weight: bold;
+}
+
+.subHigh {
+background: rgba(68, 68, 68,1);
+border-radius:8px;
+padding-left: 6px;
+padding-right: 6px;
+text-decoration:underline;
+}
+
+
+.grammar {
+background-color: rgb(0, 102, 153);
+color: rgba(0, 0, 0,1);
+border-radius:1.5px;
+padding-left: 0px;
+padding-right: 0px;
+}
+
+.grammarButton {
+background-color: rgb(0, 102, 153);
+padding: 2px;
+}
+
+
+.vocab {
+background-color: #006400;
+color: rgba(204, 204, 204,1);
+border-radius:1.5px;
+padding-top: -2px;
+
+padding-left: 0px;
+padding-right: 0px;
+}
+
+.vocabButton {
+background-color: #006400;
+padding: 2px;
+
+}
+
+.wrongHigh {
+background-color: #A80000;
+color: rgba(204, 204, 204,1);
+border-radius:1.5px;
+padding-top: -2px;
+
+padding-left: 0px;
+padding-right: 0px;
+}
+
+.wrongHighButton {
+background-color: #A80000;
+padding: 2px;
+}
+
+/* @font-face {
+    font-family: 'f25_executive';
+    src: url('f25_executive');
+    src: url('f25_executive?#iefix') format('embedded-opentype'),
+      
+         url('f25_executive.ttf') format('truetype'),
+         url('f25_executive.svg#UnderwoodChampionRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+ 
+
+
+
+
+#container {
+
+
+  height: 270px;
+  margin: auto;
+
+
+ }
+
+.inputText {
+
+position: absolute;
+width: 320px;
+margin-top: 4px;
+padding: 5px;
+margin-left:0px; 
+height: 165px;
+
+border-right: 2px solid black;
+
+  text-align: center;
+  font-size: 18px;
+ 
+}
+
+ 
+#textContainer {
+
+ 
+	-webkit-backface-visibility: hidden;
+	margin-left: 0px;
+	margin-top: 83px;
+	height:185px;
+	width: 995px;
+	position:absolute;
+	
+	color: rgb(51, 51, 51);
+font-family: Georgia, serif;	
+
+ 
+}
+
+ 
+  #leftContainer {
+	-webkit-backface-visibility: hidden;
+	margin-left: 0px;
+	
+	height:185px;
+	width: 330px;
+	position:absolute;
+	
+	
+
+
+ 
+}
+
+#centerContainer {
+-webkit-backface-visibility: hidden;
+overflow: hidden;
+position: absolute;
+margin-left: 330px;
+_border-right: 1px solid rgba(68, 68, 68,1);
+
+
+   width: 334px;
+  height: 185px;
+
+ }
+
+ #rightContainer {
+	-webkit-backface-visibility: hidden;
+	margin-left: 665px;
+	
+	height:185px;
+	width: 330px;
+	position:absolute;
+	
+
+
+
+ 
+}
+
+ul {	
+margin-top: 4px;
+height: 175px;
+border-left: 2px solid rgb(60, 60, 60);
+padding-left: 10px;
+line-height: 14px;
+width: 310px;
+
+}
+
+li {
+
+  font-size: 16px;
+  line-height: 21px;
+  padding-right: 4px;
+
+ display:inline-block; 
+       
+}
+
+ 
+
+
+
+
+#question {
+
+
+margin-top: 5px;
+margin-left:10px; 
+
+ position: absolute;
+  text-align: center;
+  font-size: 16px;
+
+  width: 320px;
+
+  
+
+}
+/* #questionsEnd {
+position: absolute;
+margin-top: 140px;
+margin-left:140px; 
+  
+  font-size: 22px;
+  width: 300px;
+} */
+
+
+
+dl { display: none;
+}
+
+
+#test
+{
+position: absolute;
+margin-top: 140px;
+font-size: 18px;
+width: 280px;
+color: white;
+margin-left: 20px;
+
+ background:  	 	#595959;
+border: solid 1px black; 
+height: 36px;
+padding-left: 10px;
+
+
+}
+
+
+
+
+#feedback {
+
+
+position: absolute;
+margin-top: 145px;
+
+text-align: center;
+ 
+  font-size: 18px;
+  width: 333px;
+  color: rgb(60, 60, 60);
+}
+
+
+.highlight {
+  background-color: #1e90ff;
+  color: white;
+
+  
+}
+.error {
+  background-color: #A80000;
+  color: white;
+}
+
+
+
+#progressbar {
+  position: absolute;
+  height: 6px;
+  border: 1px solid rgb(60, 60, 60);
+ 
+  margin-top: 268px;
+
+
+
+
+   width: inherit;
+ 
+
+}
+
+.ui-progressbar .ui-progressbar-value {
+background: rgba(68, 68, 68,1);
+overflow: hidden;
+    margin: 0px;
+    height: 100%;
+}
+

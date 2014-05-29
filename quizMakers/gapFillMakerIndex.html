@@ -1,0 +1,579 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>AJAX: POST</title>
+	 <link href="css/quizMakerCss.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+<div id="containerOut" style="display: none">
+
+
+<div id="container">
+
+	<h1>Quiz form</h1>
+
+	<p>Question Title(One word)</p>
+	<input id="inputTitle" type="text"></input>
+
+	<p>Question Headline</p>
+	<input id="inputHeadline" type="text"></input>
+	
+	<p>Question Subtitle</p>
+	<input id="subTitle" type="text"></input>
+
+	<p>Question Input field text</p>
+	<input id="inputText" type="text"></input>
+	
+	<p>Show answers from start(True/False)</p>
+	<input id="showAnswers" type="text"></input>
+	
+	<button>Submit to Xml</button>
+
+</div>
+
+<div id="questionList">
+
+<div class="container2">
+	<p>question</p>
+	<textarea rows="4" cols="50" id="inputQuestion1" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer</p>
+	<input id="inputAnswer1" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question2</p>
+	<textarea id="inputQuestion2" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer2</p>
+	<input id="inputAnswer2" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question3</p>
+	<textarea id="inputQuestion3" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer3</p>
+	<input id="inputAnswer3" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question4</p>
+	<textarea id="inputQuestion4" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer4</p>
+	<input id="inputAnswer4" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question5</p>
+	<textarea id="inputQuestion5" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer5</p>
+	<input id="inputAnswer5" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question6</p>
+	<textarea id="inputQuestion6" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer6</p>
+	<input id="inputAnswer6" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question7</p>
+	<textarea id="inputQuestion7" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer7</p>
+	<input id="inputAnswer7" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question8</p>
+	<textarea id="inputQuestion8" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer8</p>
+	<input id="inputAnswer8" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question9</p>
+	<textarea id="inputQuestion9" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer9</p>
+	<input id="inputAnswer9" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question10</p>
+	<textarea id="inputQuestion10" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer10</p>
+	<input id="inputAnswer10" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question11</p>
+	<textarea id="inputQuestion11" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer11</p>
+	<input id="inputAnswer11" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question12</p>
+	<textarea id="inputQuestion12" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer12</p>
+	<input id="inputAnswer12" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question13</p>
+	<textarea id="inputQuestion13" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer13</p>
+	<input id="inputAnswer13" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question14</p>
+	<textarea id="inputQuestion14" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer14</p>
+	<input id="inputAnswer14" type="text"></input>
+</div>
+
+<div class="container2">
+	<p>question15</p>
+	<textarea id="inputQuestion15" type="text"></textarea>
+</div>
+
+<div class="container3">
+	<p>answer15</p>
+	<input id="inputAnswer15" type="text"></input>
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+<div class="wrapper">
+	
+	<div id="content">
+		<div class="main">
+			<h1>Login</h1>
+			<div id="formwrapper">
+			<form method="get" action="login.php" id="login">
+	
+		<p>Username:</p>
+		<input type="text" name="username" id="username">
+	
+	
+		<p>Password: </p>
+		<input type="password" name="password" id="password">
+
+	<p>
+		<input type="submit" name="button" id="button" value="Submit" >
+	</p>
+</form>
+</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+<script src="../quiz/js/cssNoCacheScript.js" type="text/javascript"></script>	
+<script src="../quiz/js/jquery-1.8.3.min.js"></script>
+
+<script>
+$(document).ready(function() {
+$('#password').val('');
+$('#username').val('');
+										
+			$('input').focus()	
+
+			
+			$('#login').submit(function() {
+			
+			
+   var formData = $(this).serialize();
+      $.get('login.php',formData,processData).error('ouch');
+      function processData(data) {
+		 // console.log(data);
+        if (data=='pass') {
+			
+           $('#content').html('<p>You have successfully logged in!</p>');
+		   $('#containerOut').show();
+		   $('input').focus();	
+		   
+        } else {
+           if (! $('#fail').length) {
+             $('#formwrapper').prepend('<p id="fail">Incorrect login information. Please try again</p>');
+           }
+         }
+       } // end processData
+       return false;
+   }); // end submit
+			
+
+			$('button').click(function() {
+				
+				  $textTitle = $("#inputTitle").val()
+				  $textHeadline = $("#inputHeadline").val()
+				  $textsubTitle = $("#subTitle").val()
+				  $textInputText = $("#inputText").val()
+				  
+				  
+					  $textQuestion1 = $("#inputQuestion1").val()
+					  $textAnswer1 = $("#inputAnswer1").val()
+					  $textQuestion2 = $("#inputQuestion2").val()
+					  $textAnswer2 = $("#inputAnswer2").val()
+					  $textQuestion3 = $("#inputQuestion3").val()
+					  $textAnswer3 = $("#inputAnswer3").val()
+					  $textQuestion4 = $("#inputQuestion4").val()
+					  $textAnswer4 = $("#inputAnswer4").val()
+					  $textQuestion5 = $("#inputQuestion5").val()
+					  $textAnswer5 = $("#inputAnswer5").val()
+					  $textQuestion6 = $("#inputQuestion6").val()
+					  $textAnswer6 = $("#inputAnswer6").val()
+					  $textQuestion7 = $("#inputQuestion7").val()
+					  $textAnswer7 = $("#inputAnswer7").val()
+					  $textQuestion8 = $("#inputQuestion8").val()
+					  $textAnswer8 = $("#inputAnswer8").val()
+					  $textQuestion9 = $("#inputQuestion9").val()
+					  $textAnswer9 = $("#inputAnswer9").val()
+					  $textQuestion10 = $("#inputQuestion10").val()
+					  $textAnswer10 = $("#inputAnswer10").val()
+					  $textQuestion11 = $("#inputQuestion11").val()
+					  $textAnswer11 = $("#inputAnswer11").val()
+					  $textQuestion12 = $("#inputQuestion12").val()
+					  $textAnswer12 = $("#inputAnswer12").val()
+					  $textQuestion13 = $("#inputQuestion13").val()
+					  $textAnswer13 = $("#inputAnswer13").val()
+					  $textQuestion14 = $("#inputQuestion14").val()
+					  $textAnswer14 = $("#inputAnswer14").val()
+					  $textQuestion15 = $("#inputQuestion15").val()
+					  $textAnswer15 = $("#inputAnswer15").val()
+					  
+					  
+					  
+				  
+				  var question1 = ( '<questions>' 
+													+ '<question>'								
+														 + $textQuestion1 
+												 +  '</question>' 
+												 +  '<answer>'	
+												 + $textAnswer1 
+												 +  '</answer>' 
+									+ '</questions>' 
+												 );
+					
+								 
+				    var question2 = ('<questions>' 
+													+ '<question>'								
+														+ $textQuestion2
+												 +  '</question>' 
+												 +  '<answer>'	
+												 +  $textAnswer2 
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+				
+					
+				
+												 
+				    var question3 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion3
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer3 
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+					
+				
+												 
+				    var question4 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion4
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer4 
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+				
+					
+										 
+				    var question5 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion5
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer5
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+					
+					
+				
+												 
+				    var question6 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion6
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer6
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+				
+					
+					
+												 
+				    var question7 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion7
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer7
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+				
+					
+					
+										 
+				    var question8 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion8
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer8
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+				
+												 
+				    var question9 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion9
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer9
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					
+									
+												 
+				    var question10 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion10
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer10
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+				
+					
+									 
+				    var question11 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion11
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer11
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+											 
+				    var question12 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion12
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer12
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+				
+										 
+				    var question13 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion13
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer13
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+				
+					
+									 
+				    var question14 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion14
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer14
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					
+									 
+				    var question15 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion15
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer15
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					
+				
+				  var shout_text = ('<gapFill' + ' title="' + $textsubTitle + '">'  
+										       +'<' + $textTitle + '>'
+													+ '<info>'
+														+  '<title>' + $textTitle + '</title>'
+														+  '<headline>' + $textHeadline + '</headline>'
+														+  '<subTitle>' + $textsubTitle + '</subTitle>'
+														+  ' <inputText>' + $textInputText + '</inputText>'
+													+  '</info>'
+												
+													+ question1
+												
+												    + question2
+													
+													+ question3
+													
+													+ question4
+													
+													+ question5
+													
+													+ question6
+												 
+													+ question7
+													
+													+ question8
+													
+													+ question9
+													
+													+ question10
+													
+													+ question11
+												 
+													+ question12
+													
+													+ question13
+													
+													+ question14
+													
+													+ question15
+																									 
+											 +'</' + $textTitle + '>'
+										 + '</gapFill>'
+										 + '</quizes>'
+									 
+																	);
+				  
+					
+					//console.log(shout_text);
+
+					var shout = $.ajax({
+						  type: 'POST',
+						  url: "quizMaker.php",
+						  async: false,
+						  cache: false,
+						  data: {message:shout_text},
+						 
+						  
+						  success: function(){ 
+						  alert('quiz saved');
+					
+						  }
+					});
+
+				});
+
+
+	});
+
+
+	
+
+	// grab textarea content
+
+	// post content to script, and save
+</script>
+	
+</body>
+</html>
+
+
+

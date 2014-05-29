@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quizes> 
+ <quiz title="dfdsdsdsdsdsd">
+    <findSubject>
+      <info>
+        <title>findSubject</title>
+        <headline>Grammar</headline>
+        <inputText>Type in the first subject</inputText>
+        <showAnswers>False</showAnswers>
+        <subTitle>Subjects: (Find)</subTitle>
+      </info>
+      <questions>
+        <question>Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do</question>
+        <question>Once or twice she had peeped into the book her sister was reading,</question>
+        <question>,but it had no pictures or conversations in it,</question>
+        <question>,'and what is the use of a book,' thought Alice 'without pictures or conversation?'</question>
+        <answer>Alice</answer>
+        <answer>she</answer>
+        <answer>it</answer>
+	<answer>the use</answer>
+      </questions>
+
+    </findSubject>
+  </quiz>
+  </quizes> 

@@ -1,0 +1,133 @@
+ h1 {
+z-index: -1;
+top: -5px;
+transform : rotate(-1deg) translate3d( 0, 0, 0);
+-webkit-transform : rotate(-1deg);
+-ms-transform : rotate(-1deg);
+outline: 1px solid rgb(68, 68, 68);
+font-family: 'UnderwoodChampionRegular';
+background: rgb(68,68,68);
+padding: 2px;
+padding-right: 10px;
+padding-left: 6px;
+letter-spacing: -6px;
+margin-right: -2px;
+font-size: 46px;
+line-height: 50px;
+
+z-index: -1;
+/* border: 1px solid rgb(187,187,187); */
+border: 2px solid rgb(187,187,187);
+
+color: rgb(187,187,187);
+
+} 
+
+/* h1 span{
+
+background: rgb(68,68,68);
+padding-right: 5px;
+padding-left: 3px;
+margin-right: -2px;
+font-size: 46px;
+right: -12px;
+z-index: -1;
+ border: 1px solid rgb(187,187,187); 
+border-top: 3px solid rgb(187,187,187);
+
+color: rgb(187,187,187);
+
+}  */
+/* .char1 , .char3, .char5, .char7, .char9, .char11, .char13, .char15, .char17{
+
+font-size: 52px;
+padding-right: 5px;
+
+
+}
+ .char5,  .char9, .char15, .char17{
+
+font-size: 60px;
+padding-right: 5px;
+
+} */
+
+
+#indexText {
+
+
+background: transparent;
+/* border: '1px solid rgb(187,187,187)', */
+text-decoration: none;
+padding-top:2px;
+padding: 1px;
+padding-left: 3px;
+padding-right: 7px;
+top: 2;
+z-index: 1;
+font-size: 18px;
+font-weight: normal;
+font-family: 'Times New Roman'
+						
+						
+}
+#indexText span {
+padding: 3px;
+padding-left: 5px;
+padding-right: 5px;
+margin-right:-8px;
+background: rgb(68,68,68);
+display:inline-block; 
+border: 1px solid rgb(187,187,187);
+outline: 1px solid rgba(68, 68, 68,1);
+	color: rgb(187, 187, 187);
+}
+
+.word1 {
+-webkit-transform:rotate(-2deg) translate3d( 0, 0, 0);
+transform:rotate(-2deg) translate3d( 0, 0, 0);
+-ms-transform : rotate(2deg);
+
+
+}
+
+.word2 {
+-webkit-transform:rotate(1deg) translate3d( 0, 0, 0);
+transform:rotate(1deg) translate3d( 0, 0, 0);
+-ms-transform : rotate(1deg);
+
+
+}
+
+
+
+.word3 {
+-webkit-transform:rotate(2deg) translate3d( 0, 0, 0);
+transform:rotate(2deg) translate3d( 0, 0, 0);
+-ms-transform : rotate(2deg);
+
+
+}
+.word4 {
+
+-webkit-transform:rotate(-3deg) translate3d( 0, 0, 0);
+transform:rotate(-3deg) translate3d( 0, 0, 0);
+-ms-transform : rotate(-3deg);
+
+
+}
+
+.word5, .word7, .word9, .word11, .word13 {
+-webkit-transform:rotate(2deg) translate3d( 0, 0, 0);
+transform:rotate(2deg) translate3d( 0, 0, 0);
+-ms-transform : rotate(2deg);
+
+}
+
+.word6, .word8, .word10, .word12, .word14 {
+
+-webkit-transform:rotate(-1deg) translate3d( 0, 0, 0);
+transform:rotate(-1deg) translate3d( 0, 0, 0);
+-ms-transform : rotate(-1deg);
+
+}

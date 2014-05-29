@@ -1,0 +1,181 @@
+<!doctype html>
+
+<head>
+<meta content="text/html"; charset="ISO-8859-1" http-equiv="content-type" />
+  <title>About</title>
+  
+
+</head>
+<style>
+html {
+margin: 0;
+padding: 0;
+}
+body {
+background: white;
+
+}
+#container {
+padding-left: 20px;
+
+background: white;
+}
+
+ul {
+padding-left: 10px;
+width: 650px;
+font-size: 16px;
+
+}
+
+li  ul {
+padding-left: 30px;
+}
+
+.underline {
+text-decoration:underline;
+}
+
+ul:first li  {
+
+list-style: none;
+}
+
+p
+{
+float: left;
+}
+img
+{
+float: left;
+}
+.itaFont {
+font-style:italic
+}
+.largeType {
+font-size: 18px;
+list-style: none;
+}
+
+.lineThrough {
+text-decoration:line-through;
+}
+
+
+
+</style>
+
+
+
+<body>
+<div id="container">
+
+<h1>Browser support</h1>
+<ul>
+	<li>Internet Explorer 9-10</li>
+	<li>Google Chrome ?-latest version</li>
+	<li>Google Chrome IOS ?-latest version</li>
+	<li>Mozilla Firefox ?-latest version</li>
+	<li>Apple Safari ?-latest version</li>
+	<li>Apple Safari Mobile ?-latest version (iPad2, iPad3, iPad Mini, iPad Air)</li><br>
+
+	
+	<li><span class="itaFont">*IE 10 touch not implemented yet</span></li>
+</ul>
+
+
+	<h1>To-do list:</h1>
+ <ul>
+	<li>Create verb rules items. The present/past, present/past perfect, the future.</li>
+	<li>Add a replaceText function to allow users to switch between languages</li>
+	<li>Redesign intro screen</li>
+	<li>Find a way to open iPad keyboard programmatically.(If possible)</li>
+	<li>Add a quiz where the user must sort elements into lists/boxes with shapeshift + sly.</li>
+	<li>item rule explaining action verbs and linking verbs</li>
+	<li>Show text on multiple choice buttons in context</li>
+	<li>Use packery?</li>
+	<li>Sortable exercises with individual widths and sortable selections</li>
+	<li>Apply global organization and naming standards</li>
+	<li>mark clicked items</li>
+	<li>Scrambled/Jumbled in Sly with story mode ( get external text split into sentences ), display beginning of sentences that are above word limit and scramble end part, shuffleLetters effect</li>
+	<li>Delay loading of scripts in parent window/iframe  e.g. getscript with $.Deferred</li>
+	<li>Create table from xml</li>
+	<li>Convert Xml to Json</li>
+	<li>Rebuild xml file, omit unnecessary nodenames and convert to JSON</li>
+	<li>Redesign rules page, add pagination</li>
+	<li>button { -webkit-tap-highlight-color: rgba(0,0,0,0); } removes ipad flicker</li>
+	<li>Add touch support for IE 10, ms-pointer-action: 'none', pull request touch punch</li>
+	<li>Modify text split calculation for IE 10 in transition</li>
+	<li>Link to all textfiles on about page.</li>
+	<li>Item with in,at,on</li>
+	<li>Item with definite or no article</li>
+	<li>Item with typical uncountable nouns</li>
+	<li>Complete overhaul of the animation and layout engine for Scrambled/Jumbled. Code: translateX properties only, native js and remove superfluous css/code.</li>
+	<li>Add letter quiz to jumbled/Scrambled: Reveal letter/word in word/sentence on each completion. Random close mode</li>
+	<li>Use jumbled/Scrambled engine for sortable</li>
+	<li>Enable page skipping in Transition</li>
+	<li>Refactor progressbar and translateX to overlay div</li>
+	<li>Update css for rules page</li>
+	<li>Make parent page responsive</li>
+	<li>Madal verbs in sortable: Ability, intention, no obligation, obligation(strong/weak), offer, permission, possibility/certainty/deduction, prohibition, request</li>
+	<li>Set height of second container dynamically</li>
+	<!-- <li>Zinn on Columbus vocabulary</li> -->
+	<li>Limit body scroll if low item height</li>
+	<li>Optimize/Shorten iframe activation code</li>
+	<li>Use Hammer to replace tapclick</li>
+	<li>Use Hammer to reenable swipe on parent body</li>
+	<li>Check for additional tablet devices</li>
+	<li>get xml async before doc.ready</li>
+
+</ul>
+
+<h1> Searching:</h1>
+<ul>
+	
+		<li>All visible text in items</li>
+	
+		<li>Data attributes and class names:</li>
+		<ul>
+			<li >Image descriptions.</li>
+			<ul class="itaFont">
+				<li>'nouns'</li>
+				<li>'adverbs'</li>
+				<li>'adjectives'</li>
+				<li>'verbs'</li>
+				<li>'prepositions'</li>
+				<li>'uncountable nouns'</li>	
+			</ul>
+			<li >Quiz descriptions:</li>
+			<ul class="itaFont">
+				<li>'transition'</li>
+				<li>'sortable'</li>
+				<li>'scrambled'</li>
+				<li>'quiz'</li>
+				<li>'doubleTrouble'</li>
+				<li>'gapFill'</li>
+				<li>'jumbled'</li>
+				<li>'trueFalse'</li>
+			</ul>
+			
+		</ul>
+		
+	
+</ul>
+
+
+
+<h1>Known issues:</h1>
+	<ul>
+		<li class="lineThrough">Animations are lagging in Internet Explorer 9</li>
+		<li class="lineThrough">Keyboard/Input Quiz can not be used with current version of Chrome iOs(iPad). It might be possible to correct.</li>
+		<li class="lineThrough">Letters sometimes remain in position in Jumbled/Scrambled quiz on Safari, iPad. Use Chrome iOs until fix/rewrite.</li>
+		<li>Minor issue: Occasionally, the drop function does not fire in transition quiz, and the container will exceed the maximum allowed height.</li>
+	</ul>
+  
+<h1>Developer:</h1>
+	<ul>
+	<li>nielshtg@hotmail.com</li>
+	</ul>
+</div>
+</body>
+</html>

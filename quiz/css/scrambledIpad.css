@@ -1,0 +1,25 @@
+div .jMyPuzzle ul li{
+
+letter-spacing: -1px;
+word-spacing: 4px;
+
+	float:left;
+	font-size: 20px;
+	font-family: 'arial';
+	font-weight:bold;
+	color: rgba(68, 68, 68,1);
+	padding-left:9px;
+	padding-right:9px;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin:2px;
+	box-shadow: 1px 1px 10px -2px #888888;
+	
+	cursor:pointer;
+	border: 1px solid rgba(68, 68, 68,1);
+	white-space:nowrap;
+	border-radius: 3px;
+	-ms-touch-action: none;
+	-webkit-backface-visibility: hidden;
+
+}

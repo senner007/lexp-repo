@@ -1,0 +1,561 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>AJAX: POST</title>
+	 <link href="css/quizMakerCss.css" rel="stylesheet" type="text/css" />
+	 <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+<div id="containerOut"  style="display: none">
+
+
+<div id="container">
+
+	<h1>Quiz form</h1>
+
+	<p>Question Title(One word)</p>
+	<input id="inputTitle" type="text"></input>
+
+	<p>Question Headline</p>
+	<input id="inputHeadline" type="text"></input>
+	
+	<p>Question Subtitle</p>
+	<input id="subTitle" type="text"></input>
+
+	
+	
+	
+	
+	
+
+	<button id="submitToXml">Submit to Xml</button>
+
+</div>
+
+<div id="questionList">
+
+	<div class="container2">
+		<p>question</p>
+		<input id="inputQuestion1" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer</p>
+		<input id="inputAnswer1" type="text"></input>
+	</div>
+
+	<div class="container2">
+		<p>question2</p>
+		<input id="inputQuestion2" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer2</p>
+		<input id="inputAnswer2" type="text"></input>
+	</div>
+
+	<div class="container2">
+		<p>question3</p>
+		<input id="inputQuestion3" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer3</p>
+		<input id="inputAnswer3" type="text"></input>
+	</div>
+
+	<div class="container2">
+		<p>question4</p>
+		<input id="inputQuestion4" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer4</p>
+		<input id="inputAnswer4" type="text"></input>
+	</div>
+
+	<div class="container2">
+		<p>question5</p>
+		<input id="inputQuestion5" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer5</p>
+		<input id="inputAnswer5" type="text"></input>
+	</div>
+
+	<div class="container2">
+		<p>question6</p>
+		<input id="inputQuestion6" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer6</p>
+		<input id="inputAnswer6" type="text"></input>
+	</div>
+
+	<div class="container2">
+		<p>question7</p>
+		<input id="inputQuestion7" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer7</p>
+		<input id="inputAnswer7" type="text"></input>
+	</div>
+
+	<div class="container2">
+		<p>question8</p>
+		<input id="inputQuestion8" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer8</p>
+		<input id="inputAnswer8" type="text"></input>
+	</div>
+
+	<div class="container2">
+		<p>question9</p>
+		<input id="inputQuestion9" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer9</p>
+		<input id="inputAnswer9" type="text"></input>
+	</div>
+
+	<div class="container2">
+		<p>question10</p>
+		<input id="inputQuestion10" type="text"></input>
+	</div>
+
+	<div class="container3">
+		<p>answer10</p>
+		<input id="inputAnswer10" type="text"></input>
+	</div>
+
+	
+	
+
+
+
+
+
+	</div>
+</div>
+<div id="main" style="display: none;">
+		<h1>Upload Your Images</h1>
+		<form method="post" enctype="multipart/form-data"  action="upload.php">
+    		<input type="file" name="images" id="images" multiple />
+    		<button type="submit" id="btn">Upload Files!</button>
+    	</form>
+
+  	<div id="response"></div>
+		<ul id="image-list">
+
+		</ul>
+	</div>
+</div>	
+
+<div class="wrapper">
+	
+	<div id="content">
+		<div class="main">
+			<h1>Login</h1>
+			<div id="formwrapper">
+			<form method="get" action="login.php" id="login">
+	
+		<p>Username:</p>
+		<input type="text" name="username" id="username">
+	
+	
+		<p>Password: </p>
+		<input type="password" name="password" id="password">
+
+	<p>
+		<input type="submit" name="button" id="button" value="Submit" >
+	</p>
+</form>
+</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+<script src="../quiz/js/cssNoCacheScript.js" type="text/javascript"></script>	
+<script src="../quiz/js/jquery-1.8.3.min.js"></script>
+
+<script>
+$(document).ready(function() {
+			
+			$('#password').val('');
+			$('#username').val('');									
+			$('input').focus()	
+
+		
+			
+			$('#login').submit(function() {
+   var formData = $(this).serialize();
+      $.get('login.php',formData,processData).error('ouch');
+      function processData(data) {
+		 // console.log(data);
+        if (data=='pass') {
+           $('#content').html('<p>You have successfully logged in!</p>');
+		   $('#containerOut').show();
+		   $('#main').show();
+		   $('input').focus();	
+		   
+        } else {
+           if (! $('#fail').length) {
+             $('#formwrapper').prepend('<p id="fail">Incorrect login information. Please try again</p>');
+           }
+         }
+       } // end processData
+       return false;
+   }); // end submit
+	
+
+	var input = document.getElementById("images"), 								// upload code begin
+		formdata = false;
+
+	function showUploadedItem (source) {
+  		var list = document.getElementById("image-list"),
+	  		li   = document.createElement("li"),
+	  		img  = document.createElement("img");
+  		img.src = source;
+		console.log(source)
+  		li.appendChild(img);
+		list.appendChild(li);
+	}   
+
+	if (window.FormData) {
+  		formdata = new FormData();
+  		document.getElementById("btn").style.display = "none";
+	}
+	
+ 	input.addEventListener("change", function (evt) {
+ 		document.getElementById("response").innerHTML = "Uploading . . ."
+ 		var i = 0, len = this.files.length, img, reader, file;
+	
+		for ( ; i < len; i++ ) {
+			file = this.files[i];
+			
+	
+			if (!!file.type.match(/image.*/)) {
+				if ( window.FileReader ) {
+					reader = new FileReader();
+					reader.onloadend = function (e) { 
+						showUploadedItem(e.target.result, file.fileName);
+						
+					};
+					reader.readAsDataURL(file);
+				}
+				if (formdata) {
+					formdata.append("images[]", file);
+				}
+			}	
+		}
+	
+		if (formdata) {
+		
+			$.ajax({
+				url: "upload.php",
+				type: "POST",
+				data: formdata,
+				processData: false,
+				contentType: false,
+				success: function (res) {
+					res = res.toLowerCase();
+					document.getElementById("response").innerHTML = res; 
+					var src = res
+					var name = src.replace(/^.*\/|\.png$/g, '');
+					var answerArray = [$("#inputAnswer1"),$("#inputAnswer2"),$("#inputAnswer3"),$("#inputAnswer4"),$("#inputAnswer5"),$("#inputAnswer6"),$("#inputAnswer7"),$("#inputAnswer8"),$("#inputAnswer9"),$("#inputAnswer10")]
+					$.each(answerArray, function (i,e) {
+						console.log(e)
+						if (e.val() == '') {
+							e.val(name)
+							return false;
+						}
+						
+					})
+					
+				}
+			});
+		}
+	}, false);																	//upload code end
+
+			$('#submitToXml').click(function() {
+				
+				  $textTitle = $("#inputTitle").val()
+				  $textHeadline = $("#inputHeadline").val()
+				  $textsubTitle = $("#subTitle").val()
+				
+				
+				  
+					  $textQuestion1 = $("#inputQuestion1").val()
+					  $textAnswer1 = $("#inputAnswer1").val()
+					  $textQuestion2 = $("#inputQuestion2").val()
+					  $textAnswer2 = $("#inputAnswer2").val()
+					  $textQuestion3 = $("#inputQuestion3").val()
+					  $textAnswer3 = $("#inputAnswer3").val()
+					  $textQuestion4 = $("#inputQuestion4").val()
+					  $textAnswer4 = $("#inputAnswer4").val()
+					  $textQuestion5 = $("#inputQuestion5").val()
+					  $textAnswer5 = $("#inputAnswer5").val()
+					  $textQuestion6 = $("#inputQuestion6").val()
+					  $textAnswer6 = $("#inputAnswer6").val()
+					  $textQuestion7 = $("#inputQuestion7").val()
+					  $textAnswer7 = $("#inputAnswer7").val()
+					  $textQuestion8 = $("#inputQuestion8").val()
+					  $textAnswer8 = $("#inputAnswer8").val()
+					  $textQuestion9 = $("#inputQuestion9").val()
+					  $textAnswer9 = $("#inputAnswer9").val()
+					  $textQuestion10 = $("#inputQuestion10").val()
+					  $textAnswer10 = $("#inputAnswer10").val()
+					  
+					  
+					  
+					  
+				  
+				  var question1 = ( '<questions>' 
+													+ '<question>'								
+														 + $textQuestion1 
+												 +  '</question>' 
+												 +  '<answer>'	
+												 + $textAnswer1 
+												 +  '</answer>' 
+									+ '</questions>' 
+												 );
+					
+					if ($textQuestion2 != '')
+					{
+												 
+				    var question2 = ('<questions>' 
+													+ '<question>'								
+														+ $textQuestion2
+												 +  '</question>' 
+												 +  '<answer>'	
+												 +  $textAnswer2 
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					}
+					else { var question2 = '';}
+					
+					if ($textQuestion3 != '')
+					{
+												 
+				    var question3 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion3
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer3 
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					}
+					else { var question3 = '';}
+					
+					if ($textQuestion4 != '')
+					{
+												 
+				    var question4 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion4
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer4 
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					}
+					else { var question4 = '';}
+					
+					if ($textQuestion5 != '')
+					{
+												 
+				    var question5 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion5
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer5
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					}
+					else { var question5 = '';}
+					
+					if ($textQuestion6 != '')
+					{
+												 
+				    var question6 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion6
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer6
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					}
+					else { var question6 = '';}
+					
+					if ($textQuestion7 != '')
+					{
+												 
+				    var question7 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion7
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer7
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					}
+					else { var question7 = '';}
+					
+					
+					if ($textQuestion8 != '')
+					{
+												 
+				    var question8 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion8
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer8
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					}
+					else { var question8 = '';}
+					
+					if ($textQuestion9 != '')
+					{
+												 
+				    var question9 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion9
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer9
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					}
+					else { var question9 = '';}
+					
+					if ($textQuestion10 != '')
+					{
+												 
+				    var question10 = ('<questions>'
+													+ '<question>'									
+														+ $textQuestion10
+												 +  '</question>'
+												 +  '<answer>'	
+												 +  $textAnswer10
+												 +  '</answer>'
+												 
+										+ 	'</questions>'	 
+												 );
+												 
+					}
+					else { var question10 = '';}
+					
+			
+				
+				  var shout_text = ('<recall' + ' title="' + $textsubTitle + '">'  
+										       +'<' + $textTitle + '>'
+													+ '<info>'
+														+  '<title>' + $textTitle + '</title>'
+														+  '<headline>' + $textHeadline + '</headline>'
+														+  '<subTitle>' + $textsubTitle + '</subTitle>'
+														
+													+  '</info>'
+												
+													+ question1
+												
+												    + question2
+													
+													+ question3
+													
+													+ question4
+													
+													+ question5
+													
+													+ question6
+												 
+													+ question7
+													
+													+ question8
+													
+													+ question9
+													
+													+ question10
+													
+																															 
+											 +'</' + $textTitle + '>'
+										 + '</recall>'
+										 + '</quizes>'
+									 
+																	);
+				  
+					
+					//console.log(shout_text);
+
+					var shout = $.ajax({
+						  type: 'POST',
+						  url: "quizMaker.php",
+						  async: false,
+						  cache: false,
+						  data: {message:shout_text},
+						 
+						  
+						  success: function(){ 
+						  alert('quiz saved');
+					
+						  }
+					});
+
+				});
+
+
+	});
+
+
+	
+
+	// grab textarea content
+
+	// post content to script, and save
+</script>
+	
+</body>
+</html>
+
+
+

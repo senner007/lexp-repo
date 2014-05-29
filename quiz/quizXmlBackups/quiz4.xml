@@ -1,0 +1,1093 @@
+<gapFill>
+    <gapFillJacksVacation>
+      <info>
+        <title>gapFillJacksVacation</title>
+        <headline>Esl</headline>
+        <subTitle>Jack's vacation</subTitle>
+        <inputText>Insert the missing words</inputText>
+      </info>
+      <questions>
+        <question>Jack had a very bad day yesterday. It was the day of his vacation to the .... He left the house at ... in the morning and took a ... to the ...</question>
+        <answer>Hawaiian Islands</answer>
+      </questions>
+      <questions>
+        <answer>10 o'clock</answer>
+      </questions>
+      <questions>
+        <answer>taxi</answer>
+      </questions>
+      <questions>
+        <answer>airport</answer>
+      </questions>
+      <questions>
+        <question>Jack went to the check-in with his .... When the man asked for his ..., Jack started to panic. Where was his passport? Jack saw that he didn't have his passport with him.</question>
+        <answer>luggage</answer>
+      </questions>
+      <questions>
+        <answer>passport</answer>
+      </questions>
+      <questions>
+        <question>He hopped back into the taxi and asked the driver to take him home. The driver drove fast and Jack was back in his house after thirty minutes.</question>
+      </questions>
+      <questions>
+        <question>He ran into the house, up the ... and into his bedroom. He found his passport on the ... and ran out again. Jack looked around but he could not see the taxi. Where was the taxi?!</question>
+        <answer>stairs</answer>
+      </questions>
+      <questions>
+        <answer>nightstand</answer>
+      </questions>
+      <questions>
+        <question>"Oh no!. The taxi has left!" he screamed. Jack kicked his luggage and he was very angry. He ran down the street and looked for a new taxi.</question>
+      </questions>
+      <questions>
+        <question>After a 10 minutes, Jack found another taxi and asked the driver to take him to the airport. The traffic on the roads was very bad and they had to wait for the ... to turn .... Jack's taxi came to the airport too late. His plane flew for the Hawaiian Islands at 11.30 and Jack missed it. He was very sad and went over to talk to the people at the airport. They gave him a seat on an another flight and Jack went home to wait.</question>
+        <answer>traffic lights</answer>
+      </questions>
+      <questions>
+        <answer>green</answer>
+      </questions>
+    </gapFillJacksVacation>
+  </gapFill>
+   <gapFill>
+    <gapFillMyNameIsTom>
+      <info>
+        <title>gapFillMyNameIsTom</title>
+        <headline>Esl</headline>
+        <subTitle>My name is Tom</subTitle>
+        <inputText>Insert the missing words</inputText>
+      </info>
+      <questions>
+        <question>My name is ... and I come from ... I am 24 years old and I live in a small ... near Camberra.</question>
+        <answer>Tom</answer>
+      </questions>
+      <questions>
+        <answer>Australia</answer>
+      </questions>
+      <questions>
+        <answer>town</answer>
+      </questions>
+      <questions>
+        <question>I don't have a job now, but normally I clean ... I live with my very beautiful girlfriend, Kate, in an old house. We are not married. My girlfriend is an ..., but she is not really famous. She acts in a ... outside our town. We don't have any children. Maybe we will have children next year.</question>
+        <answer>windows</answer>
+      </questions>
+	  <questions>
+        <answer>actress</answer>
+      </questions>
+	   <questions>
+        <answer>theatre</answer>
+      </questions>
+      <questions>
+        <question>  At the weekend, we like to go ... in a big lake near the park.</question>
+       </questions>
+      <questions>
+        <answer>swimming</answer>
+      </questions>
+      <questions>
+        <question>I get up at ... in the morning</question>
+        <answer>eight o'clock</answer>
+      </questions>
+      <questions>
+        <question>On Thursdays I get up at ... because that is the day when I go ... in the park.</question>
+        <answer>six o'clock</answer>
+      </questions>
+      <questions>
+        <answer>running</answer>
+      </questions>
+    </gapFillMyNameIsTom>
+  </gapFill>
+ <jumbled>
+    <jumbledFruit>
+      <info>
+        <title>jumbledFruit</title>
+        <headline>Esl</headline>
+        <subTitle>Fruit</subTitle>
+      </info>
+      <questions>
+        <question>Large sweet tropical fruit.</question>
+        <answer>Pineapple</answer>
+      </questions>
+      <questions>
+        <question>Fruit with red or yellow or green skin.</question>
+        <answer>Apple</answer>
+      </questions>
+      <questions>
+        <question>Citrus fruit.</question>
+        <answer>Orange</answer>
+      </questions>
+      <questions>
+        <question>Green or purple fruits that grow on a vine.</question>
+        <answer>Grape</answer>
+      </questions>
+      <questions>
+        <question>A long tropical fruit.</question>
+        <answer>Banana</answer>
+      </questions>
+      <questions>
+        <question>A red fruit with a hard stone.</question>
+        <answer>Cherry</answer>
+      </questions>
+      <questions>
+        <question>Sweet juicy fruit.</question>
+        <answer>Pear</answer>
+      </questions>
+      <questions>
+        <question>Yellow juicy sweet fruit.</question>
+        <answer>Peach</answer>
+      </questions>
+      <questions>
+        <question>A large round fruit.</question>
+        <answer>Watermelon</answer>
+      </questions>
+      <questions>
+        <question>A soft red juicy fruit.</question>
+        <answer>Strawberry</answer>
+      </questions>
+    </jumbledFruit>
+  </jumbled>
+   <jumbled>
+    <jumbledTobysRoom>
+      <info>
+        <title>jumbledTobysRoom</title>
+        <headline>Esl</headline>
+        <subTitle>Toby's Room</subTitle>
+      </info>
+      <questions>
+        <question>I am reading my ...</question>
+        <answer>book</answer>
+      </questions>
+      <questions>
+        <question>I am watching ...</question>
+        <answer>TV</answer>
+      </questions>
+      <questions>
+        <question>I am sitting at the ...</question>
+        <answer>table</answer>
+      </questions>
+      <questions>
+        <question>I turn on my ...</question>
+        <answer>lamp</answer>
+      </questions>
+      <questions>
+        <question>I am sitting on the ...</question>
+        <answer>chair</answer>
+      </questions>
+      <questions>
+        <question>I have books in my ...</question>
+        <answer>bookcase</answer>
+      </questions>
+      <questions>
+        <question>I am playing with my ...</question>
+        <answer>car</answer>
+      </questions>
+      <questions>
+        <question>I love my ...</question>
+        <answer>teddy</answer>
+      </questions>
+      <questions>
+        <question>I like to play with my ...</question>
+        <answer>tennis racket</answer>
+      </questions>
+      <questions>
+        <question>I can easily solve my ...</question>
+        <answer>jigsaw puzzle</answer>
+      </questions>
+    </jumbledTobysRoom>
+  </jumbled>
+  <jumbled>
+    <jumbledLisasRoom>
+      <info>
+        <title>jumbledLisasRoom</title>
+        <headline>Esl</headline>
+        <subTitle>Lisa's Room</subTitle>
+      </info>
+      <questions>
+        <question>I am looking out the ...</question>
+        <answer>window</answer>
+      </questions>
+      <questions>
+        <question>My ... has nice clothes.</question>
+        <answer>doll</answer>
+      </questions>
+      <questions>
+        <question>I have a ... on my door.</question>
+        <answer>poster</answer>
+      </questions>
+      <questions>
+        <question>I am listening to the ...</question>
+        <answer>radio</answer>
+      </questions>
+      <questions>
+        <question>There is a monster under my ...</question>
+        <answer>bed</answer>
+      </questions>
+      <questions>
+        <question>I have a ... with things.</question>
+        <answer>box</answer>
+      </questions>
+      <questions>
+        <question>The ... is open.</question>
+        <answer>door</answer>
+      </questions>
+      <questions>
+        <question>My ... is broken</question>
+        <answer>computer</answer>
+      </questions>
+    </jumbledLisasRoom>
+  </jumbled>
+  <sortable>
+    <sortableTobyNLisasRoom>
+      <info>
+        <title>sortableTobyNLisasRoom</title>
+        <headline>Esl</headline>
+        <subTitle>Toby 'N Lisa's Room</subTitle>
+        <wordsOnly>undefined</wordsOnly>
+        <alignCenter>true</alignCenter>
+      </info>
+      <sentences>
+        <sentence>Toby's chair is by the window</sentence>
+        <answer>Tobys stol står ved vinduet</answer>
+      </sentences>
+      <sentences>
+        <sentence>Toby has a teddy and Lisa has a doll</sentence>
+        <answer>Toby har en bamse og Lisa har en dukke</answer>
+      </sentences>
+      <sentences>
+        <sentence>They like to watch TV</sentence>
+        <answer>De kan lide at se TV</answer>
+      </sentences>
+      <sentences>
+        <sentence>At night they turn on their lamps</sentence>
+        <answer>Om aftenen tænder de deres lamper</answer>
+      </sentences>
+      <sentences>
+        <sentence>Toby has many cars</sentence>
+        <answer>Toby har mange biler</answer>
+      </sentences>
+      <sentences>
+        <sentence>There is a book lying on the floor</sentence>
+        <answer>Der ligger en bog på gulvet</answer>
+      </sentences>
+      <sentences>
+        <sentence>There are many books in the bookcase</sentence>
+        <answer>Der er mange bøger i bogreolen</answer>
+      </sentences>
+      <sentences>
+        <sentence>There is a poster on the door</sentence>
+        <answer>Der er en plakat på døren</answer>
+      </sentences>
+      <sentences>
+        <sentence>They both have boxes under the bed</sentence>
+        <answer>De har begge to kasser under sengen</answer>
+      </sentences>
+      <sentences>
+        <sentence>They have a radio and a computer</sentence>
+        <answer>De har en radio og en computer</answer>
+      </sentences>
+    </sortableTobyNLisasRoom>
+  </sortable>
+  <sortable>
+    <sortableRoomsTranslate>
+      <info>
+        <title>sortableRoomsTranslate</title>
+        <headline>Esl</headline>
+        <subTitle>Toby N'Lisa's Stuff</subTitle>
+        <wordsOnly>true</wordsOnly>
+        <alignCenter>true</alignCenter>
+      </info>
+      <sentences>
+        <sentence>Computer</sentence>
+        <answer>Computer</answer>
+      </sentences>
+      <sentences>
+        <sentence>Poster</sentence>
+        <answer>Plakat</answer>
+      </sentences>
+      <sentences>
+        <sentence>Box</sentence>
+        <answer>Kasse</answer>
+      </sentences>
+      <sentences>
+        <sentence>Door</sentence>
+        <answer>Dør</answer>
+      </sentences>
+      <sentences>
+        <sentence>Window</sentence>
+        <answer>Vindue</answer>
+      </sentences>
+      <sentences>
+        <sentence>Bed</sentence>
+        <answer>Seng</answer>
+      </sentences>
+      <sentences>
+        <sentence>Radio</sentence>
+        <answer>Radio</answer>
+      </sentences>
+      <sentences>
+        <sentence>Lamp</sentence>
+        <answer>Lampe</answer>
+      </sentences>
+      <sentences>
+        <sentence>Car</sentence>
+        <answer>Bil</answer>
+      </sentences>
+      <sentences>
+        <sentence>Chair</sentence>
+        <answer>Stol</answer>
+      </sentences>
+    </sortableRoomsTranslate>
+  </sortable>
+   <sortable>
+    <sortableFruits>
+      <info>
+        <title>sortableFruits</title>
+        <headline>Esl</headline>
+        <subTitle>Fruit III</subTitle>
+        <wordsOnly>true</wordsOnly>
+        <alignCenter>true</alignCenter>
+      </info>
+      <sentences>
+        <sentence>Ananas</sentence>
+        <answer>Pineapple</answer>
+      </sentences>
+      <sentences>
+        <sentence>Æble</sentence>
+        <answer>Apple</answer>
+      </sentences>
+      <sentences>
+        <sentence>Appelsin</sentence>
+        <answer>Orange</answer>
+      </sentences>
+      <sentences>
+        <sentence>Vindrue</sentence>
+        <answer>Grape</answer>
+      </sentences>
+      <sentences>
+        <sentence>Banan</sentence>
+        <answer>Banana</answer>
+      </sentences>
+      <sentences>
+        <sentence>Kirsebær</sentence>
+        <answer>Cherry</answer>
+      </sentences>
+      <sentences>
+        <sentence>Pære</sentence>
+        <answer>Pear</answer>
+      </sentences>
+      <sentences>
+        <sentence>Fersken</sentence>
+        <answer>Peach</answer>
+      </sentences>
+      <sentences>
+        <sentence>Vandmelon</sentence>
+        <answer>Watermelon</answer>
+      </sentences>
+      <sentences>
+        <sentence>Jordbær</sentence>
+        <answer>Strawberry</answer>
+      </sentences>
+    </sortableFruits>
+  </sortable>
+  <jumbled>
+    <jumbledWinter>
+      <info>
+        <title>jumbledWinter</title>
+        <headline>Esl</headline>
+        <subTitle>Winter</subTitle>
+      </info>
+      <questions>
+        <question>... are falling on the ground.</question>
+        <answer>Snowflakes</answer>
+      </questions>
+      <questions>
+        <question>I have build a ...</question>
+        <answer>snowman</answer>
+      </questions>
+      <questions>
+        <question>The ... is melting</question>
+        <answer>ice</answer>
+      </questions>
+      <questions>
+        <question>I love my ...</question>
+        <answer>ice skates</answer>
+      </questions>
+      <questions>
+        <question>My ... is very fast.</question>
+        <answer>sledge</answer>
+      </questions>
+      <questions>
+        <question>There are no ... on the tree</question>
+        <answer>leaves</answer>
+      </questions>
+      <questions>
+        <question>My ... are very warm</question>
+        <answer>boots</answer>
+      </questions>
+      <questions>
+        <question>The snowman has my ...</question>
+        <answer>scarf</answer>
+      </questions>
+      <questions>
+        <question>I always wear my winter ...</question>
+        <answer>cap</answer>
+      </questions>
+      <questions>
+        <question>My ... keeps me warm</question>
+        <answer>jacket</answer>
+      </questions>
+    </jumbledWinter>
+  </jumbled>
+  <scrambled>
+    <scrambledWinter>
+      <info>
+        <title>scrambledWinter</title>
+        <headline>Esl</headline>
+        <subTitle>Winter II</subTitle>
+        <lowerCaseCharacters>false</lowerCaseCharacters>
+      </info>
+      <sentences>
+        <sentence>Snowflakes are falling on the ground.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>I have build a snowman.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>The ice is melting.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>I like my ice skates.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>My sledge is very fast.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>There are no leaves on the tree.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>My boots are very warm.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>The snowman has my scarf.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>I always wear my winter cap.</sentence>
+      </sentences>
+      <sentences>
+        <sentence>My jacket keeps me warm.</sentence>
+      </sentences>
+    </scrambledWinter>
+  </scrambled>
+ 
+  <jumbled>
+    <jumbledMyNameIsTom>
+      <info>
+        <title>jumbledMyNameIsTom</title>
+        <headline>Esl</headline>
+        <subTitle>My name is Tom II</subTitle>
+      </info>
+      <questions>
+        <question>My name is ... and I am 24 years old.</question>
+        <answer>Tom</answer>
+      </questions>
+      <questions>
+        <question>I come from ...</question>
+        <answer>Australia</answer>
+      </questions>
+      <questions>
+        <question>I live in a small ... near Sydney.</question>
+        <answer>town</answer>
+      </questions>
+      <questions>
+        <question>I used to clean ...</question>
+        <answer>windows</answer>
+      </questions>
+      <questions>
+        <question>My girlfriend is an ..., but she is not very famous.</question>
+        <answer>actress</answer>
+      </questions>
+      <questions>
+        <question>She acts in a small ... in our town.</question>
+        <answer>theatre</answer>
+      </questions>
+      <questions>
+        <question>At the weekend, we like to go ... in a big lake near our house.</question>
+        <answer>swimming</answer>
+      </questions>
+      <questions>
+        <question>I normally get up at ...</question>
+        <answer>eight o'clock</answer>
+      </questions>
+      <questions>
+        <question>On Wednesday I get up at ...</question>
+        <answer>six o'clock</answer>
+      </questions>
+      <questions>
+        <question>That is the day when I go ... in the park.</question>
+        <answer>running</answer>
+      </questions>
+    </jumbledMyNameIsTom>
+  </jumbled>
+  <sortable>
+    <sortMyNameIsTom>
+      <info>
+        <title>sortMyNameIsTom</title>
+        <headline>Esl</headline>
+        <subTitle>My name is Tom III</subTitle>
+        <wordsOnly>false</wordsOnly>
+        <alignCenter>true</alignCenter>
+      </info>
+      <sentences>
+        <sentence>My name is Tom.</sentence>
+        <answer>Mit navn er Tom.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I come from Australia.</sentence>
+        <answer>Jeg kommer fra Australia.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I live in a small town.</sentence>
+        <answer>Jeg bor i en lille by.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I clean windows.</sentence>
+        <answer>Jeg vasker vinduer.</answer>
+      </sentences>
+      <sentences>
+        <sentence>My girlfriend is an actress.</sentence>
+        <answer>Min kæreste er skuespillerinde.</answer>
+      </sentences>
+      <sentences>
+        <sentence>She acts in a small theatre.</sentence>
+        <answer>Hun optræder i et lille teater.</answer>
+      </sentences>
+      <sentences>
+        <sentence>At the weekend, we like to go swimming.</sentence>
+        <answer>I weekenden kan vi lide at gå ud og svømme.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I get up at eight o'clock.</sentence>
+        <answer>Jeg står op klokken otte.</answer>
+      </sentences>
+      <sentences>
+        <sentence>On Wednesday I get up at six o'clock.</sentence>
+        <answer>Om onsdagen står jeg op klokken seks.</answer>
+      </sentences>
+      <sentences>
+        <sentence>On Wednesday I go running in the park.</sentence>
+        <answer>Om onsdagen løber jeg i parken.</answer>
+      </sentences>
+    </sortMyNameIsTom>
+  </sortable>
+   <quiz>
+    <quizEslToHave>
+      <info>
+        <title>quizEslToHave</title>
+        <headline>Esl/Grammar</headline>
+        <subTitle>Verb: to have (nutid/datid)</subTitle>
+        <inputText>Indsæt den rigtige form af to have</inputText>
+        <showAnswers>False</showAnswers>
+      </info>
+      <questions>
+        <question>Sara ... a mother.  (nutid )</question>
+        <answer>has</answer>
+      </questions>
+      <questions>
+        <question>We ... a car.  (nutid )</question>
+        <answer>have</answer>
+      </questions>
+      <questions>
+        <question>They ... a cat.  (nutid )</question>
+        <answer>have</answer>
+      </questions>
+      <questions>
+        <question>I ... no bike. (nutid )</question>
+        <answer>have</answer>
+      </questions>
+      <questions>
+        <question>She never ... any friends. ( datid )</question>
+        <answer>had</answer>
+      </questions>
+      <questions>
+        <question>They never ... any money. ( nutid )</question>
+        <answer>have</answer>
+      </questions>
+      <questions>
+        <question>Susan ... no money yesterday. ( datid )</question>
+        <answer>had</answer>
+      </questions>
+      <questions>
+        <question>When I grew up, my family ... no money. (datid )</question>
+        <answer>had</answer>
+      </questions>
+      <questions>
+        <question>Ben ... a teddy. ( nutid )</question>
+        <answer>has</answer>
+      </questions>
+      <questions>
+        <question>We ... sold our TV. ( nutid )</question>
+        <answer>have</answer>
+      </questions>
+    </quizEslToHave>
+  </quiz>
+  <recall>
+    <recallTom>
+      <info>
+        <title>recallTom</title>
+        <headline>Esl</headline>
+        <subTitle>My name is Tom IV</subTitle>
+      </info>
+      <questions>
+        <question>Tom</question>
+        <answer>Tom</answer>
+      </questions>
+      <questions>
+        <question>Australia</question>
+        <answer>australia</answer>
+      </questions>
+      <questions>
+        <question>town</question>
+        <answer>town</answer>
+      </questions>
+      <questions>
+        <question>windows</question>
+        <answer>shop windows</answer>
+      </questions>
+      <questions>
+        <question>actress</question>
+        <answer>actress</answer>
+      </questions>
+      <questions>
+        <question>theatre</question>
+        <answer>theatre</answer>
+      </questions>
+      <questions>
+        <question>swimming</question>
+        <answer>swimming</answer>
+      </questions>
+      <questions>
+        <question>eight o'clock</question>
+        <answer>eight o'clock</answer>
+      </questions>
+      <questions>
+        <question>six o'clock</question>
+        <answer>six o'clock</answer>
+      </questions>
+      <questions>
+        <question>running</question>
+        <answer>running</answer>
+      </questions>
+    </recallTom>
+  </recall>
+  <recall>
+    <recallFruit>
+      <info>
+        <title>recallFruit</title>
+        <headline>Esl</headline>
+        <subTitle>Fruit IV</subTitle>
+      </info>
+      <questions>
+        <question>Pineapple</question>
+        <answer>pineapple</answer>
+      </questions>
+      <questions>
+        <question>Apple</question>
+        <answer>apple</answer>
+      </questions>
+      <questions>
+        <question>Pear</question>
+        <answer>pear</answer>
+      </questions>
+      <questions>
+        <question>Cherry</question>
+        <answer>cherry</answer>
+      </questions>
+      <questions>
+        <question>Grape</question>
+        <answer>grape</answer>
+      </questions>
+      <questions>
+        <question>Watermelon</question>
+        <answer>watermelon</answer>
+      </questions>
+      <questions>
+        <question>Strawberry</question>
+        <answer>strawberry</answer>
+      </questions>
+      <questions>
+        <question>Peach</question>
+        <answer>peach</answer>
+      </questions>
+      <questions>
+        <question>Banana</question>
+        <answer>banana</answer>
+      </questions>
+      <questions>
+        <question>Orange</question>
+        <answer>orange</answer>
+      </questions>
+    </recallFruit>
+  </recall>
+  <recall>
+    <recallWinter>
+      <info>
+        <title>recallWinter</title>
+        <headline>Esl</headline>
+        <subTitle>Winter IV</subTitle>
+      </info>
+      <questions>
+        <question>Snowflakes</question>
+        <answer>snowflakes</answer>
+      </questions>
+      <questions>
+        <question>Snowman</question>
+        <answer>snowman</answer>
+      </questions>
+      <questions>
+        <question>Ice</question>
+        <answer>ice</answer>
+      </questions>
+      <questions>
+        <question>Ice skates</question>
+        <answer>ice skates</answer>
+      </questions>
+      <questions>
+        <question>Sledge</question>
+        <answer>sledge</answer>
+      </questions>
+      <questions>
+        <question>Leaves</question>
+        <answer>leaves</answer>
+      </questions>
+      <questions>
+        <question>Boots</question>
+        <answer>boots</answer>
+      </questions>
+      <questions>
+        <question>Scarf</question>
+        <answer>scarf</answer>
+      </questions>
+      <questions>
+        <question>Cap</question>
+        <answer>cap</answer>
+      </questions>
+      <questions>
+        <question>Jacket</question>
+        <answer>jacket</answer>
+      </questions>
+    </recallWinter>
+  </recall>
+  <recall>
+    <recallTobysRoom>
+      <info>
+        <title>recallTobysRoom</title>
+        <headline>Esl</headline>
+        <subTitle>Toby's Room IV</subTitle>
+      </info>
+      <questions>
+        <question>Book</question>
+        <answer>book</answer>
+      </questions>
+      <questions>
+        <question>Tv</question>
+        <answer>tv</answer>
+      </questions>
+      <questions>
+        <question>Lamp</question>
+        <answer>lamp</answer>
+      </questions>
+      <questions>
+        <question>Chair</question>
+        <answer>chair</answer>
+      </questions>
+      <questions>
+        <question>Bookcase</question>
+        <answer>bookcase</answer>
+      </questions>
+      <questions>
+        <question>Car</question>
+        <answer>car</answer>
+      </questions>
+      <questions>
+        <question>Teddy</question>
+        <answer>teddy</answer>
+      </questions>
+      <questions>
+        <question>Tennis racket</question>
+        <answer>tennis racket</answer>
+      </questions>
+      <questions>
+        <question>Jigsaw Puzzle</question>
+        <answer>jigsaw puzzle</answer>
+      </questions>
+      <questions>
+        <question>Table</question>
+        <answer>table</answer>
+      </questions>
+    </recallTobysRoom>
+  </recall>
+  <sortable>
+    <sortableTobysRoom>
+      <info>
+        <title>sortableTobysRoom</title>
+        <headline>Esl</headline>
+        <subTitle>Toby's Room III</subTitle>
+        <wordsOnly />
+        <alignCenter>true</alignCenter>
+      </info>
+      <sentences>
+        <sentence>I am reading my book.</sentence>
+        <answer>Jeg læser i min bog.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I am watching Tv</sentence>
+        <answer>Jeg ser Tv.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I am sitting at the table.</sentence>
+        <answer>Jeg sidder ved bordet.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I turn on my lamp.</sentence>
+        <answer>Jeg tænder min lampe.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I am sitting on the chair</sentence>
+        <answer>Jeg sidder på stolen.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I have books in my bookcase</sentence>
+        <answer>Jeg har bøger i min bogreol.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I am playing with my car</sentence>
+        <answer>Jeg leger med min bil.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I love my teddy.</sentence>
+        <answer>Jeg elsker min bamse.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I like to play with my tennis racket.</sentence>
+        <answer>Jeg kan lide at spille med min tennisketsjer.</answer>
+      </sentences>
+      <sentences>
+        <sentence>I can easily solve my jigsaw puzzle.</sentence>
+        <answer>Jeg kan let løse mit puslespil.</answer>
+      </sentences>
+    </sortableTobysRoom>
+  </sortable>
+   <jumbled>
+    <jumbledJacksVacation>
+      <info>
+        <title>jumbledJacksVacation</title>
+        <headline>Esl</headline>
+        <subTitle>Jack's vacation II</subTitle>
+      </info>
+      <questions>
+        <question>I would love to go to the ...</question>
+        <answer>Hawaiian Islands</answer>
+      </questions>
+      <questions>
+        <question>I always go to bed at ...</question>
+        <answer>ten o'clock</answer>
+      </questions>
+      <questions>
+        <question>Getting a ... can sometimes be very difficult.</question>
+        <answer>taxi</answer>
+      </questions>
+      <questions>
+        <question>Never forget your ... when you want to travel to another country.</question>
+        <answer>passport</answer>
+      </questions>
+      <questions>
+        <question>My ... ended up in the wrong place.</question>
+        <answer>luggage</answer>
+      </questions>
+      <questions>
+        <question>I live next to the ...</question>
+        <answer>airport</answer>
+      </questions>
+      <questions>
+        <question>My uncle broke his leg when he fell down the ...</question>
+        <answer>stairs</answer>
+      </questions>
+      <questions>
+        <question>I have books and a lamp on my ...</question>
+        <answer>nightstand</answer>
+      </questions>
+      <questions>
+        <question>Having to stop and wait for the ... can irritate me.</question>
+        <answer>traffic lights</answer>
+      </questions>
+      <questions>
+        <question>... is my favorite color.</question>
+        <answer>Green</answer>
+      </questions>
+    </jumbledJacksVacation>
+  </jumbled>
+  <sortable>
+    <sortableJacksVacation>
+      <info>
+        <title>sortableJacksVacation</title>
+        <headline>Esl</headline>
+        <subTitle>Jack's vacation III</subTitle>
+        <wordsOnly>false</wordsOnly>
+        <alignCenter>true</alignCenter>
+      </info>
+      <sentences>
+        <sentence>1. Jack had a very bad day yesterday</sentence>
+        <answer>Jack havde en dårlig dag igår</answer>
+      </sentences>
+      <sentences>
+        <sentence>2. It was the day of his vacation</sentence>
+        <answer>Det var dagen, hvor han skulle på ferie</answer>
+      </sentences>
+      <sentences>
+        <sentence>3. Jack went to the airport </sentence>
+        <answer>Jack tog til lufthavnen</answer>
+      </sentences>
+      <sentences>
+        <sentence>4. Jack saw that he had forgotten something</sentence>
+        <answer>Jack opdagede at han havde glemt noget</answer>
+      </sentences>
+      <sentences>
+        <sentence>5. He told the driver to take him home</sentence>
+        <answer>Han bad chaufføren om at køre ham hjem</answer>
+      </sentences>
+      <sentences>
+        <sentence>6. He ran into the house and up the stairs</sentence>
+        <answer>Han løb ind i huset og op ad trappen</answer>
+      </sentences>
+      <sentences>
+        <sentence>7. He found his passport and ran out again</sentence>
+        <answer>Han fandt sit pas og løb ud igen</answer>
+      </sentences>
+      <sentences>
+        <sentence>8. He became very angry and ran down the street</sentence>
+        <answer>Han blev meget sur og løb ned ad gaden</answer>
+      </sentences>
+      <sentences>
+        <sentence>9. Jack came to the airport too late</sentence>
+        <answer>Jack kom for sent til lufthavnen </answer>
+      </sentences>
+      <sentences>
+        <sentence>10. He was very sad and went home again.</sentence>
+        <answer>Han blev meget ked af det og kørte hjem igen</answer>
+      </sentences>
+    </sortableJacksVacation>
+  </sortable>
+  <recall>
+    <recallJacksVacation>
+      <info>
+        <title>recallJacksVacation</title>
+        <headline>Esl</headline>
+        <subTitle>Jack's vacation IV</subTitle>
+      </info>
+      <questions>
+        <question>Hawaiian islands</question>
+        <answer>hawaiian islands</answer>
+      </questions>
+      <questions>
+        <question>Ten o'clock</question>
+        <answer>ten o'clock</answer>
+      </questions>
+      <questions>
+        <question>Taxi</question>
+        <answer>taxi</answer>
+      </questions>
+      <questions>
+        <question>Airport</question>
+        <answer>airport</answer>
+      </questions>
+      <questions>
+        <question>Luggage</question>
+        <answer>luggage</answer>
+      </questions>
+      <questions>
+        <question>Passport</question>
+        <answer>passport</answer>
+      </questions>
+      <questions>
+        <question>Stairs</question>
+        <answer>stairs</answer>
+      </questions>
+      <questions>
+        <question>Nightstand</question>
+        <answer>nightstand</answer>
+      </questions>
+      <questions>
+        <question>Traffic lights</question>
+        <answer>traffic lights</answer>
+      </questions>
+      <questions>
+        <question>Green</question>
+        <answer>green</answer>
+      </questions>
+    </recallJacksVacation>
+  </recall>
+   <quiz>
+    <quizJacksVacationVocabulary>
+      <info>
+        <title>quizJacksVacationVocabulary</title>
+        <headline>Esl/Vocabulary</headline>
+        <subTitle>Jack's Vacation</subTitle>
+        <inputText>Skriv det rigtige ord</inputText>
+        <showAnswers>True</showAnswers>
+      </info>
+      <questions>
+        <question>- very - .Jack had a very bad day yesterday.</question>
+        <answer>meget</answer>
+      </questions>
+      <questions>
+        <question>- vacation - .It was the day of his vacation.</question>
+        <answer>ferie</answer>
+      </questions>
+      <questions>
+        <question>- took - .He took a taxi.</question>
+        <answer>tog</answer>
+      </questions>
+      <questions>
+        <question>- airport - .He drove to the airport.</question>
+        <answer>lufthavn</answer>
+      </questions>
+      <questions>
+        <question>- Hawaiian Islands - .Jeck was flying to the Hawaiian Islands.</question>
+        <answer>Hawaiianske øer</answer>
+      </questions>
+      <questions>
+        <question>- passport - .Jack went to the check-in with his passport.</question>
+        <answer>pas</answer>
+      </questions>
+      <questions>
+        <question>- panic - .He started to panic.</question>
+        <answer>gå i panik</answer>
+      </questions>
+      <questions>
+        <question>- luggage - .He went to the check-in with his luggage.</question>
+        <answer>bagage</answer>
+      </questions>
+      <questions>
+        <question>- hopped - .He hopped into a taxi.</question>
+        <answer>hoppede</answer>
+      </questions>
+      <questions>
+        <question>- thirty minutes - .Jack was back in his house after thirty minutes.</question>
+        <answer>tredive minutter</answer>
+      </questions>
+      <questions>
+        <question>- bedroom - .He ran into his bedroom.</question>
+        <answer>soveværelse</answer>
+      </questions>
+	  <questions>
+        <question>- yesterday - .Jack had a very bad day yesterday.</question>
+        <answer>i går</answer>
+      </questions>
+	   <questions>
+        <question>- plane - .His plane flew for the Hawaiian Islands.</question>
+        <answer>flyvemaskine</answer>
+      </questions>
+	  <questions>
+        <question>- kicked - .Jack kicked his luggage.</question>
+        <answer>sparkede</answer>
+      </questions>
+    </quizJacksVacationVocabulary>
+  </quiz>

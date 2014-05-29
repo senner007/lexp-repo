@@ -1,0 +1,42 @@
+* {margin: 0; padding:0;}
+
+
+@font-face {
+    font-family: 'UnderwoodChampionRegular';
+    src: url('underwood_champion-webfont.eot');
+    src: url('underwood_champion-webfont.eot?#iefix') format('embedded-opentype'),
+         url('underwood_champion-webfont.woff') format('woff'),
+         url('underwood_champion-webfont.ttf') format('truetype'),
+         url('underwood_champion-webfont.svg#UnderwoodChampionRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} 
+
+.grammar {
+background-color: #1e90ff;
+color: white;
+border-radius:1.5px;
+padding-left: 3px;
+padding-right: 3px;
+}
+
+
+.vocabulary {
+background-color: green;
+color: white;
+border-radius:1.5px;
+padding-left: 3px;
+padding-right: 4px;
+}
+
+#container {
+ 
+  width: 980px;
+  height: 220px;
+ 
+ }
+ 
+#ulList{
+
+font-size: 20px;
+}
