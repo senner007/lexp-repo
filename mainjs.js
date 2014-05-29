@@ -9,7 +9,7 @@ var $loaderGif = $('#loaderGif');
 var isTablet = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 
 
-if ( isTablet ) {	// if ipad then bring in ipad.css
+if ( isTablet ) {	// if tablet then bring in tablet.css
 
 	$("<link/>", {
 	   rel: "stylesheet",
