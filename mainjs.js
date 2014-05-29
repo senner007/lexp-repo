@@ -14,7 +14,7 @@ if ( isTablet ) {	// if ipad then bring in ipad.css
 	$("<link/>", {
 	   rel: "stylesheet",
 	   type: "text/css",
-	   href: "ipad.css"
+	   href: "tablet.css"
 	}).appendTo("head");
 
 }
