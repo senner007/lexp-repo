@@ -109,17 +109,20 @@ while ( count > 0 ) {
 		conId = conId + 2;
 	}
 
-	var textFoundIndex = [];		
-	$.each(stringArray, function (index,el) {
-		
-		$.each(mustBeBound, function (i,e) {
-			if ( stringArray[index].indexOf(mustBeBound[i]) >= 0  && mustBeBound != "") {
-			textFoundIndex.push(index)
-			textFoundIndex.push(index +1)
-			}
+	var textFoundIndex = [];	
+	if (mustBeBound != "") {
+		$.each(stringArray, function (index,el) {
+			
+			$.each(mustBeBound, function (i,e) {
+				var found = $.trim(mustBeBound[i]);
+				if ( stringArray[index].indexOf(found) >= 0) {
+				textFoundIndex.push(index)
+				textFoundIndex.push(index +1)
+				}
+			});
+			
 		});
-		
-	});
+	}
 
 	var indexes = 0;
 	$('.container').each(function (i,e) {
