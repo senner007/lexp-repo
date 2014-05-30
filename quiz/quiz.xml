@@ -3692,11 +3692,22 @@ Franciscan Media</quote>
     <californiaGoldII>
       <info>
         <title>californiaGoldII</title>
-        <headline>Theme</headline>
+        <headline>Text</headline>
         <subTitle>Stories of Later American History - Gordy, Wilbur F. The discovery of gold. II</subTitle>
         <textFile>californiaGoldJumbled</textFile>
         <quoteText>Source: Project Gutenberg/Slightly modified</quoteText>
       </info>
     </californiaGoldII>
   </jumbled>
+  <transition>
+    <jungleBookBeginning>
+      <info>
+        <title>jungleBookBeginning</title>
+        <headline>Text</headline>
+        <subTitle>The Jungle Book(Beginning) - Kipling, R.</subTitle>
+        <quoteText>Source: Project Gutenberg</quoteText>
+		<mustBeBound>Shere Khan was the tiger,"Shall I tell him</mustBeBound>
+      </info>
+    </jungleBookBeginning>
+  </transition>
 </quizes>
