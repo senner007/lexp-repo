@@ -1,38 +1,26 @@
 $(function() {
 
-var friends = window.parent.shout_text;
-var saveData = window.parent.xmlDataVar;
+	var friends = window.parent.shout_text;
+	var saveData = window.parent.xmlDataVar;
 
-var quizHeadline;
-var inputText;
-var showAnswers;
-var subTitle;
-var bla;
-var bla2;
-var rightTextArr;
-var alignLis;
-/* window.parent.globalScoreVariable = 0; */
 
-var deviceAgent = navigator.userAgent.toLowerCase();			// add left right arrows on ipad
-var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
-			
-var docWidth = window.parent.$('body').width();	
-if (docWidth > 1100) {	
-	$('<button id="nextButton"></button><button id="prevButton"></button>').appendTo('#container');
-}
+	var rightTextArr;
+	var alignLis;
+				
+	var docWidth = window.parent.$('body').width();	
+	if (docWidth > 1100) {	
+		$('<button id="nextButton"></button><button id="prevButton"></button>').appendTo('#container');
+	}
 
 
 
-var stringData = $.ajax({
+	var stringData = $.ajax({
 		url: "gapFillTextFiles/" + friends + '.txt',
 		async: false
 	 }).responseText;
 	 
-	// console.log(stringData);
+
 	 var findString = stringData.search(/_[^\s]+_/i);
-	// var newCorrect = stringData.replace(/_[^\s]+/ig, "..."); 
-		
-//stringData.setHeader("Content-Type", "application/json; charset=ISO-8859-1");	
 	
 	var answerArr = [];
 	while ( stringData.match(/_[^_]+_*/i) != null ) {
@@ -40,11 +28,9 @@ var stringData = $.ajax({
 		var myString = blabla[0].substring(1)
 		myString = myString.substring(0, myString.length - 1);
 		answerArr.push(myString)
-		// console.log(blabla[0]);
 		 
 		 stringData = stringData.replace(blabla[0], '...');
 	}
-	//console.log(foundArr);
 	
 	var stringArray = stringData.split("\n");
 	var newArr = []; 											//removing empty elements in array - begin
@@ -61,33 +47,23 @@ var stringData = $.ajax({
 			rightTextArr.push( answerArr[i] )
 						
 		});		
-	 
 
 
-
-inputText = $(saveData).find(friends).find('inputText').text();
-showAnswers = $(saveData).find(friends).find('showAnswers').text();
-
-quoteText = $(saveData).find(friends).find('quote').text();
+	quoteText = $(saveData).find(friends).find('quote').text();
+	$('#quoteText').text(quoteText);
 
 
-	
-
-
-$('#quoteText').text(quoteText);
-
-
-var shuffle = function( myArray ) {
-  var i = myArray.length;
-  if ( i == 0 ) return false;
-  while ( --i ) {
-	 var j = Math.floor( Math.random() * ( i + 1 ) );
-	 var tempi = myArray[i];
-	 var tempj = myArray[j];
-	 myArray[i] = tempj;
-	 myArray[j] = tempi;
-   }
-}
+	var shuffle = function( myArray ) {
+	  var i = myArray.length;
+	  if ( i == 0 ) return false;
+	  while ( --i ) {
+		 var j = Math.floor( Math.random() * ( i + 1 ) );
+		 var tempi = myArray[i];
+		 var tempj = myArray[j];
+		 myArray[i] = tempj;
+		 myArray[j] = tempi;
+	   }
+	}
 		
 		
 
@@ -347,41 +323,7 @@ var init = function () {
 			});
 			ui.draggable.addClass($this.attr('id'));
 			alignLis();
-			
-			//console.log( ui.draggable.attr('class'));
-			/* var counter = [];
-			var counterN = 0;
-			$li.each(function () {
-				//console.log( $(this).attr('class') );
-				if ( $(this).attr('class') == ui.draggable.attr('class') ){
-				
-				counter.push($(this))
-				counterN = 		counterN + 1;	
-				}
-			});
-			
-			if (counterN > 1) {
-			 //console.log(counter[0].text())
-				counter[1].animate({left:'50px',top: '-40px',opacity:0},150).animate({
-					opacity: 1,
-					border: '1px solid',
-					textAlign: 'center',
-					padding: '5px',
-					borderColor: 'rgba(68, 68, 68,1)',
-					backgroundColor: 'rgba(187, 187, 187,1)',
-					color: 'rgba(68, 68, 68,1)'
-				}).attr('class','draggable ui-draggable');//.addClass('boxShadow');
-				counter[0].animate({left:'200px',top: '-40px',opacity:0},150).animate({
-					opacity: 1,
-					border: '1px solid',
-					textAlign: 'center',
-					padding: '5px',
-					borderColor: 'rgba(68, 68, 68,1)',
-					backgroundColor: 'rgba(187, 187, 187,1)',
-					color: 'rgba(68, 68, 68,1)'
-				}).attr('class','draggable ui-draggable');//.addClass('boxShadow');
-				$this.text('???');		
-			}  */
+	
 		},
 		over: function( event, ui ) {
 			if ( $(this).hasClass('occupado') ) { return; };
@@ -468,7 +410,7 @@ function changeCode () {
 	//	pauseOnHover:  0,    // Pause cycling when mouse hovers over the FRAME.
 	//	startPaused:   1, 
 		pagesBar: $('.pages'),
-	//	activatePageOn: 'click',
+		activatePageOn: 'click',
 		keyboardNavBy: 'pages'		  
 				
     });
@@ -593,26 +535,25 @@ function checking () {
 $('#checkButton').fastClick(function () {
 		$('.ui-droppable').css({border: 'none'})
 		$('.draggable').transition({opacity: 0},180,function () {
-		
-		$(this).remove();
+			$(this).remove();
 		});
-	$(this).css({background: "rgb(68, 68, 68) url('../img/ajax-loaderSmall.gif') 13% center no-repeat"})
+		$(this).css({background: "rgb(68, 68, 68) url('../img/ajax-loaderSmall.gif') 13% center no-repeat"})
 		setTimeout(function() {
 							 
-		sly.set({ speed: 1000, easing: 'easeInOutCubic'});
-		activeSlyPage = 0;
-		slideToNextDelay = 0;
+			sly.set({ speed: 1000, easing: 'easeInOutCubic'});
+			activeSlyPage = 0;
+			slideToNextDelay = 0;
 
-		if (sly.rel.activeItem != 0) {
-			sly.one('moveEnd', checking);
-			sly.off('change');
-			sly.toStart();
-		}
-		else {
-			checking();
-		}
+			if (sly.rel.activeItem != 0) {
+				sly.one('moveEnd', checking);
+				sly.off('change');
+				sly.toStart();
+			}
+			else {
+				checking();
+			}
 		
-	}, 250);
+		}, 250);
 
 });
   
