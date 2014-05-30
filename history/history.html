@@ -17,6 +17,7 @@ background: white;
 
 }
 #container {
+display: none;
 padding-left: 20px;
 padding-top: 3px;
 padding-bottom: 10px;
@@ -24,6 +25,22 @@ font-size: 16px;
 width: 600px;
 }
 
+#containerNew {
+padding-top: 3px;
+
+width: 600px;
+}
+#containerNew ul {
+padding-left: 7px;
+font-size: 13px;
+width: 600px;
+list-style-type: none;
+}
+
+button {
+font-size: 16px;
+margin-left: 7px;
+}
 
 
 </style>
@@ -31,6 +48,11 @@ width: 600px;
 
 
 <body>
+
+<div id="containerNew">
+	<ul></ul>
+</div>
+<button>Show/hide legacy changes</button>
 <div id="container">
 <p><strong>May 28.2014</strong></p>
 <ul>
@@ -38,8 +60,8 @@ width: 600px;
 	<ul>
 		<li><ins>gapFill:</ins>
 			<ul>
-				<li>Fixed reposition.</li>	
-				<li>Prevent drop when already occupied. Duh!</li>			
+				<li>Apply reposition for the entire li.</li>	
+				<li>Prevent drop when already occupied.</li>			
 			</ul>
 		</li>
 		
@@ -1319,6 +1341,7 @@ width: 600px;
 
 </div>
 
-
+<script type="text/javascript" src="../quiz/js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="history.js"></script>
 </body>
 </html>
