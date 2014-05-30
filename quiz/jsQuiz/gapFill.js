@@ -192,19 +192,6 @@ var init = function () {
 			
 			divWidth = $li.eq(i).width();
 			var cssObject;
-			//console.log(e.length)
-			/* if (e.length < 5 )
-			{
-				
-				cssObject = {
-					left: widthIndex + 'px',
-					top: liTop,
-					paddingLeft: '8px',
-					paddingRight: '8px'
-				}
-				divWidth = divWidth + 6;
-			} */
-		
 				cssObject = {
 					left: widthIndex + 'px',
 					top: liTop
@@ -220,7 +207,6 @@ var init = function () {
 				liTop = liTop + 47;
 				
 			}
-		//console.log ( widthIndex );
 		
 		}); 
 	var indexSuffix = 0;
@@ -229,49 +215,44 @@ var init = function () {
 		while (indexSuffix < answerArr.length && $this.text().indexOf("...") >= 0) {					// replace ... with drop frame
 		  var newMarkup = $this.html().replace(/\.\.\./, '<span class="suffixes" id="' + 'suffix' +indexSuffix + '">???</span>')
 		indexSuffix++;
-		//if ( $this.text().indexOf("...") >= 0) 	{ console.log('hello') }	
-		//console.log($this + indexSuffix)	
 		  $this.html(newMarkup);
 		};
 	
 	});
 	
+
 	
-	
-	/* $('.time').highlight($('.time').text(), { className: 'wrapped',pattern: '/and/i'});
-	// $('.time').html(newMarkup); */
-	
-	//var winWidth = $(parent.window).width()
-	
-			alignLis = function (thisParentTime) {	// alignLis function
-					var bla = [];
-					var bla2 = [];
-					var bla3 = [];
-					$.each(answerArr, function(i) {
-					if ($(thisParentTime).find('#suffix' + i).attr('id') != undefined) {
-							bla.push( $(thisParentTime).find('#suffix' + i).attr('id') )
-							bla2.push( $(thisParentTime).find('#suffix' + i).offset() )
-							//var pos = $(thisParentTime).find('#suffix' + i).position();
-							//bla3.push( pos );
-						}
-						
-					});
-					//var pos = $('.occupado').position();
-					//console.log( pos.top );
-					$.each(bla, function(i,e) {
-						var hello2 =  $('#ulContainer ul').find("." + e);
-						
-					/* 	hello2.css({
-						 left:bla3[i].left - 10,
-						 top: bla2[i].top - 435				// -5 to compensate for 5px border-top
-						}) */
-						hello2.offset({ top: bla2[i].top - 6, left: bla2[i].left - 5 })
-						//console.log(bla2[i])
-						//console.log(hello2.offset())
-						
-					})
-					//$('.time').columnize();
-				}											// alignLis function
+	alignLis = function () {	// alignLis function
+			var bla = [];
+			var bla2 = [];
+			$.each(answerArr, function(i) {
+			if (frameSlidee.find('#suffix' + i).attr('id') != undefined) {
+					bla.push( frameSlidee.find('#suffix' + i).attr('id') )
+					bla2.push( frameSlidee.find('#suffix' + i).offset() )
+				}				
+			});
+
+			$.each(bla, function(i,e) {
+				if ($('#' + e).text() != '???') {
+					var liToMove =  $('#ulContainer ul').find("." + e);
+					
+					var liToMoveParentLiIndex = $('#' + e).parents(':eq(2)').index();
+
+					var diff = 0;
+					// code if li is not on current page (+-1000) to offset
+					if ( liToMoveParentLiIndex < sly.rel.activeItem) {
+						diff = -(liToMoveParentLiIndex - sly.rel.activeItem) * 1000;
+					}
+					if ( liToMoveParentLiIndex > sly.rel.activeItem) {
+						diff = (sly.rel.activeItem - liToMoveParentLiIndex) * 1000;
+					}		
+					liToMove.offset({ top: bla2[i].top - 6, left: bla2[i].left - 5 + diff })
+					
+				}
+
+
+			})
+		}											// alignLis function
 		
 	//var bodyWidth = parent.window.$('body').width();
 	$("body").css("overflow", "hidden");
@@ -301,7 +282,7 @@ var init = function () {
 		out: function (event, ui) {
 			var $this = $(this);
 			//$this.removeClass('occupado');
-			var thisParentTime = $this.parent().parent();
+			//var thisParentTime = $this.parent().parent();
 			//prevSuffix = $(this);
 			if ( $li.hasClass( $this.attr('id') ) == false ) {
 				 $this.css({
@@ -347,8 +328,8 @@ var init = function () {
 		
 			
 			//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
-			var thisParentTime = $this.parent().parent().parent();
 			
+
 			
 			$this
 			.html( "<nobr>" + ui.draggable.text() + "</nobr>")
@@ -365,7 +346,7 @@ var init = function () {
 						
 			});
 			ui.draggable.addClass($this.attr('id'));
-			alignLis(thisParentTime);
+			alignLis();
 			
 			//console.log( ui.draggable.attr('class'));
 			/* var counter = [];
