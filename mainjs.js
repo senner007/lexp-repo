@@ -428,6 +428,13 @@ function LoadIframe($div) {
 			}
 			else {
 				this.stampedItem.append(this.$div.find('.hL').clone()).append(this.$div.find('.shrink').first().clone());
+				if (this.$div.hasClass('variousRules')) { 
+					this.stampedItem.find('.shrink').css({
+						'margin-top':'-27px',
+						'float': 'left',
+						marginLeft: '67px'				
+					}) 
+				};
 				isotopeItem = $container.isotope( 'getItem', this.$div[0] )
 			}
 
