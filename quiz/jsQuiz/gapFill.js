@@ -199,20 +199,14 @@ var init = function () {
 
 	
 	alignLis = function () {	// alignLis function
-			var bla = [];
-			var bla2 = [];
-			$.each(answerArr, function(i) {
-			if (frameSlidee.find('#suffix' + i).attr('id') != undefined) {
-					bla.push( frameSlidee.find('#suffix' + i).attr('id') )
-					bla2.push( frameSlidee.find('#suffix' + i).offset() )
-				}				
-			});
-
-			$.each(bla, function(i,e) {
-				if ($('#' + e).text() != '???') {
-					var liToMove =  $('#ulContainer ul').find("." + e);
+			var $ul = $('#ulContainer ul');
+			$.each($suffixes, function(i,e) {
+				var $this = $(this);
+				if ($this.text() != '???') {
+					var thisOffset = $this.offset()
+					var liToMove =  $ul.find("." + $this.attr('id'));
 					
-					var liToMoveParentLiIndex = $('#' + e).parents(':eq(2)').index();
+					var liToMoveParentLiIndex = $this.parents(':eq(2)').index();
 
 					var diff = 0;
 					// code if li is not on current page (+-1000) to offset
@@ -222,10 +216,9 @@ var init = function () {
 					if ( liToMoveParentLiIndex > sly.rel.activeItem) {
 						diff = (sly.rel.activeItem - liToMoveParentLiIndex) * 1000;
 					}		
-					liToMove.offset({ top: bla2[i].top - 6, left: bla2[i].left - 5 + diff })
+					liToMove.offset({ top: thisOffset.top - 6, left: thisOffset.left - 5 + diff })
 					
 				}
-
 
 			})
 		}											// alignLis function
