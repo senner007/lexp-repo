@@ -9,6 +9,8 @@ jQuery.extend( jQuery.fn, {
 	}
 });
 
+var deviceAgent = navigator.userAgent.toLowerCase();		
+var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
 if (!agentID) {
 		$('<input type="text" value="Abide" id="inputSearch"/>').insertAfter('#languageButton');
 		} 
@@ -227,140 +229,87 @@ if (!agentID) {
 'Zinc Zinced/Zincked Zinced/Zincked Zincs/Zincks Zincking'
   
   ];
- 
-
 
   
+	var listHtml = '';
   
-  //console.log($('ul').children().size());
-  
-  var listHtml = '';
-  
-  $.each(verbArray, function(i,e) {
-	var selectWordsArr = verbArray[i].split(" ");
-	//console.log(i);
-	//console.log(verbArray.length);
-	
-	listHtml += '<li>' + selectWordsArr[0] + '</li>'
+	$.each(verbArray, function(i,e) {
+		var selectWordsArr = verbArray[i].split(" ");
+		listHtml += '<li>' + selectWordsArr[0] + '</li>'
    
-  })
-  //console.log(listHtml);
+	})
   
-  $('ul').append(listHtml);
+	$('ul').append(listHtml);
   
-
- 
- 
- limove = function (indexFirst)  {
+	var $topRow1 = $('#topRow1'),
+		$topRow2 = $('#topRow2'),
+		$topRow3 = $('#topRow3'),
+		$topRow4 = $('#topRow4'),
+		$bottomRow1 = $('#bottomRow1'),
+		$bottomRow2 = $('#bottomRow2'),
+		$bottomRow3 = $('#bottomRow3'),
+		$bottomRow4 = $('#bottomRow4'),
+		$wordDef = $('#wordDef');
 	
-	
-	$('td').remove();
-	  var thisIndex = indexFirst;
-	  //console.log(thisIndex);
-	  var selectWordsArr = verbArray[thisIndex].split(" ");
-	 
-	 selectWordsArr[0] =  selectWordsArr[0].toLowerCase();
-	 selectWordsArr[1] =  selectWordsArr[1].replace(/\//g, ' /').toLowerCase();
-	 selectWordsArr[2] =  selectWordsArr[2].replace(/\//g, ' /').toLowerCase();
-	 selectWordsArr[3] =  selectWordsArr[3].replace(/\//g, ' /').toLowerCase();
-	 selectWordsArr[4] =  selectWordsArr[4].replace(/\//g, ' /').toLowerCase();
-	 
-	  
-	   $('#wordDef').text(selectWordsArr[0] + ' - ' + selectWordsArr[1] + ' - ' + selectWordsArr[2]);
-	  // $('#wordDef').highlight($('#wordDef').text(), { className: 'blackWhite'})
-	  
-	 if (thisIndex == 4) {
-			  var bottomRowAllRepeat = '<td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>';
-		  
-			  
-			  $('#topRow1').append('<td class="strong">I</td><td>was</td><td>was ' + selectWordsArr[4] + '</td><td>am</td><td>am ' + selectWordsArr[4] + '</td><td>will /am going to ' + selectWordsArr[0] + '</td><td>will be /am going to be ' + selectWordsArr[4] + '</td>'); 
-			  
-				  
-			  $('#topRow2').append('<td class="strong">You</td><td>were</td><td>were ' + selectWordsArr[4] + '</td><td>are</td><td>are ' + selectWordsArr[4] + '</td><td>will /are going to ' + selectWordsArr[0] + '</td><td>will be /are going to be ' + selectWordsArr[4] + '</td>'); 
-			  
-			
+    
+	limove = function (indexFirst)  {
 
-			  $('#topRow3').append('<td class="strong">He, she, it</td><td>was</td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[3] + '</td><td>is ' + selectWordsArr[4] + '</td><td>will /is going to ' + selectWordsArr[0] + '</td><td>will be /is going to be ' + selectWordsArr[4] + '</td>'); 
+		var thisIndex = indexFirst,
+			selectWordsArr = verbArray[thisIndex].split(" ");
+		 
+		selectWordsArr[0] =  selectWordsArr[0].toLowerCase();
+		selectWordsArr[1] =  selectWordsArr[1].replace(/\//g, ' /').toLowerCase();
+		selectWordsArr[2] =  selectWordsArr[2].replace(/\//g, ' /').toLowerCase();
+		selectWordsArr[3] =  selectWordsArr[3].replace(/\//g, ' /').toLowerCase();
+		selectWordsArr[4] =  selectWordsArr[4].replace(/\//g, ' /').toLowerCase();
 			  
-				  
-			  var pluralVerbs = '<td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>were ' + selectWordsArr[4] + '</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>';
-			  
-			  $('#topRow4').append('<td class="strong">We</td><td>were</td><td>were being</td><td>are</td><td>are being</td><td>will /are going to ' + selectWordsArr[0] + '</td><td>will be /are going to be ' + selectWordsArr[4] + '</td>'); 
-			  
-			 
-			  
-			  $('#topRow5').append('<td>You</td>' + bottomRowAllRepeat); 
-			  
-			  
-
-			  $('#topRow6').append('<td>They</td>' + bottomRowAllRepeat); 
-	 
-	 } else {
-	  
-			  var bottomRowAllRepeat = '<td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>';
-			  
-				  
-			  $('#topRow1').append('<td class="strong">I</td><td>' + selectWordsArr[1] + '</td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>am ' + selectWordsArr[4] + '</td><td>will /am going to ' + selectWordsArr[0] + '</td><td>will be /am going to be ' + selectWordsArr[4] + '</td>'); 
-			  
-				  
-			  $('#topRow2').append('<td class="strong">You</td><td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td><img src="arrowTop.png"/></td><td>are ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to be ' + selectWordsArr[4] + '</td>'); 
-			  
-			
-
-			  $('#topRow3').append('<td class="strong">He, she, it</td><td><img src="arrowTop.png"/></td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[3] + '</td><td>is ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to be ' + selectWordsArr[4] + '</td>'); 
-			  
-				  
-			  var pluralVerbs = '<td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>are ' + selectWordsArr[4] + '</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>';
-			  
-			  $('#topRow4').append('<td class="strong">We</td><td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>are ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to be ' + selectWordsArr[4] + '</td>'); 
-			  
-			 
-			  
-			  $('#topRow5').append('<td>You</td>' + bottomRowAllRepeat); 
-			  
-			  
-
-			  $('#topRow6').append('<td>They</td>' + bottomRowAllRepeat); 
-	  
-
-	  }
-	  
-	  var bottomRowAll = '<td>had ' + selectWordsArr[2] + '</td><td>had been ' + selectWordsArr[4] + '</td><td>have ' + selectWordsArr[2] + '</td><td>have been ' + selectWordsArr[4] + '</td><td>will have /am going to have ' + selectWordsArr[2] + '</td><td>will have been /am going to have been ' + selectWordsArr[4] + '</td>';
-	  
-	  
-	  
-	 	  
-	  var bottomRowAllRepeatAfter = '<td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td>have ' + selectWordsArr[2] + '</td><td>have been ' + selectWordsArr[4] + '</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>';
-	  
-	  var bottomRow4Arrows = '<td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>'
-	  
-	  $('#bottomRow1').append('<td class="strong">I</td>' + bottomRowAll); 
+		$wordDef.text(selectWordsArr[0] + ' - ' + selectWordsArr[1] + ' - ' + selectWordsArr[2]);
 		
-	  
-	  $('#bottomRow2').append('<td class="strong">You</td>' + bottomRow4Arrows + '<td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have been ' + selectWordsArr[4] + '</td>'); 
-	  
-	  $('#bottomRow3').append('<td class="strong">He, she, it</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td>has ' + selectWordsArr[2] + '</td><td>has been ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to have been ' + selectWordsArr[4] + '</td>'); 
-	  
-	 	  
-	  $('#bottomRow4').append('<td class="strong">We</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td>have ' + selectWordsArr[2] + '</td><td>have been ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have been ' + selectWordsArr[4] + '</td>'); 
-	  
-	
-	  
-	  $('#bottomRow5').append('<td>You</td>' + bottomRowAllRepeat); 
-	  
+			// exception if verb is 'be'
+		if (thisIndex == 4) {
+					  
+			$topRow1.html('<td class="strong">I</td><td>was</td><td>was ' + selectWordsArr[4] + '</td><td>am</td><td>am ' + selectWordsArr[4] + '</td><td>will /am going to ' + selectWordsArr[0] + '</td><td>will be /am going to be ' + selectWordsArr[4] + '</td>'); 
+			  
+			$topRow2.html('<td class="strong">You</td><td>were</td><td>were ' + selectWordsArr[4] + '</td><td>are</td><td>are ' + selectWordsArr[4] + '</td><td>will /are going to ' + selectWordsArr[0] + '</td><td>will be /are going to be ' + selectWordsArr[4] + '</td>'); 
+		  
+			$topRow3.html('<td class="strong">He, she, it</td><td>was</td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[3] + '</td><td>is ' + selectWordsArr[4] + '</td><td>will /is going to ' + selectWordsArr[0] + '</td><td>will be /is going to be ' + selectWordsArr[4] + '</td>'); 
+		  
+			$topRow4.html('<td class="strong">We</td><td>were</td><td>were being</td><td>are</td><td>are being</td><td>will /are going to ' + selectWordsArr[0] + '</td><td>will be /are going to be ' + selectWordsArr[4] + '</td>'); 
 	 
-	  $('#bottomRow6').append('<td>They</td>' + bottomRowAllRepeat); 
-	  
-	 if (!$.support.transition) {	
+		} 
+		else {
 
-		$('td').css({fontSize:'16px'});
-	} 
+			$topRow1.html('<td class="strong">I</td><td>' + selectWordsArr[1] + '</td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>am ' + selectWordsArr[4] + '</td><td>will /am going to ' + selectWordsArr[0] + '</td><td>will be /am going to be ' + selectWordsArr[4] + '</td>'); 
+			  
+			$topRow2.html('<td class="strong">You</td><td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td><img src="arrowTop.png"/></td><td>are ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to be ' + selectWordsArr[4] + '</td>');   
+
+			$topRow3.html('<td class="strong">He, she, it</td><td><img src="arrowTop.png"/></td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[3] + '</td><td>is ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to be ' + selectWordsArr[4] + '</td>'); 	  		  		  
+			$topRow4.html('<td class="strong">We</td><td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>are ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to be ' + selectWordsArr[4] + '</td>'); 
+				  
+		}
+		  
+			var bottomRowAll = '<td>had ' + selectWordsArr[2] + '</td><td>had been ' + selectWordsArr[4] + '</td><td>have ' + selectWordsArr[2] + '</td><td>have been ' + selectWordsArr[4] + '</td><td>will have /am going to have ' + selectWordsArr[2] + '</td><td>will have been /am going to have been ' + selectWordsArr[4] + '</td>';		  
+				  
+			var bottomRow4Arrows = '<td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>'
+			  
+			$bottomRow1.html('<td class="strong">I</td>' + bottomRowAll); 
+						  
+			$bottomRow2.html('<td class="strong">You</td>' + bottomRow4Arrows + '<td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have been ' + selectWordsArr[4] + '</td>'); 
+			  
+			$bottomRow3.html('<td class="strong">He, she, it</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td>has ' + selectWordsArr[2] + '</td><td>has been ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to have been ' + selectWordsArr[4] + '</td>'); 
+					  
+			$bottomRow4.html('<td class="strong">We</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td>have ' + selectWordsArr[2] + '</td><td>have been ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have been ' + selectWordsArr[4] + '</td>'); 
+		  
+	  
+		if (!$.support.transition) {	
+
+			$('td').css({fontSize:'16px'});
+		} 
 
 }
- var frame = $('#frame');
-var sly = new Sly(frame, {
 
-		
+	var frame = $('#frame');
+	var sly = new Sly(frame, {	
 		horizontal: 1,
         itemNav: 'forceCentered',
         scrollBy: 1,
@@ -378,131 +327,75 @@ var sly = new Sly(frame, {
 			
 		  },
 		  { 
-			  moveEnd: function (position, $items, relatives) {
-			  
-				  //console.log(this.rel.activeItem);
+			moveEnd: function (position, $items, relatives) {
+
 				  var indexFirst = this.rel.activeItem;
-					//console.log(indexFirst)
 				  limove(indexFirst );
-				/*   console.log('hello');
-				  $('#topTable,#bottomTable').transitionStop(true, false).transition({opacity:1}, 700); */
 				 
-			  },
-			  moveStart: function (position, $items, relatives) {
+			},
+			load: function (position, $items, relatives) {
+
+				limove(0);
 			  
-			/* 	$('#topTable,#bottomTable').transition({
-				opacity: 0
-				
-				},2000,'easeInQuad');  */
-			  }
+				var bottomRowAllRepeat = '<td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>';  
+				$('#topRow5').html('<td>You</td>' + bottomRowAllRepeat); 
+				$('#topRow6').html('<td>They</td>' + bottomRowAllRepeat);
+				$('#bottomRow5').html('<td>You</td>' + bottomRowAllRepeat); 
+				$('#bottomRow6').html('<td>They</td>' + bottomRowAllRepeat); 				
+			}
 		});
-		sly.init()
-	
+	sly.init();
 
-var deviceAgent = navigator.userAgent.toLowerCase();			//Only add swipe if devices detected
-var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
-									
-	
-	
-/* $('#inputSearch').focus(function () {
-	$(this).val('');
-}); */
-	
-$('#inputSearch').keyup(function (e) { 
+	$('#inputSearch').keyup(function (e) { 
 
-	var v = $(this).val();
-	if (v != '') {
-		 var found =  $('li').search(v);
-		// console.log ( found.index())
-		 //var sly = $('#frame').data('sly');
-		sly.activatePage(found.index());
-	}
+		var v = $(this).val();
+		if (v != '') {
+			 var found =  $('li').search(v);
+			sly.activatePage(found.index());
+		}
  
- });
-	
-	
-	
- $('#prevButton').fastClick(function () {
+	});
 
-	sly.activatePage(sly.rel.activeItem  -1);
-	
-  }); 	
+	$('#prevButton').fastClick(function () {
+		sly.activatePage(sly.rel.activeItem  -1);	
+	}); 	
   
-   $('#nextButton').fastClick(function () {
-
-	sly.activatePage(sly.rel.activeItem  +1);
-	
-  }); 	
-  
-/*  $('#startButton').fastClick(function () {
-var sly = $('#frame').data('sly');
-	sly.slideTo(-500);
-	
-  });   
-   $('#endButton').fastClick(function () {
-var sly = $('#frame').data('sly');
-	sly.slideTo(30000);
-	
-  });    */
-  
-
-  
-  
-  
-/*       $('#closingButton').fastClick(function (e) {
-	e.preventDefault();
-parent.$.fancybox.close();
-	
-  });  */
+	$('#nextButton').fastClick(function () {
+		sly.activatePage(sly.rel.activeItem  +1);	
+	}); 	
 
      
-	 $('#skipNextButton').fastClick(function (indexFirst) {
-/* var sly = $('#frame').data('sly'); */
-
-sly.activatePage(sly.rel.activeItem + 10);
-/* sly.slideTo(sly.getPos().cur + sly.getPos().end/10); */
-
-  });   
+	$('#skipNextButton').fastClick(function (indexFirst) {
+		sly.activatePage(sly.rel.activeItem + 10);
+	});   
   	 
-	 $('#skipPrevButton').fastClick(function (indexFirst) {
-/* var sly = $('#frame').data('sly'); */
-sly.activatePage(sly.rel.activeItem - 10);
-	
-  });   
+	$('#skipPrevButton').fastClick(function (indexFirst) {
+		sly.activatePage(sly.rel.activeItem - 10);	
+	});   
   
-/*   $('html').keyup(function (e) { 
-	if(e.which == 27){
-                	e.preventDefault();
-		parent.$.fancybox.close();
-            }
- 
- }); */
   
-  	 $('#languageButton').fastClick(function (indexFirst) {
+  	$('#languageButton').fastClick(function (indexFirst) {
 
+		if ($(this).text() == 'Eng.') {
+			
+			$('#topTable').find('th.column2').text('Datid')
+			.end().find('th.column3').html('udv.')
+			.end().find('th.column4').text('Nutid')
+			.end().find('th.column5').text('udv.')
+			.end().find('th.column6').text('Fremtid')
+			.end().find('th.column7').text('udv.');
+			
+			
+			$('#bottomTable').find('th.column2').text('Førdatid')
+			.end().find('th.column3').html('udv.')
+			.end().find('th.column4').text('Førnutid')
+			.end().find('th.column5').text('udv.')
+			.end().find('th.column6').text('Førfremtid')
+			.end().find('th.column7').text('udv.');
 
-if ($(this).text() == 'Eng.') {
+			$(this).text('Dk')	
+		}
 	
-	$('#topTable').find('th.column2').text('Datid')
-	.end().find('th.column3').html('udv.')
-	.end().find('th.column4').text('Nutid')
-	.end().find('th.column5').text('udv.')
-	.end().find('th.column6').text('Fremtid')
-	.end().find('th.column7').text('udv.');
-	
-	
-	$('#bottomTable').find('th.column2').text('Førdatid')
-	.end().find('th.column3').html('udv.')
-	.end().find('th.column4').text('Førnutid')
-	.end().find('th.column5').text('udv.')
-	.end().find('th.column6').text('Førfremtid')
-	.end().find('th.column7').text('udv.');
+	}); 
 
-$(this).text('Dk')	
-}
-	
-  }); 
-  
-
-	 limove(0);
 });
