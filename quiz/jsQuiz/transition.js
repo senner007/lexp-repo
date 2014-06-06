@@ -24,9 +24,7 @@ var stringData = $.ajax({
 		async: false
 	 }).responseText;
 
-//$('#loaderGif').remove();
 
-//shuffle text function
 var shuffle = function( myArray ) {
 	  var i = myArray.length;
 	  if ( i == 0 ) return false;
@@ -92,7 +90,6 @@ while ( count > 0 ) {
 
 }	
 	stringArray = removeEmpty(stringArray);
-	/* console.log(stringArray) */
 
 	var completeString = ''
 	// create a complete string with broken paragraphs
@@ -127,9 +124,7 @@ while ( count > 0 ) {
 	var indexes = 0;
 	$('.container').each(function (i,e) {
 	
-		
 		var hello = parseInt($(e).css('height'));
-		
 		while ( hello < 230 && indexes < stringArray.length) { 
 			
 			if (jQuery.inArray(indexes, textFoundIndex)  >= 0) {
@@ -151,37 +146,30 @@ while ( count > 0 ) {
 
 	$('.conLi').each(function (ind,elm) {
 		var arrayTest = [];
-			
-		var myHtmlArr = []
-		myHtmlArr[0] = "";
-		myHtmlArr[1] = "";
-		myHtmlArr[2] = "";
-		myHtmlArr[3] = "";
+		var myHtmlArr = [];		
 		var myHtmlCounter = 0;
+		myHtmlArr[myHtmlCounter] = '';
 		$(this).find('.container').children().each(function (index,el) {
+		
 			var $this = $(this);
 			var thisNext;
 			
-			if ( $this.next().text() == "") {  // if the text object is placed on the proceeding page
+			if ( $this.next().text() == "") {  // if the text object is placed on the preceding page
 				thisNext =  $(el).parent().next().children().first(); 
 			}
 			else {
 				thisNext = $this.next();
 			}
 				
-			
 			if ($this.hasClass('objOther')) {
-						
+	
 				if (thisNext.hasClass('objOther')) {	
-				
-					myHtmlArr[myHtmlCounter] += "<div class='hello'>" + $(el).text() + "</div>"
-				
-					
+					myHtmlArr[myHtmlCounter] += "<div class='hello'>" + $(el).text() + "</div>"				
 				}
 				else {				
 					myHtmlArr[myHtmlCounter] += "<div class='hello'>" + $(el).text() + "</div>"
 					myHtmlCounter++;
-				
+					myHtmlArr[myHtmlCounter] = '';		
 				}
 			
 			}
@@ -190,7 +178,6 @@ while ( count > 0 ) {
 			}
 				
 		}).remove();
-		
 	
 		var counterOther = 0;
 			
@@ -199,62 +186,48 @@ while ( count > 0 ) {
 		var indexes = 0;
 		var counter = 0;
 		$(this).find('.container').each(function (i,end) {
-		
 			
 			if (counterOther == 0) {
 				$.each(myHtmlArr, function (i,e) {
 				
 					if ( myHtmlArr[i] != "") {
 					$("<div class='obj other'></div>").html(myHtmlArr[i]).appendTo(end);
-					//console.log(myHtmlArr[i]);
 					}				
 				});
 				counterOther = 1;
 			}
-		
-			//console.log( 'hi' );
+
 			counter++;
-			//console.log( counter );
 			var myHtml = '';
-				//console.log ( $(e).attr('id') );
-				var hello = parseInt($(end).css('height'));
-				// if ($.browser.mozilla) {	var hello = parseInt($(end).css('height')) + 40;	} 
-				
-				if (counter == 1) {			
-					while ( hello < 230 && indexes < arrayTest.length) {
+			var hello = parseInt($(end).css('height'));
+			
+			if (counter == 1) {			
+				while ( hello < 230 && indexes < arrayTest.length) {
 					
+					$("<div class='obj'></div>").text(arrayTest[indexes]).appendTo(end);
+					indexes = indexes +1;	
 					
-						
-						$("<div class='obj'></div>").text(arrayTest[indexes]).appendTo(end);
-						indexes = indexes +1;
-					
-						
-						hello = parseInt($(end).css('height'));
-						 //if ($.browser.mozilla) {	hello = parseInt($(end).css('height')) + 40; } 
-					}
+					hello = parseInt($(end).css('height'));
 				}
-				else {
-					while ( indexes < arrayTest.length) {
-						$("<div class='obj'></div>").text(arrayTest[indexes]).appendTo(end);
-						indexes = indexes +1;
-					}
-						
+			}
+			else {
+				while ( indexes < arrayTest.length) {
+					$("<div class='obj'></div>").text(arrayTest[indexes]).appendTo(end);
+					indexes = indexes +1;
 				}
+					
+			}
 		
 		});
 		
 	});
 	
 	$('#container')
-		.find('.obj')
-		.addClass('object')
-		.removeClass('obj')
+		.find('.obj').addClass('object').removeClass('obj')
 	.end()
-		//.css({opacity: 1})
-		.find(".container:empty").not('.jumpOut')
-		.remove();
+		.find(".container:empty").remove();
 		
-		$('#frame').find(".conLi:empty").parent().remove();
+	$('#frame').find(".conLi:empty").parent().remove();
 
 
 
@@ -317,30 +290,26 @@ while ( count > 0 ) {
 	  objPrepApp();
 });	
 
- $.fn.shuffle2 = function() {
+$.fn.shuffle2 = function() {
 
-            var allElems = this.get(),
-                getRandom = function(max) {
-                    return Math.floor(Math.random() * max);
-                },
-                shuffled = $.map(allElems, function(){
-                    var random = getRandom(allElems.length),
-                        randEl = $(allElems[random]).clone(false)[0];
-                    allElems.splice(random, 1);
-                    return randEl;
-               });
+	var allElems = this.get(),
+		getRandom = function(max) {
+			return Math.floor(Math.random() * max);
+		},
+		shuffled = $.map(allElems, function(){
+			var random = getRandom(allElems.length),
+				randEl = $(allElems[random]).clone(false)[0];
+			allElems.splice(random, 1);
+			return randEl;
+	   });
 
-            this.each(function(i){
-                $(this).replaceWith($(shuffled[i]));
-            });
+		this.each(function(i){
+			$(this).replaceWith($(shuffled[i]));
+		});
 
-            return $(shuffled);
-        };  
-	 
-
-/* parent.window.$.fancybox.hideLoading() */
-
-
+		return $(shuffled);
+	};  
+	
 
 $('#prevButton').addClass('ButtonDisabled');	// prev button hidden by default
 	
@@ -362,33 +331,33 @@ var answerSwitch = 0;
 $('#puzzleOnOff').on('tapclick', function () {
 	answerSwitch = 1;
 	$(this).toggleClass("readModeOn");
-	 if (  $(this).hasClass("readModeOn")) {
-			sly.destroy().init(); // or else fail
-		  $('#checkButton,#shuffleButton').css('text-decoration','line-through');
-		   $('#shuffleButton').off();
-		  $(this).css('background',"rgb(187, 187, 187) url('css/cssImg/book_open-24.png') 50% center no-repeat");
-		  $saved = $('.slidee').contents().clone()
-			
-		 $('.object').remove();
-		$('.container').removeClass('ui-droppable').css({opacity:0});   
-		  
-		 var completeArray = stringData.split("\n");
-		completeArray = removeEmpty(completeArray);
+	var $slidee = $('.slidee');
+	$slidee.css({opacity: 0});
+	if (  $(this).hasClass("readModeOn") ) {
+	
+		sly.destroy().init(); // or else fail
+		$('#checkButton,#shuffleButton').css('text-decoration','line-through');
+		$('#shuffleButton').off();
+		$(this).css('background',"rgb(187, 187, 187) url('css/cssImg/book_open-24.png') 50% center no-repeat");
+		$saved = $slidee.contents().clone();
 		
-		 
+		$('.object').remove();
+		$('.container').removeClass('ui-droppable');   
+	  
+		var completeArray = stringData.split("\n");
+		completeArray = removeEmpty(completeArray);
+	
+	 
 		var indexes = 0;
 		$('.container').each(function (i,el) {
-		
-		var op = { opacity: 0 }	
-			//console.time(name)
+	
 			var hello = 0;
 			while ( hello < 380 && indexes < completeArray.length) { 
 				
 					hello = 0;
 					$("<div class='object2'></div>").text(completeArray[indexes]).appendTo(el);
 					indexes++;
-			
-					 
+			 
 					$(el).children().each(function () {
 						hello += $(this).height();
 					})
@@ -396,47 +365,35 @@ $('#puzzleOnOff').on('tapclick', function () {
 			} 
 			
 			if (hello > 420 ) { 
-				
-				//console.log('last length: ' + $(el).children().last().text().length )
-				//console.log('all height: ' + $(el).children().text().length )
-			//	console.log('height above allowed: ' + (hello - 420))				
+		
 				var cutOff = $(el).children().last().text().length - ((hello - 420) * 3)
-				//console.log('cutOff ' + cutOff);
-				
 				var tsplit = splitText( $(el).children().last().text(), i ,cutOff )
 				
 				$(el).children().last().remove();
 				$("<div class='object2'></div>").text(tsplit[0]).appendTo(el);
-			
 				$("<div class='object2'></div>").text(tsplit[1]).appendTo( $('.container').eq(i + 1) );
 		
 			}
-			
+		
 		});
 		
 		$('#container').find(".container:empty").remove();
 		$('#frame').find(".conLi:empty").parent().remove(); 
 		sly.destroy().init();
 	
-		$('.container').transition({opacity:1},700);
 	
 	}
-	  else {
+	else {
 		
-		  recallShuffled = 0;
-		   $(this).css('background',"rgb(68, 68, 68) url('css/cssImg/puzzle.png') 60% center no-repeat");
+		recallShuffled = 0;
+		$(this).css('background',"rgb(68, 68, 68) url('css/cssImg/puzzle.png') 60% center no-repeat");
 		  
-		$('.slidee').contents().remove()
-			$('.slidee').append( $saved ).end().find('.container').css({opacity:0});
-			 sly.destroy().init();
-			    sly.reload();
-			
-		/*   $('.conLi').children().trigger("ss-event-arrange");
-		  $('.conLi').children().trigger("ss-event-dragreset");   */
-		   
-		
-		   
-		 $("#container").find(".container").shapeshift({
+		$slidee.contents().remove()
+		$slidee.append( $saved ).end().find('.container')
+		sly.destroy().init();
+		sly.reload();
+					   
+		$("#container").find(".container").shapeshift({
 			paddingY: 0,
 			paddingX: 0,
 			gutterY: 6,
@@ -457,11 +414,9 @@ $('#puzzleOnOff').on('tapclick', function () {
 			$('#checkButton').css('text-decoration','none');
 			answerSwitch = 0;
 		}
-	  
-		$('.container').transition({opacity:1},700);	
-		
+	  	
 	  }
-
+	$slidee.transition({opacity:1},700);
 	
 });
 
@@ -499,11 +454,8 @@ var actions = {
 
 	checkFunction: function () {		// check function
 
-	
-		 $('.object').draggable('disable');
+		$('.object').draggable('disable');
 		
-
-
 		var easingOut = 'ease';
 		if (!$.support.transition) {
 			$.fn.transition = $.fn.animate;
@@ -523,7 +475,6 @@ var actions = {
 		
 		$('.hello').addClass('tobeChecked');
 		$('.object').not('.other').addClass('tobeChecked');
-
 
 		var activeSlyPage = 0;
 		var slideToNextDelay = 0;
@@ -551,18 +502,14 @@ var actions = {
 		$('.container').find('.tobeChecked').each(function (i, e) {		// get array with div's in the dom
 					myArr.push($.trim($(this).text()));
 				
-				});
+		});
 		
 		
 		
 			$('.container').find('.tobeChecked').each(function (index2, e) {
 				
-			
-			
-				var $this = $(this); 
-				/* var $thisText = myArr[i]; */
+				var $this = $(this); 		
 				var  $thisText = $.trim(myArr[i]);
-				
 				stringArray[i] = $.trim(stringArray[i]);
 			
 				if (myArr[i] == stringArray[i]) {
@@ -572,9 +519,7 @@ var actions = {
 					var options = {
 							marginTop: 10,
 							color: '#006400'
-						}
-				
-					
+						}									
 					
 					
 				$this.delay((index2 * 200) + slideToNextDelay)
@@ -674,10 +619,8 @@ var actions = {
 						 preValidIndex = 0;
 						 }
 					
-			
-					
+		
 					if ( (stringArray.indexOf(blabla) >= 0) && blaLength > 2 || preValidIndex != 0) {
-					//console.log('hello')
 					
 						$this.append("<img class='imgCheck' src='css/cssImg/orangeCheck2.png'/>");
 					
@@ -692,13 +635,7 @@ var actions = {
 						.animate({
 							marginTop: 0
 						}, 100,easingIn,function () {
-						/* if (highLightThis == true) { 
-							$thisText = $.trim($thisText);
-							$this.highlight($thisText, { className: 'orangeColor'})
-						
-						} */
-					
-						
+
 						
 						var thisPos =  $this.find('img').position()
 					
@@ -779,13 +716,7 @@ var actions = {
 		$('#checkButton').css('text-decoration','none');
 	  
 		$('.container').find('div').each(function () {
-		$this = $(this)
-			if ( $this.parents('.slidee li').css('backgroundColor') != 'rgb(72, 72, 72)'){
-			
-			$this.css('color','rgb(51, 51, 51)');
-			}
-			//$this.unhighlight();
-			
+			$(this).css('color','rgb(51, 51, 51)');			
 		})
 		$('img').remove();
 		$('#endText').remove();
@@ -819,63 +750,39 @@ var actions = {
 		
 		  $('.conLi').children().trigger("ss-event-arrange");
 		  $('.conLi').children().trigger("ss-event-dragreset");
-		  //sly.destroy().init(); 
 
 	}
 }
 
 
- $('#checkButton').on('tapclick',function () {
+$('#checkButton').on('tapclick',function () {
 	if (answerSwitch == 1) { 	
 			return; 
-	}
-	
+	}	
 	answerSwitch = 1;
 	$('#shuffleButton').css('text-decoration','line-through').off();
 	$(this).css({background: "rgb(68, 68, 68) url('../img/ajax-loaderSmall.gif') 13% center no-repeat"})
-	setTimeout(function() {
 							 
 		sly.set({ speed: 1000, easing: 'easeInOutCubic'});
 		activeSlyPage = 0;
 		slideToNextDelay = 0;
-
+		
 		if (sly.rel.activeItem != 0) {
 			sly.one('moveEnd', actions.checkFunction);
-			sly.off('change');
 			sly.toStart();
 		}
 		else {
 			actions.checkFunction();
-		}
-		
-	}, 250);
-		
+		}	
  
- });
+});
  
  
- $('#shuffleButton').on('tapclick',actions.shuffleFunction); 
+$('#shuffleButton').on('tapclick',actions.shuffleFunction); 
 
-// function to append or prepend text dropped outside container height 
  
 function objPrepApp() {
 	var $containers = $('.conLi').children();
-	$containers.on("ss-event-dragreset", function(e, selected) {
-	  	  
-		$('.newToList').each(function () {
-			/* if ( $(this).parent().is(':last-child') ) {
-				var slideFrom = '+=400';
-				var slideTo = '-=400';
-			} 
-			else { 
-				var slideFrom = '-=400';
-				var slideTo = '+=400';
-			} */
-			$(this).css({y : '-=400'}).removeClass('newToList').transition({opacity:1, y : '+=400'});
-			
-			
-		});
-	});  
 	 
 	$containers.on("ss-event-dropped", function(e, selected) {
 
@@ -896,9 +803,8 @@ function objPrepApp() {
 				if ( $containers.not(".ss-prev-container").children().last().children().length > 0  ) {
 				     var myHtml = "<div class='other object'>";
 				     $thisCon.children().last().children().each(function (i,e) {
-					myHtml += "<div class='hello'>" + textArray[i] +  "</div>";
-				     
-				     })
+						myHtml += "<div class='hello'>" + textArray[i] +  "</div>";  
+				     });
 				     myHtml += "</div>";
 				     $(myHtml).addClass('newToList').prependTo($containers.not($this));				    
 				}
@@ -921,11 +827,18 @@ function objPrepApp() {
 				$containers.trigger("ss-event-arrange");
 						
 			
-		}
-		//$containers.trigger("ss-event-arrange");
+		};
 		$('.newToList').parent().trigger("ss-event-dragreset");
 		
-	   }); 
+	}); 
+	
+	$containers.on("ss-event-dragreset", function(e, selected) {
+	  	  
+		$('.newToList').each(function () {
+			$(this).css({y : '-=400'}).removeClass('newToList').transition({opacity:1, y : '+=400'});						
+		});
+	});
+	
  }
  
 
