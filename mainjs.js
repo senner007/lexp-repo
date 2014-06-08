@@ -679,6 +679,7 @@ $('#site-nav').on('tapclick','li',function(e){
  
 $('#topHeader').find('a').on('tapclick',function(e){
 e.preventDefault();
+$loaderGif.show();
 var $this = $(this);
 if ( $this.hasClass('tempDisable') ) { return; }; 
 	
@@ -702,7 +703,8 @@ if ( $this.hasClass('tempDisable') ) { return; };
 					openSpeed: 400,
 					closeEffect	: 'elastic',
 					afterLoad:  function () {		
-						this.content.css({opacity:1});		
+						this.content.css({opacity:1});	
+						$loaderGif.hide();
 					}
 				});
 			break;
@@ -725,6 +727,7 @@ if ( $this.hasClass('tempDisable') ) { return; };
 					closeEffect	: 'elastic',
 					afterLoad:  function () {
 						this.content.css({opacity:1});
+						$loaderGif.hide();
 						}
 				});
 			break;	  
