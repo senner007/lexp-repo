@@ -5,9 +5,7 @@ $(document).ready(function(){
 
 var $loaderGif = $('#loaderGif');
 
-
 var isTablet = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-
 
 if ( isTablet ) {	// if tablet then bring in tablet.css
 
@@ -75,11 +73,7 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 			}
 		
 		}
-		
-	
-		//TypeWriteFirst($container.find('.exc').find('.boldedSub'));
-		
-			
+					
 		alignQuiz = function() {
 			
 			
@@ -96,8 +90,7 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 
 				if ($thisSubTitle.charAt($thisSubTitle.length-1) != 'I' && $thisSubTitle.charAt($thisSubTitle.length-1) != 'V') {
 					
-					myHtml += '<div data-abc="' + $thisSubTitle + '" '  + "class='item exc " +  this.tagName + " isotope-brick' data-fancybox-type='iframe' title='" + $thisTitle + "'><div class='hL'>" + higlightVar + "</div>" + '<span class="shrink">' + $thisSubTitleSplit + '</span>'
-					
+					myHtml += '<div data-abc="' + $thisSubTitle + '" '  + "class='item exc " +  this.tagName + " isotope-brick' data-fancybox-type='iframe' title='" + $thisTitle + "'><div class='hL'>" + higlightVar + "</div>" + '<span class="shrink">' + $thisSubTitleSplit + '</span>'				
 				
 				}
 				
@@ -170,20 +163,15 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 				recentParent = $container.find('.recent').parents('.item').add('.item.recent');
 
 			var $items = $('.item');
-			//console.log( $items.attr('data-abc') );
 			
 	   		$loaderGif.hide();
-		
-			
+					
 			$('.colimg2').css('visibility','visible');
-						
-			$container.isotope({
-				// options
+						 
+			$container.isotope({ 		
 				itemSelector: '.item',
 				itemPositionDataEnabled: true,
-				 layoutMode: 'packery',
-	
-  /* stamp: '.stamp', */
+				layoutMode: 'packery',
 				resizesContainer: false,
 				resizable: false,
 				hiddenStyle: { opacity : 0},
@@ -192,32 +180,26 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 				}, 
 				sortBy: 'category',		
 				transformsEnabled: true,
-				transitionDuration: '0.7s',
+				transitionDuration: '0.7s'
 				}).isotope({ filter: recentParent });
 				
-			
-					$itemGrammar = $container.find($(".exc:contains('Grammar')"));
-					$itemVocab = $container.find($(".exc:contains('Vocabulary')"));
-					$itemTrueFalseTheme = $container.find($(".exc:contains('Theme')"));
-					//$itemQ = $container.find('.quiz,.scrambled,.sortable,.trueFalse,.jumbled,.doubleTrouble,.gapFill,.recall,.transition');
-					//$itemC = $container.find('.item.coltext1,.item.coltext2,.item.coltext3');
-					$itemI = $container.find('.item.colimg1,.item.colimg2');
-					$itemRules = $container.find(".colRules1,.colRules2,.coltext1,.coltext2,.coltext3,.exc:contains('Text')");
-					$itemsAll = $container.find('.item').not('#introText');
-					
-					window.defScripts = new $.Deferred();
-					$.when(
-						$.getScript( "fancybox/jquery.fancybox215Mod.js" ),
-						$.getScript( "quiz/js/jquery.easing.1.3.min.js" ),
-						
-						/* $.getScript( "quiz/js/ellipsis.js" ),
-						$.getScript( "quiz/js/jquery.lettering.js" ), */
-					$.Deferred(function( deferred ){
-						$( deferred.resolve );
-						})
-						).done(function(){
-						defScripts.resolve();
-					}); 
+				$itemGrammar = $container.find($(".exc:contains('Grammar')"));
+				$itemVocab = $container.find($(".exc:contains('Vocabulary')"));
+				$itemTrueFalseTheme = $container.find($(".exc:contains('Theme')"));
+				$itemI = $container.find('.item.colimg1,.item.colimg2');
+				$itemRules = $container.find(".colRules1,.colRules2,.coltext1,.coltext2,.coltext3,.exc:contains('Text')");
+				$itemsAll = $container.find('.item').not('#introText');
+				
+				window.defScripts = new $.Deferred();
+				$.when(
+					$.getScript( "fancybox/jquery.fancybox215Mod.js" ),
+					$.getScript( "quiz/js/jquery.easing.1.3.min.js" ),
+				$.Deferred(function( deferred ){
+					$( deferred.resolve );
+					})
+					).done(function(){
+					defScripts.resolve();
+				}); 
 			
 		
 			$('#site-nav').find('#showInit').addClass('siteNavClass');
@@ -413,34 +395,31 @@ function LoadIframe($div) {
 		this.quizHeight = 630;
 	}
 	$container = $('#container')
-	// add the stamp
-			$container.append("<div id='stamped'></div>");
-			this.stampedItem = $container.find('#stamped');
-			this.stampedItem.css({
-				height: this.quizHeight,
-			
-				top: this.scrollPos -140,
 	
-			})
-			if (this.$div.hasClass('appended')) {
-				this.stampedItem.append(this.$div.parent().find('.hL').clone()).append(this.$div.find('.shrink').first().clone());
-				isotopeItem = $container.isotope( 'getItem', this.$div.parent()[0] )
-			}
-			else {
-				this.stampedItem.append(this.$div.find('.hL').clone()).append(this.$div.find('.shrink').first().clone());
-				if (this.$div.hasClass('variousRules')) { 
-					this.stampedItem.find('.shrink').css({
-						'margin-top':'-27px',
-						'float': 'left',
-						marginLeft: '67px'				
-					}) 
-				};
-				isotopeItem = $container.isotope( 'getItem', this.$div[0] )
-			}
+	$container.append("<div id='stamped'></div>"); // add the stamp
+	this.stampedItem = $container.find('#stamped');
+	this.stampedItem.css({
+		height: this.quizHeight,
+		top: this.scrollPos -140
+	})
+	if (this.$div.hasClass('appended')) {
+		this.stampedItem.append(this.$div.parent().find('.hL').clone()).append(this.$div.find('.shrink').first().clone());
+		this.isotopeItem = $container.isotope( 'getItem', this.$div.parent()[0] ) //get isotope item and hide/reveal when animating
+	}
+	else {
+		this.stampedItem.append(this.$div.find('.hL').clone()).append(this.$div.find('.shrink').first().clone());
+		if (this.$div.hasClass('variousRules')) { 
+			this.stampedItem.find('.shrink').css({
+				'margin-top':'-27px',
+				'float': 'left',
+				marginLeft: '67px'				
+			}) 
+		};
+		this.isotopeItem = $container.isotope( 'getItem', this.$div[0] )
+	}
 
 }
 								
-
 LoadIframe.prototype.loadFancy = function () {
    
 	$.fancybox({
@@ -489,7 +468,7 @@ LoadIframe.prototype.animateIn = function (fancyInstance) {
 		var stampedItem = this.stampedItem;
 
 			
-		$container.isotope( 'hide',  [isotopeItem] )
+		$container.isotope( 'hide',  [this.isotopeItem] )
 		
 		if (this.scrollPos < 140 ) {
 			$('#mainHeader').addClass('opacityOut');
@@ -504,8 +483,6 @@ LoadIframe.prototype.animateIn = function (fancyInstance) {
 		});
 	
 		$container.isotope( 'stamp', stampedItem).isotope('layout');
-
-
 
 };
 
@@ -545,20 +522,15 @@ LoadIframe.prototype.addListeners = function(fancyInstance) {
 	
 LoadIframe.prototype.closingFunction = function(fancyInstance) {
 
-	
 	this.theBody.removeEventListener('touchmove', this.listener , false);  
 	this.theBody.removeEventListener('touchstart', this.listener , false);  
 	var stampedItem = this.stampedItem
-
-		
+	
 		stampedItem.remove();
 				$.fancybox.close();
 		
 		if (this.scrollPos < 140 ) {
-		//	setTimeout(function(){
-				$('#mainHeader').addClass('opacityIn').removeClass('opacityOut');
-			
-			//}, 300);
+				$('#mainHeader').addClass('opacityIn').removeClass('opacityOut');			
 		}
 
 		
@@ -567,9 +539,8 @@ LoadIframe.prototype.closingFunction = function(fancyInstance) {
 				$('#mainHeader').removeClass('opacityIn');
 				$('#topHeader a').removeClass('tempDisable');	
 		});
-		$container.isotope( 'reveal',  [isotopeItem] ).isotope( 'unstamp', stampedItem).isotope('layout');
-		
-	
+		$container.isotope( 'reveal',  [this.isotopeItem] ).isotope( 'unstamp', stampedItem).isotope('layout');
+			
 };
 
 $.support.transition = (function(){
@@ -581,15 +552,8 @@ $.support.transition = (function(){
 
 TypeWriteFirst = function(el) {  // ought to be build into category switcher function
 		el.each(function() {   // will wrap .someclass around first letter 
-		   var h = $.trim( $(this).text() );
-		   //console.log( h )
-			   var n = h.charAt(0);
-			  // console.log(n);
-		  /*  var index = h.indexOf(' ');
-		   if(index == -1) {
-			   index = h.length;
-			 } */
-			  // console.log(index);
+		    var h = $.trim( $(this).text() );
+			var n = h.charAt(0);
 		   $(this).html('<span class="someclass">' + n + '</span>' + h.substring(1, h.length));
 		});
 	};
@@ -628,41 +592,35 @@ categorySwitch = function(category, catHilight) {
 
 }
 
-
 $('#site-nav').on('tapclick','li',function(e){
 	e.preventDefault();
-		//$containerOuter[0].style.height = '3000px';
-		//$('a').removeClass('siteNavClass');
-		var $container = $('#container');
-		$container.find('.hideItem').removeClass('hideItem').show();
-		
-		var $this = $(this);
-		$('#searchM').val('');
-		if ($this.hasClass('siteNavClass')) { return; };
+	var $container = $('#container');
+	$container.find('.hideItem').removeClass('hideItem').show();
+	
+	var $this = $(this);
+	$('#searchM').val('');
+	if ($this.hasClass('siteNavClass')) { return; };
 		
 	$this.addClass('siteNavClass').siblings().removeClass('siteNavClass');	
-		
-	//var sortName = $itemsAll.attr('data-abc');
-	//console.log(sortName);
-	 
+
 	switch( $this.attr('id') ) {
 		case 'showInit':
 			$container.isotope({ filter: recentParent })	
 			break;
-		case 'showAll':
-			
-			$container.isotope({ filter:  $itemsAll });
+		case 'showAll':	
+			$container.isotope({ filter:  $itemsAll });		
 			break;
 		case 'navRules':
 			categorySwitch($itemRules, '.blackWhite' );
-			$('#container').isotope( 'updateSortData', $itemRules ).isotope({ filter: $itemRules });
+			$container.isotope( 'updateSortData', $itemRules ).isotope({ filter: $itemRules });
+			
 			break;
 		case 'navImages':
 			$container.isotope({ filter: $itemI });
 			break;
 		case 'navGrammar':
 			categorySwitch($itemGrammar, '.grammarHl' );
-			$('#container').isotope( 'updateSortData', $itemGrammar ).isotope({ filter: $itemGrammar });
+			$container.isotope( 'updateSortData', $itemGrammar ).isotope({ filter: $itemGrammar });
 			break;
 		case 'navVocab':
 			categorySwitch($itemVocab, '.vocabHl' );
@@ -824,11 +782,6 @@ if ( event.gesture.distance > 100 ) {
     
 }); */
  
- 
- 
-
-
-
 
 function preload(arrayOfImages) {
     $(arrayOfImages).each(function(){
@@ -839,14 +792,12 @@ function preload(arrayOfImages) {
 }
 
 
-
 $(window).on('orientationchange', function(event) {
 	var windowsize = $(window).width();
 	if(windowsize < 1024) {
 		alert('please rotate device to landscape mode')
 	}
 });
-
 	
 	
 $('#container').on('tapclick','a img',function(e){
