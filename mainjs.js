@@ -170,7 +170,6 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 						 
 			$container.isotope({ 		
 				itemSelector: '.item',
-				itemPositionDataEnabled: true,
 				layoutMode: 'packery',
 				resizesContainer: false,
 				resizable: false,
@@ -179,7 +178,6 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 						category: '[data-abc]'
 				}, 
 				sortBy: 'category',		
-				transformsEnabled: true,
 				transitionDuration: '0.7s'
 				}).isotope({ filter: recentParent });
 				
