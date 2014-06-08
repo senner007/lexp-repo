@@ -679,60 +679,57 @@ $('#site-nav').on('tapclick','li',function(e){
  
 $('#topHeader').find('a').on('tapclick',function(e){
 e.preventDefault();
-
-
- var $this = $(this);
+var $this = $(this);
 if ( $this.hasClass('tempDisable') ) { return; }; 
 	
-	
- switch( $this.attr('id') )
-{
-	 case 'navChangelog':
-		$.fancybox({
-			href: 'history/history.html',
-			type: 'iframe',
-			fitToView	: false,
-			maxWidth		: 700,
-			maxHeight		: 700,
-			autoSize	: false,
-			padding: 0,
-			margin: 0,
-			topRatio: 0.1,
-			width		: '100%',
-			height		: '100%',
-			closeClick	: false,
-			openEffect	: 'elastic',
-			openSpeed: 400,
-			closeEffect	: 'elastic',
-			afterLoad:  function () {		
-				this.content.css({opacity:1});		
-			}
-		});
-	  break;
-	case 'quizMenu':
-		$.fancybox({
-			href: 'quizMenu/quizMenu.html',
-			type: 'iframe',
-			fitToView	: false,
-			maxWidth		: 900,
-			maxHeight		: 700,
-			autoSize	: false,
-			padding: 0,
-			margin: 0,
-			topRatio: 0.1,
-			width		: '100%',
-			height		: '100%',
-			closeClick	: false,
-			openEffect	: 'elastic',
-			openSpeed: 400,
-			closeEffect	: 'elastic',
-			afterLoad:  function () {
-				this.content.css({opacity:1});
-				}
-		});
-	  break;
-	  
-	}
+	$.when(defScripts).done(function () { // wait for fancyScript
+		switch( $this.attr('id') ) {
+			case 'navChangelog':
+				$.fancybox({
+					href: 'history/history.html',
+					type: 'iframe',
+					fitToView	: false,
+					maxWidth		: 700,
+					maxHeight		: 700,
+					autoSize	: false,
+					padding: 0,
+					margin: 0,
+					topRatio: 0.1,
+					width		: '100%',
+					height		: '100%',
+					closeClick	: false,
+					openEffect	: 'elastic',
+					openSpeed: 400,
+					closeEffect	: 'elastic',
+					afterLoad:  function () {		
+						this.content.css({opacity:1});		
+					}
+				});
+			break;
+			case 'quizMenu':
+				$.fancybox({
+					href: 'quizMenu/quizMenu.html',
+					type: 'iframe',
+					fitToView	: false,
+					maxWidth		: 900,
+					maxHeight		: 700,
+					autoSize	: false,
+					padding: 0,
+					margin: 0,
+					topRatio: 0.1,
+					width		: '100%',
+					height		: '100%',
+					closeClick	: false,
+					openEffect	: 'elastic',
+					openSpeed: 400,
+					closeEffect	: 'elastic',
+					afterLoad:  function () {
+						this.content.css({opacity:1});
+						}
+				});
+			break;	  
+		}
+	});	
 });
 
 $('#container').on('click', function(e) { 
@@ -849,102 +846,45 @@ $(window).on('orientationchange', function(event) {
 
 	
 	
-	$('#container').on('tapclick','a img',function(e){
-	
-			e.preventDefault();
-			e.stopPropagation();
-			var $this = $(this); 
-			
-			//console.log($this);
-			titleIndex = 0;
-			
-				var objects = $('#container').find('img').map(function(i,el) {
-						var $el = $(el);
-					 
-					   // console.log($this);
-						if ($el.parent().attr('href') == $this.parent().attr('href') ) {
-						return {
-						href:$el.parent().attr('href'),
-						title: $el.parent().attr('title')
-						
-						};
-						}
-					}).get();
-					
-				var objects2 = $('#container').find('img').map(function(i,el) {
-						var $el = $(el);
-					  
-					   // console.log($this);
-						if ($el.parent().attr('href') != $this.parent().attr('href') ) {
-						return {
-						href:$el.parent().attr('href'),
-						title: $el.parent().attr('title')
-						};
-						}
-					}).get();
-				//console.log(objects2);
-				var allObjects = $.merge( objects, objects2 )
+$('#container').on('tapclick','a img',function(e){
 		
-			isStart = true;	// set overlay opacity only on showing the first image
+	e.preventDefault();
+	e.stopPropagation();			
+	var $this = $(this); 			
+	$.when(defScripts).done(function () { // wait for fancyScript
+		
 		$.fancybox.open($this.parent().attr('href'), { // disabled gallery
 			padding : 0,
-			//closeBtn: false,
-			
 			openSpeed: 0,
-			closeSpeed: 0,
-			
-		afterLoad: function () {
-			
-			if (isStart == true ) {
+			closeSpeed: 0,	
+			afterLoad: function () {
+
 				$('.fancybox-overlay').css('opacity',0);
-				isStart = false;
-			}
-			$('.fancybox-iframe').contents().find('.fancybox-close').attr('id', 'helloClose').unbind();
-			$('.fancybox-outer').css('background-image',"url('img/3.jpg')");     
+				$('.fancybox-iframe').contents().find('.fancybox-close').attr('id', 'helloClose').unbind();
+				$('.fancybox-outer').css('background-image',"url('img/3.jpg')");     
 				  
-		},
-		afterClose: function () {
-		
-			$('.fancybox-overlay').animate({opacity: 0},300, function () {
-				$(this).hide();
-			});  
-		},	
-		beforeShow: function () {
-				$('.fancybox-image').css({opacity:1});
-		},
-		afterShow: function () {
-			
-			$('.fancybox-overlay').animate({opacity:1},500);
-				/* close on click */
-
-		
-		
-		/*     $('#helloClose').parent().on('tapclick','#helloClose',function (e) {
-		
-			e.preventDefault();
-			parent.$.fancybox.close();
-			 
-			 }); */
-			  
-		},			
-		helpers     : { 
-			overlay : {
-				closeClick: false,
-				//speedOut: 800
-				
-				
-				
-				
 			},
-						// prevents closing when clicking OUTSIDE fancybox
-		}
+			afterClose: function () {
+			
+				$('.fancybox-overlay').animate({opacity: 0},300, function () {
+					$(this).hide();
+				});  
+			},	
+			beforeShow: function () {
+				$('.fancybox-image').css({opacity:1});
+			},
+			afterShow: function () {						
+				$('.fancybox-overlay').animate({opacity:1},500);				
+			},			
+			helpers     : { 
+				overlay : {
+					closeClick: false,	
+				}
+			}
 		
-	});
-    
-    return false;
-	
+		});
+		
+	});	
 });
 
 });
-
-	
