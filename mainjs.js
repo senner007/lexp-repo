@@ -473,17 +473,28 @@ LoadIframe.prototype.animateIn = function (fancyInstance) {
 		if (this.scrollPos < 140 ) {
 			$('#mainHeader').addClass('opacityOut');
 		}
+		// for some weird reason the layoutComplete event is not always fired in IE 10-11
+		// therefore timeout is used instead
 		
-		$container.isotope( 'once', 'layoutComplete', function() {
+		/* $('#container').isotope( 'once', 'layoutComplete', function() {
 		
-			// fade in iframe
+			console.log('layoutcomplete');
+		 	stampedItem.addClass('opacityIn');
+			fancyInstance.content.addClass('opacityIn');
+
+		});  */
+		var iframeInDelay = 0;
+		if ($.support.transition)	{ iframeInDelay = 600 }
+
+		 setTimeout(function(){
+			//console.log('layoutcomplete');
 			stampedItem.addClass('opacityIn');
 			fancyInstance.content.addClass('opacityIn');
+		
+		}, iframeInDelay); 
 	
-		});
-	
-		$container.isotope( 'stamp', stampedItem).isotope('layout');
-
+		$('#container').isotope( 'stamp', stampedItem);
+		$('#container').isotope('layout')
 };
 
 LoadIframe.prototype.addListeners = function(fancyInstance) {		
@@ -548,7 +559,7 @@ $.support.transition = (function(){
         thisStyle = thisBody.style,
         support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined;
     return support;
-})();				
+})();		
 
 TypeWriteFirst = function(el) {  // ought to be build into category switcher function
 		el.each(function() {   // will wrap .someclass around first letter 
