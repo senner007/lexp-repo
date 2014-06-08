@@ -484,7 +484,7 @@ LoadIframe.prototype.animateIn = function (fancyInstance) {
 
 		});  */
 		var iframeInDelay = 0;
-		if ($.support.transition)	{ iframeInDelay = 600 }
+		if ($.support.transition)	{ iframeInDelay = 650 }
 
 		 setTimeout(function(){
 			//console.log('layoutcomplete');
