@@ -25,17 +25,10 @@ var stringData = $.ajax({
 	 }).responseText;
 
 
-var shuffle = function( myArray ) {
-	  var i = myArray.length;
-	  if ( i == 0 ) return false;
-	  while ( --i ) {
-		 var j = Math.floor( Math.random() * ( i + 1 ) );
-		 var tempi = myArray[i];
-		 var tempj = myArray[j];
-		 myArray[i] = tempj;
-		 myArray[j] = tempi;
-	   }
-}
+function shuffle(o){ //v1.0
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+};
 //removing empty elements in array
 removeEmpty = function (arr) {
 	var newArr = []; 		
@@ -94,7 +87,8 @@ while ( count > 0 ) {
 	var completeString = ''
 	// create a complete string with broken paragraphs
 	$.each(stringArray, function (i,e) {
-	completeString += $.trim(stringArray[i])
+		var trimmed = $.trim(stringArray[i]);
+		completeString += trimmed;
 	});
 
 	
@@ -106,119 +100,111 @@ while ( count > 0 ) {
 		conId = conId + 2;
 	}
 
-	var textFoundIndex = [];	
-	if (mustBeBound != "") {
-		$.each(stringArray, function (index,el) {
-			
+	
+	var textToBeBound = []; // array to contain each mustbebound text + next element
+	var newStringArray = []; // array to hold all text elements with ( mustbebound + next element ) bound as one.
+	var ignoreIndex;
+	$.each(stringArray, function (index,el) {
+	
+		if (index != ignoreIndex) {
+			var found = false;
 			$.each(mustBeBound, function (i,e) {
-				var found = $.trim(mustBeBound[i]);
-				if ( stringArray[index].indexOf(found) >= 0) {
-				textFoundIndex.push(index)
-				textFoundIndex.push(index +1)
+				
+				var trimBound = $.trim(mustBeBound[i]);
+				
+				if ( stringArray[index].indexOf(trimBound) >= 0 && mustBeBound != "") {
+					found = true;
+					textToBeBound.push(stringArray[index])
+					textToBeBound.push(stringArray[index +1])
+					newStringArray.push(stringArray[index] + stringArray[index + 1])
+					ignoreIndex = index + 1;
 				}
+				
 			});
-			
-		});
-	}
-
-	var indexes = 0;
-	$('.container').each(function (i,e) {
-	
-		var hello = parseInt($(e).css('height'));
-		while ( hello < 230 && indexes < stringArray.length) { 
-			
-			if (jQuery.inArray(indexes, textFoundIndex)  >= 0) {
-		
-				$("<div class='obj objOther'></div>").text(stringArray[indexes]).appendTo(e);
-							
-				indexes++;
-			
-			} else {
-				$("<div class='obj'></div>").text(stringArray[indexes]).appendTo(e);
-				indexes++;
-			}	
-			
-				hello = parseInt($(e).css('height'));
-	
-		} 
-		
+				if  ( found == false ) {
+					newStringArray.push(stringArray[index])
+				}			
+		}
 	});
-
+		
+	// layout items, calculate height, remove, shuffle array of items, layout again. 
+	var textToBeBoundIndex = 0;
+	var indexes = 0;
 	$('.conLi').each(function (ind,elm) {
-		var arrayTest = [];
-		var myHtmlArr = [];		
-		var myHtmlCounter = 0;
-		myHtmlArr[myHtmlCounter] = '';
-		$(this).find('.container').children().each(function (index,el) {
 		
-			var $this = $(this);
-			var thisNext;
+		var myHtml = [];
+		var $self = $(this);
+		
+		$self.find('.container').each(function (i,e) {
 			
-			if ( $this.next().text() == "") {  // if the text object is placed on the preceding page
-				thisNext =  $(el).parent().next().children().first(); 
-			}
-			else {
-				thisNext = $this.next();
-			}
-				
-			if ($this.hasClass('objOther')) {
+			var containerHeight = 0;
+			while ( containerHeight < 230 && indexes < newStringArray.length) { 			
+					
+					var found = false;
+					var trimBound = $.trim(mustBeBound[i]);
+					
+					// if current element is matched with mustbebound element
+					if ( newStringArray[indexes].indexOf(textToBeBound[textToBeBoundIndex]) >= 0) {
+						//insert element to measure height
+						$("<div class='other obj'></div>").html("<div class='hello'>" + textToBeBound[textToBeBoundIndex] + "</div><div class='hello'>" + textToBeBound[textToBeBoundIndex +1] + "</div>").appendTo(e);
+						//push element to array
+						myHtml.push("<div class='other obj'><div class='hello'>" + textToBeBound[textToBeBoundIndex] + "</div><div class='hello'>" + textToBeBound[textToBeBoundIndex +1] + "</div></div>");
+						
+						textToBeBoundIndex = textToBeBoundIndex +2;
 	
-				if (thisNext.hasClass('objOther')) {	
-					myHtmlArr[myHtmlCounter] += "<div class='hello'>" + $(el).text() + "</div>"				
-				}
-				else {				
-					myHtmlArr[myHtmlCounter] += "<div class='hello'>" + $(el).text() + "</div>"
-					myHtmlCounter++;
-					myHtmlArr[myHtmlCounter] = '';		
-				}
+						containerHeight = parseInt($(e).css('height'));
+						found = true;
+						indexes++;
+					
+					}
 			
-			}
-			else {
-				arrayTest.push( $(el).text() );
-			}
+					if (found == false ) {
+						//insert element to measure height
+						$("<div class='obj'></div>").text(newStringArray[indexes]).appendTo(e);
+						//push element to array
+						myHtml.push("<div class='obj'>" + newStringArray[indexes] + "</div>");
+						
+						indexes++;
+						containerHeight = parseInt($(e).css('height'));
+					}
 				
-		}).remove();
-	
-		var counterOther = 0;
+			} 
 			
-		shuffle( arrayTest );
-		
-		var indexes = 0;
-		var counter = 0;
-		$(this).find('.container').each(function (i,end) {
-			
-			if (counterOther == 0) {
-				$.each(myHtmlArr, function (i,e) {
-				
-					if ( myHtmlArr[i] != "") {
-					$("<div class='obj other'></div>").html(myHtmlArr[i]).appendTo(end);
-					}				
-				});
-				counterOther = 1;
-			}
-
-			counter++;
-			var myHtml = '';
-			var hello = parseInt($(end).css('height'));
-			
-			if (counter == 1) {			
-				while ( hello < 230 && indexes < arrayTest.length) {
-					
-					$("<div class='obj'></div>").text(arrayTest[indexes]).appendTo(end);
-					indexes = indexes +1;	
-					
-					hello = parseInt($(end).css('height'));
-				}
-			}
-			else {
-				while ( indexes < arrayTest.length) {
-					$("<div class='obj'></div>").text(arrayTest[indexes]).appendTo(end);
-					indexes = indexes +1;
-				}
-					
-			}
-		
 		});
+		
+		
+		
+		var myHtmlIndex = 0;
+		
+		if (typeof myHtml !== 'undefined' && myHtml.length > 0 && myHtmlIndex < myHtml.length) {
+			
+			// shuffle array of elements from both containers
+			myHtml = shuffle(myHtml);
+			
+			$self.find('.container').each(function (i,e) {
+				
+				var $this = $(this);
+				$this.children().remove();
+				var containerHeight = 0;
+		
+				if ($this.index() == 0) {
+					while ( containerHeight < 260 && myHtmlIndex < myHtml.length) { 			
+							
+							$(myHtml[myHtmlIndex]).appendTo($this);
+							myHtmlIndex++; 
+							containerHeight = parseInt($this.css('height'));
+					} 
+				}
+				else {
+					while ( myHtmlIndex < myHtml.length) { 			
+							
+							$(myHtml[myHtmlIndex]).appendTo($this);
+							myHtmlIndex++; 							
+					} 
+				}
+				
+			}); 
+		}	
 		
 	});
 	
@@ -228,8 +214,6 @@ while ( count > 0 ) {
 		.find(".container:empty").remove();
 		
 	$('#frame').find(".conLi:empty").parent().remove();
-
-
 
     var frame = $('#frame');
     var items = frame.find('ul > li');
@@ -267,9 +251,7 @@ while ( count > 0 ) {
        $('#prevButton')[this.rel.activeItem === 0 ? 'addClass' : 'removeClass']('ButtonDisabled');
         // Check whether the last item is active
         $('#nextButton')[this.rel.activeItem === this.items.length - 1 ? 'addClass' : 'removeClass']('ButtonDisabled');
-		
-
-		
+			
 	});
 
     sly.init();
@@ -351,22 +333,22 @@ $('#puzzleOnOff').on('tapclick', function () {
 		var indexes = 0;
 		$('.container').each(function (i,el) {
 	
-			var hello = 0;
-			while ( hello < 380 && indexes < completeArray.length) { 
+			var containerHeight = 0;
+			while ( containerHeight < 380 && indexes < completeArray.length) { 
 				
-					hello = 0;
+					containerHeight = 0;
 					$("<div class='object2'></div>").text(completeArray[indexes]).appendTo(el);
 					indexes++;
 			 
 					$(el).children().each(function () {
-						hello += $(this).height();
+						containerHeight += $(this).height();
 					})
 					
 			} 
 			
-			if (hello > 420 ) { 
+			if (containerHeight > 420 ) { 
 		
-				var cutOff = $(el).children().last().text().length - ((hello - 420) * 3)
+				var cutOff = $(el).children().last().text().length - ((containerHeight - 420) * 3)
 				var tsplit = splitText( $(el).children().last().text(), i ,cutOff )
 				
 				$(el).children().last().remove();
@@ -508,20 +490,17 @@ var actions = {
 		
 			$('.container').find('.tobeChecked').each(function (index2, e) {
 				
-				var $this = $(this); 		
-				var  $thisText = $.trim(myArr[i]);
-				stringArray[i] = $.trim(stringArray[i]);
+				var $this = $(this); 			
+				stringArray[i] = $.trim(stringArray[i]);					
 			
 				if (myArr[i] == stringArray[i]) {
 					$this.append("<img class='imgCheck' src='css/cssImg/check2.png'/>");
-				
-				
+								
 					var options = {
 							marginTop: 10,
 							color: '#006400'
 						}									
-					
-					
+										
 				$this.delay((index2 * 200) + slideToNextDelay)
 						.transition(options,130, easingOut)
 						.animate({
@@ -541,8 +520,7 @@ var actions = {
 										
 				});
 				checkIfLast($this);
-			
-					
+				
 					
 				}
 				else if (myArr[i] != stringArray[i]) {
