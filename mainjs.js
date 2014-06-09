@@ -464,35 +464,24 @@ LoadIframe.prototype.animateIn = function (fancyInstance) {
 
 
 		var stampedItem = this.stampedItem;
-
-			
-		$container.isotope( 'hide',  [this.isotopeItem] )
+		var thisItem = this.isotopeItem
+	
+		this.$div.css('opacity',0);
+		// the isotope hide method breaks layoutComplete event in IE10/11
+		//$container.isotope( 'hide',  [thisItem] )		
 		
 		if (this.scrollPos < 140 ) {
 			$('#mainHeader').addClass('opacityOut');
 		}
-		// for some weird reason the layoutComplete event is not always fired in IE 10-11
-		// therefore timeout is used instead
-		
-		/* $('#container').isotope( 'once', 'layoutComplete', function() {
-		
-			console.log('layoutcomplete');
+				
+		$container.isotope( 'once', 'layoutComplete', function() {
+			
 		 	stampedItem.addClass('opacityIn');
 			fancyInstance.content.addClass('opacityIn');
 
-		});  */
-		var iframeInDelay = 0;
-		if ($.support.transition)	{ iframeInDelay = 650 }
-
-		 setTimeout(function(){
-			//console.log('layoutcomplete');
-			stampedItem.addClass('opacityIn');
-			fancyInstance.content.addClass('opacityIn');
-		
-		}, iframeInDelay); 
+		}); 
 	
-		$('#container').isotope( 'stamp', stampedItem);
-		$('#container').isotope('layout')
+		$container.isotope( 'stamp', stampedItem).isotope('layout');
 };
 
 LoadIframe.prototype.addListeners = function(fancyInstance) {		
@@ -646,10 +635,9 @@ $('#site-nav').on('tapclick','li',function(e){
  
 $('#topHeader').find('a').on('tapclick',function(e){
 e.preventDefault();
-$loaderGif.show();
 var $this = $(this);
 if ( $this.hasClass('tempDisable') ) { return; }; 
-	
+$loaderGif.show();	
 	$.when(defScripts).done(function () { // wait for fancyScript
 		switch( $this.attr('id') ) {
 			case 'navChangelog':
