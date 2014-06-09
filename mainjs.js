@@ -530,14 +530,16 @@ LoadIframe.prototype.closingFunction = function(fancyInstance) {
 		if (this.scrollPos < 140 ) {
 				$('#mainHeader').addClass('opacityIn').removeClass('opacityOut');			
 		}
-
+		// hide method not working with layoutcomplete
+		this.$div.css('opacity',1);
 		
 		$container.isotope( 'once', 'layoutComplete', function() {
 				
 				$('#mainHeader').removeClass('opacityIn');
 				$('#topHeader a').removeClass('tempDisable');	
 		});
-		$container.isotope( 'reveal',  [this.isotopeItem] ).isotope( 'unstamp', stampedItem).isotope('layout');
+		//$container.isotope( 'reveal',  [this.isotopeItem] ).
+		$container.isotope( 'unstamp', stampedItem).isotope('layout');
 			
 };
 
