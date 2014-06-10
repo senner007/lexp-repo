@@ -152,7 +152,7 @@ while ( count > 0 ) {
 						
 						textToBeBoundIndex = textToBeBoundIndex +2;
 	
-						containerHeight = parseInt($(e).css('height'));
+						containerHeight = e.clientHeight;
 						found = true;
 						indexes++;
 					
@@ -165,7 +165,7 @@ while ( count > 0 ) {
 						myHtml.push("<div class='obj'>" + newStringArray[indexes] + "</div>");
 						
 						indexes++;
-						containerHeight = parseInt($(e).css('height'));
+						containerHeight = e.clientHeight;
 					}
 				
 			} 
@@ -192,7 +192,7 @@ while ( count > 0 ) {
 							
 							$(myHtml[myHtmlIndex]).appendTo($this);
 							myHtmlIndex++; 
-							containerHeight = parseInt($this.css('height'));
+							containerHeight = e.clientHeight;
 					} 
 				}
 				else {
