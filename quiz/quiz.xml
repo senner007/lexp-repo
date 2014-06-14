@@ -708,9 +708,9 @@ Franciscan Media</quote>
     </quizIrregularVerbToSwim>
   </quiz>
   <quiz>
-    <warriorMaidenVocabularyJumbled>
+    <warriorMaidenVocabulary>
       <info>
-        <title>warriorMaidenVocabularyJumbled</title>
+        <title>warriorMaidenVocabulary</title>
         <headline>Vocabulary</headline>
         <subTitle>Native Americans - The Maiden Warrior</subTitle>
         <showAnswers>True</showAnswers>
@@ -775,7 +775,7 @@ Franciscan Media</quote>
         <question>"I ... how long we've been down here, Tom? We better start back." </question>
         <answer>wonder</answer>
       </questions>
-    </warriorMaidenVocabularyJumbled>
+    </warriorMaidenVocabulary>
   </quiz>
   <quiz>
     <quizRegularVerbs>
@@ -2969,7 +2969,6 @@ Franciscan Media</quote>
         <title>theWarriorMaidenIII</title>
         <headline>Text</headline>
         <subTitle>The Warrior Maiden - Native American Legends. III</subTitle>
-        <textFile>theWarriorMaidenJumbled</textFile>
         <quoteText>Source: http://www.native-languages.org/</quoteText>
       </info>
     </theWarriorMaidenIII>
@@ -3077,7 +3076,6 @@ Franciscan Media</quote>
         <title>magpiesNest</title>
         <headline>Text</headline>
         <subTitle>The Magpie's Nest - English fairytales</subTitle>
-        <textFile>magpiesNest</textFile>
         <quoteText>Source: http://www.authorama.com/</quoteText>
       </info>
     </magpiesNest>
@@ -3284,7 +3282,6 @@ Franciscan Media</quote>
         <title>tomsCabinIII</title>
         <headline>Text</headline>
         <subTitle>Uncle Tom's Cabin - Stowe, H.B. Ch.1. Tom and Harry are sold. III</subTitle>
-        <textFile>tomsCabinJumbled</textFile>
         <quoteText>Source: Project Gutenberg</quoteText>
       </info>
     </tomsCabinIII>
@@ -3546,7 +3543,6 @@ Franciscan Media</quote>
         <title>dogsHistoryAndEvolutionWithHumansII</title>
         <headline>Theme</headline>
         <subTitle>Pets - History and evolution of dogs with humans II</subTitle>
-        <textFile>dogsHistoryAndEvolutionWithHumansJumbled</textFile>
         <quoteText>Source: http://en.wikipedia.org/wiki/Dogs - Creative Commons Attribution-ShareAlike 3.0 Unported License/Slightly modified</quoteText>
       </info>
     </dogsHistoryAndEvolutionWithHumansII>
@@ -3694,7 +3690,6 @@ Franciscan Media</quote>
         <title>californiaGoldII</title>
         <headline>Text</headline>
         <subTitle>Stories of Later American History - Gordy, Wilbur F. The discovery of gold. II</subTitle>
-        <textFile>californiaGoldJumbled</textFile>
         <quoteText>Source: Project Gutenberg/Slightly modified</quoteText>
       </info>
     </californiaGoldII>
