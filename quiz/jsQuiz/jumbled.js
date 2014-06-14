@@ -11,16 +11,14 @@ $.getScript("js/jMyPuzzleJumbled.js", function(data, textStatus, jqxhr) {
 $.getScript("js/jquery.ui.touch-punch.min.js");
 
 
-var friends = window.parent.shout_text;
+var quizTitle = window.parent.shout_text;
 var saveData = window.parent.xmlDataVar;
 
 
-var textFile = $(saveData).find(friends).find('textFile').text();
-
-$('#quoteText').text( $(saveData).find(friends).find('quoteText').text() )
+$('#quoteText').text( $(saveData).find(quizTitle).find('quoteText').text() )
 
 var stringData = $.ajax({
-		url: "jumbledTextFiles/" + textFile + '.txt',
+		url: "jumbledTextFiles/" + quizTitle + '.txt',
 		async: false
 	 }).responseText;
 	 
