@@ -2944,7 +2944,6 @@ Franciscan Media</quote>
         <title>theWarriorMaidenII</title>
         <headline>Text</headline>
         <subTitle>The Warrior Maiden - Native American Legends. II</subTitle>
-        <textFile>theWarriorMaiden</textFile>
         <quoteText>Source: http://www.native-languages.org/</quoteText>
         <mustBeBound>sat around their campfires</mustBeBound>
       </info>
@@ -3054,7 +3053,6 @@ Franciscan Media</quote>
         <title>dropOfWater</title>
         <headline>Text</headline>
         <subTitle>The Drop Of Water - Andersen, H.C.</subTitle>
-        <textFile>dropOfWater</textFile>
         <quoteText>Source: Project Gutenberg</quoteText>
       </info>
       <true>
@@ -3235,7 +3233,6 @@ Franciscan Media</quote>
         <title>tomsCabin</title>
         <headline>Text</headline>
         <subTitle>Uncle Tom's Cabin - Stowe, H.B. Ch.1. Tom and Harry are sold.</subTitle>
-        <textFile>tomsCabin</textFile>
         <quoteText>Source: Project Gutenberg</quoteText>
       </info>
       <true>
@@ -3635,7 +3632,6 @@ Franciscan Media</quote>
         <title>jungleBookExcerptII</title>
         <headline>Text</headline>
         <subTitle>The Jungle Book(Excerpt) - Kipling, R. II</subTitle>
-        <textFile>jungleBookExcerpt</textFile>
         <quoteText>Source: Project Gutenberg</quoteText>
       </info>
       <true>
