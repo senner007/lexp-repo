@@ -13,14 +13,14 @@ if (docWidth > 1100) {
 	$('<button id="nextButton"></button><button id="prevButton"></button>').appendTo('#container');
 }
 
-var textFile = window.parent.shout_text;
+var quizTitle = window.parent.shout_text;
 var saveData = window.parent.xmlDataVar;
 
-var mustBeBound = $(saveData).find(textFile).find('mustBeBound').text();
+var mustBeBound = $(saveData).find(quizTitle).find('mustBeBound').text();
 mustBeBound = mustBeBound.split(",");
 
 var stringData = $.ajax({
-		url: "textFiles/" + textFile + '.txt',
+		url: "textFiles/" + quizTitle + '.txt',
 		async: false
 	 }).responseText;
 
@@ -427,7 +427,7 @@ preload([
 ]);
  
 			
-var quoteText = $(saveData).find(textFile).find('quoteText').text();
+var quoteText = $(saveData).find(quizTitle).find('quoteText').text();
 
 $('#quoteText').text(quoteText);
 

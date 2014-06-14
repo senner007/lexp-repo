@@ -1,6 +1,6 @@
 $(function() {
 
-	var friends = window.parent.shout_text;
+	var quizTitle = window.parent.shout_text;
 	var saveData = window.parent.xmlDataVar;
 
 
@@ -15,7 +15,7 @@ $(function() {
 
 
 	var stringData = $.ajax({
-		url: "gapFillTextFiles/" + friends + '.txt',
+		url: "gapFillTextFiles/" + quizTitle + '.txt',
 		async: false
 	 }).responseText;
 	 
@@ -49,7 +49,7 @@ $(function() {
 		});		
 
 
-	quoteText = $(saveData).find(friends).find('quote').text();
+	quoteText = $(saveData).find(quizTitle).find('quote').text();
 	$('#quoteText').text(quoteText);
 
 
