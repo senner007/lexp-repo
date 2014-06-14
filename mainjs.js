@@ -490,10 +490,12 @@ LoadIframe.prototype.addListeners = function(fancyInstance) {
 	/* var htmlElement = document.getElementsByTagName("html")[0]; */
 
 	// event handlers to prevent iframe move after init
-	theIframe[0].addEventListener('touchmove', this.listener, false);  
+	if ($.support.touch) {
+		theIframe[0].addEventListener('touchmove', this.listener, false);  		
+		this.theBody.addEventListener('touchmove', this.listener, false);  
+		this.theBody.addEventListener('touchstart', this.listener, false);  
+	};
 	theIframe[0].addEventListener('mousewheel', this.listener, false); 
-	this.theBody.addEventListener('touchmove', this.listener, false);  
-	this.theBody.addEventListener('touchstart', this.listener, false);  
 
 	// To-do : disable text selection for ie with vanilla JS
 	
@@ -507,10 +509,11 @@ LoadIframe.prototype.addListeners = function(fancyInstance) {
 			this.closingFunction(fancyInstance);
 		}
 	}.bind(this));
-
-	theIframe.find('#closingButton')[0].addEventListener('touchend',function (e) {
-		this.closingFunction(fancyInstance);
-	}.bind(this));
+	if ($.support.touch) {
+		theIframe.find('#closingButton')[0].addEventListener('touchend',function (e) {
+			this.closingFunction(fancyInstance);
+		}.bind(this));
+	};
 	
 	theIframe.find('#closingButton')[0].addEventListener('click',function (e) {
 		this.closingFunction(fancyInstance);
@@ -519,9 +522,10 @@ LoadIframe.prototype.addListeners = function(fancyInstance) {
 };
 	
 LoadIframe.prototype.closingFunction = function(fancyInstance) {
-
-	this.theBody.removeEventListener('touchmove', this.listener , false);  
-	this.theBody.removeEventListener('touchstart', this.listener , false);  
+	if ($.support.touch) {
+		this.theBody.removeEventListener('touchmove', this.listener , false);  
+		this.theBody.removeEventListener('touchstart', this.listener , false); 
+	};
 	var stampedItem = this.stampedItem
 	
 		stampedItem.remove();
@@ -548,7 +552,12 @@ $.support.transition = (function(){
         thisStyle = thisBody.style,
         support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined;
     return support;
-})();		
+})();
+
+var pointerEnabled = window.navigator.pointerEnabled || window.navigator.msPointerEnabled;
+
+// Detect touch support
+$.support.touch = 'ontouchend' in document || pointerEnabled;	
 
 TypeWriteFirst = function(el) {  // ought to be build into category switcher function
 		el.each(function() {   // will wrap .someclass around first letter 
