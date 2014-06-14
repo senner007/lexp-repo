@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
 // deferred to be resolved when shapeshift has loaded
 var defShapeShiftReady = new $.Deferred();
 $.getScript("js/jquery.shapeshift.js", function(data, textStatus, jqxhr) {
@@ -12,32 +13,27 @@ var initCalc = {
 			var saveData = window.parent.xmlDataVar;
 			return saveData;
 	},
-	xmlTrue : function (xmlData, thisQuiz) {
+	xmlTrue : function (xmlData, quizTitle) {
 					var trueArray = [];
 					
-					$(xmlData).find(thisQuiz).find('true').children().each(function () {		
+					$(xmlData).find(quizTitle).find('true').children().each(function () {		
 						trueArray.push($(this).text());
 					});
 					return trueArray;	
 	},
-	xmlFalse : function (xmlData, thisQuiz) {
+	xmlFalse : function (xmlData, quizTitle) {
 					var falseArray = [];
 					
-					$(xmlData).find(thisQuiz).find('false').children().each(function () {		
+					$(xmlData).find(quizTitle).find('false').children().each(function () {		
 						falseArray.push($(this).text());
 					});
 					return falseArray;	
 	},
-	thisQuiz:	function () {
+	quizTitle:	function () {
 			var quiz = window.parent.shout_text;
 			return quiz;
+			
 	},
-	textfile:	function (xmlData, thisQuiz) {		
-				
-					var textfile = $(xmlData).find(thisQuiz).find('textFile').text();
-					return textfile;	
-	},
-
 	stringArr: 	function ( textfile ) { 
 				var string = $.ajax({
 					url: "textFiles/" + textfile + '.txt',
@@ -81,13 +77,13 @@ var initCalc = {
 };
 
 var app = {};
-app.textfile = initCalc.textfile ( initCalc.xmlData(), initCalc.thisQuiz() );
-app.quoteText = $( initCalc.xmlData() ).find( initCalc.thisQuiz() ).find('quoteText').text();
-app.array = initCalc.stringArr ( app.textfile );
+
+app.quoteText = $( initCalc.xmlData() ).find( initCalc.quizTitle() ).find('quoteText').text();
+app.array = initCalc.stringArr ( initCalc.quizTitle() );
 app.cleanArray = initCalc.removeEmpty( app.array );
 app.numberOfPages = initCalc.countLi( app.cleanArray );
-app.trueArray = initCalc.xmlTrue(initCalc.xmlData(), initCalc.thisQuiz());
-app.falseArray = initCalc.xmlFalse(initCalc.xmlData(), initCalc.thisQuiz());
+app.trueArray = initCalc.xmlTrue(initCalc.xmlData(), initCalc.quizTitle());
+app.falseArray = initCalc.xmlFalse(initCalc.xmlData(), initCalc.quizTitle());
 
 var initActions = {
  	
