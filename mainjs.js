@@ -240,13 +240,13 @@ jQuery.extend( jQuery.fn, {
 			.indexOf(m[3].toUpperCase()) >= 0;
 			var v2 = jQuery(a).data('abc').toUpperCase()
 			.indexOf(m[3].toUpperCase()) >= 0;
-			if ( v1 == true ) { return v1 }
-			else { return v2 }
-		
+			if ( v1 || v2 == true ) { 
+				return true;
+			}
 		};
-	   if (p.match(/.+/g) == null) return this;
+		if (p.match(/.+/g) == null) return this;
 		var t1 =  $(this).filter(':icontains(' + p + ')');
-		 return t1;
+		return t1;
 	}
 });
 
