@@ -452,7 +452,7 @@ function checking () {
 						slideToPage($this);
 					}
 					
-				$this.find('img').transition({opacity: 1});
+				$this.find('img').animate({opacity: 1});
 				}).addClass('solved');
 				
 			checkIfLast($this);
@@ -473,7 +473,7 @@ function checking () {
 						}
 						
 					
-					$this.find('img').transition({opacity: 1});
+					$this.find('img').animate({opacity: 1});
 					});
 				checkIfLast($this);
 			
@@ -490,7 +490,7 @@ function checking () {
 						if ($this.attr('id') == $('.active').find('.suffixes').last().attr('id')) {
 							slideToPage($this);
 						}
-					$this.find('img').transition({opacity: 1});
+					$this.find('img').animate({opacity: 1});
 					});
 				checkIfLast($this);
 			}		
