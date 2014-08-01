@@ -513,7 +513,7 @@ var actions = {
 					if ( (thisPos.left > 450 && thisPos.left < 480) || (thisPos.left > 820 && thisPos.left < 830) ) {
 						$this.find('img').css({ x: -26, y: 5 })
 					}
-						$this.find('img').transition({opacity: 1});
+						$this.find('img').animate({opacity: 1});
 						slideToPage($this);
 						
 						correctNumber++;
@@ -620,7 +620,7 @@ var actions = {
 						if ( (thisPos.left > 450 && thisPos.left < 480) || (thisPos.left > 820 && 	thisPos.left < 830) ) {
 							$this.find('img').css({ x: - 26 })
 						} 
-						$this.find('img').transition({opacity: 1});
+						$this.find('img').animate({opacity: 1});
 						slideToPage($this);
 						
 						})
@@ -650,7 +650,7 @@ var actions = {
 							
 							$this.find('img').css({ x: - 5 })
 						} 
-						$this.find('img').transition({opacity: 1});
+						$this.find('img').animate({opacity: 1});
 						slideToPage($this);
 						})
 						checkIfLast($this);
