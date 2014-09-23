@@ -27,11 +27,11 @@ $.fn.jMyPuzzle = function(o) {
 		initPos();				// init the li position (left position) 
 		
 		
-		 /*  if ($.support.transition) {		// must be set when container is not absolute pos.(not for IE) - SENNER
+		//   if ($.support.transition) {		// must be set when container is not absolute pos.(not for IE) - SENNER
 	 				var indent = (1000 - div.find('.splitList').width())/2
 					div.find('.splitList').css({left:indent});	
 			
-			}   */
+		//	}   
 
 		li.each(function(){ 
 			var elt = $(this);									// currentelement														
