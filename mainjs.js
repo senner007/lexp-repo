@@ -511,7 +511,7 @@ LoadIframe.prototype.addListeners = function(fancyInstance) {
 		}
 	}.bind(this));
 	
-	theIframe.find('#closingButton')[0].addEventListener(eStart,function (e) {
+	theIframe.find('#closingButton')[0].addEventListener(eEnd,function (e) {
 		this.closingFunction(fancyInstance);
 	}.bind(this)); 
 
