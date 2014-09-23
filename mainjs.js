@@ -452,7 +452,9 @@ LoadIframe.prototype.loadFancy = function () {
 			title: null,
 			overlay: null,
 			 overlay: {
-				locked: true // if true (default), the content will be locked into overlay
+				locked: !isTablet 
+				// is set to false for tablet devices because of iframe diplacement when activating keyboard in input quiz
+				// if true (default), the content will be locked into overlay
 			}, 
 			// prevents closing when clicking OUTSIDE fancybox
 		},

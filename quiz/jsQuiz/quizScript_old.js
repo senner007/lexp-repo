@@ -41,9 +41,9 @@ window.parent.globalScoreVariable = 0;
 var totalq;
 var highlightVar;
 
-	  var deviceAgent = navigator.userAgent.toLowerCase();			//move frame back if ipad
-	var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
-	if (agentID) {	
+	
+	var isTablet = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+	if (isTablet) {	
 		$('#textContainer').css({color: 'rgb(45,45,45)'});	
 	}
 
@@ -302,18 +302,18 @@ Array.prototype.removeByIndex = function(index) {
 	  });    */
 
 
-	if (agentID) {
+	if (isTablet) {
 		
 		
 	  
 		$('#test').on('focus',function () {		// reposition on ipad
 				//window.scrollTo(0, 0);
 				//document.body.scrollTop = 0;
-			
+				var initBodyPos = window.parent.$('body')[0].scrollTop;
 			
 				setTimeout(function(){ 
 					window.parent.$('body, html').animate({
-						scrollTop: '-=90'
+						scrollTop: initBodyPos
 						}, 250, function () {
 							window.parent.$.fancybox.reposition();
 							//fancy.addClass('opacityIn');
