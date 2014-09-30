@@ -304,12 +304,12 @@ Array.prototype.removeByIndex = function(index) {
 
 	if (isTablet) {
 		
-		
+		var initBodyPos = window.parent.$('body')[0].scrollTop;
 	  
 		$('#test').on('focus',function () {		// reposition on ipad
 				//window.scrollTo(0, 0);
 				//document.body.scrollTop = 0;
-				var initBodyPos = window.parent.$('body')[0].scrollTop;
+				
 			
 				setTimeout(function(){ 
 					window.parent.$('body, html').animate({
