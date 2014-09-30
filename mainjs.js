@@ -519,6 +519,11 @@ LoadIframe.prototype.addListeners = function(fancyInstance) {
 	
 LoadIframe.prototype.closingFunction = function(fancyInstance) {
 
+		//hide keyboard on ipad ios8
+		if (this.$div.hasClass('quiz') ){
+			fancyInstance.content.contents().find('#test').blur();
+		}
+		
 		this.theBody.removeEventListener(eMove, this.listener , false);  
 		this.theBody.removeEventListener(eStart, this.listener , false); 
 
