@@ -4,7 +4,7 @@ var defSlyText = new $.Deferred();
 
 // load the external puzzle plugin as deferred
 var defJMyPuzzle = new $.Deferred();
-$.getScript("js/jMyPuzzleJumbled.js", function(data, textStatus, jqxhr) {
+$.getScript("js/jumbleScramble.js", function(data, textStatus, jqxhr) {
 		defJMyPuzzle.resolve();
 });
 
