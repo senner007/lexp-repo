@@ -694,7 +694,7 @@ var actions = {
 		$('#checkButton').css('text-decoration','none');
 	  
 		$('.container').find('div').each(function () {
-			$(this).css('color','rgb(51, 51, 51)');			
+			$(this).css('color','rgb(60, 60, 60)');			
 		})
 		$('img').remove();
 		$('#endText').remove();

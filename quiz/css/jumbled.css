@@ -303,7 +303,7 @@ font-weight: bold;
 
 
 
-color: rgb(68, 68, 68);
+color: rgb(71, 71, 71);
 position: absolute; 
 margin-top: 90px;
 
@@ -329,7 +329,7 @@ line-height: 19px;
 	margin-left: 5px;
 	margin-right: 5px;
 -webkit-backface-visibility: hidden;
-background-image:url('../../img/3.jpg');
+background-image:url('../../img/3_lighter2.jpg');
 
 }
 

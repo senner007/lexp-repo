@@ -266,7 +266,7 @@ var init = function () {
 			
 			var color = ui.draggable.css('color');
 			
-			ui.draggable.css({'background-image':"url('../img/3.jpg')", color: 'rgb(72,72,72)'});	
+			ui.draggable.css({'background-image':"url('../img/3_lighter2.jpg')", color: 'rgb(72,72,72)'});	
 			//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
 		},
 		drop: function( event, ui ) {
