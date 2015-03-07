@@ -464,7 +464,7 @@ function checking () {
 								
 				$this.delay((index2 * 200) + slideToNextDelay).transition({
 				backgroundColor: 'transparent',
-				color: 'rgb(153, 0, 51)'
+				color: '#a80000'
 				
 				}, 0,function () {
 						$this.append("<img class='imgCheckCancel' src='css/cssImg/cancel.png'/>");
@@ -483,7 +483,7 @@ function checking () {
 				$this.delay((index2 * 200) + slideToNextDelay)
 					.transition({
 						backgroundColor: 'transparent',
-						color: 'rgb(153, 0, 51)'	
+						color: '#a80000'	
 						
 						},0, function () {
 						$this.append("<img class='imgCheckCancel' src='css/cssImg/cancel.png'/>");	
