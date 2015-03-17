@@ -499,6 +499,7 @@ function checking () {
 
 	}).promise().done(function () {
 		
+		
 		$('#checkButton').css({background: "rgba(68, 68, 68,1) url('css/cssImg/checkButtonSmall.png') 10% center no-repeat", color: 'rgb(204, 204, 204)'}).removeAttr("disabled");
 		
 		var solved = $('.time').find('.solved').size();
@@ -524,9 +525,17 @@ function checking () {
 	
 	});
 };	// end of checking function
+
+var answerSwitch = 0;
 		
 $('#checkButton').fastClick(function (event) {
 		event.preventDefault();
+		
+		if (answerSwitch == 1)  { 
+			return; 
+		}
+		answerSwitch = 1;
+		
 		$('.ui-droppable').css({border: 'none'})
 		$('.draggable').transition({opacity: 0},180,function () {
 			$(this).remove();
@@ -554,6 +563,7 @@ $('#checkButton').fastClick(function (event) {
 	
 $('#shuffleButton').fastClick(function (event) {
 	event.preventDefault();
+	answerSwitch = 0;
 	sly.set({speed: 400, easing: 'easeInOutCirc'});
 	$('.object').remove();
 	$li.remove();
