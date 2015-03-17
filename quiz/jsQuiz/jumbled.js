@@ -66,7 +66,7 @@ var difficulty = {
 
 }
 
-$('.initButton').one('tapclick', function  () {
+$('.initButton').one('tapclick', function  (event) {
 
 event.preventDefault();
 

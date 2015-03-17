@@ -361,33 +361,33 @@ if (!agentID) {
  
 	});
 
-	$('#prevButton').fastClick(function () {
+	$('#prevButton').fastClick(function (event) {
 		event.preventDefault();
 		sly.activatePage(sly.rel.activeItem  -1);	
 		
 	}); 	
   
-	$('#nextButton').fastClick(function () {
+	$('#nextButton').fastClick(function (event) {
 		event.preventDefault();
 		sly.activatePage(sly.rel.activeItem  +1);
 			
 	}); 	
 
      
-	$('#skipNextButton').fastClick(function (indexFirst) {
+	$('#skipNextButton').fastClick(function (event) {
 		event.preventDefault();
 		sly.activatePage(sly.rel.activeItem + 10);
 		
 	});   
   	 
-	$('#skipPrevButton').fastClick(function (indexFirst) {
+	$('#skipPrevButton').fastClick(function (event) {
 		event.preventDefault();
 		sly.activatePage(sly.rel.activeItem - 10);
 		
 	});   
   
   
-  	$('#languageButton').fastClick(function (indexFirst) {
+  	$('#languageButton').fastClick(function (event) {
 		event.preventDefault();
 		if ($(this).text() == 'Eng.') {
 			
@@ -408,7 +408,7 @@ if (!agentID) {
 
 			$(this).text('Dk')	
 		}
-	$(this).prop('disabled', true);
+	
 	
 	}); 
 

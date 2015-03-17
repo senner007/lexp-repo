@@ -297,7 +297,7 @@ preload([
 
 var actions = {
 
-	checkFunction: function () {	
+	checkFunction: function (event) {	
 		event.preventDefault();		
 		$('#shuffleButton').css('text-decoration','line-through').off();
 		$('#checkButton').css('text-decoration','line-through').off();
@@ -411,7 +411,7 @@ var actions = {
 		});
 	
 	},	
-	shuffleFunction: function () { 
+	shuffleFunction: function (event) { 
 		event.preventDefault();
 		var $tFobjects = $('#frame').find('.object.tr,.object.fls');
 		

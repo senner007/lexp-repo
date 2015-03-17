@@ -525,7 +525,7 @@ function checking () {
 	});
 };	// end of checking function
 		
-$('#checkButton').fastClick(function () {
+$('#checkButton').fastClick(function (event) {
 		event.preventDefault();
 		$('.ui-droppable').css({border: 'none'})
 		$('.draggable').transition({opacity: 0},180,function () {
@@ -552,7 +552,7 @@ $('#checkButton').fastClick(function () {
 });
   
 	
-$('#shuffleButton').fastClick(function () {
+$('#shuffleButton').fastClick(function (event) {
 	event.preventDefault();
 	sly.set({speed: 400, easing: 'easeInOutCirc'});
 	$('.object').remove();
