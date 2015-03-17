@@ -249,8 +249,8 @@ if (!agentID) {
 		$bottomRow2 = $('#bottomRow2'),
 		$bottomRow3 = $('#bottomRow3'),
 		$bottomRow4 = $('#bottomRow4'),
-		$wordDef = $('#wordDef'),
-		$input = $('#inputSearch');
+		$wordDef = $('#wordDef');
+		
 	
     
 	limove = function (indexFirst)  {
@@ -265,10 +265,7 @@ if (!agentID) {
 		selectWordsArr[4] =  selectWordsArr[4].replace(/\//g, ' /').toLowerCase();
 			  
 		$wordDef.text(selectWordsArr[0] + ' - ' + selectWordsArr[1] + ' - ' + selectWordsArr[2]);
-		//update seach value if not tablet
-		if (!agentID) {
-			$input.val(selectWordsArr[0]);
-		}
+		
 		
 			// exception if verb is 'be'
 		if (thisIndex == 4) {
