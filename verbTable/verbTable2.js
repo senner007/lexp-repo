@@ -362,25 +362,33 @@ if (!agentID) {
 	});
 
 	$('#prevButton').fastClick(function () {
+		event.preventDefault();
 		sly.activatePage(sly.rel.activeItem  -1);	
+		
 	}); 	
   
 	$('#nextButton').fastClick(function () {
-		sly.activatePage(sly.rel.activeItem  +1);	
+		event.preventDefault();
+		sly.activatePage(sly.rel.activeItem  +1);
+			
 	}); 	
 
      
 	$('#skipNextButton').fastClick(function (indexFirst) {
+		event.preventDefault();
 		sly.activatePage(sly.rel.activeItem + 10);
+		
 	});   
   	 
 	$('#skipPrevButton').fastClick(function (indexFirst) {
-		sly.activatePage(sly.rel.activeItem - 10);	
+		event.preventDefault();
+		sly.activatePage(sly.rel.activeItem - 10);
+		
 	});   
   
   
   	$('#languageButton').fastClick(function (indexFirst) {
-
+		event.preventDefault();
 		if ($(this).text() == 'Eng.') {
 			
 			$('#topTable').find('th.column2').text('Datid')
@@ -400,6 +408,7 @@ if (!agentID) {
 
 			$(this).text('Dk')	
 		}
+	$(this).prop('disabled', true);
 	
 	}); 
 

@@ -298,7 +298,7 @@ preload([
 var actions = {
 
 	checkFunction: function () {	
-			
+		event.preventDefault();		
 		$('#shuffleButton').css('text-decoration','line-through').off();
 		$('#checkButton').css('text-decoration','line-through').off();
 		
@@ -412,6 +412,7 @@ var actions = {
 	
 	},	
 	shuffleFunction: function () { 
+		event.preventDefault();
 		var $tFobjects = $('#frame').find('.object.tr,.object.fls');
 		
 		$('#checkButton').css('text-decoration','none').off().on('tapclick', actions.checkFunction);
