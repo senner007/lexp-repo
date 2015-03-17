@@ -384,9 +384,11 @@ $('#puzzleOnOff').on('tapclick', function () {
 			animateSpeed: 120
 		}).on('touchend touchstart','.object', function(e) { 
 			 e.preventDefault();
-		}, false).on('mousewheel','.ss-moving', function(e) { 
-			e.preventDefault();
-		}, false);
+		}, false).on('mousedown','.object', function(e) { 
+			sly.set({keyboardNavBy: null, scrollBy: 0});
+		}).on('mouseup','.object', function(e) { 
+			sly.set({keyboardNavBy: 'pages', scrollBy: 1});
+		});
 		
 		objPrepApp();
 		
@@ -407,10 +409,17 @@ $('#puzzleOnOff').on('tapclick', function () {
 	 e.preventDefault();
 	}, false);  
 	
-	// prevent mousewheel on object drag
-	$('.container').on('mousewheel','.ss-moving', function(e) { 
-	 e.preventDefault();
-	}, false);  
+	// prevent mousewheel and keyboard nav on object hold
+		
+	$('.container').on('mousedown','.object', function(e) { 
+	 sly.set({keyboardNavBy: null, scrollBy: 0});
+	}); 	
+	
+	$('#container').on('mouseup','.object', function(e) { 
+	 sly.set({keyboardNavBy: 'pages', scrollBy: 1});
+	}); 
+	
+	
 	
 
 
