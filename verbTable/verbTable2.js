@@ -351,7 +351,8 @@ if (!agentID) {
 	$('#inputSearch').keyup(function (e) { 
 
 		var v = $(this).val();
-		if (v != '') {
+		// Do nothing if backspace(keyCode == 8)
+		if (v != '' || e.keyCode != 8) {
 			 var found =  $('li').search(v);
 			sly.activatePage(found.index());
 		}
