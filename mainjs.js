@@ -2,6 +2,8 @@ var xmlDataVar;
 var globalScoreVariable;
 var shout_text;					// Global var to send information about exercise title to iframe
 $(document).ready(function(){
+	
+
 
 var $loaderGif = $('#loaderGif');
 
@@ -167,6 +169,8 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 	   		$loaderGif.hide();
 					
 			$('.colimg2').css('visibility','visible');
+			
+		
 						 
 			$container.isotope({ 		
 				itemSelector: '.item',
@@ -178,8 +182,16 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 						category: '[data-abc]'
 				}, 
 				sortBy: 'category',		
-				transitionDuration: '0.7s'
-				}).isotope({ filter: recentParent });
+				transitionDuration: '0'
+			})
+		
+			$container.isotope({ filter: recentParent });
+			
+			$container.isotope({ transitionDuration: '0.7s' })
+			
+			
+			
+			
 				
 				$itemGrammar = $container.find($(".exc:contains('Grammar')"));
 				$itemVocab = $container.find($(".exc:contains('Vocabulary')"));
@@ -187,6 +199,9 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 				$itemI = $container.find('.item.colimg1,.item.colimg2');
 				$itemRules = $container.find(".colRules1,.colRules2,.coltext1,.coltext2,.coltext3,.exc:contains('Text')");
 				$itemsAll = $container.find('.item').not('#introText');
+				
+				//animate to top
+				$("html, body").animate({ scrollTop: 0 }, "slow");
 				
 				window.defScripts = new $.Deferred();
 				$.when(
