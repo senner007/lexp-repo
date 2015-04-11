@@ -76,7 +76,7 @@ initAll = function () {
 			if (!$.support.transition) {	
 						$.fn.transition = $.fn.animate;	
 					}
- 
+			var $checkButton = $('#checkButton');
 			var sentencesArr = [];
 			var friends = window.parent.shout_text;
 			var saveData = window.parent.xmlDataVar
@@ -210,7 +210,7 @@ initAll = function () {
 			
 			};
 			finalFeedback = function () {
-					$('#checkButton').remove();
+					$checkButton.remove();
 					var items = frame.find('.lis').size();
 					var thisIndex = $('.active').index();
 					var solved = frame.find('.solved').size();
@@ -411,11 +411,11 @@ sly.on('change', function () {	// listen for when sly is at beginning and end an
 	autoValidate();		
 
 	if ( !$('.active').find('.splitList').hasClass('solved') ) {
-		$('#checkButton').css('text-decoration','none');
+		$checkButton.css('text-decoration','none');
 		answerSwitch = 0;
 	}
 	else {
-		$('#checkButton').css('text-decoration','line-through');
+		$checkButton.css('text-decoration','line-through');
 		
 	}
 	// Check whether Sly is at the start
@@ -463,7 +463,7 @@ $('#checkButton').on('tapclick',function (e) {
 	var easingIn = 'easeOutQuad';
 
 	answerSwitch = 1;
-	$('#checkButton').css('text-decoration','line-through');
+	$checkButton.css('text-decoration','line-through');
 	
 	
 	var activeIndex = $('.slidee').find('.active').index()
@@ -476,7 +476,7 @@ $('#checkButton').on('tapclick',function (e) {
 		var correctNumber = 0;
 
 		wrongPunish++;
-		wrongCount.html('Tries left: ' + (difficulty.wrongPunishLimit - wrongPunish)).transition({display : 'block'}, 100,function () {
+		wrongCount.html('Tries left: ' + Math.abs((difficulty.wrongPunishLimit - wrongPunish))).transition({display : 'block'}, 100,function () {
 		
 		lis.each(function(index2) {
 			var $this = $(this); 
@@ -619,14 +619,14 @@ $('#checkButton').on('tapclick',function (e) {
 		}
 		else {
 			if ( !$('.active').find('.splitList').hasClass('solved') ) {
-				$('#checkButton').css('text-decoration','none');
+				$checkButton.css('text-decoration','none');
 			}
 		}
 	
 		if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
 			answerSwitch = 1;
 			frame.find('.splitList').find('li').draggable('disable');
-			$('#checkButton').css('text-decoration','line-through');
+			$checkButton.css('text-decoration','line-through');
 			finalFeedback();
 		}
 		
