@@ -17,13 +17,8 @@ if (agentID) {
 
 $('.initButton').css({opacity: 0});
 $.getScript("js/jquery-ui-1.10.2.custom.min.js", function(data, textStatus, jqxhr) {
-   /*  console.log('Load was performed.'); */
 	$('.initButton').transition({opacity: 1});
-	
-
-	$.getScript("js/touchPunchPointer.min.js")
-
-	
+	$.getScript("js/touchPunchPointer.min.js");	
 });
 
 
@@ -54,57 +49,40 @@ var difficulty = {
 $('.initButton').one('tapclick', function  () {
 
 
+	switch( $(this).attr('id') )
+	{
+	case 'easy':
+		difficulty.easy()
+	  break;
+	case 'normal':
+		difficulty.normal()
 
-switch( $(this).attr('id') )
-{
-case 'easy':
-	difficulty.easy()
-  break;
-case 'normal':
-	difficulty.normal()
+	  break;
+	case 'hard':
+		difficulty.hard()
 
-  break;
-case 'hard':
-	difficulty.hard()
-
-  break;
-}
+	  break;
+	}
 
 
-$(this).transition({backgroundColor: 'transparent', color: 'rgb(68, 68, 68)'},200, function () {
-
-	initAll();
-
-})
+	$(this).transition({backgroundColor: 'transparent', color: 'rgb(68, 68, 68)'},200, function () {
+		initAll();
+	})
 	
-
-
 })
 
 initAll = function () {
-/* console.log('hello') */
-//$(window).bind("load", function() {
 
-
-
-if (!$.support.transition) {	
-			$.fn.transition = $.fn.animate;	
-		}
-
-
-var sentencesArr = [];
-
-var saveData; 
-window.parent.globalScoreVariable = 0;
-var scoreTotal;
- var friends = window.parent.shout_text;
- var saveData = window.parent.xmlDataVar
-
-
-var wrongPunish = 0;
-var selectWordsArr;
-var colorScheme = true;
-var prependedSentences = []
+			if (!$.support.transition) {	
+						$.fn.transition = $.fn.animate;	
+					}
+ 
+			var sentencesArr = [];
+			var friends = window.parent.shout_text;
+			var saveData = window.parent.xmlDataVar
+			var wrongPunish = 0;
+			var selectWordsArr;
+			var prependedSentences = [];
 
 			var selectWords = $(saveData).find(friends).find('selectWords').text();
 		
@@ -232,6 +210,7 @@ var prependedSentences = []
 			
 			};
 			finalFeedback = function () {
+					$('#checkButton').remove();
 					var items = frame.find('.lis').size();
 					var thisIndex = $('.active').index();
 					var solved = frame.find('.solved').size();
@@ -289,7 +268,7 @@ var prependedSentences = []
 				};
 				
 				$.each(selectWordsArr, function(i,e) {	
-				if (jQuery.inArray(selectWordsArr[i], arr) != -1) { 
+					if (jQuery.inArray(selectWordsArr[i], arr) != -1) { 
 						// while loop if there are more than one
 						// of the selected word in the sentence
 						// ex. (I) : I looked and I walked...
@@ -419,27 +398,35 @@ var prependedSentences = []
 	 e.preventDefault();
 	}, false); */
 
-	var wrongCount = $('#wrongCount');
- function setWrongCounter() {
+var wrongCount = $('#wrongCount');
+function setWrongCounter() {
 	$('#wrongCount').text('Tries left: ' + (difficulty.wrongPunishLimit - wrongPunish))
-	//console.log('hello')
+
 }
 setWrongCounter()
 
 
 
-sly.on('change', function () {	// listen for when sly is at biginning and end and add class to prev/next buttons
+sly.on('change', function () {	// listen for when sly is at beginning and end and add class to prev/next buttons
 	autoValidate();		
-	
-        // Check whether Sly is at the start
-        $('#prevButton')[this.pos.start === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
-        // Check whether Sly is at the end
-        $('#nextButton')[this.pos.end === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
 
-        // Check whether the first item is active
-       $('#prevButton')[this.rel.activeItem === 0 ? 'addClass' : 'removeClass']('ButtonDisabled');
-        // Check whether the last item is active
-        $('#nextButton')[this.rel.activeItem === this.items.length - 1 ? 'addClass' : 'removeClass']('ButtonDisabled');
+	if ( !$('.active').find('.splitList').hasClass('solved') ) {
+		$('#checkButton').css('text-decoration','none');
+		answerSwitch = 0;
+	}
+	else {
+		$('#checkButton').css('text-decoration','line-through');
+		
+	}
+	// Check whether Sly is at the start
+	$('#prevButton')[this.pos.start === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
+	// Check whether Sly is at the end
+	$('#nextButton')[this.pos.end === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
+
+	// Check whether the first item is active
+   $('#prevButton')[this.rel.activeItem === 0 ? 'addClass' : 'removeClass']('ButtonDisabled');
+	// Check whether the last item is active
+	$('#nextButton')[this.rel.activeItem === this.items.length - 1 ? 'addClass' : 'removeClass']('ButtonDisabled');
 });
 
 
@@ -461,14 +448,11 @@ $('#nextButton').on('tapclick', function (e) {
 var answerSwitch = 0;		// to disable check button
 $('#checkButton').on('tapclick',function (e) {
 
-	
-
 	e.preventDefault();
 	
-	if (answerSwitch == 1 || $('.active').find('.splitList').find('li').parent().hasClass('solved')) { 
-	return; 
+	if (answerSwitch == 1 || $('.active').find('.splitList').hasClass('solved')) { 
+		return; 
 	}
-	//sly.set('touchDragging', 0);
 
 	var lis = $('.active').find('.splitList').find('li');	
 
@@ -477,8 +461,6 @@ $('#checkButton').on('tapclick',function (e) {
 		easingOut = 'easeInQuad';
 	}
 	var easingIn = 'easeOutQuad';
-	
-	
 
 	answerSwitch = 1;
 	$('#checkButton').css('text-decoration','line-through');
@@ -488,19 +470,11 @@ $('#checkButton').on('tapclick',function (e) {
 	var sent = sentencesArr[activeIndex].toLowerCase();
 	var uniqueNames = prependedSentences[activeIndex];
 		
-	//$('<style></style>').appendTo(docBody ).remove();	
-	
-		
-	
-
-	//lis.removeClass('preValid');
 		var i = 0;
 		var preValidIndex = 0;
 		var	blaLength = 0;
-		//console.log(arr.length);
-		
 		var correctNumber = 0;
-		//$('<style></style>').appendTo(docBody).remove();
+
 		wrongPunish++;
 		wrongCount.html('Tries left: ' + (difficulty.wrongPunishLimit - wrongPunish)).transition({display : 'block'}, 100,function () {
 		
@@ -511,18 +485,11 @@ $('#checkButton').on('tapclick',function (e) {
 			if ($thisText.toLowerCase() == uniqueNames[i].toLowerCase()) {
 				correctNumber++;
 				
-				
-				if (colorScheme == false) {
-					var options = {
-					backgroundColor : "#006400",
-					y: '+=10' 
-					}
-				} else {
-					var options = {
+				var options = {
 					color : "#006400",
 					y: '+=10' 
-					}
 				}
+				
 				$this.delay(index2 * 180)
 				.transition(options,130,easingOut)
 				.transition({y: '-=10'},130,easingIn, function () {
@@ -604,20 +571,11 @@ $('#checkButton').on('tapclick',function (e) {
 		
 				if ( (sent.indexOf(blabla) >= 0) && blaLength > 2 || preValidIndex != 0) {
 				
-			
-				if (colorScheme == false) {
-					var options = {
-					backgroundColor : "#CC9900",
-					y: '+=10' 
-					}
-				} else {
-					var options = {
+				var options = {
 					color : "#CC9900",
 					y: '+=10' 
-					}
 				}
 				
-			//$answer.show();
 				$this.delay(index2 * 180)
 				.transition(options,130,easingOut)
 				.transition({y: '-=10'},130,easingIn);
@@ -625,38 +583,29 @@ $('#checkButton').on('tapclick',function (e) {
 			}
 			else {
 			
-			if (colorScheme == false) {
-					var options = {
-					backgroundColor : "#A80000",
-					y: '+=10' 
-					}
-				} else {
-					var options = {
+				var options = {
 					color : "#A80000",
 					y: '+=10' 
-					}
 				}
-				$this.delay(index2 * 180)
-				.transition(options,130,easingOut)
-				.transition({y: '-=10'},130,easingIn);
+					$this.delay(index2 * 180)
+					.transition(options,130,easingOut)
+					.transition({y: '-=10'},130,easingIn);
 				
 			}
 		
 		}
 		i++;
 		
-	}).promise().done(function () {
-		answerSwitch = 0;
-		$('#checkButton').css('text-decoration','none');
-		
-		$this = $(this);
-	/* 	wrongPunish++;
-		setWrongCounter()  */
-		
 		if (correctNumber == uniqueNames.length) {
-	/* 		console.log('solved!') */
 			$this.parent().children().draggable('disable');
 			$this.parent().addClass('solved');
+		}
+		
+	}).promise().done(function () {
+		answerSwitch = 0;		
+		$this = $(this);
+		
+		if (correctNumber == uniqueNames.length) {
 			animateProgress(prependedSentences.length);
 			var arr = uniqueNames;
 			if (difficulty.setting == 2 ) {
@@ -665,18 +614,14 @@ $('#checkButton').on('tapclick',function (e) {
 					arr[0] = (arrFirst + arrMinusFirst);
 				} 
 			$(this).parent().delay(300).transition({y: -130},500, 'easeInOutCubic',function () {
-				$(this).html( "<p class='solvedToString'>" + arr.join(' ') + "</p>" + "<img class='solvedImg' src='css/cssImg/check2.png'/>").delay(250).transition({y: 0}, 500,'easeOutQuad');
-				
-				
-				
-			});
-			
-			
+				$(this).html( "<p class='solvedToString'>" + arr.join(' ') + "</p>" + "<img class='solvedImg' src='css/cssImg/check2.png'/>").delay(250).transition({y: 0}, 500,'easeOutQuad');		
+			});				
 		}
-	/* 	else {
-			//sly.set('touchDragging', 1);
-		} */
-
+		else {
+			if ( !$('.active').find('.splitList').hasClass('solved') ) {
+				$('#checkButton').css('text-decoration','none');
+			}
+		}
 	
 		if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
 			answerSwitch = 1;
