@@ -862,10 +862,14 @@ $('#container').on('tapclick','a img',function(e){
 			openSpeed: 0,
 			closeSpeed: 0,	
 			afterLoad: function () {
-
+					
+				$('#secondContainer').css('opacity',0.5);
 				$('.fancybox-overlay').css('opacity',0);
 				$('.fancybox-iframe').contents().find('.fancybox-close').attr('id', 'helloClose').unbind();
-				$('.fancybox-outer').css('background-image',"url('img/3.jpg')");     
+				$('.fancybox-outer').css('background-image',"url('img/3.jpg')")
+				$('.fancybox-wrap').css({"border-color": "black", 
+					"border-width":"1px", 
+					"border-style":"solid"}); 
 				  
 			},
 			afterClose: function () {
@@ -873,6 +877,7 @@ $('#container').on('tapclick','a img',function(e){
 				$('.fancybox-overlay').animate({opacity: 0},300, function () {
 					$(this).hide();
 				});  
+				$('#secondContainer').css('opacity',1);
 			},	
 			beforeShow: function () {
 				$('.fancybox-image').css({opacity:1});
