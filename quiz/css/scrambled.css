@@ -311,7 +311,7 @@ background: rgba(204, 204, 204,1);
 
 #prevButton {
 background:transparent url('cssImg/prev.png') center no-repeat;
-margin-top: -138px;
+margin-top: -141px;
 width:40px;
 height: 40px;
 position: absolute;
@@ -324,7 +324,7 @@ margin-left:-50px;
 background: transparent url('cssImg/next.png')center no-repeat;
 
 float: right;
-margin-top: -138px;
+margin-top: -141px;
 margin-left: 1005px;
 position: absolute;
 height: 40px;
