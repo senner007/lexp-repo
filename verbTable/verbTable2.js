@@ -241,19 +241,14 @@ if (!agentID) {
   
 	$('ul').append(listHtml);
   
-	var $topRow1 = $('#topRow1'),
-		$topRow2 = $('#topRow2'),
-		$topRow3 = $('#topRow3'),
-		$topRow4 = $('#topRow4'),
-		$bottomRow1 = $('#bottomRow1'),
-		$bottomRow2 = $('#bottomRow2'),
-		$bottomRow3 = $('#bottomRow3'),
-		$bottomRow4 = $('#bottomRow4'),
-		$wordDef = $('#wordDef');
+	var  $topTableMid = $('#topTableMid'),
+		 $bottomTableMid = $('#bottomTableMid'),
+		 $wordDef = $('#wordDef');
 		
 	
     
 	limove = function (indexFirst)  {
+		
 
 		var thisIndex = indexFirst,
 			selectWordsArr = verbArray[thisIndex].split(" ");
@@ -270,38 +265,43 @@ if (!agentID) {
 			// exception if verb is 'be'
 		if (thisIndex == 4) {
 					  
-			$topRow1.html('<td class="strong">I</td><td>was</td><td>was ' + selectWordsArr[4] + '</td><td>am</td><td>am ' + selectWordsArr[4] + '</td><td>will /am going to ' + selectWordsArr[0] + '</td><td>will be /am going to be ' + selectWordsArr[4] + '</td>'); 
+			var toBeRow01 = '<tr id="topRow1"><td class="strong">I</td><td>was</td><td>was ' + selectWordsArr[4] + '</td><td>am</td><td>am ' + selectWordsArr[4] + '</td><td>will /am going to ' + selectWordsArr[0] + '</td><td>will be /am going to be ' + selectWordsArr[4] + '</td></tr>'; 
 			  
-			$topRow2.html('<td class="strong">You</td><td>were</td><td>were ' + selectWordsArr[4] + '</td><td>are</td><td>are ' + selectWordsArr[4] + '</td><td>will /are going to ' + selectWordsArr[0] + '</td><td>will be /are going to be ' + selectWordsArr[4] + '</td>'); 
+			var toBeRow02 = '<tr id="topRow2"><td class="strong">You</td><td>were</td><td>were ' + selectWordsArr[4] + '</td><td>are</td><td>are ' + selectWordsArr[4] + '</td><td>will /are going to ' + selectWordsArr[0] + '</td><td>will be /are going to be ' + selectWordsArr[4] + '</td></tr>'; 
 		  
-			$topRow3.html('<td class="strong">He, she, it</td><td>was</td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[3] + '</td><td>is ' + selectWordsArr[4] + '</td><td>will /is going to ' + selectWordsArr[0] + '</td><td>will be /is going to be ' + selectWordsArr[4] + '</td>'); 
+			var toBeRow03 = '<tr id="topRow3"><td class="strong">He, she, it</td><td>was</td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[3] + '</td><td>is ' + selectWordsArr[4] + '</td><td>will /is going to ' + selectWordsArr[0] + '</td><td>will be /is going to be ' + selectWordsArr[4] + '</td></tr>'; 
 		  
-			$topRow4.html('<td class="strong">We</td><td>were</td><td>were being</td><td>are</td><td>are being</td><td>will /are going to ' + selectWordsArr[0] + '</td><td>will be /are going to be ' + selectWordsArr[4] + '</td>'); 
+			var toBeRow04 = '<tr id="topRow4"><td class="strong">We</td><td>were</td><td>were being</td><td>are</td><td>are being</td><td>will /are going to ' + selectWordsArr[0] + '</td><td>will be /are going to be ' + selectWordsArr[4] + '</td></tr>'; 
+			
+			$topTableMid.html(toBeRow01 + toBeRow02 + toBeRow03 + toBeRow04); 
 	 
 		} 
 		else {
 
-			$topRow1.html('<td class="strong">I</td><td>' + selectWordsArr[1] + '</td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>am ' + selectWordsArr[4] + '</td><td>will /am going to ' + selectWordsArr[0] + '</td><td>will be /am going to be ' + selectWordsArr[4] + '</td>'); 
-			  
-			$topRow2.html('<td class="strong">You</td><td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td><img src="arrowTop.png"/></td><td>are ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to be ' + selectWordsArr[4] + '</td>');   
-
-			$topRow3.html('<td class="strong">He, she, it</td><td><img src="arrowTop.png"/></td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[3] + '</td><td>is ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to be ' + selectWordsArr[4] + '</td>'); 	  		  		  
-			$topRow4.html('<td class="strong">We</td><td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>are ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to be ' + selectWordsArr[4] + '</td>'); 
+			var topTextRow01 = '<tr id="topRow1"><td class="strong">I</td><td>' + selectWordsArr[1] + '</td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>am ' + selectWordsArr[4] + '</td><td>will /am going to ' + selectWordsArr[0] + '</td><td>will be /am going to be ' + selectWordsArr[4] + '</td></tr>'; 
+			
+			var topTextRow02 = '<tr id="topRow2"><td class="strong">You</td><td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td><img src="arrowTop.png"/></td><td>are ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to be ' + selectWordsArr[4] + '</td></tr>';
+			  		
+			var topTextRow03 = '<tr id="topRow3"><td class="strong">He, she, it</td><td><img src="arrowTop.png"/></td><td>was ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[3] + '</td><td>is ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to be ' + selectWordsArr[4] + '</td></tr>'
+			
+			var topTextRow04 = '<tr id="topRow4"><td class="strong">We</td><td><img src="arrowTop.png"/></td><td>were ' + selectWordsArr[4] + '</td><td>' + selectWordsArr[0] + '</td><td>are ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to ' + selectWordsArr[0] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to be ' + selectWordsArr[4] + '</td></tr>'
+			
+			$topTableMid.html(topTextRow01 + topTextRow02 + topTextRow03 + topTextRow04); 
 				  
 		}
-		  
-			var bottomRowAll = '<td>had ' + selectWordsArr[2] + '</td><td>had been ' + selectWordsArr[4] + '</td><td>have ' + selectWordsArr[2] + '</td><td>have been ' + selectWordsArr[4] + '</td><td>will have /am going to have ' + selectWordsArr[2] + '</td><td>will have been /am going to have been ' + selectWordsArr[4] + '</td>';		  
-				  
+		  			  
 			var bottomRow4Arrows = '<td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>'
+			  						  
+			var bottomTextRow01 = '<tr id="bottomRow1"><td class="strong">I</td>' + '<td>had ' + selectWordsArr[2] + '</td><td>had been ' + selectWordsArr[4] + '</td><td>have ' + selectWordsArr[2] + '</td><td>have been ' + selectWordsArr[4] + '</td><td>will have /am going to have ' + selectWordsArr[2] + '</td><td>will have been /am going to have been ' + selectWordsArr[4] + '</td></tr>'
 			  
-			$bottomRow1.html('<td class="strong">I</td>' + bottomRowAll); 
-						  
-			$bottomRow2.html('<td class="strong">You</td>' + bottomRow4Arrows + '<td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have been ' + selectWordsArr[4] + '</td>'); 
-			  
-			$bottomRow3.html('<td class="strong">He, she, it</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td>has ' + selectWordsArr[2] + '</td><td>has been ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to have been ' + selectWordsArr[4] + '</td>'); 
-					  
-			$bottomRow4.html('<td class="strong">We</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td>have ' + selectWordsArr[2] + '</td><td>have been ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have been ' + selectWordsArr[4] + '</td>'); 
-		  
+			var bottomTextRow02 = '<tr id="bottomRow2"><td class="strong">You</td>' + bottomRow4Arrows + '<td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have been ' + selectWordsArr[4] + '</td></tr>'
+			
+			var bottomTextRow03 = '<tr id="bottomRow3"><td class="strong">He, she, it</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td>has ' + selectWordsArr[2] + '</td><td>has been ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/is going to have been ' + selectWordsArr[4] + '</td></tr>';
+			
+			var bottomTextRow04 = '<tr id="bottomRow4"><td class="strong">We</td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td>have ' + selectWordsArr[2] + '</td><td>have been ' + selectWordsArr[4] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have ' + selectWordsArr[2] + '</td><td><img class="toTheLeft" src="arrowTop.png"/>' + '/are going to have been ' + selectWordsArr[4] + '</td></tr>'
+			
+			$bottomTableMid.html(bottomTextRow01 + bottomTextRow02 + bottomTextRow03 + bottomTextRow04); 
+			
 	  
 		if (!$.support.transition) {	
 
@@ -329,16 +329,15 @@ if (!agentID) {
 			
 		  },
 		  { 
-			moveEnd: function (position, $items, relatives) {
+			active: function (position, $items, relatives) {
 
-				  var indexFirst = this.rel.activeItem;
-				  limove(indexFirst );
+				 var indexFirst = this.rel.activeItem;
+				 limove(indexFirst );
 				 
 			},
 			load: function (position, $items, relatives) {
 
-				limove(0);
-			  
+				//limove(0);
 				var bottomRowAllRepeat = '<td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td><td><img src="arrowTop.png"/></td>';  
 				$('#topRow5').html('<td>You</td>' + bottomRowAllRepeat); 
 				$('#topRow6').html('<td>They</td>' + bottomRowAllRepeat);
