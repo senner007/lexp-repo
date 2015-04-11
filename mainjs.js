@@ -405,7 +405,7 @@ function LoadIframe($div) {
 	}
 	if (this.$div.hasClass('variousRules') ){			//rules text	
 		this.qhref = this.$div.attr('href');
-		this.quizHeight = 630;
+		this.quizHeight = 640;
 	}
 	$container = $('#container')
 	

@@ -27,7 +27,7 @@ tr{color:  	#black;}
 
 #topTableHeader {
 width: inherit;
-margin-top: 20px;
+margin-top: 28px;
 position: absolute;
 border-top: 5px solid #222;
 table-layout: fixed;
@@ -36,7 +36,7 @@ border-collapse:collapse;
 
 #topTableMid {
 width: inherit;
-margin-top: 51px;
+margin-top: 59px;
 position: absolute;
 
 table-layout: fixed;
@@ -45,7 +45,7 @@ border-collapse:collapse;
 
 #topTableStatic {
 width: inherit;
-margin-top: 191px;
+margin-top: 199px;
 position: absolute;
 
 table-layout: fixed;
@@ -56,7 +56,7 @@ border-collapse:collapse;
 #bottomTableHeader {
 width: inherit;
 position: absolute;
-margin-top: 265px;
+margin-top: 273px;
 
 border-top: 5px solid #222;
 table-layout: fixed;
@@ -68,7 +68,7 @@ border-collapse:collapse;
 #bottomTableMid {
 width: inherit;
 position: absolute;
-margin-top: 296px;
+margin-top: 304px;
 
 
 table-layout: fixed;
@@ -79,7 +79,7 @@ border-collapse:collapse;
 #bottomTableStatic {
 width: inherit;
 position: absolute;
-margin-top: 436px;
+margin-top: 444px;
 
 
 table-layout: fixed;
@@ -303,7 +303,7 @@ button
 cursor: pointer;
 
 position: absolute;
-margin-top: 575px;
+margin-top: 585px;
 
 font-weight: bold;
 border: 1px solid black;
@@ -325,7 +325,7 @@ background: url('../quiz/css/cssImg/prev.png') center no-repeat;
 
 width:50px;
 
-margin-left: 440px;
+margin-left: 550px;
 
 }
 
@@ -334,7 +334,7 @@ background:url('../quiz/css/cssImg/next.png')center no-repeat;
 
 width:50px;
 
-margin-left: 495px;
+margin-left:605px;
 
 }
 
@@ -343,7 +343,7 @@ background:url('../quiz/css/cssImg/skipPrev.gif') center no-repeat;
 
 width:50px;
 
-margin-left: 385px;
+margin-left: 495px;
 
 }
 #skipNextButton {
@@ -351,7 +351,7 @@ background:url('../quiz/css/cssImg/skipNext.gif') center no-repeat;
 
 width:50px;
 
-margin-left: 550px;
+margin-left: 660px;
 
 }
 
@@ -367,12 +367,12 @@ margin-left: 604px;
 #languageButton {
 
 font-weight: bold;
-width:106px;
+width:65px;
 font-size: 20px;
 text-align:center;
 color: rgba(51, 51, 51,1);
 
-margin-left: 885px;
+margin-left: 926px;
 }
 
 
@@ -402,12 +402,12 @@ color: rgba(204, 204, 204,1);
 #wordDef {
 position: absolute;
 padding: 8px;
-padding-bottom: 5px;
-width: 361px;
+padding-bottom: 7px;
+width: 470px;
 margin-left: 1px;
 border: 1px solid rgba(68, 68, 68,1);
-font-size: 21px;
-margin-top: 575px;
+font-size: 20px;
+margin-top: 585px;
 font-weight: bold;
 
 
@@ -416,12 +416,12 @@ font-weight: bold;
 #inputSearch {
 border: 1px solid black;
 position: absolute;
-margin-top: 575px;
-width:261px;
+margin-top: 585px;
+width:190px;
 padding: 5px;
 height: 28px;
 padding-left: 7px;
-margin-left: 605px;
+margin-left: 716px;
 font-size: 20px;
 color: rgba(51, 51, 51,1);
 background: transparent;
@@ -432,7 +432,7 @@ background: transparent;
 
 #startText {
 position: absolute;
-margin-top: 511px;
+margin-top: 522px;
 margin-left: 20px;
 font-family: 'UnderwoodChampionRegular';
 font-size: 14px;
@@ -453,7 +453,7 @@ width: 90px;
 .frame {
   position: absolute;	 
   width: inherit;
-  margin-top: 510px;
+  margin-top: 518px;
   border-top: 1px solid grey;
   border-bottom: 1px solid grey;
 
