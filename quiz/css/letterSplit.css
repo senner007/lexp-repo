@@ -242,10 +242,11 @@ width:40px;
 	
 	list-style: none;
 	
-	
+
 	padding: 0;
 	text-align: center;
 	z-index: -1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 .pages li {
 	
@@ -263,9 +264,9 @@ width:40px;
 	_background: transparent;
 	_box-shadow: inset 0 0 0 1px rgba(0,0,0,.2);
 }
-.pages li:hover {
+/* .pages li:hover {
 	background: #aaa;
-}
+} */
 .pages li.active {
 	background: rgb(68, 68, 68);
 }
