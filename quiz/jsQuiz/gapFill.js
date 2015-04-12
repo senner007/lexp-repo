@@ -2,17 +2,15 @@ $(function() {
 
 	var quizTitle = window.parent.shout_text;
 	var saveData = window.parent.xmlDataVar;
-
+    var $ulContainer = $('#ulContainer ul');
 
 	var rightTextArr;
-	var alignLis;
+	
 				
 	var docWidth = window.parent.$('body').width();	
 	if (docWidth > 1100) {	
 		$('<button id="nextButton"></button><button id="prevButton"></button>').appendTo('#container');
-	}
-
-
+	};
 
 	var stringData = $.ajax({
 		url: "gapFillTextFiles/" + quizTitle + '.txt',
@@ -64,8 +62,134 @@ $(function() {
 		 myArray[j] = tempi;
 	   }
 	}
+	
+	function enableDragandDrop () {
+	
+		$('.draggable').draggable({
+				
+			 iframeFix: true, //don't know what it does???
+			//   containment: [(indent - 70),0,(indent + 950),610],
+
+				scroll: false, 
+				stack: ".draggable",
+				start: function () {
+					var $this = $(this);
+					//$h1.html(quizHeadline + "<span class='bolder'> " + $this.text() + "</span><br><span class='shrink'>" + subTitle + "</span>");
+				   $this.css({
+					opacity: 1,
+					/* zIndex: '9999', */
+					}).attr('class','draggable ui-draggable');
+					}
+				
+			});
+			
+
+			$( ".suffixes" ).droppable({
+			out: function (event, ui) {
+				var $this = $(this);
+				//$this.removeClass('occupado');
+				//var thisParentTime = $this.parent().parent();
+				//prevSuffix = $(this);
+				if ( $li.hasClass( $this.attr('id') ) == false ) {
+					 $this.css({
+					background: 'transparent',
+					color: 'rgb(72, 72, 72)'
+					}); 
+					$this.removeClass('occupado');
+					//alignLis(thisParentTime);
+					 //$( ".suffixes" ).droppable( "disable" );
+					 // $( ".suffixes" ).droppable( "enable" );
+				}
+				
+				var color = ui.draggable.css('color');
+				
+				ui.draggable.css({'background-image':"url('../img/3_lighter2.jpg')", color: 'rgb(72,72,72)'});	
+				//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
+			},
+			drop: function( event, ui ) {
+				var $this = $(this);
+				if ( $this.hasClass('occupado') ) { return; }; 
+				$this.addClass('occupado');
+				
+				
+				$suffixes.each(function (i) {
+					var $this = $(this);
+					//console.log($this.css('background-color'))
+			
+					
+					if (($this.css('background-color') == 'transparent' || $this.css('background-color') == 'rgba(0, 0, 0, 0)') && $this.text() != '???' ) {
+						//console.log($this.text() + ' ' + $this.attr('id'));
+						$this.text('???').css('color','rgb(72, 72, 72)');
+						
+					}
+				
+					
+				});
+				/* if ( prevSuffix ) {prevSuffix.text('???').css({
+					background: 'transparent',
+					color: 'black'
+					});
+					prevSuffix = null;
+					} */
+			
+				
+				//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
+				
+
+				
+				$this
+				.html( "<nobr>" + ui.draggable.text() + "</nobr>")
+				.css({
+					background:'rgb(72, 72, 72)',
+					color: 'rgba(187, 187, 187,1)'
+				});
+			   
+				var position = $this.offset();
+								
+				ui.draggable.css({
+
+					opacity: 0,
+							
+				});
+				ui.draggable.addClass($this.attr('id'));
+				alignLis($suffixes);
 		
-		
+			},
+			over: function( event, ui ) {
+				if ( $(this).hasClass('occupado') ) { return; };
+				var thisColor = ui.draggable.css('background-color');  // will only respond if css is saved to a var  
+				ui.draggable.css({background: 'rgb(72, 72, 72)', color: 'rgba(187, 187, 187,1)'});
+				//$h1.find('.bolder').css({background: 'rgba(68, 68, 68,1)', color: thisColor});
+				
+				//$('#ulContainer').css({background: 'rgba(68, 68, 68,1)',color: 'rgba(204, 204, 204,1)'});
+			}
+		});
+	}
+	
+	alignLis = function ($suffixes) {	// alignLis function
+		var $ul = $ulContainer;
+		$.each($suffixes, function(i,e) {
+			var $this = $(this);
+			if ($this.text() != '???') {
+				var thisOffset = $this.offset()
+				var liToMove =  $ul.find("." + $this.attr('id'));
+				
+				var liToMoveParentLiIndex = $this.parents(':eq(2)').index();
+
+				var diff = 0;
+				// code if li is not on current page (+-1000) to offset
+				if ( liToMoveParentLiIndex < sly.rel.activeItem) {
+					diff = -(liToMoveParentLiIndex - sly.rel.activeItem) * 1000;
+				}
+				if ( liToMoveParentLiIndex > sly.rel.activeItem) {
+					diff = (sly.rel.activeItem - liToMoveParentLiIndex) * 1000;
+				}		
+				liToMove.offset({ top: thisOffset.top - 6, left: thisOffset.left - 5 + diff })
+				
+			};
+
+		});
+	};
 
 var init = function () {
 
@@ -109,7 +233,6 @@ var init = function () {
 			}
 			
 		
-		
 			if (hello > 320 && $this.find('.object').last().text().length > 150) {
 				
 				//will count the previous amount of characters in the .time element 
@@ -143,13 +266,12 @@ var init = function () {
 				setLastPart = 1;
 					
 			}
-			
-		
+	
 	});
+	// remove li pages in slidee that are empty
 	 $('.time:empty').remove();
 	 $('li:empty').remove();
-	
-	
+		
 	
 	var myHtml = '';
 	$.each(answerArr, function(i,e) {									// create answer lis
@@ -158,12 +280,12 @@ var init = function () {
 	$('#ulContainer ul').append(myHtml)
 	
 	$li = $('#ulContainer li');
-
 	
 		var widthIndex = 0;
 		var liTop = 0;
 		var anumber;
 		
+		// layout li draggable in ul container
 		$.each(answerArr, function(i, e) {	
 			
 			divWidth = $li.eq(i).width();
@@ -173,18 +295,16 @@ var init = function () {
 					top: liTop
 				}
 			
-			
-			
 			$li.eq(i).css(cssObject);
-			
+				
 			widthIndex = (widthIndex + divWidth) + 25 ;
 			if (widthIndex > 850) {
 				widthIndex = 0;
 				liTop = liTop + 47;
 				
 			}
-		
 		}); 
+		
 	var indexSuffix = 0;
 	$('.time').each(function () {
 	var $this = $(this);
@@ -196,158 +316,26 @@ var init = function () {
 	
 	});
 	
+$("body").css("overflow", "hidden");
 
-	
-	alignLis = function () {	// alignLis function
-			var $ul = $('#ulContainer ul');
-			$.each($suffixes, function(i,e) {
-				var $this = $(this);
-				if ($this.text() != '???') {
-					var thisOffset = $this.offset()
-					var liToMove =  $ul.find("." + $this.attr('id'));
-					
-					var liToMoveParentLiIndex = $this.parents(':eq(2)').index();
-
-					var diff = 0;
-					// code if li is not on current page (+-1000) to offset
-					if ( liToMoveParentLiIndex < sly.rel.activeItem) {
-						diff = -(liToMoveParentLiIndex - sly.rel.activeItem) * 1000;
-					}
-					if ( liToMoveParentLiIndex > sly.rel.activeItem) {
-						diff = (sly.rel.activeItem - liToMoveParentLiIndex) * 1000;
-					}		
-					liToMove.offset({ top: thisOffset.top - 6, left: thisOffset.left - 5 + diff })
-					
-				}
-
-			})
-		}											// alignLis function
+if (!$.support.transition) {							
+	$.fn.transition = $.fn.animate;
+} 
 		
-	//var bodyWidth = parent.window.$('body').width();
-	$("body").css("overflow", "hidden");
-	//var indent = ((bodyWidth - 1000) / 2)
-	//console.log(indent)
-	
-       $('.draggable').draggable({
+$suffixes = $(".suffixes");	
 			
-		 iframeFix: true,
-		//   containment: [(indent - 70),0,(indent + 950),610],
+}							//////////////// init function end /////////////
 
-			scroll: false, 
-			stack: ".draggable",
-			start: function () {
-				var $this = $(this);
-				//$h1.html(quizHeadline + "<span class='bolder'> " + $this.text() + "</span><br><span class='shrink'>" + subTitle + "</span>");
-			   $this.css({
-				opacity: 1,
-				/* zIndex: '9999', */
-				}).attr('class','draggable ui-draggable');
-		 	    }
-			
-	    });
-		
-
-        $( ".suffixes" ).droppable({
-		out: function (event, ui) {
-			var $this = $(this);
-			//$this.removeClass('occupado');
-			//var thisParentTime = $this.parent().parent();
-			//prevSuffix = $(this);
-			if ( $li.hasClass( $this.attr('id') ) == false ) {
-				 $this.css({
-				background: 'transparent',
-				color: 'rgb(72, 72, 72)'
-				}); 
-				$this.removeClass('occupado');
-				//alignLis(thisParentTime);
-				 //$( ".suffixes" ).droppable( "disable" );
-				 // $( ".suffixes" ).droppable( "enable" );
-			}
-			
-			var color = ui.draggable.css('color');
-			
-			ui.draggable.css({'background-image':"url('../img/3_lighter2.jpg')", color: 'rgb(72,72,72)'});	
-			//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
-		},
-		drop: function( event, ui ) {
-			var $this = $(this);
-			if ( $this.hasClass('occupado') ) { return; }; 
-			$this.addClass('occupado');
-			
-			
-			$suffixes.each(function (i) {
-				var $this = $(this);
-				//console.log($this.css('background-color'))
-		
-				
-				if (($this.css('background-color') == 'transparent' || $this.css('background-color') == 'rgba(0, 0, 0, 0)') && $this.text() != '???' ) {
-					//console.log($this.text() + ' ' + $this.attr('id'));
-					$this.text('???').css('color','rgb(72, 72, 72)');
-					
-				}
-			
-				
-			});
-			/* if ( prevSuffix ) {prevSuffix.text('???').css({
-				background: 'transparent',
-				color: 'black'
-				});
-				prevSuffix = null;
-				} */
-		
-			
-			//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
-			
-
-			
-			$this
-			.html( "<nobr>" + ui.draggable.text() + "</nobr>")
-			.css({
-				background:'rgb(72, 72, 72)',
-				color: 'rgba(187, 187, 187,1)'
-			});
-		   
-			var position = $this.offset();
-							
-			ui.draggable.css({
-
-				opacity: 0,
-						
-			});
-			ui.draggable.addClass($this.attr('id'));
-			alignLis();
-	
-		},
-		over: function( event, ui ) {
-			if ( $(this).hasClass('occupado') ) { return; };
-			var thisColor = ui.draggable.css('background-color');  // will only respond if css is saved to a var  
-			ui.draggable.css({background: 'rgb(72, 72, 72)', color: 'rgba(187, 187, 187,1)'});
-			//$h1.find('.bolder').css({background: 'rgba(68, 68, 68,1)', color: thisColor});
-			
-			//$('#ulContainer').css({background: 'rgba(68, 68, 68,1)',color: 'rgba(204, 204, 204,1)'});
-		}
-	});
-//relalign lis on window resize event
-$( window ).resize(function() {
-	alignLis($('.time'));
-});
-	
-$('.time').disableSelection();
-$('li').disableSelection();
-
- if (!$.support.transition) {			
-				
-					$.fn.transition = $.fn.animate;
-				} 		
-
-	$suffixes = $(".suffixes");				
-}							// init function end
 init();
 
-/*  $('#container').css({ y: -100}).delay(200).transition({opacity:1,  y: 0},600); */
+$( window ).resize(function() {
+	alignLis($suffixes);
+});
+
+enableDragandDrop (); 
 
 function changeCode () {
-
+	
 		var visibleSuffixes = frameSlidee.find('.active').find('.suffixes');
     
 			$suffixes.not(visibleSuffixes).each(function (i,e) {
@@ -568,31 +556,24 @@ $('#shuffleButton').fastClick(function (event) {
 	$('.object').remove();
 	$li.remove();
 	$('#checkButton').css({background: "rgba(68, 68, 68,1) url('css/cssImg/checkButtonSmall.png') 10% center no-repeat", color: 'rgb(204, 204, 204)'}).removeAttr("disabled");
-	sly.on('change', changeCode)
-	/* window.parent.globalScoreVariable = 0; */
+	//sly.on('change', changeCode);    // Don't know if rebind is needed
 	
 	init();
-	
+	enableDragandDrop (); 
 
 });
-
 
 
 $('#prevButton').addClass('ButtonDisabled');	// prev button hidden by default
 	
 $('#prevButton').fastClick(function (e) {
-e.preventDefault();
-
+	e.preventDefault();
 	sly.prevPage();
-	
-  }); 	
+}); 	
   
-  $('#nextButton').fastClick(function (e) {
-  e.preventDefault();
-
-	sly.nextPage();
-	
-  }); 	
-
+$('#nextButton').fastClick(function (e) {
+	e.preventDefault();
+	sly.nextPage();	
+}); 	
 	 
 });
