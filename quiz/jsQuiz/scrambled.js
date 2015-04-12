@@ -487,6 +487,7 @@ $('#checkButton').on('tapclick',function (e) {
 		wrongPunish++;
 		wrongCount.html('Tries left: ' + Math.abs((difficulty.wrongPunishLimit - wrongPunish))).transition({display : 'block'}, 100,function () {
 	
+	
 		// helper function for orange coloring
 		myArray = []
 				
@@ -509,8 +510,19 @@ $('#checkButton').on('tapclick',function (e) {
 			}
 			return string;
 		}
+		
+		var iteDelay = 180;
+		var animSpeed = 130;
+		// skip animation when all are correct
+		if (myArray.join(' ').toLowerCase() == uniqueNames.join(' ').toLowerCase() ) {
+			
+			iteDelay = 0;
+			animSpeed = 0;
+			
+			
+		}
 	
-		lis.each(function(index2) {
+		lis.each(function(index2) {  //beginning of lis each function
 			var $this = $(this); 
 			var $thisText = $this.text().toLowerCase();
 				
@@ -522,14 +534,11 @@ $('#checkButton').on('tapclick',function (e) {
 					y: '+=10' 
 				}
 				
-				$this.delay(index2 * 180)
-				.transition(options,130,easingOut)
-				.transition({y: '-=10'},130,easingIn, function () {
+				$this.delay(index2 * iteDelay)
+				.transition(options,animSpeed,easingOut)
+				.transition({y: '-=10'},animSpeed,easingIn, function () {
 					
-				});
-				
-	
-					
+				});		
 			
 			}
 			else if ($thisText.toLowerCase() != uniqueNames[i].toLowerCase() || preValidIndex != 0  ) {
@@ -572,9 +581,9 @@ $('#checkButton').on('tapclick',function (e) {
 					y: '+=10' 
 				}
 				
-				$this.delay(index2 * 180)
-				.transition(options,130,easingOut)
-				.transition({y: '-=10'},130,easingIn);
+				$this.delay(index2 * iteDelay)
+				.transition(options,animSpeed,easingOut)
+				.transition({y: '-=10'},animSpeed,easingIn);
 				 
 			}
 			else {
@@ -583,9 +592,9 @@ $('#checkButton').on('tapclick',function (e) {
 					color : "#A80000",
 					y: '+=10' 
 				}
-					$this.delay(index2 * 180)
-					.transition(options,130,easingOut)
-					.transition({y: '-=10'},130,easingIn);
+					$this.delay(index2 * iteDelay)
+					.transition(options,animSpeed,easingOut)
+					.transition({y: '-=10'},animSpeed,easingIn);
 				
 			}
 		
@@ -608,9 +617,11 @@ $('#checkButton').on('tapclick',function (e) {
 					var arrFirst = arr[0].charAt(0).toUpperCase();
 					arr[0] = (arrFirst + arrMinusFirst);
 				} 
-			$(this).parent().delay(300).transition({y: -130},500, 'easeInOutCubic',function () {
-				$(this).html( "<p class='solvedToString'>" + arr.join(' ') + "</p>" + "<img class='solvedImg' src='css/cssImg/check2.png'/>").delay(250).transition({y: 0}, 500,'easeOutQuad');		
-			});				
+			$this.parent().children().each(function (counter) {
+					$(this).delay(counter * 50 + 200).transition({opacity: 0},200);
+			}).promise().done(function () {
+					$(this).parent().html( "<p class='solvedToString'>" + prependedSentences[activeIndex].join(' ') + "</p>" + "<img class='solvedImg' src='css/cssImg/checkButton.png'/>").css({opacity: 0, y: 100}).transition({opacity: 1, y: 0}, 500, 'easeOutQuad');	
+			});			
 		}
 		else {
 			if ( !$('.active').find('.splitList').hasClass('solved') && activeIndex == sly.rel.activePage) {

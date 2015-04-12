@@ -641,6 +641,17 @@ $('#checkButton').on('tapclick',function (e) {
 
 			return string;
 		}
+		
+		var iteDelay = 180;
+		var animSpeed = 130;
+		// skip animation when all are correct
+		if (myArray.join(' ').toLowerCase() == uniqueNames.join(' ').toLowerCase() ) {
+			
+			iteDelay = 0;
+			animSpeed = 0;
+			
+			
+		}
 
 		lis.each(function(index2, elem) { //beginning of lis each function
 			
@@ -655,9 +666,9 @@ $('#checkButton').on('tapclick',function (e) {
 						y: '+=10' 
 					}
 			
-				$this.delay(index2 * 180)
-				.animate(options,130)
-				.animate({y: '-=10'},130);
+				$this.delay(index2 * iteDelay)
+				.animate(options,animSpeed)
+				.animate({y: '-=10'},animSpeed);
 			
 			}
 			else if ($thisText.toLowerCase() != uniqueNames[i].toLowerCase() || preValidIndex != 0  ) {
@@ -695,9 +706,9 @@ $('#checkButton').on('tapclick',function (e) {
 					y: '+=10' 
 				}
 				
-				$this.delay(index2 * 180)
-				.animate(options,130)
-				.animate({y: '-=10'},130);
+				$this.delay(index2 * iteDelay)
+				.animate(options,animSpeed)
+				.animate({y: '-=10'},animSpeed);
 				 
 			}
 			else {
@@ -707,9 +718,9 @@ $('#checkButton').on('tapclick',function (e) {
 					y: '+=10' 
 				}
 			
-				$this.delay(index2 * 180)
-				.animate(options,130)
-				.animate({y: '-=10'},130);
+				$this.delay(index2 * iteDelay)
+				.animate(options,animSpeed)
+				.animate({y: '-=10'},animSpeed);
 				
 			}
 		
@@ -734,7 +745,7 @@ $('#checkButton').on('tapclick',function (e) {
 			progTransit(prependedSentences.length);
 		
 			$this.parent().children().each(function (counter) {
-					$(this).delay(counter * 50).transition({opacity: 0},200);
+					$(this).delay(counter * 50 + 200).transition({opacity: 0},200);
 			}).promise().done(function () {
 					$(this).parent().html( "<p class='solvedToString'>" + prependedSentences[activeIndex].join('') + "</p>" + "<img class='solvedImg' src='css/cssImg/checkButton.png'/>").css({opacity: 0, y: 200}).transition({opacity: 1, y: 0}, 500, 'easeOutQuad');	
 			});
