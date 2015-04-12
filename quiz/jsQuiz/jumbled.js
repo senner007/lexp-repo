@@ -624,12 +624,11 @@ $('#checkButton').on('tapclick',function (e) {
 		lis.each(function (myIndex, myElem) {
 			
 			myArray.push(lis.eq(myIndex).text().toLowerCase())				
-	
-			
+		
 		})
 		
 		// helper function for orange coloring
-		function getOrangeElements (currentIndex, conElements) {
+		function getAdjacentElements (currentIndex, conElements) {
 			var string = '';
 			for (xyz = 0; xyz < conElements; xyz++) { 
 				
@@ -643,26 +642,22 @@ $('#checkButton').on('tapclick',function (e) {
 			return string;
 		}
 
-		lis.each(function(index2, elem) {
+		lis.each(function(index2, elem) { //beginning of lis each function
 			
-		
-		
 			var $this = $(this); 
-
 			var $thisText = $this.text().toLowerCase();
 				
 			if ($thisText.toLowerCase() == uniqueNames[i].toLowerCase()) {
 				correctNumber++;
 
 					var options = {
-					color : "#006400",
-					y: '+=10' 
+						color : "#006400",
+						y: '+=10' 
 					}
 			
 				$this.delay(index2 * 180)
 				.animate(options,130)
 				.animate({y: '-=10'},130);
-			
 			
 			}
 			else if ($thisText.toLowerCase() != uniqueNames[i].toLowerCase() || preValidIndex != 0  ) {
@@ -672,22 +667,19 @@ $('#checkButton').on('tapclick',function (e) {
 			
 				for (myI = (myArray.length - index2); myI > 2; myI--) { 
 
-					var temp = getOrangeElements (index2, myI)
+					var temp = getAdjacentElements (index2, myI)
 					if (sent.indexOf(temp) >= 0) {
 						blabla = myI;
 						myI = 0;
 					}
 			
 				}
-		
-							
+									
 				if ( blabla > 2 && blabla > blaLength) {
 					blaLength = blabla;
-					preValidIndex = 0;
-			
+					preValidIndex = 0;		
 				}
-				
-				
+								
 				if (preValidIndex < blaLength) {
 					preValidIndex++;
 				}
@@ -695,31 +687,25 @@ $('#checkButton').on('tapclick',function (e) {
 					 blaLength = 0;
 					 preValidIndex = 0;
 				}
-			
-					
+		
 				if ( (sent.indexOf(blabla) >= 0) && blaLength > 2 || preValidIndex != 0) {
 				
-			
-				
-
-					var options = {
+				var options = {
 					color : "#CC9900",
 					y: '+=10' 
-					}
+				}
 				
-				
-			//$answer.show();
 				$this.delay(index2 * 180)
 				.animate(options,130)
 				.animate({y: '-=10'},130);
 				 
 			}
 			else {
-			
-					var options = {
+
+				var options = {
 					color : "#A80000",
 					y: '+=10' 
-					}
+				}
 			
 				$this.delay(index2 * 180)
 				.animate(options,130)
@@ -746,28 +732,19 @@ $('#checkButton').on('tapclick',function (e) {
 	
 			$textBoxSuffixes.eq(activeIndex).text( prependedSentences[activeIndex].join('') ).addClass('suffixDone');
 			progTransit(prependedSentences.length);
-			
-
-			
+		
 			$this.parent().children().each(function (counter) {
-					
 					$(this).delay(counter * 50).transition({opacity: 0},200);
-			
 			}).promise().done(function () {
-			
 					$(this).parent().html( "<p class='solvedToString'>" + prependedSentences[activeIndex].join('') + "</p>" + "<img class='solvedImg' src='css/cssImg/checkButton.png'/>").css({opacity: 0, y: 200}).transition({opacity: 1, y: 0}, 500, 'easeOutQuad');	
-			
 			});
 	
 		}
 		else {
 			if ( !$('.active').find('.splitList').hasClass('solved') && activeIndex == sly.rel.activePage) {
-
 				$checkButton.css('text-decoration','none');
 			}
 		}
-	
-
 	
 		if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
 			answerSwitch = 1;

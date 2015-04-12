@@ -497,7 +497,7 @@ $('#checkButton').on('tapclick',function (e) {
 		})
 		
 		// helper function for orange coloring
-		function getOrangeElements (currentIndex, conElements) {
+		function getAdjacentElements (currentIndex, conElements) {
 			var string = '';
 			for (xyz = 0; xyz < conElements; xyz++) { 
 				
@@ -539,7 +539,7 @@ $('#checkButton').on('tapclick',function (e) {
 			
 				for (myI = (myArray.length - index2); myI > 2; myI--) { 
 
-					var temp = getOrangeElements (index2, myI)
+					var temp = getAdjacentElements (index2, myI)
 					if (sent.indexOf(temp) >= 0) {
 						blabla = myI;
 						myI = 0;
