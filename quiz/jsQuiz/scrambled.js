@@ -410,14 +410,6 @@ setWrongCounter()
 sly.on('change', function () {	// listen for when sly is at beginning and end and add class to prev/next buttons
 	autoValidate();		
 
-	if ( !$('.active').find('.splitList').hasClass('solved') ) {
-		$checkButton.css('text-decoration','none');
-		answerSwitch = 0;
-	}
-	else {
-		$checkButton.css('text-decoration','line-through');
-		
-	}
 	// Check whether Sly is at the start
 	$('#prevButton')[this.pos.start === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
 	// Check whether Sly is at the end
@@ -427,6 +419,20 @@ sly.on('change', function () {	// listen for when sly is at beginning and end an
    $('#prevButton')[this.rel.activeItem === 0 ? 'addClass' : 'removeClass']('ButtonDisabled');
 	// Check whether the last item is active
 	$('#nextButton')[this.rel.activeItem === this.items.length - 1 ? 'addClass' : 'removeClass']('ButtonDisabled');
+});
+
+sly.on('active', function () {	// listen for when sly is at beginning and end and add class to prev/next buttons
+	
+
+	if ( !$('.active').find('.splitList').hasClass('solved') ) {
+		$checkButton.css('text-decoration','none');
+		answerSwitch = 0;
+	}
+	else {
+		$checkButton.css('text-decoration','line-through');
+		
+	}
+
 });
 
 
@@ -618,7 +624,8 @@ $('#checkButton').on('tapclick',function (e) {
 			});				
 		}
 		else {
-			if ( !$('.active').find('.splitList').hasClass('solved') ) {
+			if ( !$('.active').find('.splitList').hasClass('solved') && activeIndex == sly.rel.activePage) {
+
 				$checkButton.css('text-decoration','none');
 			}
 		}
