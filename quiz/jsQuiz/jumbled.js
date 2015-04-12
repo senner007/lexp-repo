@@ -68,10 +68,7 @@ var difficulty = {
 
 $('.initButton').one('tapclick', function  (event) {
 
-event.preventDefault();
-
-
-	
+	event.preventDefault();
 
 	switch( $(this).attr('id') )
 	{
@@ -87,45 +84,25 @@ event.preventDefault();
 
 	  break;
 	}
-		$(this).transition({backgroundColor: 'transparent', color: 'rgb(68, 68, 68)'}, 200,function () {
-		
-			$.when(defJMyPuzzle,defSlyText).done(function () {
-		
-				initAll();
-				
-			});
-		
-		
-		});
-
-		
-
-		
-		
-
+	$(this).transition({backgroundColor: 'transparent', color: 'rgb(68, 68, 68)'}, 200,function () {
+	
+		$.when(defJMyPuzzle,defSlyText).done(function () {
+			initAll();
+		});	
+	});
 })
-
-
-
 
 var saveData; 
 var answer;
-
-
+var $checkButton = $('#checkButton');
 var wrongPunish = 0;
-
 var removedLi;
-
 var eqnumber;
-/* window.parent.globalScoreVariable = 0;
-var scoreTotal;
- */
 var prependedSentences = [];
+
 if (!$.support.transition) {	
 	$.fn.transition = $.fn.animate;	
 }
-
-
 
 function shuffle(o){ //v1.0
 				for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -157,7 +134,6 @@ function shuffle(o){ //v1.0
 			newArr.push( stringArray[index] ); 
 		} 
 	} 
-/* 	console.log(newArr[1]) */
 	
 	splitArrHelper = function (e,splitNr){							// split text helper function
 				var indexChar = 0;
@@ -232,9 +208,6 @@ function shuffle(o){ //v1.0
 		}); 
 	}
 	
-
-
-	
     var textItems = textBox.find('ul > li');
     var slyText = new Sly(textBox, {
         horizontal: 1,
@@ -255,43 +228,13 @@ function shuffle(o){ //v1.0
 		pauseOnHover:  0,    // Pause cycling when mouse hovers over the FRAME.
 		startPaused:   1, 
 		/* activatePageOn: 'click', */
-		activeClass:   'activeText',
-		/* },{
-		moveStart: function () {
-			$('.textLis.activeText').css({opacity: 0.3});
-		
-		},
-		moveEnd : function () {
-			
-			$('.textLis.activeText').transition({opacity: 1}, 200);
-			
-			//console.log ( slyText.rel.activeItem ); 
-	
-		
-		} */
-	/* 	},{
-		moveStart: function () {
-			$('#frame').find('.active').find('.splitList').find('li').not('.locked').css('opacity','0.5').draggable('disable');
-			setTimeout(function(){
-				window.parent.$('.fancybox-iframe').hide().show().focus();
-				$('#frame').find('.active').find('.splitList').find('li').not('.locked').css('opacity','1').draggable('enable');
-					
-			},700);	
-		
-		} */
-	
-		
-		
-			
+		activeClass:   'activeText'
     });
-	
-	
+		
 	slyText.init();
 	
 	defSlyText.resolve();
-	
-	
-	
+
 	
 initAll = function () {	
 
@@ -364,6 +307,7 @@ initAll = function () {
 				};
 			};
 			finalFeedback = function () {
+					$checkButton.remove();
 					var items = frame.find('.lis').size();
 					var thisIndex = frame.find('.active').index();
 					var solved = frame.find('.solved').size();
@@ -464,12 +408,7 @@ initAll = function () {
 						}
 				};
 				
-					
-		
-				
-				
-			
-			
+
 				var myHtml = "";
 				
 				for (var i=0;i<mixed.length;i++) { 
@@ -548,10 +487,16 @@ var frame = $('#frame');
 			
 				$textBoxSuffixes.eq(thisIndex).css({outline: '2px solid black'});
 		
-			
-			
-		
-			//window.parent.$('.fancybox-iframe').hide().show().focus();
+
+			if ( !$('.active').find('.splitList').hasClass('solved') ) {
+				$checkButton.css('text-decoration','none');
+				answerSwitch = 0;
+			}
+			else {
+				$checkButton.css('text-decoration','line-through');
+				
+			}
+
 			
 
 		},
@@ -785,9 +730,12 @@ $('#checkButton').on('tapclick',function (e) {
 		}
 		i++;
 		
+		if (correctNumber == uniqueNames.length) {
+			$this.parent().addClass('solved');
+		}
+		
 	}).promise().done(function () {
 		answerSwitch = 0;
-		$('#checkButton').css('text-decoration','none');
 		
 		$this = $(this);
 		
@@ -796,9 +744,6 @@ $('#checkButton').on('tapclick',function (e) {
 		
 		if (correctNumber == uniqueNames.length) {
 	
-		/* 	console.log('solved!') */
-			//$this.parent().children().draggable('disable');
-			$this.parent().addClass('solved');
 			$textBoxSuffixes.eq(activeIndex).text( prependedSentences[activeIndex].join('') ).addClass('suffixDone');
 			progTransit(prependedSentences.length);
 			
@@ -813,10 +758,13 @@ $('#checkButton').on('tapclick',function (e) {
 					$(this).parent().html( "<p class='solvedToString'>" + prependedSentences[activeIndex].join('') + "</p>" + "<img class='solvedImg' src='css/cssImg/checkButton.png'/>").css({opacity: 0, y: 200}).transition({opacity: 1, y: 0}, 500, 'easeOutQuad');	
 			
 			});
-			
+	
+		}
+		else {
+			if ( !$('.active').find('.splitList').hasClass('solved') && activeIndex == sly.rel.activePage) {
 
-			
-			
+				$checkButton.css('text-decoration','none');
+			}
 		}
 	
 

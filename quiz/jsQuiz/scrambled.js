@@ -593,7 +593,6 @@ $('#checkButton').on('tapclick',function (e) {
 		i++;
 		
 		if (correctNumber == uniqueNames.length) {
-			$this.parent().children().draggable('disable');
 			$this.parent().addClass('solved');
 		}
 		
