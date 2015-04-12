@@ -597,8 +597,9 @@ $('#checkButton').on('tapclick',function (e) {
 	$(this).css('text-decoration','line-through');
 	e.preventDefault();
 	
-	if (answerSwitch == 1 || $('.active').find('.splitList').find('li').parent().hasClass('solved')) { 
-	return; 
+	
+	if (answerSwitch == 1 || $('.active').find('.splitList').hasClass('solved')) { 
+		return; 
 	}
 
 	var activeIndex = frame.find('.active').index();
