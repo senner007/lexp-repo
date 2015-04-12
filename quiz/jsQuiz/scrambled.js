@@ -317,8 +317,11 @@ initAll = function () {
 							
 			
 			frame.find('.slidee').append(myHtmlLis);
-			
-			
+		
+		var pagesInteract = 'click';
+		if (agentID) {
+			pagesInteract = 'touchstart';
+		}	
 			
 
   //  var items = frame.find('ul > li');
@@ -343,7 +346,7 @@ initAll = function () {
 		//pauseOnHover:  0,    // Pause cycling when mouse hovers over the FRAME.
 	//	startPaused:   1, 
 		pagesBar: $('.pages'),
-		activatePageOn: 'click',
+		activatePageOn: pagesInteract,
 		keyboardNavBy: 'pages'
 		
 	
@@ -483,7 +486,30 @@ $('#checkButton').on('tapclick',function (e) {
 
 		wrongPunish++;
 		wrongCount.html('Tries left: ' + Math.abs((difficulty.wrongPunishLimit - wrongPunish))).transition({display : 'block'}, 100,function () {
+	
+		// helper function for orange coloring
+		myArray = []
+				
+		lis.each(function (myIndex, myElem) {
+			
+			myArray.push(lis.eq(myIndex).text().toLowerCase())				
+
+		})
 		
+		// helper function for orange coloring
+		function getOrangeElements (currentIndex, conElements) {
+			var string = '';
+			for (xyz = 0; xyz < conElements; xyz++) { 
+				
+						string += myArray[currentIndex +xyz]
+						if (xyz != conElements) { 
+							string = string + ' ';
+						}
+	
+			}
+			return string;
+		}
+	
 		lis.each(function(index2) {
 			var $this = $(this); 
 			var $thisText = $this.text().toLowerCase();
@@ -508,54 +534,18 @@ $('#checkButton').on('tapclick',function (e) {
 			}
 			else if ($thisText.toLowerCase() != uniqueNames[i].toLowerCase() || preValidIndex != 0  ) {
 			
-	
+				// function for orange coloring
 				var blabla = 0;
-				var $thisNextText = $this.next().text().toLowerCase()
-				var $thisNext2Text = $this.next().next().text().toLowerCase();
-				var $thisNext3Text = $this.next().next().next().text().toLowerCase();
-				var $thisNext4Text = $this.next().next().next().next().text().toLowerCase();
-				var $thisNext5Text = $this.next().next().next().next().next().text().toLowerCase();
-				var $thisNext6Text = $this.next().next().next().next().next().next().text().toLowerCase();
-				var $thisNext7Text = $this.next().next().next().next().next().next().next().text().toLowerCase();
-				var $thisNext8Text = $this.next().next().next().next().next().next().next().next().text().toLowerCase();
-				
-				var blabla3 = $thisText + " " + $thisNextText + " " + $thisNext2Text;
-				
-				var blabla4 = $thisText +  " " + $thisNextText  +  " " + $thisNext2Text  +  " " + $thisNext3Text;
-				
-				var blabla5 = $thisText +  " " + $thisNextText  +  " " + $thisNext2Text  +  " " + $thisNext3Text  + " " + $thisNext4Text;
-				
-				var blabla6 = $thisText +  " " + $thisNextText  +  " " + $thisNext2Text  +  " " + $thisNext3Text  + " " + $thisNext4Text  + " " + $thisNext5Text; 
-				
-				var blabla7 = $thisText +  " " + $thisNextText  +  " " + $thisNext2Text  +  " " + $thisNext3Text  + " " + $thisNext4Text  + " " + $thisNext5Text  + " " + $thisNext6Text; 
-				
-				var blabla8 = $thisText +  " " + $thisNextText  +  " " + $thisNext2Text  +  " " + $thisNext3Text  + " " + $thisNext4Text  + " " + $thisNext5Text  + " " + $thisNext6Text + " " + $thisNext7Text; 
-				 
-				var blabla9 = $thisText +  " " + $thisNextText  +  " " + $thisNext2Text + " " + $thisNext3Text + " " + $thisNext4Text  + " " + $thisNext5Text  + " " + $thisNext6Text + " " + $thisNext7Text + " " + $thisNext8Text;
-
 			
-				if (sent.indexOf(blabla3) >= 0) {
-				blabla = 3;
+				for (myI = (myArray.length - index2); myI > 2; myI--) { 
+
+					var temp = getOrangeElements (index2, myI)
+					if (sent.indexOf(temp) >= 0) {
+						blabla = myI;
+						myI = 0;
+					}
+			
 				}
-				if (sent.indexOf(blabla4) >= 0) {
-				blabla = 4;
-				}
-				if (sent.indexOf(blabla5) >= 0) {
-				blabla = 5;
-				}
-				if (sent.indexOf(blabla6) >= 0) {
-				blabla = 6;
-				}
-				if (sent.indexOf(blabla7) >= 0) {
-				blabla = 7;
-				}
-				if (sent.indexOf(blabla8) >= 0) {
-				blabla = 8;
-				}
-				 if (sent.indexOf(blabla9) >= 0) {
-				blabla = 9;
-				
-				}  
 			
 				
 				if ( blabla > 2 && blabla > blaLength) {
