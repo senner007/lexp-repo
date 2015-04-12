@@ -246,18 +246,19 @@ width:40px;
 	padding: 0;
 	text-align: center;
 	z-index: -1;
+	
 }
 .pages li {
 	
 	display: inline-block;
-	width: 15px;
-	height: 15px;
+	width: 18px;
+	height: 18px;
 	margin: 0 4px;
 	text-indent: -999px;
 	border-radius: 10px;
 	border: 1px solid rgba(51, 51, 51,1);
 	background: transparent;
-	
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	cursor: pointer;
 	overflow: hidden;
 	_background: transparent;

@@ -317,8 +317,15 @@ initAll = function () {
 							
 			
 			frame.find('.slidee').append(myHtmlLis);
-			
-			
+	
+	var pagesInteract;
+	if (agentID) {
+		pagesInteract = 'touchstart'
+
+	}
+	else {
+		pagesInteract = 'click'
+	}
 			
 
   //  var items = frame.find('ul > li');
@@ -343,7 +350,7 @@ initAll = function () {
 		//pauseOnHover:  0,    // Pause cycling when mouse hovers over the FRAME.
 	//	startPaused:   1, 
 		pagesBar: $('.pages'),
-		activatePageOn: 'click',
+		activatePageOn: pagesInteract,
 		keyboardNavBy: 'pages'
 		
 	
