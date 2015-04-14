@@ -639,7 +639,7 @@ $('#checkButton').on('tapclick',function (e) {
 				}
 	
 			}
-
+			string = $.trim(string);
 			return string;
 		}
 		
