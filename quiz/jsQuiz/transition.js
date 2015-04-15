@@ -214,6 +214,8 @@ while ( count > 0 ) {
 		.find(".container:empty").remove();
 		
 	$('#frame').find(".conLi:empty").parent().remove();
+	
+	var $Slideelis = $('#frame').find('li');
 
     var frame = $('#frame');
     var items = frame.find('ul > li');
@@ -253,6 +255,7 @@ while ( count > 0 ) {
         $('#nextButton')[this.rel.activeItem === this.items.length - 1 ? 'addClass' : 'removeClass']('ButtonDisabled');
 			
 	});
+	
 
     sly.init();
 	
@@ -266,7 +269,8 @@ while ( count > 0 ) {
 		gutterY: 6,
 		gutterX: 0,
 		minHeight: 499,
-		animateSpeed: 120
+		animateSpeed: 120,
+		
 		
 	  });
 	  objPrepApp();
@@ -381,7 +385,7 @@ $('#puzzleOnOff').on('tapclick', function () {
 			gutterY: 6,
 			gutterX: 0,
 			minHeight: 499,
-			animateSpeed: 120
+			animateSpeed: 120,
 		}).on('touchend touchstart','.object', function(e) { 
 			 e.preventDefault();
 		}, false).on('mousedown','.object', function(e) { 
@@ -700,6 +704,7 @@ var actions = {
 	},	
 	shuffleFunction: function () { 
 		answerSwitch = 0;
+
 		$('#checkButton').css('text-decoration','none');
 	  
 		$('.container').find('div').each(function () {
@@ -737,6 +742,10 @@ var actions = {
 		
 		  $('.conLi').children().trigger("ss-event-arrange");
 		  $('.conLi').children().trigger("ss-event-dragreset");
+		  
+		 $('.container').find(".object").draggable({
+			disabled: false
+		});
 
 	}
 }
@@ -820,9 +829,17 @@ function objPrepApp() {
 	}); 
 	
 	$containers.on("ss-event-dragreset", function(e, selected) {
-	  	  
+		
+		$containers.find(".object").draggable({
+			disabled: true
+		});
+  
 		$('.newToList').each(function () {
-			$(this).css({y : '-=400'}).removeClass('newToList').transition({opacity:1, y : '+=400'});						
+			$(this).css({y : '-=400'}).removeClass('newToList').transition({opacity:1, y : '+=400'}, function () {
+				$containers.find(".object").draggable({
+					disabled: false
+				});	
+			});	
 		});
 	});
 	
