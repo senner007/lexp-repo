@@ -373,11 +373,9 @@ initAll = function () {
 						//answer:  answer,
 						reAlign: difficulty.setting,
 						autoValidate: autoValidate,
-						setChars: setChars
-						
-						
-					});
-							
+						setChars: setChars,
+						isHorizontal: false	
+					});						
 				}); 
 
 				
