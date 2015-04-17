@@ -46,7 +46,6 @@ $.fn.jMyPuzzle = function(o) {
 				},
 				stop:function(evt, ui){		
 				 
-					
 					var outAnim;
 						if (o.isHorizontal) { 
 							outAnim = { x: 0, y: 0, 'box-shadow': '0px 0px 0px' };
@@ -73,16 +72,10 @@ $.fn.jMyPuzzle = function(o) {
 									$this.transition({left: left + 'px',top : 0}, 100);
 									left += $this.outerWidth(true);
 								});
-
-							});
-							
-							
-							
-					}
-						// for difficulty setting 0
-					else {
+							});	
+					}		
+					else {  				// for difficulty setting 0
 						
-										
 					 	elt.transition({
 							left: elt.pos.left + 'px', 
 							top : elt.pos.top, 
@@ -97,17 +90,8 @@ $.fn.jMyPuzzle = function(o) {
 								if (!!o.autoValidate) {
 									o.autoValidate();	
 								}
-							
 							});
-						
 						}); 
-					/* 	e.transition({left: e.pos.left, top : e.pos.top},500, function () {
-						// auto color lis when difficulty set to 0 - Senner
-							if (!!o.autoValidate) {
-								o.autoValidate();	
-							}
-							
-						 }); */
 					}
 									
 				}
@@ -117,13 +101,6 @@ $.fn.jMyPuzzle = function(o) {
 			
 		});
 		
-		
-	
-		/**
-		 * recursive function. check the elements one by one and show whether it is true, false, or mi false
-		 * @param n: the round
-		 * @param answerTab: the given answer array
-		 */
 				
 		function onDrag(e, ui, elt, elts){
 			var thisElt = this;		//must be saved to a variable to avoid random occurence of nonmoving elements in safari ipad.
@@ -261,11 +238,9 @@ $.fn.jMyPuzzle = function(o) {
 					});
 				} */
 				
-				var $thisWidth = $this.outerWidth(true);
-				
+				var $thisWidth = $this.outerWidth(true);		
 				ulSize += $thisWidth; 				// calculate the size of the ul element
-				
-				
+						
 				if (o.isHorizontal) {
 					$this.css('top', top + 'px');
 					top += $this.outerHeight(true);
@@ -279,11 +254,5 @@ $.fn.jMyPuzzle = function(o) {
 		}
 	});
 };
-
-
-
-
-
-
 
 })(jQuery);
