@@ -341,27 +341,21 @@ text-align: center;
   color: white;
 }
 
-
-
-#progressbar {
+#progOuter {
   position: absolute;
-  height: 6px;
-  border: 1px solid rgb(60, 60, 60);
- 
-  margin-top: 268px;
-
-
-
-
-   width: inherit;
- 
-
-}
-
-.ui-progressbar .ui-progressbar-value {
-background: rgba(68, 68, 68,1);
+width: inherit;
+height: 5px;
+border: 1px solid rgb(68, 68, 68);
 overflow: hidden;
-    margin: 0px;
-    height: 100%;
+background-color: transparent;
+margin-top: 268px;
 }
+
+#progInner {
+width: inherit;
+height: inherit;
+background-color:rgba(68, 68, 68,1);
+
+}
+
 

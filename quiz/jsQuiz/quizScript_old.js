@@ -138,7 +138,27 @@ Array.prototype.removeByIndex = function(index) {
 				}
 			
 			}
-			var progressBarWidth = $("#progressbar").width();
+			var $progInner = $('#progInner'),
+			$progOuterWidth = $('#progOuter').outerWidth(); 
+			$progInner.css({x: -$progOuterWidth});
+			
+			var progTransit = function (qCount) {
+			
+				var increment = $progOuterWidth / qCount
+		
+				
+					/* if (frame.find('.solved').size() == prependedSentences.length ) {
+							$progInner.transit({x: 0}, 1000);
+					} */
+			
+					$progInner.transit({x: '+=' + increment}, 1000);
+				
+
+			} 
+			
+			
+			
+		/* 	var progressBarWidth = $("#progressbar").width();
 			function animateProgress (qnumber, totalq) {
 					
 					if (qnumber == 1 ) {
@@ -154,7 +174,7 @@ Array.prototype.removeByIndex = function(index) {
 					}, 700,'easeOutQuad');
 					
 					
-			}
+			} */
 						
 		
 			
@@ -259,7 +279,7 @@ Array.prototype.removeByIndex = function(index) {
 			
 			
 	initQuiz = function() {
-		$("#progressbar .ui-progressbar-value").animate({width: 0},{queue: false} );
+		$progInner.transit({x: '-=' + $progOuterWidth}, 1000);
 		
 		$(saveData).find(friends).children('questions').each(function () {
 				questions.push($(this).children('question').text());
@@ -273,7 +293,8 @@ Array.prototype.removeByIndex = function(index) {
 		anumber = Math.floor((Math.random()*eqnumber));
 		totalq = eqnumber;
 		$question.text(questions[anumber]);
-		$test.prop('disabled', false);
+		$test.prop('disabled', false).focus();
+		
 		$('#feedback').text('');
 		//$h1.show();
 		//$(".inputClass").show();
@@ -326,14 +347,17 @@ Array.prototype.removeByIndex = function(index) {
 			
 		});
 	
-	} //else {
-	/* 	setTimeout(function(){
+	} else {
+		
+		$('#test').focus();
+	 	setTimeout(function(){		// wait for IE(???)
 			$('#test').focus();
 		
 			//window.parent.$('.fancybox-iframe').find('input').focus();
 
-		},300); */  
-	//}
+		},100);  
+	}
+	
 	$("#test").on('keydown',function (e) {
 		if (e.which == 8) {
 		e.preventDefault();
@@ -398,7 +422,8 @@ Array.prototype.removeByIndex = function(index) {
 				$feedback.text("Right! Press Enter to continue").css("color", "black").transition({opacity:1});
 				anumber = Math.floor((Math.random()*eqnumber));
 				qnumber = qnumber + 1;
-				animateProgress(qnumber, totalq)
+				
+				progTransit(totalq);
 				$test.val('');
 				
 					
@@ -496,7 +521,7 @@ Array.prototype.removeByIndex = function(index) {
 		$feedback.transition({opacity: 0});
 		
 		/* qnumber = qnumber + 1; */
-		animateProgress(++qnumber, totalq)
+		progTransit(totalq);
 			if (qnumber == totalq)	{
 					unbindButtons = true;
 					window.setTimeout('initQuiz()', 5000);
