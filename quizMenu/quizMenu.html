@@ -70,26 +70,35 @@ text-decoration:line-through;
 <body>
 <div id="container">
 
-<h1>Browser support</h1>
+<h1>Browser support:</h1>
 <ul>
 	<li>Google Chrome ?-latest version</li>
 	<li>Google Chrome IOS ?-latest version</li>
 	<li>Apple Safari ?-latest version</li>
-	<li>Apple Safari Mobile ?-latest version (iPad2, iPad3, iPad4, iPad Air, iPad Mini)</li>
+	<li>Apple Safari Mobile ?-latest version</li>
 	<li>Internet Explorer 9-11</li>
 	<li>Mozilla Firefox ?-latest version</li>	
 	<li><span class="itaFont">*IE 10/11 touch not implemented yet</span></li>
 	
 </ul>
+<h1>Mobile Device support:</h1>
+<ul>
+	<li>Apple iPad 2</li>
+	<li>Apple iPad 3</li>
+	<li>Apple iPad 4 </li>
+	<li>Apple iPad Air</li>
+	<li>Apple iPad Air 2</li>
+	<li>Apple iPad Mini </li>
+	<li>Apple iPad Mini 2</li>
+	<li>Apple iPad Mini 3</li>
+</ul>
 
-
-	<h1>To-do list:</h1>
+<h1>To-do list:</h1>
  <ul>
 	<li>Create verb rules items. The present/past, present/past perfect, the future.</li>
 	<li>Redesign intro screen</li>
-	<li>Add a quiz where the user must sort elements into lists/boxes with shapeshift + sly.</li>
+	<li>Add a quiz where the user must sort elements into lists/boxes with shapeshift/gapFill.</li>
 	<li>Add Item rule explaining action verbs and linking verbs</li>
-	<li>Sortable exercises with individual widths and sortable selections</li>
 	<li>Mark clicked items</li>
 	<li>Scrambled/Jumbled in Sly with story mode ( get external text split into sentences ), display beginning of sentences that are above word limit and scramble end part, shuffleLetters effect</li>
 	<li>Rebuild xml file, omit unnecessary nodes, (add date markers) and convert to JSON</li>
@@ -102,60 +111,48 @@ text-decoration:line-through;
 	<li>Item with typical uncountable nouns</li>
 	<li>Complete overhaul of the animation and layout engine for Scrambled/Jumbled. Code: translateX properties only, native js and remove superfluous css/code.</li>
 	<li>Add letter quiz to jumbled/Scrambled: Reveal letter/word in word/sentence on each completion. Random cloze mode</li>
-	<li>Use jumbled/Scrambled engine for sortable</li>
 	<li>Enable page skipping in Transition</li>
-	<li>Refactor progressbar and translateX to overlay div(as in jumbled)</li>
 	<li>Modal verbs in sortable: Ability, intention, no obligation, obligation(strong/weak), offer, permission, possibility/certainty/deduction, prohibition, request</li>
 	<li>Set height of second container dynamically</li>
-	<li>Use Hammer(v2) to replace tapclick</li>
-	<li>Use Hammer/Finger to reenable swipe on parent body</li>
+	<!-- <li>Use Hammer(v2) to replace tapclick</li>
+	<li>Use Hammer/Finger to reenable swipe on parent body</li> -->
 	<li>Remove Danish definitions</li>
-	<li>Fix incorrect orange coloring of 1/2 end letters/words in jumbled/scrambled.</li>
 	<li>Confirm touch support in latest IE: http://blogs.msdn.com/b/ie/archive/2014/07/31/the-mobile-web-should-just-work-for-everyone.aspx</li>
 	<li>Apply standardized css for button size and placement</li>
-	<li>Prevent iframe displacement on double tap events(verb table></li>
 	<li>Prevent consecutive check function calls on tablet device</li>
 	<li>Refactor without fancybox/iframe dependency</li>
-	<li>Provide option to switch between boxed or list styled items</li>
+	<!-- <li>Provide option to switch between boxed or list styled items</li> -->
 	<li>Display control panel with alphabet based navigation buttons at top right corner when scrolling is initialized</li>
-	<li>Add alphabet based navigation buttons to verbtable on tablet</li>
-	
+	<li>Sortable with story mode in Sly, multiple sortable to increase difficulty</li>	
 </ul>
 
 <h1> Searching:</h1>
 <ul>
-	
-		<li>All visible text in items</li>
-	
-		<li>Data attributes and class names:</li>
-		<ul>
-			<li >Image descriptions.</li>
-			<ul class="itaFont">
-				<li>'nouns'</li>
-				<li>'adverbs'</li>
-				<li>'adjectives'</li>
-				<li>'verbs'</li>
-				<li>'prepositions'</li>
-				<li>'uncountable nouns'</li>	
-			</ul>
-			<li >Quiz descriptions:</li>
-			<ul class="itaFont">
-				<li>'transition'</li>
-				<li>'sortable'</li>
-				<li>'scrambled'</li>
-				<li>'quiz'</li>
-				<li>'doubleTrouble'</li>
-				<li>'gapFill'</li>
-				<li>'jumbled'</li>
-				<li>'trueFalse'</li>
-			</ul>
-			
+	<li>All visible text in items</li>
+	<li>Data attributes and class names:</li>
+	<ul>
+		<li >Image descriptions.</li>
+		<ul class="itaFont">
+			<li>'nouns'</li>
+			<li>'adverbs'</li>
+			<li>'adjectives'</li>
+			<li>'verbs'</li>
+			<li>'prepositions'</li>
+			<li>'uncountable nouns'</li>	
 		</ul>
-		
-	
+		<li >Quiz descriptions:</li>
+		<ul class="itaFont">
+			<li>'transition'</li>
+			<li>'sortable'</li>
+			<li>'scrambled'</li>
+			<li>'quiz'</li>
+			<li>'doubleTrouble'</li>
+			<li>'gapFill'</li>
+			<li>'jumbled'</li>
+			<li>'trueFalse'</li>
+		</ul>			
+	</ul>
 </ul>
-
-
 
 <h1>Known issues:</h1>
 	<ul>
@@ -167,7 +164,8 @@ text-decoration:line-through;
 		<li class="lineThrough">iframe displacement on input touch</li>
 		<li class="lineThrough">prevent ghost clicks on close event</li>
 		</ul>
-		<li>Minor issue: Occasionally, the drop function does not fire in transition quiz, and the container will exceed the maximum allowed height.</li>		
+		<li>Minor issue: Occasionally, the drop function does not fire in transition quiz, and the container will exceed the maximum allowed height.</li>	
+		<li>Safari browser 8.2 Ipad, minor issue: If the ipad is locked/covered while displaying Safari and then subsequently unlocked, the animations will run less smoothly. Lag goes away if another browser tab is opened/viewed, or if Safari is restarted.</li>
 	</ul>
   
 <h1>Developer:</h1>
