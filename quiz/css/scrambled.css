@@ -151,8 +151,10 @@ div .jMyPuzzle ul{
 
 display: block;
 position: relative;
-	
+ margin-left: auto;
+    margin-right: auto;
 	margin-top:75px;
+	
 	width:100%; 	/* Do not remove */
 	
 	
@@ -191,7 +193,8 @@ div .jMyPuzzle ul li{
 
 letter-spacing: -1px;
 word-spacing: 2px;
-
+position: absolute;
+list-style: none;
 	float:left;
 	font-size: 20px;
 	font-family: 'arial';

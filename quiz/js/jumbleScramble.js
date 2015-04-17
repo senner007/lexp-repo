@@ -6,38 +6,16 @@ $.fn.jMyPuzzle = function(o) {
 		var div = $(this), ul = $("ul", div), li = $("li", ul);		// Variables declaration
 		var left=0, eltPos = 0;		
 		this.elts = new Array(li.size());
-		var elts = this.elts, n = 0, ulSize = 0, nbTrials = 0, nbValid=0, nbNotValid=0, nbMiValid=0;						
+		var elts = this.elts, n = 0, ulSize = 0;						
 		var autoValidate;
-		
-		ul.css({display:'block', position:'absolute'});				// ul style
-		li.css({													// li style
-				//'float':'left',
-				"list-style-type":"none",
-				//'display':'block',
-				'position':'absolute'
-				});
-				
-	
 		
 		initPos();				// init the li position (left position)
 		
-		if (!o.isHorizontal) {		//works but mus be rewritten
-		
-
-			//div.css('width', ulSize);									// set the div size
-			ul.css({width:ulSize, height: ((li.height() + parseInt(li.css('marginTop')) + parseInt(li.css('marginBottom')) + parseInt(li.css('paddingBottom')) * 2 + parseInt(li.css('paddingTop')) * 2) + 'px') });	 	// Update the ul size
-			
-			ul.css('left', div.offset().left + (  (div.width() - ulSize) / 2  )   - $('#frame').offset().left  ); // Center the ul in the main div  
-		
-			 if ($.support.transition) {		// must be set when container is not absolute pos.(not for IE9) - SENNER
-				var indent = (1000 - div.find('.splitList').width())/2
-				div.find('.splitList').css({left:indent});		
-			}     
+		if (!o.isHorizontal) {			
+			ul.css({width:ulSize, height: li.outerHeight(true) + 'px' });	 	// Update the ul size	
 		}
 		
-		
-		
-		
+
 		li.each(function(){ 
 			var elt = $(this);									// currentelement														
 																	// collect information about the element and store 
