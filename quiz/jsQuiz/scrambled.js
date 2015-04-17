@@ -108,16 +108,22 @@ initAll = function () {
 			
 			difficulty.wrongPunishLimit = (senLength * difficulty.multiply );
 			
-			$("#progressbar").progressbar({value:  0.001});	
-			var animateProgress = function(senLength) {
+			var $progInner = $('#progInner'),
+			$progOuterWidth = $('#progOuter').outerWidth(); 
+			$progInner.css({x: -$progOuterWidth});
+			
+			var progTransit = function (qCount) {
+			
+				var increment = $progOuterWidth / qCount
 				
-					var progWidth = $("#progressbar").outerWidth();
-				
-					$("#progressbar .ui-progressbar-value").transition({
-						width:   "+=" +  progWidth/senLength
-					}, 1200,'easeInOutQuad');
-					
-			};
+					if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
+							$progInner.transit({x: 0}, 1000);
+					}
+					else {
+					$progInner.transit({x: '+=' + increment}, 1000);
+					}
+
+			} 
 						
 			function shuffle(o){ //v1.0
 				for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -172,9 +178,9 @@ initAll = function () {
 						};
 						if (elIndex == uniqueNames.length -1 ) {
 							$(spqr).parent().addClass('solved');
-							animateProgress( prependedSentences.length );	
-							$(this).parent().delay(700).transition({y: -140},900, 'easeInOutCubic',function () {
-								$(this).html( "<p class='solvedToString'>" + uniqueNames.join(' ') + "</p>" + "<img class='solvedImg' src='css/cssImg/check2.png'/>").delay(200).transition({y: 0}, 800,'easeOutQuad');
+							progTransit(prependedSentences.length);
+							$(this).parent().delay(500).transition({y: -100, opacity: 0},500, 'easeInOutCubic',function () {
+								$(this).html( "<p class='solvedToString'>" + uniqueNames.join(' ') + "</p>" + "<img class='solvedImg' src='css/cssImg/check2.png'/>").delay(200).transition({y: 0, opacity: 1}, 800,'easeOutQuad');
 								
 							});
 							
@@ -609,7 +615,7 @@ $('#checkButton').on('tapclick',function (e) {
 		$this = $(this);
 		
 		if (correctNumber == uniqueNames.length) {
-			animateProgress(prependedSentences.length);
+			progTransit(prependedSentences.length);
 			var arr = uniqueNames;
 			if (difficulty.setting == 2 ) {
 					var arrMinusFirst = arr[0].slice(1,arr[0].length);

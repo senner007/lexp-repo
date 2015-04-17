@@ -359,24 +359,23 @@ opacity: 0;
 }
 
 
-#progressbar {
-
-opacity: 0;
-  height: 6px;
-  border: 1px solid rgba(68, 68, 68,1);
-
-  margin: 0 auto;
-  margin-bottom: 10px;
-  background: transparent;
-  
-    
 
 
+#progOuter {
 
-   width: 986px;
- 
- padding:0;
- 
+width: 986px;
+height: 5px;
+border: 1px solid rgb(68, 68, 68);
+overflow: hidden;
+background-color: transparent;
+margin: 0 auto;
+margin-bottom: 10px;
+}
+
+#progInner {
+width: inherit;
+height: inherit;
+background-color:rgba(68, 68, 68,1);
 
 }
 
