@@ -11,8 +11,8 @@ jQuery.extend( jQuery.fn, {
 
 var deviceAgent = navigator.userAgent.toLowerCase();		
 var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
-if (!agentID) {
-		$('<input type="text" value="Abide" id="inputSearch"/>').insertAfter('#languageButton');
+if (agentID) {
+		$('#inputHelper').remove();
 } 
   
   var verbArray = [
@@ -355,6 +355,16 @@ if (!agentID) {
 		}
  
 	});
+	
+	$('.alphabetButtons').fastClick(function (event) {
+		event.preventDefault();
+
+		 var v = $(this).text().charAt(0).toUpperCase();
+		 var found =  $('li').search(v);
+		 sly.activatePage(found.index());
+
+	}); 	
+	
 
 	$('#prevButton').fastClick(function (event) {
 		event.preventDefault();
@@ -382,29 +392,6 @@ if (!agentID) {
 	});   
   
   
-  	$('#languageButton').fastClick(function (event) {
-		event.preventDefault();
-		if ($(this).text() == 'Eng.') {
-			
-			$('#topTable').find('th.column2').text('Datid')
-			.end().find('th.column3').html('udv.')
-			.end().find('th.column4').text('Nutid')
-			.end().find('th.column5').text('udv.')
-			.end().find('th.column6').text('Fremtid')
-			.end().find('th.column7').text('udv.');
-			
-			
-			$('#bottomTable').find('th.column2').text('Førdatid')
-			.end().find('th.column3').html('udv.')
-			.end().find('th.column4').text('Førnutid')
-			.end().find('th.column5').text('udv.')
-			.end().find('th.column6').text('Førfremtid')
-			.end().find('th.column7').text('udv.');
-
-			$(this).text('Dk')	
-		}
-	
-	
-	}); 
+ 
 
 });

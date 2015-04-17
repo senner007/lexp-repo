@@ -9,7 +9,7 @@
 <body>
 
 <div id="container">
-
+	<button id="closingButton">X</button>
 	<table id="topTableHeader" class="tableSorter">
 		<tr>
 			<th class="column1">Subject</th>
@@ -50,28 +50,36 @@
 		<tr id="bottomRow6"></tr>	
 	</table>
 	
-	
-	
+	<div id="frame" class="frame">
+			<ul class="slidee">
+			  
+			</ul>
+
+	 </div>
 	<div id="startText">Navigate using the buttons, the mousewheel or drag/swipe on touch device.</div>
+	<div id="bottomContainer">
+		
+		<div class="bottomContainer" id="wordDef"></div>
+		<button class="bottomContainer" id="skipPrevButton"></button>
+		<button class="bottomContainer" id="prevButton"></button>
+		<button class="bottomContainer alphabetButtons" id="aeButton">a-e</button>
+		<button class="bottomContainer alphabetButtons" id="fjButton">f-j</button>
+		<button class="bottomContainer alphabetButtons" id="koButton">k-o</button>
+		<button class="bottomContainer alphabetButtons" id="ptButton">p-t</button>
+		<button class="bottomContainer alphabetButtons" id="uButton">u</button>
+		<button class="bottomContainer" id="nextButton"></button>	
+		<button class="bottomContainer" id="skipNextButton"></button>
 
-	<button id="prevButton"></button>
-	<button id="nextButton"></button>
-	<!-- <button id="startButton">Start</button>
-	<button id="endButton"></button> -->
-	<button id="skipPrevButton"></button>
-	<button id="skipNextButton"></button>
-	<button id="languageButton">Eng.</button>
-	<button id="closingButton">X</button>
-	<div id="wordDef"></div>
+		<div id="inputHelper">
+			<img id="img1" src="../img/search_small2.png">
+			<input class="bottomContainer" type="text" value="Abide" id="inputSearch">
+		</div>
 
-
-		<div id="frame" class="frame">
-		<ul class="slidee">
-		  
-		</ul>
 		
 		
-	  </div>
+	</div>
+
+		
 </div>
 <script type="text/javascript" src="../quiz/js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="../quiz/js/jquery-ui-1.10.2.custom.min.js"></script>

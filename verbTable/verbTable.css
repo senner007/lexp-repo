@@ -297,87 +297,11 @@ text-align: center;
 
 
 
-button
-{
 
-cursor: pointer;
-
-position: absolute;
-margin-top: 585px;
-
-font-weight: bold;
-border: 1px solid black;
-
-height: 40px;
-font-size:20px;
-
-}
-
-/* #startButton {
-
-width: 100px;
-
-
-} */
-
-#prevButton {
-background: url('../quiz/css/cssImg/prev.png') center no-repeat;
-
-width:50px;
-
-margin-left: 550px;
-
-}
-
-#nextButton {
-background:url('../quiz/css/cssImg/next.png')center no-repeat;
-
-width:50px;
-
-margin-left:605px;
-
-}
-
-#skipPrevButton {
-background:url('../quiz/css/cssImg/skipPrev.gif') center no-repeat;
-
-width:50px;
-
-margin-left: 495px;
-
-}
-#skipNextButton {
-background:url('../quiz/css/cssImg/skipNext.gif') center no-repeat;
-
-width:50px;
-
-margin-left: 660px;
-
-}
-
-
-/* 
-#endButton {
-background:transparent url('end.gif') center no-repeat;
-width: 50px;
-
-margin-left: 604px;
-} */
-
-#languageButton {
-
-font-weight: bold;
-width:65px;
-font-size: 20px;
-text-align:center;
-color: rgba(51, 51, 51,1);
-
-margin-left: 926px;
-}
 
 
 #closingButton {
-
+float: none;
 font-size: 18px;
 position: absolute;
 height: 40px;
@@ -399,35 +323,7 @@ color: rgba(204, 204, 204,1);
 }
 
 
-#wordDef {
-position: absolute;
-padding: 8px;
-padding-bottom: 7px;
-width: 470px;
-margin-left: 1px;
-border: 1px solid rgba(68, 68, 68,1);
-font-size: 20px;
-margin-top: 585px;
-font-weight: bold;
 
-
-}
-
-#inputSearch {
-border: 1px solid black;
-position: absolute;
-margin-top: 585px;
-width:190px;
-padding: 5px;
-height: 28px;
-padding-left: 7px;
-margin-left: 716px;
-font-size: 20px;
-color: rgba(51, 51, 51,1);
-background: transparent;
-
-
-}
 
 
 #startText {
@@ -483,4 +379,117 @@ font-size: 20px;
 font-family: 'UnderwoodChampionRegular';
 
 background: rgba(51, 51, 51,1);
+}
+
+#bottomContainer {
+position: absolute;
+margin-top: 584px;
+height: 40px;
+
+
+}
+ 
+ .bottomContainer {
+ height: 40px;
+ border: 1px solid black;
+font-size:18px;
+ padding: 0;
+ float: left;
+ display: block;
+ text-align: center;
+ line-height: 40px;
+ }
+ 
+ #wordDef {
+
+
+width: 420px;
+
+height: 38px;
+
+
+
+
+}
+
+#inputSearch {
+
+
+float: left;
+
+height: 38px;
+border-left: none;
+color: rgba(51, 51, 51,1);
+background: transparent;
+width: 112px;
+ text-align: left;
+}
+#inputHelper {
+float: right;
+    height: 100%;
+
+
+}
+
+
+#img1 {
+ float: left;
+padding:6px;
+padding-bottom: 7px;
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+max-height: 25px;
+    vertical-align: middle;
+
+
+
+}
+
+button {
+cursor: pointer;
+position: relative;
+
+}
+
+.alphabetButtons {
+
+width: 44px;
+}
+
+
+
+
+#prevButton {
+background: url('../quiz/css/cssImg/prev.png') center no-repeat;
+
+width:50px;
+
+
+
+}
+
+#nextButton {
+background:url('../quiz/css/cssImg/next.png')center no-repeat;
+
+width:50px;
+
+
+
+}
+
+#skipPrevButton {
+background:url('../quiz/css/cssImg/skipPrev.gif') center no-repeat;
+
+width:50px;
+
+
+
+}
+#skipNextButton {
+background:url('../quiz/css/cssImg/skipNext.gif') center no-repeat;
+
+width:50px;
+
+
+
 }
