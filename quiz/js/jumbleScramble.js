@@ -55,7 +55,7 @@ $.fn.jumbleScramble = function(o) {
 							outAnim = { x: 0, y: 0, 'opacity': 1.0, 'z-index':5 };
 						}
 						 	
-					if (o.setChars) {											// calls the setChars function
+					if (o.setChars && o.reAlign == 2) {											// calls the setChars function
 						setChars();
 				
 					}
