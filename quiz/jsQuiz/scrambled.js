@@ -16,7 +16,7 @@ if (agentID) {
 
 
 $('.initButton').css({opacity: 0});
-$.getScript("js/jquery-ui-1.10.2.custom.min.js", function(data, textStatus, jqxhr) {
+$.getScript("js/jquery-ui-11.4.custom.min.js", function(data, textStatus, jqxhr) {
 	$('.initButton').transition({opacity: 1});
 	$.getScript("js/touchPunchPointer.min.js");	
 });
@@ -173,7 +173,7 @@ initAll = function () {
 
 						if ( $(spqr).text() == uniqueNames[elIndex] ) { 
 							// delay is needed or else the css will not be applied
-							$(spqr).addClass('locked').draggable('disable').delay(100 * ins).transition({color: '#006400'}, 300);
+							$(spqr).addClass('locked').delay(100 * ins).transition({color: '#006400'}, 300);
 							
 						};
 						if (elIndex == uniqueNames.length -1 ) {
@@ -209,6 +209,7 @@ initAll = function () {
 						if (i == 0) {
 							//v = v.replace( v.charAt(0), v.charAt(0).toUpperCase() );
 							$(this).text(v.replace( v.charAt(0), v.charAt(0).toUpperCase() ) );
+							
 						};			
 					});	
 				};
@@ -311,8 +312,17 @@ initAll = function () {
 							myClass = 'dontLower';					
 						}							
 					})
+				
+					 if (difficulty.setting == 2 && index == 0) {         // Uppercase first letter in first word for hard difficulty
+						
+						var mixedArrMinusFirst = mixed[index].slice(1,mixed[index].length);
+						var mixedArrFirst = mixed[index].charAt(0).toUpperCase();
+						mixed[index] = (mixedArrFirst + mixedArrMinusFirst);
+					}  
+					
 					
 					myHtml += "<li class=" + myClass + ">" + mixed[index] + "</li>";
+					
 									
 				});
 							
@@ -355,34 +365,17 @@ initAll = function () {
 		activatePageOn: pagesInteract,
 		keyboardNavBy: 'pages'
 		
-	
-			
     }).init();	
-    
-	/* 	$(".jMyPuzzle").css({opacity: 0})
-		frame.find(".jMyPuzzle").each(function(i){
-			var row = $(this);
-			  setTimeout(function() {
-				  row.jMyPuzzle({
-					visible: '100%',
-					//answer:  answer,
-					reAlign: difficulty.setting,
-					autoValidate: autoValidate,
-					setChars: setChars	
-				}).transition({opacity : 1});
-			}, 500*i);
-		}); */
-	
+    	
  	$(function() {
-					frame.find(".jMyPuzzle").jMyPuzzle({
-						visible: '100%',
-						//answer:  answer,
+					frame.find(".jMyPuzzle").jumbleScramble({
 						reAlign: difficulty.setting,
 						autoValidate: autoValidate,
-						setChars: setChars,
+						setChars: true,
 						isHorizontal: false	
 					});						
 				}); 
+			
 
 				
 		frame.find(".lis:first-child").find('li').each(function(index2) {
