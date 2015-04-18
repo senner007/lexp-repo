@@ -1,9 +1,11 @@
 $(document).ready(function() {
+	
 // deferred to be resolved when slyText has loaded
 var defSlyText = new $.Deferred();
 
 // load the external puzzle plugin as deferred
 var defJMyPuzzle = new $.Deferred();
+
 $.getScript("js/jumbleScramble.js", function(data, textStatus, jqxhr) {
 		defJMyPuzzle.resolve();
 });
@@ -119,7 +121,7 @@ function shuffle(o){ //v1.0
 		answerArr.push(myString)
 		
 		var stringToArray = myString.split('');
-	/* 	console.log(stringToArray); */
+
 		 var input = shuffle(stringToArray.slice(0));
 		 input = input.join('');
 		
@@ -229,18 +231,16 @@ function shuffle(o){ //v1.0
 		startPaused:   1, 
 		/* activatePageOn: 'click', */
 		activeClass:   'activeText'
-    });
+		},
+		{
+		load: function () {
+				defSlyText.resolve();
+		}
 		
-	slyText.init();
-	
-	defSlyText.resolve();
+		}).init(); 
 
-	
-initAll = function () {	
 
 			
-			
-			difficulty.wrongPunishLimit = (answerArr.length * difficulty.multiply );
 			answers = answerArr;
 
 			$container = $('#container');			
@@ -256,6 +256,8 @@ initAll = function () {
 				
 					if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
 							$progInner.transit({x: 0}, 1000);
+							
+							
 					}
 					else {
 					$progInner.transit({x: '+=' + increment}, 1000);
@@ -275,12 +277,13 @@ initAll = function () {
 						
 						if ( $(spqr).text() == uniqueNames[elIndex] ) { 
 							// delay is needed or else the css will not be applied
-							$(spqr).addClass('locked').draggable('disable').delay(70 * ins).transition({color: '#006400'}, 250, function () {
+							$(spqr).addClass('locked').delay(70 * ins).transition({color: '#006400'}, 250, function () {
 
 								if (elIndex == uniqueNames.length -1 ) {
 									$this.parent().addClass('solved');
 									$('.suffixes').eq(activeIndex).addClass('suffixDone').css('text-decoration','none').text( prependedSentences[activeIndex].join('') );
 									progTransit(prependedSentences.length);	
+								
 									
 									$this.parent().children().each(function (counter) {	
 										$(this).delay(counter * 70).transition({opacity: 0},200);
@@ -520,16 +523,23 @@ var frame = $('#frame');
 			
     }).init();
 	
+initAll = function () {	
+
+difficulty.wrongPunishLimit = (answerArr.length * difficulty.multiply );
+	
 			// delay layout with exception for IE 
 			//if (!$.support.transition) {	
-				frame.find(".jMyPuzzle").jMyPuzzle({	visible: '100%', autoValidate: autoValidate	});	
+				frame.find(".jMyPuzzle").jumbleScramble({	
+					autoValidate: autoValidate
+					
+				});	
 				if ( difficulty.setting != 2 ) { 
 				
 					frame.find(".jMyPuzzle").each(function () {
 					
 					
 					
-						$(this).find('li').first().draggable('disable').css('opacity','0.5').addClass('locked'); 
+						$(this).find('li').first().css('opacity','0.5').addClass('locked'); 
 					
 					});
 					
@@ -744,7 +754,7 @@ $('#checkButton').on('tapclick',function (e) {
 	
 			$textBoxSuffixes.eq(activeIndex).text( prependedSentences[activeIndex].join('') ).addClass('suffixDone');
 			progTransit(prependedSentences.length);
-		
+			
 			$this.parent().children().each(function (counter) {
 					$(this).delay(counter * 50 + 200).transition({opacity: 0},200);
 			}).promise().done(function () {

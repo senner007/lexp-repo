@@ -150,7 +150,7 @@ var $h1 = $('h1');
 					
 			} */
 			$(function() {
-					$(".jMyPuzzle").jMyPuzzle({
+					$(".jMyPuzzle").jumbleScramble({
 						visible: '100%',
 						isHorizontal: true	
 					});						
