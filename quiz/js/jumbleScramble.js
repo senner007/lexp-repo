@@ -1,5 +1,5 @@
 (function ( $ ) {                 			    // Compliant with jquery.noConflict()
-$.fn.jMyPuzzle = function(o) {  
+$.fn.jumbleScramble = function(o) {  
 
 	return this.each(function() { 
 	
@@ -15,7 +15,6 @@ $.fn.jMyPuzzle = function(o) {
 			ul.css({width:ulSize, height: li.outerHeight(true) + 'px' });	 	// Update the ul size	
 		}
 		
-
 		li.each(function(){ 
 			var elt = $(this);									// currentelement														
 																	// collect information about the element and store 
@@ -26,13 +25,15 @@ $.fn.jMyPuzzle = function(o) {
 			elt.initialN = n;										// its initial position (as per the other elements)
 			elt.n = n;												// its current position (as per the other elements)
 			if (o.isHorizontal ? axis = 'y' : axis = 'false')
-				
-
+			
+			
+		
 			elt.draggable({											// make the element draggable
 				iframeFix: true,
 				addClasses: false,
 				axis: axis,
 				containment: div,
+				cancel: '.locked',	
 				drag: function(evt, ui){ onDrag(evt, ui, elt, elts); }, // event on drag
 				start: function(evt, ui){	
 					
@@ -53,14 +54,14 @@ $.fn.jMyPuzzle = function(o) {
 						else {
 							outAnim = { x: 0, y: 0, 'opacity': 1.0, 'z-index':5 };
 						}
-					
-				 	
-					if (!!o.setChars) {
-						o.setChars();
+						 	
+					if (o.setChars) {											// calls the setChars function
+						setChars();
+				
 					}
-						// re-align lis after uppercase/lowercase - Senner
-						// for difficulty setting  2
-					if (o.reAlign == 2)	{
+					
+																			
+					if (o.reAlign == 2)	{										// re-align lis after uppercase/lowercase for difficulty setting  2   
 							outAnim = { x: 0, y: 0, 'opacity': 1.0, 'z-index':5 };
 							elt.transition({'left': elt.pos.left + 'px', top : elt.pos.top, x:  ui.position.left - elt.pos.left, y:  ui.position.top - elt.pos.top },0, function () {
 						
@@ -74,7 +75,7 @@ $.fn.jMyPuzzle = function(o) {
 								});
 							});	
 					}		
-					else {  				// for difficulty setting 0
+					else {  													// for difficulty setting 0
 						
 					 	elt.transition({
 							left: elt.pos.left + 'px', 
@@ -84,11 +85,9 @@ $.fn.jMyPuzzle = function(o) {
 						
 							},0, function () {
 						
-							$(this).transition(outAnim,240, function () {
-								// auto color lis when difficulty set to 0 - Senner
-							//	$('<style></style>').appendTo($(document.body)).remove();
+							$(this).transition(outAnim,240, function () {        // auto color lis when difficulty set to 0 - Senner
 								if (!!o.autoValidate) {
-									o.autoValidate();	
+									o.autoValidate();	 						 // calls the autovalidate function in the plugin calling script
 								}
 							});
 						}); 
@@ -96,34 +95,52 @@ $.fn.jMyPuzzle = function(o) {
 									
 				}
 			});
-			
 			elts[n++] = elt;
 			
 		});
 		
+		function setChars () {
+
+			div.find('li').each(function (i,e) {		
+				var v = $(this).text();
+				if ( $(this).hasClass('lower') ) {
+						// v = v.replace( v.charAt(0), v.charAt(0).toLowerCase()); 
+						 $(this).text( v.replace( v.charAt(0), v.charAt(0).toLowerCase() ) );
+					};
+				if (i == 0) {
+					//v = v.replace( v.charAt(0), v.charAt(0).toUpperCase() );
+					$(this).text(v.replace( v.charAt(0), v.charAt(0).toUpperCase() ) );							
+				};			
+			});							
+		};
+		
 				
 		function onDrag(e, ui, elt, elts){
-			var thisElt = this;		//must be saved to a variable to avoid random occurence of nonmoving elements in safari ipad.
-			var oldPos = (thisElt.eltPos != null ? thisElt.eltPos : getOffset(elt));
-			thisElt.eltPos = getOffset(elt);
+			var thisElt = this;						//must be saved to a variable to avoid random occurence of nonmoving elements in safari ipad.
+			var oldPos = (thisElt.eltPos != null ? thisElt.eltPos : ui.position); 			//find the old position stored on the $object 
+			thisElt.eltPos = ui.position;													//its current position derived from $draggable object				
+					
+			if(thisElt.eltPos.left != oldPos.left) { 
+				move = (thisElt.eltPos.left > oldPos.left ? 'forward' : 'backward');		// check whether the move is forward or backward
+			} 
+			else if (o.isHorizontal && thisElt.eltPos.top != oldPos.top) {	
+				move = (thisElt.eltPos.top > oldPos.top ? "down" : "up");					// check whether the move is down or up													
+			}
+			else {
+				return;																		// Not moving = doing nothing
+			}
 
-			if(thisElt.eltPos.left == oldPos.left) { return; }							// Not moving = doing nothing
-				move = (thisElt.eltPos.left > oldPos.left ? 'forward' : 'backward');			// check whether the move is forward or backward
-			if (o.isHorizontal) {
-				move = (thisElt.eltPos.top > oldPos.top ? "down" : "up");				// move up or down for horizontal
-			};
-		
 			 if(move == 'forward'){					//  move forward
 				if(elt.n < elts.length-1){
 					var eltNext = elts[elt.n + 1];
 					var eltNextBound = eltNext.pos.left + parseInt(eltNext.completeWidth / 2);
 					if(thisElt.eltPos.left + elt.completeWidth > eltNextBound){
-						if (eltNext.hasClass('locked') ){ return; } 
+						if (eltNext.hasClass('locked') ){ return; }  						// don't move beyond green colored items for difficulty setting 0
 						elt.insertAfter(eltNext);
 						eltNext.pos.left = elt.pos.left;
-						elt.pos.left += eltNext.completeWidth;																					//invert datas in the correspondence array
+						elt.pos.left += eltNext.completeWidth;												//invert datas in the correspondence array
 						elts[elt.n] = eltNext;
-						elts[elt.n + 1] = elt;																					//update the n of the elements
+						elts[elt.n + 1] = elt;																	//update the n of the elements
 						elts[elt.n].n = elt.n; 
 						elt.n = elt.n + 1;
 						eltNext.transition({'left': eltNext.pos.left + 'px', x: '+=' + elt.completeWidth},0, function () {	
@@ -137,11 +154,8 @@ $.fn.jMyPuzzle = function(o) {
 					var eltPrev = elts[elt.n - 1];
 					var eltPrevBound = eltPrev.pos.left + parseInt(eltPrev.completeWidth / 2);
 					
-					if(thisElt.eltPos.left < eltPrevBound){			
-						// don't move beyond green colored items 
-						// for difficulty setting 0
+					if(thisElt.eltPos.left < eltPrevBound){								
 						if (eltPrev.hasClass('locked') ){ return; } 
-						else {
 							elt.insertBefore(eltPrev);						
 							elt.pos.left = eltPrev.pos.left;
 							eltPrev.pos.left += elt.completeWidth;
@@ -151,8 +165,7 @@ $.fn.jMyPuzzle = function(o) {
 							elt.n = elt.n - 1;
 							eltPrev.transition({'left': eltPrev.pos.left + 'px', x: '-=' + elt.completeWidth},0, function () {						
 								$(this).transition({x: 0}, 250);							
-							});						
-						}			
+							});								
 					}
 				}
 			} 
@@ -163,19 +176,17 @@ $.fn.jMyPuzzle = function(o) {
 					
 					var eltPrevBound = eltPrev.pos.top + parseInt(eltPrev.completeHeight / 2);
 					if(thisElt.eltPos.top < eltPrevBound){	
-						// don't move beyond green colored items 
-						// for difficulty setting 0
 						if (eltPrev.hasClass('locked') ){ return; } 
 							elt.insertBefore(eltPrev);							
 							elt.pos.top = eltPrev.pos.top;
 							eltPrev.pos.top += elt.completeHeight;			
 							elts[elt.n] = eltPrev;
-							elts[elt.n - 1] = elt;																						// update the n of the elements
+							elts[elt.n - 1] = elt;																						
 							elts[elt.n].n = elt.n; 
 							elt.n = elt.n - 1;
 							eltPrev.transition({'top': eltPrev.pos.top + 'px', y: '-=' + elt.completeHeight},0, function () {	
 								$(this).transition({y: 0}, 250);							
-							});																		// invert datas in the array
+							});																	
 					}
 				}
 			}
@@ -187,9 +198,9 @@ $.fn.jMyPuzzle = function(o) {
 						if (eltNext.hasClass('locked') ){ return; } 
 						elt.insertAfter(eltNext);
 						eltNext.pos.top = elt.pos.top;
-						elt.pos.top += eltNext.completeHeight;																					//invert datas in the correspondence array
+						elt.pos.top += eltNext.completeHeight;																					
 						elts[elt.n] = eltNext;
-						elts[elt.n + 1] = elt;																//update the n of the elements
+						elts[elt.n + 1] = elt;																
 						elts[elt.n].n = elt.n; 
 						elt.n = elt.n + 1;
 						eltNext.transition({'top': eltNext.pos.top + 'px', y: '+=' + elt.completeHeight},0, function () {		
@@ -212,34 +223,13 @@ $.fn.jMyPuzzle = function(o) {
 		 */
 		function initPos(){
 			var left=0;	
-			var top = 0;			// the first element will be put inside the main div
+			var top = 0;								// the first element will be put inside the main div
 			li.each(function(){ 		
 			
-				 $this = $(this);								// ADD PADDING TO SMALL WORDS - SENNER
-				/*  if ($this.text().length == 1) {
-					$this.css({
-					letterSpacing: '0px',
-					paddingLeft: '11px',
-					paddingRight: '11px'
-					});
-				}   */
-				/* if ($this.text().length == 2) {
-					$this.css({
-					letterSpacing: '0px',
-					paddingLeft: '7px',
-					paddingRight: '8px'
-					});
-				}
-				if ($this.text().length == 3 ) {
-					$this.css({
-					letterSpacing: '0px',
-					paddingLeft: '5px',
-					paddingRight: '6px'
-					});
-				} */
-				
+				 $this = $(this);								
+
 				var $thisWidth = $this.outerWidth(true);		
-				ulSize += $thisWidth; 				// calculate the size of the ul element
+				ulSize += $thisWidth; 					// calculate the size of the ul element
 						
 				if (o.isHorizontal) {
 					$this.css('top', top + 'px');
