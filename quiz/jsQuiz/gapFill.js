@@ -206,16 +206,17 @@ var init = function () {
 	
 		var lastPart;
 	var setLastPart = 0;
-	var cutOffLimit = 500
-	//console.log(window.parent.windowHeight)
-	var winHeight = Math.min(Math.max((window.parent.windowHeight), 640), 800)			//height restricted to min and max value
-	
+	var cutOffLimit = 0;
+	var winHeight = Math.min(Math.max((window.parent.windowHeight), 600), 800)			//height restricted to min and max value
+	if (winHeight <  705) {winHeight = 620}									//  will only display full screen mode on tablet if above a certain value. Means that the user can 
+																			//	choose between 'compressed' design or fullscreen when the browser navn is hidden
 	cutOffLimit = (winHeight - 220) + Math.pow(4, winHeight/200); 						//number selected arbitrarily
 	
-	$('#bottomContainer').css('margin-top', winHeight - ($('#bottomContainer').height() - 10) + 'px')		// adjust elements according to win height:
+	$('#bottomContainer').css('margin-top', winHeight - ($('#bottomContainer').height() - 10) + 'px')			// adjust elements according to win height:
 	$('#ulContainer').css('margin-top', winHeight - ($('#bottomContainer').height() + $('#ulContainer').height()) + 'px')
 	
-	$('#frame').css('height', $('#ulContainer').offset().top - $('#frame').offset().top + 'px' )
+	$('#frame').css('height', ($('#ulContainer').offset().top + 30) - $('#frame').offset().top + 'px' ) 		// the frame height will extend over the ul to 
+																												//make room for potential text expansion
 	
 	
 	$('.slidee').find('.time').each(function (i,e) {
