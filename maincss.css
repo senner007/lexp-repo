@@ -350,7 +350,7 @@ margin-top: 0px;
 }
 
 
-#container {
+#containerIsotope {
 height: inherit;
 
 
@@ -653,7 +653,6 @@ color: rgb(40, 40, 40);
 }
 
 .hL {
-
 padding-bottom: 6px;
 line-height: 25px;
 
@@ -663,7 +662,6 @@ line-height: 25px;
 font-size: 18px;
 
 }
-
 
 
 
