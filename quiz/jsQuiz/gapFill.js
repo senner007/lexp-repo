@@ -204,8 +204,19 @@ var init = function () {
 	})
 	//console.log(origTextArr);
 	
-	var lastPart;
+		var lastPart;
 	var setLastPart = 0;
+	var cutOffLimit = 500
+	//console.log(window.parent.windowHeight)
+	var winHeight = Math.min(Math.max((window.parent.windowHeight), 640), 800)			//height restricted to min and max value
+	
+	cutOffLimit = (winHeight - 220) + Math.pow(4, winHeight/200); 						//number selected arbitrarily
+	
+	$('#bottomContainer').css('margin-top', winHeight - ($('#bottomContainer').height() - 10) + 'px')		// adjust elements according to win height:
+	$('#ulContainer').css('margin-top', winHeight - ($('#bottomContainer').height() + $('#ulContainer').height()) + 'px')
+	
+	$('#frame').css('height', $('#ulContainer').offset().top - $('#frame').offset().top + 'px' )
+	
 	
 	$('.slidee').find('.time').each(function (i,e) {
 		
@@ -217,31 +228,45 @@ var init = function () {
 		
 			$("<div class='object'></div>").text(lastPart).appendTo($this);
 			setLastPart = 0;
-			hello += parseInt($($this).children().last().css('height')) + 10;
+			hello += $($this).children().last().text().length;
 			/* console.log('height:' + hello)
 			console.log('thisId: ' + $this.attr('id') ); */
 			}
 				
-		while ( hello < 220 && indexes < textArr.length) {
+		while ( hello < cutOffLimit && indexes < textArr.length) {
 			
 			$("<div class='object'></div>").text(textArr[indexes]).appendTo($this);
 			indexes++;
-			hello += parseInt($($this).children().last().css('height')) + 10;
+			hello += $($this).children().last().text().length + 50;
 			/* console.log('height:' + hello)
 			console.log('thisId: ' + $this.attr('id') ); */
 			
+			
+			
 			}
 			
-		
-			if (hello > 320 && $this.find('.object').last().text().length > 150) {
+			var charactersAboveLimit = hello - cutOffLimit;
+			
+			if (hello > cutOffLimit + 100) {
+				
+				
+				//console.log(hello)
 				
 				//will count the previous amount of characters in the .time element 
 				//and determine appropriate splitNumber 
 				var characters = 0;
-				$this.find('.object:not(:last-child)').each(function (i,e) {
-						characters += $(e).text().length
+				var prevsHeight = 0;
+				$this.find('.object').last().each(function (i,e) {
+						characters += $(e).text().length;
+						
 				});
-				var splitNumber = 500 - characters;
+				//console.log(characters)
+				
+				var splitNumber = characters - charactersAboveLimit;
+				if (splitNumber < 100) {
+					
+					splitNumber = 55;
+				}
 		
 				var indexChar = 0;
 				var e = $this.find('.object').last().text()
@@ -254,9 +279,9 @@ var init = function () {
 				
 				var rounded = Math.round((splitNumber) + (indexChar +1));
 				firstPart = e.substr(0,rounded)
-				firstPart = firstPart + '-';
+				firstPart = firstPart + ' - ';
 				lastPart = e.substr(rounded,e.length);
-				lastPart = '-' + lastPart;
+				lastPart = ' - ' + lastPart;
 				arrRemovePos = i;
 				
 				$this.find('.object').last().remove();

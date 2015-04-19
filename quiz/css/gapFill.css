@@ -112,7 +112,7 @@ cursor: pointer;
 
 
 #ulContainer {
-height: 126px;
+height: 140px;
 width: 990px;
 margin-left: 8px;
 
@@ -178,13 +178,13 @@ color: rgba(68, 68, 68,1);;
 
 
 .frame { 
-position: absolute;  padding: 0; width: 1000px; height: 380px; 
+position: absolute;  padding: 0; width: 1000px; height: 380px; overflow: visible;
 margin-top: 82px;
 
 
 
 }
-.frame .slidee { margin: 0; padding: 0; height: 100%; list-style: none; margin-top: 5px; }
+.frame .slidee { margin: 0; padding: 0; height: 100%; list-style: none; margin-top: 5px;  overflow: visible;}
 .frame .slidee li {
 
 /* border-radius: 3px; */
@@ -195,6 +195,7 @@ margin-top: 82px;
 		
  _  border: 1px solid blue;
 	width: 1000px;
+	overflow: visible;
 	
 	
 }
@@ -209,7 +210,7 @@ color: rgb(68, 68, 68);
 
 width: 470px;
 float: left;
-
+overflow: visible;
 font-size: 19px; 
 line-height: 32px;
 
@@ -228,7 +229,7 @@ padding-left: 5px;
 
 .object {
 margin-bottom: 7px;
-
+overflow: visible;
 }
 
 
@@ -304,17 +305,9 @@ margin-top: 0px;
  margin-top: 600px;
  width: 995px;
  position: absolute;
+ height: 50px;
  }
  
- @media all and (min-height: 550px) and (max-height: 655px) {
-	 #bottomContainer {
-		margin-top: 582px;
-	 }
-	 #ulContainer {
-		margin-top:440px;
-	}
-}
-
 .imgCheck {
 position: absolute;
 margin-top: 12px;

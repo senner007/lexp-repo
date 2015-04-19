@@ -126,7 +126,7 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 			/* console.log(lastTheme ) */
 	
 								
-			$('#container').append(myHtml);	
+			$('#containerIsotope').append(myHtml);	
 		
 			var imgVar = '';
 					 	
@@ -141,7 +141,7 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 				imgVar += '<a data-abc="Prepositions" rel="gallery" id="PrepImg" href="img/preps2.png" class="item colimg2 fancybox" title="Prepositions"><img src="img/preps3.png" /></a>';
 
 					
-				$(imgVar).appendTo('#container');
+				$(imgVar).appendTo('#containerIsotope');
 				
 				preload([
 					"img/adjectives2.png",
@@ -153,7 +153,7 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 				]);
 
 			
-			var $container = $('#container');										
+			var $container = $('#containerIsotope');										
 									
 				$container.find("div[title='" + lastGrammar  + "']").addClass('recent')
 				.end().find("div[title='" + lastVocab  + "']").addClass('recent')
@@ -267,7 +267,7 @@ jQuery.extend( jQuery.fn, {
 
 
  $('#site-nav').on('keyup','#searchM',function() {
-	var $container = $('#container');
+	var $container = $('#containerIsotope');
 	var v = $(this).val();
 	
 	$container.find('.hideItem').removeClass('hideItem').show();
@@ -297,10 +297,11 @@ jQuery.extend( jQuery.fn, {
 
 
 								
-$('#container').on('tapclick','div',function(ev) {
+$('#containerIsotope').on('tapclick','div',function(ev) {
 	
 	// lock to scroll position because ipad needs to stop before loading of Transiton quiz
 	var $document = $(document);
+	window.windowHeight = window.innerHeight  //accounts for ipad navigation bars
 	$document.scrollTop($document.scrollTop());
 	
 	// don't know if they are needed
@@ -397,7 +398,7 @@ function LoadIframe($div) {
 	}
 	if (this.$div.hasClass('gapFill') ){					// gapfill
 		this.qhref = 'quiz/gapFill.html';
-		this.quizHeight = 640;
+		this.quizHeight = Math.min(Math.max((window.windowHeight), 640), 800);				// will set the height to min and max value
 	}
 	if (this.$div.hasClass('transition') ){			//transition
 		this.qhref = 'quiz/transition.html';
@@ -407,7 +408,7 @@ function LoadIframe($div) {
 		this.qhref = this.$div.attr('href');
 		this.quizHeight = 640;
 	}
-	$container = $('#container')
+	$container = $('#containerIsotope')
 	
 	$container.append("<div id='stamped'></div>"); // add the stamp
 	this.stampedItem = $container.find('#stamped');
@@ -420,7 +421,7 @@ function LoadIframe($div) {
 		this.isotopeItem = $container.isotope( 'getItem', this.$div.parent()[0] ) //get isotope item and hide/reveal when animating
 	}
 	else {
-		this.stampedItem.append(this.$div.find('.hL').clone()).append(this.$div.find('.shrink').first().clone());
+		this.stampedItem.append(this.$div.find('.hL').clone().css('margin-top', '2px')).append(this.$div.find('.shrink').first().clone());
 		if (this.$div.hasClass('variousRules')) { 
 			this.stampedItem.find('.shrink').css({
 				'margin-top':'-27px',
@@ -495,7 +496,7 @@ LoadIframe.prototype.animateIn = function (fancyInstance) {
 			
 		 	stampedItem.addClass('opacityIn');
 			fancyInstance.content.addClass('opacityIn');
-
+			
 		}); 
 	
 		$container.isotope( 'stamp', stampedItem).isotope('layout');
@@ -645,7 +646,7 @@ categorySwitch = function(category, catHilight) {
 
 $('#site-nav').on('tapclick','li',function(e){
 	e.preventDefault();
-	var $container = $('#container');
+	var $container = $('#containerIsotope');
 	$container.find('.hideItem').removeClass('hideItem').show();
 	
 	var $this = $(this);
@@ -743,7 +744,7 @@ $loaderGif.show();
 	});	
 });
 
-$('#container').on('click', function(e) { 
+$('#containerIsotope').on('click', function(e) { 
 	 e.preventDefault();
 	}, false);  
 	
@@ -850,7 +851,7 @@ $(window).on('orientationchange', function(event) {
 });
 	
 	
-$('#container').on('tapclick','a img',function(e){
+$('#containerIsotope').on('tapclick','a img',function(e){
 		
 	e.preventDefault();
 	e.stopPropagation();			
