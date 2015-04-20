@@ -1,8 +1,579 @@
-/***************************************************************************/
-/*                                                                         */
-/*  This obfuscated code was created by Javascript Obfuscator Free Version.*/
-/*  Javascript Obfuscator Free Version can be downloaded here              */
-/*  http://javascriptobfuscator.com                                        */
-/*                                                                         */
-/***************************************************************************/
-var _$_9d88=["shout_text","parent","xmlDataVar","#ulContainer ul","width","body","$","#container","appendTo","\x3Cbutton id=\x22nextButton\x22\x3E\x3C/button\x3E\x3Cbutton id=\x22prevButton\x22\x3E\x3C/button\x3E","responseText","gapFillTextFiles/",".txt","ajax","search","match","substring","length","push","...","replace","\x0A","split","each","text","quote","find","#quoteText","random","floor",".draggable","class","draggable ui-draggable","attr","css","draggable","id","hasClass","transparent","rgb(72, 72, 72)","occupado","removeClass","color","url(\x27../img/3_lighter2.jpg\x27)","rgb(72,72,72)","addClass","background-color","rgba(0, 0, 0, 0)","???","rgba(187, 187, 187,1)","\x3Cnobr\x3E","\x3C/nobr\x3E","html","offset","droppable",".suffixes",".","index",":eq(2)","parents","activeItem","rel","top","left","\x3Cdiv class=\x27object\x27\x3E\x3C/div\x3E","height","last","children",".object",".object:not(:last-child)","charAt"," ","round","substr","-","remove",".time",".slidee",".time:empty","li:empty","","\x3Cli id=\x27drag","\x27 class=\x27draggable ui-widget-content\x27\x3E","\x3C/li\x3E","append","#ulContainer li","eq","px","\x3Cspan class=\x22suffixes\x22 id=\x22","suffix","\x22\x3E???\x3C/span\x3E","indexOf","overflow","hidden","transition","support","fn","animate","resize",".active","pointer-events","none","disable","not","auto","enable","ButtonDisabled","start","pos","dest","#prevButton","end","#nextButton","items","#frame","forceCentered","easeInOutCirc",".pages","click","pages","change load","on","init","touchDragging","set","activatePage","closest",":last-child","is","disabled","removeAttr","rgba(68, 68, 68,1) url(\x27css/cssImg/checkButtonSmall.png\x27) 10% center no-repeat","rgb(204, 204, 204)","#checkButton","size",".solved","\x3Cdiv class=\x27object feedback\x27\x3EWell done! You solved: "," Out of: ","\x3C/div\x3E","\x3Cdiv class=\x27object feedback\x27\x3EYou could do better! You solved: ","\x3Cdiv class=\x27object feedback\x27\x3ETry again! You solved: ",".feedback","done","promise","solved","#006400","\x3Cimg class=\x27imgCheck\x27 src=\x27css/cssImg/check2Small.png\x27/\x3E","img","delay","#a80000","\x3Cimg class=\x27imgCheckCancel\x27 src=\x27css/cssImg/cancel.png\x27/\x3E",".ui-droppable","preventDefault","rgb(68, 68, 68) url(\x27../img/ajax-loaderSmall.gif\x27) 13% center no-repeat","easeInOutCubic","moveEnd","one","change","off","toStart","fastClick","#shuffleButton","prevPage","nextPage"];$(function(){var bj=window[_$_9d88[1]][_$_9d88[0]];var v=window[_$_9d88[1]][_$_9d88[2]];var T=$(_$_9d88[3]);var bk;var bb=window[_$_9d88[1]][_$_9d88[6]](_$_9d88[5])[_$_9d88[4]]();if(bb>1100){$(_$_9d88[9])[_$_9d88[8]](_$_9d88[7])};var bp=$[_$_9d88[13]]({url:_$_9d88[11]+bj+_$_9d88[12],async:false})[_$_9d88[10]];var bd=bp[_$_9d88[14]](/_[^\s]+_/i);var V=[];while(bp[_$_9d88[15]](/_[^_]+_*/i)!=null){var X=bp[_$_9d88[15]](/_[^_]+_*/i);var bh=X[0][_$_9d88[16]](1);bh=bh[_$_9d88[16]](0,bh[_$_9d88[17]]-1);V[_$_9d88[18]](bh);bp=bp[_$_9d88[20]](X[0],_$_9d88[19]);};var bo=bp[_$_9d88[22]](_$_9d88[21]);var bi=[];for(var H in bo){if(bo[H][_$_9d88[17]]>1){bi[_$_9d88[18]](bo[H])}};var bq=bi;bk=[];$[_$_9d88[23]](V,function(I){bk[_$_9d88[18]](V[I])});quoteText=$(v)[_$_9d88[26]](bj)[_$_9d88[26]](_$_9d88[25])[_$_9d88[24]]();$(_$_9d88[27])[_$_9d88[24]](quoteText);var A=function(K){var I=K[_$_9d88[17]];if(I==0){return false};while(--I){var J=Math[_$_9d88[29]](Math[_$_9d88[28]]()*(I+1));var L=K[I];var M=K[J];K[I]=M;K[J]=L;};};function bc(){$(_$_9d88[30])[_$_9d88[35]]({iframeFix:true,scroll:false,stack:_$_9d88[30],start:function(){var bt=$(this);bt[_$_9d88[34]]({opacity:1})[_$_9d88[33]](_$_9d88[31],_$_9d88[32]);}});$(_$_9d88[55])[_$_9d88[54]]({out:function(bN,bV){var bt=$(this);if($li[_$_9d88[37]](bt[_$_9d88[33]](_$_9d88[36]))==false){bt[_$_9d88[34]]({background:_$_9d88[38],color:_$_9d88[39]});bt[_$_9d88[41]](_$_9d88[40]);};var bU=bV[_$_9d88[35]][_$_9d88[34]](_$_9d88[42]);bV[_$_9d88[35]][_$_9d88[34]]({"background-image":_$_9d88[43],color:_$_9d88[44]});},drop:function(bN,bV){var bt=$(this);if(bt[_$_9d88[37]](_$_9d88[40])){return };bt[_$_9d88[45]](_$_9d88[40]);$suffixes[_$_9d88[23]](function(I){var bt=$(this);if((bt[_$_9d88[34]](_$_9d88[46])==_$_9d88[38]||bt[_$_9d88[34]](_$_9d88[46])==_$_9d88[47])&&bt[_$_9d88[24]]()!=_$_9d88[48]){bt[_$_9d88[24]](_$_9d88[48])[_$_9d88[34]](_$_9d88[42],_$_9d88[39])};});bt[_$_9d88[52]](_$_9d88[50]+bV[_$_9d88[35]][_$_9d88[24]]()+_$_9d88[51])[_$_9d88[34]]({background:_$_9d88[39],color:_$_9d88[49]});var bW=bt[_$_9d88[53]]();bV[_$_9d88[35]][_$_9d88[34]]({opacity:0});bV[_$_9d88[35]][_$_9d88[45]](bt[_$_9d88[33]](_$_9d88[36]));alignLis($suffixes);},over:function(bN,bV){if($(this)[_$_9d88[37]](_$_9d88[40])){return };var bX=bV[_$_9d88[35]][_$_9d88[34]](_$_9d88[46]);bV[_$_9d88[35]][_$_9d88[34]]({background:_$_9d88[39],color:_$_9d88[49]});}});}alignLis=function(br){var bs=T;$[_$_9d88[23]](br,function(I,S){var bt=$(this);if(bt[_$_9d88[24]]()!=_$_9d88[48]){var bx=bt[_$_9d88[53]]();var bv=bs[_$_9d88[26]](_$_9d88[56]+bt[_$_9d88[33]](_$_9d88[36]));var bw=bt[_$_9d88[59]](_$_9d88[58])[_$_9d88[57]]();var bu=0;if(bw<bn[_$_9d88[61]][_$_9d88[60]]){bu=-(bw-bn[_$_9d88[61]][_$_9d88[60]])*1000};if(bw>bn[_$_9d88[61]][_$_9d88[60]]){bu=(bn[_$_9d88[61]][_$_9d88[60]]-bw)*1000};bv[_$_9d88[53]]({top:bx[_$_9d88[62]]-6,left:bx[_$_9d88[63]]-5+bu});};});};var bg=function(){A(V);var by=0;var bD=[];$[_$_9d88[23]](bq,function(I,S){bD[_$_9d88[18]](S)});var bA;var bE=0;$(_$_9d88[77])[_$_9d88[26]](_$_9d88[76])[_$_9d88[23]](function(I,S){var bt=$(this);var bH=0;if(bE==1){$(_$_9d88[64])[_$_9d88[24]](bA)[_$_9d88[8]](bt);bE=0;bH+=parseInt($(bt)[_$_9d88[67]]()[_$_9d88[66]]()[_$_9d88[34]](_$_9d88[65]))+10;};while(bH<220&&by<bq[_$_9d88[17]]){$(_$_9d88[64])[_$_9d88[24]](bq[by])[_$_9d88[8]](bt);by++;bH+=parseInt($(bt)[_$_9d88[67]]()[_$_9d88[66]]()[_$_9d88[34]](_$_9d88[65]))+10;};if(bH>320&&bt[_$_9d88[26]](_$_9d88[68])[_$_9d88[66]]()[_$_9d88[24]]()[_$_9d88[17]]>150){var bG=0;bt[_$_9d88[26]](_$_9d88[69])[_$_9d88[23]](function(I,S){bG+=$(S)[_$_9d88[24]]()[_$_9d88[17]]});var bK=500-bG;var bI=0;var S=bt[_$_9d88[26]](_$_9d88[68])[_$_9d88[66]]()[_$_9d88[24]]();var P=S[_$_9d88[70]](bK);while(P!=_$_9d88[71]){P=S[_$_9d88[70]]((bK)+bI);bI=bI-1;};var bJ=Math[_$_9d88[72]]((bK)+(bI+1));firstPart=S[_$_9d88[73]](0,bJ);firstPart=firstPart+_$_9d88[74];bA=S[_$_9d88[73]](bJ,S[_$_9d88[17]]);bA=_$_9d88[74]+bA;arrRemovePos=I;bt[_$_9d88[26]](_$_9d88[68])[_$_9d88[66]]()[_$_9d88[75]]();$(_$_9d88[64])[_$_9d88[24]](firstPart)[_$_9d88[8]](bt);bH=1000;bE=1;};});$(_$_9d88[78])[_$_9d88[75]]();$(_$_9d88[79])[_$_9d88[75]]();var bC=_$_9d88[80];$[_$_9d88[23]](V,function(I,S){bC+=_$_9d88[81]+I+_$_9d88[82]+S+_$_9d88[83]});$(_$_9d88[3])[_$_9d88[84]](bC);$li=$(_$_9d88[85]);var bF=0;var bB=0;var f;$[_$_9d88[23]](V,function(I,S){divWidth=$li[_$_9d88[86]](I)[_$_9d88[4]]();var bL;bL={left:bF+_$_9d88[87],top:bB};$li[_$_9d88[86]](I)[_$_9d88[34]](bL);bF=(bF+divWidth)+25;if(bF>850){bF=0;bB=bB+47;};});var bz=0;$(_$_9d88[76])[_$_9d88[23]](function(){var bt=$(this);while(bz<V[_$_9d88[17]]&&bt[_$_9d88[24]]()[_$_9d88[91]](_$_9d88[19])>=0){var bM=bt[_$_9d88[52]]()[_$_9d88[20]](/\.\.\./,_$_9d88[88]+_$_9d88[89]+bz+_$_9d88[90]);bz++;bt[_$_9d88[52]](bM);};});$(_$_9d88[5])[_$_9d88[34]](_$_9d88[92],_$_9d88[93]);if(!$[_$_9d88[95]][_$_9d88[94]]){$[_$_9d88[96]][_$_9d88[94]]=$[_$_9d88[96]][_$_9d88[97]]};$suffixes=$(_$_9d88[55]);};bg();$(window)[_$_9d88[98]](function(){alignLis($suffixes)});bc();function Y(){var bO=bf[_$_9d88[26]](_$_9d88[99])[_$_9d88[26]](_$_9d88[55]);$suffixes[_$_9d88[103]](bO)[_$_9d88[23]](function(I,S){var bP=$(this)[_$_9d88[33]](_$_9d88[36]);if($li[_$_9d88[37]](bP)){$(_$_9d88[56]+bP)[_$_9d88[35]](_$_9d88[102])[_$_9d88[34]](_$_9d88[100],_$_9d88[101])};});bO[_$_9d88[23]](function(I,S){var bP=$(this)[_$_9d88[33]](_$_9d88[36]);if($li[_$_9d88[37]](bP)){$(_$_9d88[56]+bP)[_$_9d88[35]](_$_9d88[105])[_$_9d88[34]](_$_9d88[100],_$_9d88[104])};});if(bb>1100){$(_$_9d88[110])[this[_$_9d88[108]][_$_9d88[107]]===this[_$_9d88[108]][_$_9d88[109]]?_$_9d88[45]:_$_9d88[41]](_$_9d88[106]);$(_$_9d88[112])[this[_$_9d88[108]][_$_9d88[111]]===this[_$_9d88[108]][_$_9d88[109]]?_$_9d88[45]:_$_9d88[41]](_$_9d88[106]);$(_$_9d88[110])[this[_$_9d88[61]][_$_9d88[60]]===0?_$_9d88[45]:_$_9d88[41]](_$_9d88[106]);$(_$_9d88[112])[this[_$_9d88[61]][_$_9d88[60]]===this[_$_9d88[113]][_$_9d88[17]]-1?_$_9d88[45]:_$_9d88[41]](_$_9d88[106]);};}var be=$(_$_9d88[114]);var bf=$(_$_9d88[114])[_$_9d88[26]](_$_9d88[77]);var bn= new Sly(be,{horizontal:1,itemNav:_$_9d88[115],scrollBy:1,speed:400,startAt:0,activateMiddle:1,touchDragging:0,releaseSwing:1,elasticBounds:1,easing:_$_9d88[116],dynamicHandle:1,clickBar:1,dragSource:$(_$_9d88[114]),pagesBar:$(_$_9d88[117]),activatePageOn:_$_9d88[118],keyboardNavBy:_$_9d88[119]});bn[_$_9d88[121]](_$_9d88[120],Y);bn[_$_9d88[122]]();bn[_$_9d88[124]](_$_9d88[123],1);var U=0;var bl=0;function bm(bt){bn[_$_9d88[125]](U+1);U++;bl=700;}function Z(bt){var bQ=bt[_$_9d88[126]](_$_9d88[76]);if(bQ[_$_9d88[128]](_$_9d88[127])&&bt[_$_9d88[33]](_$_9d88[36])==bQ[_$_9d88[26]](_$_9d88[55])[_$_9d88[66]]()[_$_9d88[33]](_$_9d88[36])){bl+=1000};}function ba(){$(_$_9d88[151])[_$_9d88[23]](function(bR){var bt=$(this);if(bt[_$_9d88[24]]()==bk[bR]){bt[_$_9d88[148]]((bR*200)+bl)[_$_9d88[94]]({backgroundColor:_$_9d88[38],color:_$_9d88[145]},0,function(){bt[_$_9d88[84]](_$_9d88[146]);if(bt[_$_9d88[33]](_$_9d88[36])==$(_$_9d88[99])[_$_9d88[26]](_$_9d88[55])[_$_9d88[66]]()[_$_9d88[33]](_$_9d88[36])){bm(bt)};bt[_$_9d88[26]](_$_9d88[147])[_$_9d88[97]]({opacity:1});})[_$_9d88[45]](_$_9d88[144]);Z(bt);}else {if(bt[_$_9d88[24]]()==_$_9d88[48]){bt[_$_9d88[148]]((bR*200)+bl)[_$_9d88[94]]({backgroundColor:_$_9d88[38],color:_$_9d88[149]},0,function(){bt[_$_9d88[84]](_$_9d88[150]);if(bt[_$_9d88[33]](_$_9d88[36])==$(_$_9d88[99])[_$_9d88[26]](_$_9d88[55])[_$_9d88[66]]()[_$_9d88[33]](_$_9d88[36])){bm(bt)};bt[_$_9d88[26]](_$_9d88[147])[_$_9d88[97]]({opacity:1});});Z(bt);}else {bt[_$_9d88[148]]((bR*200)+bl)[_$_9d88[94]]({backgroundColor:_$_9d88[38],color:_$_9d88[149]},0,function(){bt[_$_9d88[84]](_$_9d88[150]);if(bt[_$_9d88[33]](_$_9d88[36])==$(_$_9d88[99])[_$_9d88[26]](_$_9d88[55])[_$_9d88[66]]()[_$_9d88[33]](_$_9d88[36])){bm(bt)};bt[_$_9d88[26]](_$_9d88[147])[_$_9d88[97]]({opacity:1});});Z(bt);}};})[_$_9d88[143]]()[_$_9d88[142]](function(){$(_$_9d88[133])[_$_9d88[34]]({background:_$_9d88[131],color:_$_9d88[132]})[_$_9d88[130]](_$_9d88[129]);var bS=$(_$_9d88[76])[_$_9d88[26]](_$_9d88[135])[_$_9d88[134]]();var bT=$(_$_9d88[76])[_$_9d88[26]](_$_9d88[55])[_$_9d88[134]]();if(bS<=bT){var bC=_$_9d88[136]+bS+_$_9d88[137]+bT+_$_9d88[138]};if(bS<bT/1.5){var bC=_$_9d88[139]+bS+_$_9d88[137]+bT+_$_9d88[138]};if(bS<bT/3){var bC=_$_9d88[140]+bS+_$_9d88[137]+bT+_$_9d88[138]};$(_$_9d88[76])[_$_9d88[66]]()[_$_9d88[84]](bC);$(_$_9d88[141])[_$_9d88[34]]({x:116})[_$_9d88[94]]({opacity:1,scale:1.5},500,function(){bn[_$_9d88[124]]({speed:400,easing:_$_9d88[116]})});})}var W=0;$(_$_9d88[133])[_$_9d88[160]](function(bN){bN[_$_9d88[152]]();if(W==1){return };W=1;$(_$_9d88[151])[_$_9d88[34]]({border:_$_9d88[101]});$(_$_9d88[30])[_$_9d88[94]]({opacity:0},180,function(){$(this)[_$_9d88[75]]()});$(this)[_$_9d88[34]]({background:_$_9d88[153]});setTimeout(function(){bn[_$_9d88[124]]({speed:1000,easing:_$_9d88[154]});U=0;bl=0;if(bn[_$_9d88[61]][_$_9d88[60]]!=0){bn[_$_9d88[156]](_$_9d88[155],ba);bn[_$_9d88[158]](_$_9d88[157]);bn[_$_9d88[159]]();}else {ba()};},250);});$(_$_9d88[161])[_$_9d88[160]](function(bN){bN[_$_9d88[152]]();W=0;bn[_$_9d88[124]]({speed:400,easing:_$_9d88[116]});$(_$_9d88[68])[_$_9d88[75]]();$li[_$_9d88[75]]();$(_$_9d88[133])[_$_9d88[34]]({background:_$_9d88[131],color:_$_9d88[132]})[_$_9d88[130]](_$_9d88[129]);bg();bc();});$(_$_9d88[110])[_$_9d88[45]](_$_9d88[106]);$(_$_9d88[110])[_$_9d88[160]](function(S){S[_$_9d88[152]]();bn[_$_9d88[162]]();});$(_$_9d88[112])[_$_9d88[160]](function(S){S[_$_9d88[152]]();bn[_$_9d88[163]]();});});
+$(function() {
+
+	var quizTitle = window.parent.shout_text;
+	var saveData = window.parent.xmlDataVar;
+    var $ulContainer = $('#ulContainer ul');
+
+	var rightTextArr;
+	
+				
+	var docWidth = window.parent.$('body').width();	
+	if (docWidth > 1100) {	
+		$('<button id="nextButton"></button><button id="prevButton"></button>').appendTo('#container');
+	};
+
+	var stringData = $.ajax({
+		url: "gapFillTextFiles/" + quizTitle + '.txt',
+		async: false
+	 }).responseText;
+	 
+
+	 var findString = stringData.search(/_[^\s]+_/i);
+	
+	var answerArr = [];
+	while ( stringData.match(/_[^_]+_*/i) != null ) {
+		var blabla = stringData.match(/_[^_]+_*/i)
+		var myString = blabla[0].substring(1)
+		myString = myString.substring(0, myString.length - 1);
+		answerArr.push(myString)
+		 
+		 stringData = stringData.replace(blabla[0], '...');
+	}
+	
+	var stringArray = stringData.split("\n");
+	var newArr = []; 											//removing empty elements in array - begin
+	for (var index in stringArray) { 
+		if( stringArray[index].length > 1) { 
+			newArr.push( stringArray[index] ); 
+		} 
+	} 
+	
+	 var textArr = newArr;	
+	
+		rightTextArr =  [];
+		$.each(answerArr, function(i) {
+			rightTextArr.push( answerArr[i] )
+						
+		});		
+
+
+	quoteText = $(saveData).find(quizTitle).find('quote').text();
+	$('#quoteText').text(quoteText);
+
+
+	var shuffle = function( myArray ) {
+	  var i = myArray.length;
+	  if ( i == 0 ) return false;
+	  while ( --i ) {
+		 var j = Math.floor( Math.random() * ( i + 1 ) );
+		 var tempi = myArray[i];
+		 var tempj = myArray[j];
+		 myArray[i] = tempj;
+		 myArray[j] = tempi;
+	   }
+	}
+	
+	function enableDragandDrop () {
+	
+		$('.draggable').draggable({
+				
+			 iframeFix: true, //don't know what it does???
+			//   containment: [(indent - 70),0,(indent + 950),610],
+
+				scroll: false, 
+				stack: ".draggable",
+				start: function () {
+					var $this = $(this);
+					//$h1.html(quizHeadline + "<span class='bolder'> " + $this.text() + "</span><br><span class='shrink'>" + subTitle + "</span>");
+				   $this.css({
+					opacity: 1,
+					/* zIndex: '9999', */
+					}).attr('class','draggable ui-draggable');
+					}
+				
+			});
+			
+
+			$( ".suffixes" ).droppable({
+			out: function (event, ui) {
+				var $this = $(this);
+				//$this.removeClass('occupado');
+				//var thisParentTime = $this.parent().parent();
+				//prevSuffix = $(this);
+				if ( $li.hasClass( $this.attr('id') ) == false ) {
+					 $this.css({
+					background: 'transparent',
+					color: 'rgb(72, 72, 72)'
+					}); 
+					$this.removeClass('occupado');
+					//alignLis(thisParentTime);
+					 //$( ".suffixes" ).droppable( "disable" );
+					 // $( ".suffixes" ).droppable( "enable" );
+				}
+				
+				var color = ui.draggable.css('color');
+				
+				ui.draggable.css({'background-image':"url('../img/3_lighter2.jpg')", color: 'rgb(72,72,72)'});	
+				//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
+			},
+			drop: function( event, ui ) {
+				var $this = $(this);
+				if ( $this.hasClass('occupado') ) { return; }; 
+				$this.addClass('occupado');
+				
+				
+				$suffixes.each(function (i) {
+					var $this = $(this);
+					//console.log($this.css('background-color'))
+			
+					
+					if (($this.css('background-color') == 'transparent' || $this.css('background-color') == 'rgba(0, 0, 0, 0)') && $this.text() != '???' ) {
+						//console.log($this.text() + ' ' + $this.attr('id'));
+						$this.text('???').css('color','rgb(72, 72, 72)');
+						
+					}
+				
+					
+				});
+				/* if ( prevSuffix ) {prevSuffix.text('???').css({
+					background: 'transparent',
+					color: 'black'
+					});
+					prevSuffix = null;
+					} */
+			
+				
+				//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
+				
+
+				
+				$this
+				.html( "<nobr>" + ui.draggable.text() + "</nobr>")
+				.css({
+					background:'rgb(72, 72, 72)',
+					color: 'rgba(187, 187, 187,1)'
+				});
+			   
+				var position = $this.offset();
+								
+				ui.draggable.css({
+
+					opacity: 0,
+							
+				});
+				ui.draggable.addClass($this.attr('id'));
+				alignLis($suffixes);
+		
+			},
+			over: function( event, ui ) {
+				if ( $(this).hasClass('occupado') ) { return; };
+				var thisColor = ui.draggable.css('background-color');  // will only respond if css is saved to a var  
+				ui.draggable.css({background: 'rgb(72, 72, 72)', color: 'rgba(187, 187, 187,1)'});
+				//$h1.find('.bolder').css({background: 'rgba(68, 68, 68,1)', color: thisColor});
+				
+				//$('#ulContainer').css({background: 'rgba(68, 68, 68,1)',color: 'rgba(204, 204, 204,1)'});
+			}
+		});
+	}
+	
+	alignLis = function ($suffixes) {	// alignLis function
+		var $ul = $ulContainer;
+		$.each($suffixes, function(i,e) {
+			var $this = $(this);
+			if ($this.text() != '???') {
+				var thisOffset = $this.offset()
+				var liToMove =  $ul.find("." + $this.attr('id'));
+				
+				var liToMoveParentLiIndex = $this.parents(':eq(2)').index();
+
+				var diff = 0;
+				// code if li is not on current page (+-1000) to offset
+				if ( liToMoveParentLiIndex < sly.rel.activeItem) {
+					diff = -(liToMoveParentLiIndex - sly.rel.activeItem) * 1000;
+				}
+				if ( liToMoveParentLiIndex > sly.rel.activeItem) {
+					diff = (sly.rel.activeItem - liToMoveParentLiIndex) * 1000;
+				}		
+				liToMove.offset({ top: thisOffset.top - 6, left: thisOffset.left - 5 + diff })
+				
+			};
+
+		});
+	};
+
+var init = function () {
+
+	
+	shuffle(answerArr);
+
+	var indexes = 0;
+	
+	var origTextArr = []
+	$.each(textArr, function (i,e) {
+		origTextArr.push(e);
+	})
+	//console.log(origTextArr);
+	
+	var lastPart;
+	var setLastPart = 0;
+	
+	$('.slidee').find('.time').each(function (i,e) {
+		
+		var $this = $(this);
+
+		var hello = 0;
+		
+		if (setLastPart == 1) {
+		
+			$("<div class='object'></div>").text(lastPart).appendTo($this);
+			setLastPart = 0;
+			hello += parseInt($($this).children().last().css('height')) + 10;
+			/* console.log('height:' + hello)
+			console.log('thisId: ' + $this.attr('id') ); */
+			}
+				
+		while ( hello < 220 && indexes < textArr.length) {
+			
+			$("<div class='object'></div>").text(textArr[indexes]).appendTo($this);
+			indexes++;
+			hello += parseInt($($this).children().last().css('height')) + 10;
+			/* console.log('height:' + hello)
+			console.log('thisId: ' + $this.attr('id') ); */
+			
+			}
+			
+		
+			if (hello > 320 && $this.find('.object').last().text().length > 150) {
+				
+				//will count the previous amount of characters in the .time element 
+				//and determine appropriate splitNumber 
+				var characters = 0;
+				$this.find('.object:not(:last-child)').each(function (i,e) {
+						characters += $(e).text().length
+				});
+				var splitNumber = 500 - characters;
+		
+				var indexChar = 0;
+				var e = $this.find('.object').last().text()
+				var n = e.charAt(splitNumber);
+				while (n != " ") {
+					n = e.charAt((splitNumber) + indexChar)
+					indexChar = indexChar -1;
+					
+				}
+				
+				var rounded = Math.round((splitNumber) + (indexChar +1));
+				firstPart = e.substr(0,rounded)
+				firstPart = firstPart + '-';
+				lastPart = e.substr(rounded,e.length);
+				lastPart = '-' + lastPart;
+				arrRemovePos = i;
+				
+				$this.find('.object').last().remove();
+				$("<div class='object'></div>").text(firstPart).appendTo($this);
+				
+				hello = 1000;
+				setLastPart = 1;
+					
+			}
+	
+	});
+	// remove li pages in slidee that are empty
+	 $('.time:empty').remove();
+	 $('li:empty').remove();
+		
+	
+	var myHtml = '';
+	$.each(answerArr, function(i,e) {									// create answer lis
+		myHtml +=  "<li id='drag" + i +"' class='draggable ui-widget-content'>" + e + "</li>";
+	})
+	$('#ulContainer ul').append(myHtml)
+	
+	$li = $('#ulContainer li');
+	
+		var widthIndex = 0;
+		var liTop = 0;
+		var anumber;
+		
+		// layout li draggable in ul container
+		$.each(answerArr, function(i, e) {	
+			
+			divWidth = $li.eq(i).width();
+			var cssObject;
+				cssObject = {
+					left: widthIndex + 'px',
+					top: liTop
+				}
+			
+			$li.eq(i).css(cssObject);
+				
+			widthIndex = (widthIndex + divWidth) + 25 ;
+			if (widthIndex > 850) {
+				widthIndex = 0;
+				liTop = liTop + 47;
+				
+			}
+		}); 
+		
+	var indexSuffix = 0;
+	$('.time').each(function () {
+	var $this = $(this);
+		while (indexSuffix < answerArr.length && $this.text().indexOf("...") >= 0) {					// replace ... with drop frame
+		  var newMarkup = $this.html().replace(/\.\.\./, '<span class="suffixes" id="' + 'suffix' +indexSuffix + '">???</span>')
+		indexSuffix++;
+		  $this.html(newMarkup);
+		};
+	
+	});
+	
+$("body").css("overflow", "hidden");
+
+if (!$.support.transition) {							
+	$.fn.transition = $.fn.animate;
+} 
+		
+$suffixes = $(".suffixes");	
+			
+}							//////////////// init function end /////////////
+
+init();
+
+$( window ).resize(function() {
+	alignLis($suffixes);
+});
+
+enableDragandDrop (); 
+
+function changeCode () {
+	
+		var visibleSuffixes = frameSlidee.find('.active').find('.suffixes');
+    
+			$suffixes.not(visibleSuffixes).each(function (i,e) {
+				var thisClass = $(this).attr('id');
+				if ( $li.hasClass( thisClass ) ) { 
+				  $('.' + thisClass).draggable('disable').css('pointer-events','none');
+				
+				}
+			
+			});
+   
+		   visibleSuffixes.each(function (i,e) {
+				var thisClass = $(this).attr('id');
+				if ( $li.hasClass( thisClass ) ) {
+					 $('.' + thisClass).draggable('enable').css('pointer-events', 'auto');
+				}
+			});		
+		
+		
+			if (docWidth > 1100) {	
+				 // Check whether Sly is at the start
+				$('#prevButton')[this.pos.start === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
+				// Check whether Sly is at the end
+				$('#nextButton')[this.pos.end === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
+
+				// Check whether the first item is active
+				   $('#prevButton')[this.rel.activeItem === 0 ? 'addClass' : 'removeClass']('ButtonDisabled');
+				// Check whether the last item is active
+				$('#nextButton')[this.rel.activeItem === this.items.length - 1 ? 'addClass' : 'removeClass']('ButtonDisabled');
+				
+				
+			};
+}	
+	    var frame = $('#frame');
+		var frameSlidee = $('#frame').find('.slidee');
+   // var items = frame.find('ul > li');
+    var sly = new Sly(frame, {
+        horizontal: 1,
+        itemNav: 'forceCentered',
+        scrollBy: 1,
+        speed: 400,
+		startAt: 0,
+		activateMiddle: 1,
+		touchDragging: 0,
+		releaseSwing:  1,
+		elasticBounds: 1,
+		easing: 'easeInOutCirc', 
+		dynamicHandle: 1,
+		clickBar: 1,
+		dragSource:	$('#frame'),
+	//	cycleBy:       'pages', // Enable automatic cycling by 'items' or 'pages'.
+	//	cycleInterval: 1600, // Delay between cycles in milliseconds.
+	//	pauseOnHover:  0,    // Pause cycling when mouse hovers over the FRAME.
+	//	startPaused:   1, 
+		pagesBar: $('.pages'),
+		activatePageOn: 'click',
+		keyboardNavBy: 'pages'		  
+				
+    });
+	
+	sly.on('change load', changeCode);
+	
+    sly.init();
+	
+	sly.set('touchDragging',1);	
+
+	
+var activeSlyPage = 0;
+var slideToNextDelay = 0;
+
+function slideToPage ($this) {			
+		sly.activatePage(activeSlyPage + 1)
+		activeSlyPage++;
+		slideToNextDelay = 700;						
+};
+function checkIfLast ($this) {
+	var conClose = $this.closest('.time');
+	if (conClose.is(':last-child') && $this.attr('id') == conClose.find('.suffixes').last().attr('id') ) {
+			slideToNextDelay += 1000;	
+	}	
+};
+
+function checking () {
+		
+	$('.ui-droppable').each(function(index2) {
+		
+					
+		var $this = $(this);			
+	
+		if ($this.text() == rightTextArr[index2])	{
+			
+			$this.delay((index2 * 200) + slideToNextDelay)
+				.transition({
+					backgroundColor: "transparent",
+					color: '#006400'
+					
+					
+				},0, function () {
+				$this.append("<img class='imgCheck' src='css/cssImg/check2Small.png'/>");
+					//console.log($this.parent().parent().parent());
+					if ($this.attr('id') == $('.active').find('.suffixes').last().attr('id')) {
+						slideToPage($this);
+					}
+					
+				$this.find('img').animate({opacity: 1});
+				}).addClass('solved');
+				
+			checkIfLast($this);
+					
+		}
+		else {
+		
+			if ($this.text() == '???') { 
+								
+				$this.delay((index2 * 200) + slideToNextDelay).transition({
+				backgroundColor: 'transparent',
+				color: '#a80000'
+				
+				}, 0,function () {
+						$this.append("<img class='imgCheckCancel' src='css/cssImg/cancel.png'/>");
+						if ($this.attr('id') == $('.active').find('.suffixes').last().attr('id')) {
+							slideToPage($this);
+						}
+						
+					
+					$this.find('img').animate({opacity: 1});
+					});
+				checkIfLast($this);
+			
+			} 
+			else {
+							
+				$this.delay((index2 * 200) + slideToNextDelay)
+					.transition({
+						backgroundColor: 'transparent',
+						color: '#a80000'	
+						
+						},0, function () {
+						$this.append("<img class='imgCheckCancel' src='css/cssImg/cancel.png'/>");	
+						if ($this.attr('id') == $('.active').find('.suffixes').last().attr('id')) {
+							slideToPage($this);
+						}
+					$this.find('img').animate({opacity: 1});
+					});
+				checkIfLast($this);
+			}		
+		}
+		//alignLis();
+
+	}).promise().done(function () {
+		
+		
+		$('#checkButton').css({background: "rgba(68, 68, 68,1) url('css/cssImg/checkButtonSmall.png') 10% center no-repeat", color: 'rgb(204, 204, 204)'}).removeAttr("disabled");
+		
+		var solved = $('.time').find('.solved').size();
+		var suffixes =  $('.time').find('.suffixes').size();
+		
+		if (solved <= suffixes ) {
+		var myHtml = "<div class='object feedback'>Well done! You solved: " + solved + " Out of: " + suffixes + "</div>";
+		}
+		if (solved < suffixes/1.5 ) {
+		var myHtml = "<div class='object feedback'>You could do better! You solved: " + solved + " Out of: " + suffixes + "</div>";
+		}
+		if (solved < suffixes/3 ) {
+		var myHtml = "<div class='object feedback'>Try again! You solved: " + solved + " Out of: " + suffixes + "</div>";
+		}
+		
+		$('.time').last().append(myHtml);
+		
+		
+		$('.feedback').css({x: 116}).transition({opacity: 1, scale: 1.5}, 500, function () {
+			sly.set({speed: 400, easing: 'easeInOutCirc'});
+		});
+	
+	
+	});
+};	// end of checking function
+
+var answerSwitch = 0;
+		
+$('#checkButton').fastClick(function (event) {
+		event.preventDefault();
+		
+		if (answerSwitch == 1)  { 
+			return; 
+		}
+		answerSwitch = 1;
+		
+		$('.ui-droppable').css({border: 'none'})
+		$('.draggable').transition({opacity: 0},180,function () {
+			$(this).remove();
+		});
+		$(this).css({background: "rgb(68, 68, 68) url('../img/ajax-loaderSmall.gif') 13% center no-repeat"})
+		setTimeout(function() {
+							 
+			sly.set({ speed: 1000, easing: 'easeInOutCubic'});
+			activeSlyPage = 0;
+			slideToNextDelay = 0;
+
+			if (sly.rel.activeItem != 0) {
+				sly.one('moveEnd', checking);
+				sly.off('change');
+				sly.toStart();
+			}
+			else {
+				checking();
+			}
+		
+		}, 250);
+
+});
+  
+	
+$('#shuffleButton').fastClick(function (event) {
+	event.preventDefault();
+	answerSwitch = 0;
+	sly.set({speed: 400, easing: 'easeInOutCirc'});
+	$('.object').remove();
+	$li.remove();
+	$('#checkButton').css({background: "rgba(68, 68, 68,1) url('css/cssImg/checkButtonSmall.png') 10% center no-repeat", color: 'rgb(204, 204, 204)'}).removeAttr("disabled");
+	//sly.on('change', changeCode);    // Don't know if rebind is needed
+	
+	init();
+	enableDragandDrop (); 
+
+});
+
+
+$('#prevButton').addClass('ButtonDisabled');	// prev button hidden by default
+	
+$('#prevButton').fastClick(function (e) {
+	e.preventDefault();
+	sly.prevPage();
+}); 	
+  
+$('#nextButton').fastClick(function (e) {
+	e.preventDefault();
+	sly.nextPage();	
+}); 	
+	 
+});
