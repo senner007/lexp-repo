@@ -354,11 +354,7 @@ $('#containerIsotope').on('tapclick','div',function(ev) {
 });	
 
 function LoadIframe($div) {
-	
-	window.windowHeight = window.innerHeight  //accounts for ipad navigation bars
-	var winHeight = window.innerHeight;
-	if (winHeight <  705) {winHeight = 620}					//  will only display full screen mode on tablet if above a certain value. Means that the user can 
-															//	choose between 'compressed' design or fullscreen when the browser navn is hidden
+
 
 	this.$div = $div
 
@@ -403,7 +399,7 @@ function LoadIframe($div) {
 	}
 	if (this.$div.hasClass('gapFill') ){					// gapfill
 		this.qhref = 'quiz/gapFill.html';
-		this.quizHeight = Math.min(Math.max((winHeight), 600), 800);				// will set the height to min and max value
+		this.quizHeight = 640;				// will set the height to min and max value
 	}
 	if (this.$div.hasClass('transition') ){			//transition
 		this.qhref = 'quiz/transition.html';
