@@ -239,545 +239,518 @@ function shuffle(o){ //v1.0
 		
 		}).init(); 
 
+initAll = function () {							// initAll start
+			
+	answers = answerArr;
 
-			
-			answers = answerArr;
+	$container = $('#container');			
 
-			$container = $('#container');			
+	
+	var $progInner = $('#progInner'),
+		$progOuterWidth = $('#progOuter').outerWidth(); 
+	$progInner.css({x: -$progOuterWidth});
+	
+	var progTransit = function (qCount) {
+	
+		var increment = $progOuterWidth / qCount
+		
+			if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
+					$progInner.transit({x: 0}, 1000);
+					
+					
+			}
+			else {
+			$progInner.transit({x: '+=' + increment}, 1000);
+			}
 
+	} 
+	autoValidate = function () {	
+		if (difficulty.setting == 0) {
 			
-			var $progInner = $('#progInner'),
-				$progOuterWidth = $('#progOuter').outerWidth(); 
-			$progInner.css({x: -$progOuterWidth});
 			
-			var progTransit = function (qCount) {
-			
-				var increment = $progOuterWidth / qCount
+			var activeIndex = $('.slidee').find('.active').index();
+			var uniqueNames = prependedSentences[activeIndex];
+			frame.find('.active').find('.jMyPuzzle').find('li').not('.locked').each(function (ins,spqr) {
+									
+				var elIndex = $(this).index();
+				var $this = $(this);
 				
-					if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
-							$progInner.transit({x: 0}, 1000);
-							
-							
-					}
-					else {
-					$progInner.transit({x: '+=' + increment}, 1000);
-					}
+				if ( $(spqr).text() == uniqueNames[elIndex] ) { 
+					// delay is needed or else the css will not be applied
+					$(spqr).addClass('locked').delay(70 * ins).transition({color: '#006400'}, 250, function () {
 
-			} 
-			autoValidate = function () {	
-				if (difficulty.setting == 0) {
-					
-					
-					var activeIndex = $('.slidee').find('.active').index();
-					var uniqueNames = prependedSentences[activeIndex];
-					frame.find('.active').find('.jMyPuzzle').find('li').not('.locked').each(function (ins,spqr) {
-											
-						var elIndex = $(this).index();
-						var $this = $(this);
+						if (elIndex == uniqueNames.length -1 ) {
+							$this.parent().addClass('solved');
+							$('.suffixes').eq(activeIndex).addClass('suffixDone').css('text-decoration','none').text( prependedSentences[activeIndex].join('') );
+							progTransit(prependedSentences.length);	
 						
-						if ( $(spqr).text() == uniqueNames[elIndex] ) { 
-							// delay is needed or else the css will not be applied
-							$(spqr).addClass('locked').delay(70 * ins).transition({color: '#006400'}, 250, function () {
+							
+							$this.parent().children().each(function (counter) {	
+								$(this).delay(counter * 70).transition({opacity: 0},200);
+		
+							}).promise().done(function () {
 
-								if (elIndex == uniqueNames.length -1 ) {
-									$this.parent().addClass('solved');
-									$('.suffixes').eq(activeIndex).addClass('suffixDone').css('text-decoration','none').text( prependedSentences[activeIndex].join('') );
-									progTransit(prependedSentences.length);	
-								
-									
-									$this.parent().children().each(function (counter) {	
-										$(this).delay(counter * 70).transition({opacity: 0},200);
-				
-									}).promise().done(function () {
-
-											$(this).parent().html( "<p class='solvedToString'>" + prependedSentences[activeIndex].join('') + "</p>" + "<img class='solvedImg' src='css/cssImg/checkButton.png'/>").css({opacity: 0, y: 150}).transition({opacity: 1, y: 0}, 500, 'easeOutQuad');
-											if (frame.find('.solved').size() == prependedSentences.length ) {
-												finalFeedback();
-											}
-									
-									});
-													
-								}; 
+									$(this).parent().html( "<p class='solvedToString'>" + prependedSentences[activeIndex].join('') + "</p>" + "<img class='solvedImg' src='css/cssImg/checkButton.png'/>").css({opacity: 0, y: 150}).transition({opacity: 1, y: 0}, 500, 'easeOutQuad');
+									if (frame.find('.solved').size() == prependedSentences.length ) {
+										finalFeedback();
+									}
+							
 							});
-						}
-						
-						
-						if ( $(spqr).text() != uniqueNames[elIndex] ) {
-							return false;
-						};
+											
+						}; 
 					});
-
-				};
-			};
-			finalFeedback = function () {
-					$checkButton.remove();
-					var items = frame.find('.lis').size();
-					var thisIndex = frame.find('.active').index();
-					var solved = frame.find('.solved').size();
-					sly.off('active');
-					
-					appendSly = function () {
-						var myHtml = "<p id='feedback'>You finished: " + solved + "<br>" + "Your score is: " + Math.round((100/items) * solved) + " out of 100" + "</p>" ;
-						sly.add("<li class='lis finalFeedback'><div class='jMyPuzzle'><div class='ulBorder'><ul class='splitList'></ul></div></div></li>");
-						frame.find('li').last().find('.splitList').append(myHtml);
-						setTimeout(function(){
-							sly.nextPage();
-							sly.off('moveEnd');
-							sly.on('moveEnd', function () { 
-								sly.set('speed', 400);
-								//$('.textLis').css({opacity:1});
-								$('#textBox').find('.suffixes').css('outline', 0);
-								sly.on('active', function () { 
-									var thisIndex = this.rel.activeItem;
-									var suffixParent = $textBoxSuffixes.eq(thisIndex).parent().parent().index();
-									if (slyText.rel.activeItem != suffixParent && frame.find('.slidee').find('.lis').eq(thisIndex).hasClass('finalFeedback') != true) { 
-											
-											slyText.activatePage( suffixParent );
-											
-									};
-										
-									$textBoxSuffixes.css({outline: 0});
-									$textBoxSuffixes.eq(thisIndex).css({outline: '2px solid black'});
-														
-								})
-							});
-					
-						},300);		
-					};
-					
-					sly.set('speed', 1500);
-					
-					if (items == thisIndex + 1) {
-						appendSly();
-						//slyText.toEnd();						
-					
-					}
-					else {
-						sly.on('moveEnd', function () {
-							appendSly();
-						});	
-						sly.toEnd();
-						//slyText.toEnd();
-					};
-					
-					
-				
-					
-			};
-			arraysEqual = function(arr1, arr2) {			//are the original and the mixed array equal
-						if(arr1.length !== arr2.length)
-							return false;
-						for(var i = arr1.length; i--;) {
-							if(arr1[i] !== arr2[i])
-								return false;
-						}
-
-						return true;
-			}			
-			
-	
-				
-			removedLi = 0;
-			var myHtmlLis = '';
-			$.each(answers, function (index,e) {
-				var arr = e.split("");
-				//console.log(arr);
-				
-			 	$.each(arr, function(index, value) {
-						if (arr[index] == ' ') {
-						arr[index] = '_' 
-						//console.log( arr[index] );
-						}
-				}); 
-				
-				prependedSentences.push(arr.slice(0));	
-				var mixed;
-				if (difficulty.setting != 2) {
-					var newArr = arr.slice(0);
-					var arrFirst = newArr.shift();
-				
-					mixed = shuffle(  newArr.slice(0) );
-					while ( arraysEqual(newArr, mixed)  == true ) { 
-						mixed = shuffle(mixed);
-						}						
-					
-					mixed.unshift(arrFirst);	
-					
 				}
-				else {
-					mixed = shuffle(  arr.slice(0) );
-					while ( arraysEqual(arr, mixed)  == true ) { 
-						mixed = shuffle(mixed); 
-						}
+				
+				
+				if ( $(spqr).text() != uniqueNames[elIndex] ) {
+					return false;
 				};
-				
-
-				var myHtml = "";
-				
-				for (var i=0;i<mixed.length;i++) { 
-					myHtml += "<li>" + mixed[i] + "</li>"; 
-				}
-				myHtmlLis += "<li class='lis'><div class='jMyPuzzle'><ul class='splitList'>" + myHtml + "</ul></div></li>"
-				
-				/*   var newMarkup = $('#textBox').html().replace(/\.\.\./, "<span class='suffixes' id='suf" + index + "'>"  + mixed.join('') + "</span>")
-				$('#textBox').html(newMarkup);  */
-			
-		
-				
 			});
-			$('.slidee').append(myHtmlLis);
+
+		};
+	};
+	finalFeedback = function () {
+			$checkButton.remove();
+			var items = frame.find('.lis').size();
+			var thisIndex = frame.find('.active').index();
+			var solved = frame.find('.solved').size();
+			sly.off('active');
+			
+			appendSly = function () {
+				var myHtml = "<p id='feedback'>You finished: " + solved + "<br>" + "Your score is: " + Math.round((100/items) * solved) + " out of 100" + "</p>" ;
+				sly.add("<li class='lis finalFeedback'><div class='jMyPuzzle'><div class='ulBorder'><ul class='splitList'></ul></div></div></li>");
+				frame.find('li').last().find('.splitList').append(myHtml);
+				setTimeout(function(){
+					sly.nextPage();
+					sly.off('moveEnd');
+					sly.on('moveEnd', function () { 
+						sly.set('speed', 400);
+						//$('.textLis').css({opacity:1});
+						$('#textBox').find('.suffixes').css('outline', 0);
+						sly.on('active', function () { 
+							var thisIndex = this.rel.activeItem;
+							var suffixParent = $textBoxSuffixes.eq(thisIndex).parent().parent().index();
+							if (slyText.rel.activeItem != suffixParent && frame.find('.slidee').find('.lis').eq(thisIndex).hasClass('finalFeedback') != true) { 
+									
+									slyText.activatePage( suffixParent );
+									
+							};
+								
+							$textBoxSuffixes.css({outline: 0});
+							$textBoxSuffixes.eq(thisIndex).css({outline: '2px solid black'});
+												
+						})
+					});
+			
+				},300);		
+			};
+			
+			sly.set('speed', 1500);
+			
+			if (items == thisIndex + 1) {
+				appendSly();
+				//slyText.toEnd();						
+			
+			}
+			else {
+				sly.on('moveEnd', function () {
+					appendSly();
+				});	
+				sly.toEnd();
+				//slyText.toEnd();
+			};
+			
 			
 		
+			
+	};
+	arraysEqual = function(arr1, arr2) {			//are the original and the mixed array equal
+				if(arr1.length !== arr2.length)
+					return false;
+				for(var i = arr1.length; i--;) {
+					if(arr1[i] !== arr2[i])
+						return false;
+				}
+
+				return true;
+	}			
 	
+
+		
+	removedLi = 0;
+	var myHtmlLis = '';
+	$.each(answers, function (index,e) {
+		var arr = e.split("");
+		//console.log(arr);
+		
+		$.each(arr, function(index, value) {
+				if (arr[index] == ' ') {
+				arr[index] = '_' 
+				//console.log( arr[index] );
+				}
+		}); 
+		
+		prependedSentences.push(arr.slice(0));	
+		var mixed;
+		if (difficulty.setting != 2) {
+			var newArr = arr.slice(0);
+			var arrFirst = newArr.shift();
+		
+			mixed = shuffle(  newArr.slice(0) );
+			while ( arraysEqual(newArr, mixed)  == true ) { 
+				mixed = shuffle(mixed);
+				}						
 			
-	//var suffixesSize = $('.suffixes').size();		
+			mixed.unshift(arrFirst);	
+			
+		}
+		else {
+			mixed = shuffle(  arr.slice(0) );
+			while ( arraysEqual(arr, mixed)  == true ) { 
+				mixed = shuffle(mixed); 
+				}
+		};
+		
+
+		var myHtml = "";
+		
+		for (var i=0;i<mixed.length;i++) { 
+			myHtml += "<li>" + mixed[i] + "</li>"; 
+		}
+		myHtmlLis += "<li class='lis'><div class='jMyPuzzle'><ul class='splitList'>" + myHtml + "</ul></div></li>"
+		
+		/*   var newMarkup = $('#textBox').html().replace(/\.\.\./, "<span class='suffixes' id='suf" + index + "'>"  + mixed.join('') + "</span>")
+		$('#textBox').html(newMarkup);  */
+	
+
+		
+	});
+	$('.slidee').append(myHtmlLis);
+			
+
 	var $textBoxSuffixes = textBox.find('.suffixes');
-			
-var frame = $('#frame');
-    var items = frame.find('ul > li');
-    var sly = new Sly(frame, {
-        horizontal: 1,
-        itemNav: 'forceCentered',
-        scrollBy: 1,
-        speed: 400,
+	var frame = $('#frame');
+	var items = frame.find('ul > li');
+
+	var sly = new Sly(frame, {
+		horizontal: 1,
+		itemNav: 'forceCentered',
+		scrollBy: 1,
+		speed: 400,
 		startAt: 0,
 		activateMiddle: 1,
 		touchDragging: 1,
 		interactive: $('.splitList li'),
-        releaseSwing:  1,
+		releaseSwing:  1,
 		elasticBounds: 1,
 		easing: 'easeInOutCirc', 
 		dynamicHandle: 1,
 		clickBar: 1,
 		dragSource:	$('#frame'),
 		//cycleBy:       'pages', // Enable automatic cycling by 'items' or 'pages'.
-	//	cycleInterval: 1600, // Delay between cycles in milliseconds.
-	//	pauseOnHover:  0,    // Pause cycling when mouse hovers over the FRAME.
-	//	startPaused:   1, 
+		//	cycleInterval: 1600, // Delay between cycles in milliseconds.
+		//	pauseOnHover:  0,    // Pause cycling when mouse hovers over the FRAME.
+		//	startPaused:   1, 
 		pagesBar: $('.pages'),
 		activatePageOn: 'click',
 		keyboardNavBy: 'pages'
 		},{
 		load: function () {
-			// when sly is loaded it performs the same
-			// as with every moveEnd callback
-			var thisIndex = this.rel.activeItem;
-			var suffixParent = $textBoxSuffixes.eq(thisIndex).parent().parent().index();	
-			if (slyText.rel.activeItem != suffixParent ) { 
+				// when sly is loaded it performs the same
+				// as with every moveEnd callback
+				var thisIndex = this.rel.activeItem;
+				var suffixParent = $textBoxSuffixes.eq(thisIndex).parent().parent().index();	
+				if (slyText.rel.activeItem != suffixParent ) { 
 
-					slyText.activatePage( suffixParent );
-			};
+						slyText.activatePage( suffixParent );
+				};
+				
+				//textBox.find('.suffixDone').css('outline', 0);
+				//$textBoxSuffixes.not('.suffixDone').css({textDecoration: 'line-through', outline: 0});
+				$textBoxSuffixes.eq(thisIndex).css({outline: '2px solid black'});
 			
-			//textBox.find('.suffixDone').css('outline', 0);
-			//$textBoxSuffixes.not('.suffixDone').css({textDecoration: 'line-through', outline: 0});
-			$textBoxSuffixes.eq(thisIndex).css({outline: '2px solid black'});
-		
 		},
 		active : function () {
 
-			var thisIndex = this.rel.activeItem;
-			var suffixParent = $textBoxSuffixes.eq(thisIndex).parent().parent().index();
-			//$('#frame').find('.active').find('.splitList').find('li').not('.locked').css('opacity','1').draggable('enable');
-			
-			if (slyText.rel.activeItem != suffixParent ) { 
-					
-					slyText.activatePage( suffixParent );
-					
-			};
-			
-			
-			$textBoxSuffixes.css({outline: 0});
-			
-				$textBoxSuffixes.eq(thisIndex).css({outline: '2px solid black'});
-		
-
-			if ( !$('.active').find('.splitList').hasClass('solved') ) {
-				$checkButton.css('text-decoration','none');
-				answerSwitch = 0;
-			}
-			else {
-				$checkButton.css('text-decoration','line-through');
+				var thisIndex = this.rel.activeItem;
+				var suffixParent = $textBoxSuffixes.eq(thisIndex).parent().parent().index();
+				//$('#frame').find('.active').find('.splitList').find('li').not('.locked').css('opacity','1').draggable('enable');
 				
-			}
-
+				if (slyText.rel.activeItem != suffixParent ) { 
+						
+						slyText.activatePage( suffixParent );
+						
+				};
+				
+				
+				$textBoxSuffixes.css({outline: 0});
+				
+					$textBoxSuffixes.eq(thisIndex).css({outline: '2px solid black'});
 			
+
+				if ( !$('.active').find('.splitList').hasClass('solved') ) {
+					$checkButton.css('text-decoration','none');
+					answerSwitch = 0;
+				}
+				else {
+					$checkButton.css('text-decoration','line-through');
+					
+				}
+
+				
 
 		},
 		change: function () {
-			autoValidate();	
+				autoValidate();	
+			
+				$('#prevButton')[this.pos.start === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
+				// Check whether Sly is at the end
+				$('#nextButton')[this.pos.end === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
+
+				// Check whether the first item is active
+				   $('#prevButton')[this.rel.activeItem === 0 ? 'addClass' : 'removeClass']('ButtonDisabled');
+				// Check whether the last item is active
+				$('#nextButton')[this.rel.activeItem === this.items.length - 1 ? 'addClass' : 'removeClass']('ButtonDisabled');
+
+			
+		}		
+	}).init();
 		
-			$('#prevButton')[this.pos.start === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
-			// Check whether Sly is at the end
-			$('#nextButton')[this.pos.end === this.pos.dest ? 'addClass' : 'removeClass']('ButtonDisabled');
 
-			// Check whether the first item is active
-		       $('#prevButton')[this.rel.activeItem === 0 ? 'addClass' : 'removeClass']('ButtonDisabled');
-			// Check whether the last item is active
-			$('#nextButton')[this.rel.activeItem === this.items.length - 1 ? 'addClass' : 'removeClass']('ButtonDisabled');
 
+	difficulty.wrongPunishLimit = (answerArr.length * difficulty.multiply );
 		
-		},
-		moveEnd: function () {
-			
-		} 
-			
-    }).init();
-	
-initAll = function () {	
+		
+	frame.find(".jMyPuzzle").jumbleScramble({	
+		autoValidate: autoValidate
+		
+	});	
 
-difficulty.wrongPunishLimit = (answerArr.length * difficulty.multiply );
-	
-			// delay layout with exception for IE 
-			//if (!$.support.transition) {	
-				frame.find(".jMyPuzzle").jumbleScramble({	
-					autoValidate: autoValidate
-					
-				});	
-				if ( difficulty.setting != 2 ) { 
+	if ( difficulty.setting != 2 ) { 				
+		frame.find(".jMyPuzzle").each(function () {				
+			$(this).find('li').first().css('opacity','0.5').addClass('locked'); 			
+		});					
+	};
+			
+
+	frame.find(".lis:first-child").find('li').each(function(index2) {
+		$(this).css({y: 100}).delay(160 * index2).transition({y: 0, opacity: 1}, 400);
+
+	}).promise().done(function () {
+		$('#quoteText,#progressbar,#checkButton,#wrongCount,.textSlidee').delay(300).transition({opacity: 1}, 600);
+
+		if (difficulty.setting != 2 ) {
+			frame.find(".lis:first-child").find('li').first().transition({opacity : '0.5'}, 500);		
+		}
+
+	});
 				
-					frame.find(".jMyPuzzle").each(function () {
-					
-					
-					
-						$(this).find('li').first().css('opacity','0.5').addClass('locked'); 
-					
-					});
-					
+	 
 				
-				};
+	$('#initButtonContainer').transition({opacity: 0}, 1300,function () {
+		$(this).remove();
+	})	
+
+	$('#prevButton').addClass('ButtonDisabled');			
+
+	$('#prevButton').on('tapclick', function (e) {
+		e.preventDefault();
+		sly.prevPage();
+	}); 	
+	  
+	$('#nextButton').on('tapclick', function (e) {
+		e.preventDefault();
+		sly.nextPage();
+	}); 
+
 				
-			
-			/* }
-			else {
-				frame.find(".jMyPuzzle").each(function(i){	
-						var row = $(this);
-					  setTimeout(function() {
-							  row.jMyPuzzle({	visible: '100%', autoValidate: autoValidate });
-							  if ( difficulty.setting != 2 ) { row.find('li').first().draggable('disable').css('opacity','0.5').addClass('locked'); }
-					}, 200*i);
-					
-				});
-			};
-			 */
-			
-			frame.find(".lis:first-child").find('li').each(function(index2) {
-				$(this).css({y: 100}).delay(160 * index2).transition({y: 0, opacity: 1}, 400);
-				
-			}).promise().done(function () {
-				$('#quoteText,#progressbar,#checkButton,#wrongCount,.textSlidee').delay(300).transition({opacity: 1}, 600);
-				
-				if (difficulty.setting != 2 ) {
-					frame.find(".lis:first-child").find('li').first().transition({opacity : '0.5'}, 500);		
-				}
-				
-			});
-			
- 
-			
-$('#initButtonContainer').transition({opacity: 0}, 1300,function () {
-				$(this).remove();
-			})	
+	/* frame.find('.jMyPuzzle').on('touchstart touchend','li', function(e) {
+		e.preventDefault();
+	}, false);  */
 
-$('#prevButton').addClass('ButtonDisabled');			
-
-$('#prevButton').on('tapclick', function (e) {
-e.preventDefault();
-	sly.prevPage();
-}); 	
-  
-$('#nextButton').on('tapclick', function (e) {
-  e.preventDefault();
-	sly.nextPage();
-}); 
-
-			
-/* frame.find('.jMyPuzzle').on('touchstart touchend','li', function(e) {
-	e.preventDefault();
-}, false);  */
-
- function setWrongCounter() {
-	$('#wrongCount').text('Tries left: ' + (difficulty.wrongPunishLimit - wrongPunish))
-
-}
-setWrongCounter()
-
-
-var answerSwitch = 0;			
-$('#checkButton').on('tapclick',function (e) {
-	$(this).css('text-decoration','line-through');
-	e.preventDefault();
-	
-	
-	if (answerSwitch == 1 || $('.active').find('.splitList').hasClass('solved')) { 
-		return; 
+	function setWrongCounter() {
+		$('#wrongCount').text('Tries left: ' + (difficulty.wrongPunishLimit - wrongPunish))
 	}
+	setWrongCounter()
 
-	var activeIndex = frame.find('.active').index();
-	var sent = prependedSentences[activeIndex].join(' ').toLowerCase();
-	var uniqueNames = prependedSentences[activeIndex];
-	
-/* 	console.log( 'sent:  '  + sent ) */
-	
-	var lis = frame.find('.active').find('.splitList').find('li');
 
-	answerSwitch = 1;
-	
-	var i = 0;
-	
-	var preValidIndex = 0;
-	var	blaLength = 0;
-	removedLi = 0;
-	var correctNumber = 0;
-	
-		// helper function for orange coloring
-		myArray = []
+	var answerSwitch = 0;
 				
-		lis.each(function (myIndex, myElem) {
+	$('#checkButton').on('tapclick',function (e) {											// check function
+		$(this).css('text-decoration','line-through');
+		e.preventDefault();
+		
+		
+		if (answerSwitch == 1 || $('.active').find('.splitList').hasClass('solved')) { 
+			return; 
+		}
+
+		var activeIndex = frame.find('.active').index();
+		var sent = prependedSentences[activeIndex].join(' ').toLowerCase();
+		var uniqueNames = prependedSentences[activeIndex];
+		
+	/* 	console.log( 'sent:  '  + sent ) */
+		
+		var lis = frame.find('.active').find('.splitList').find('li');
+
+		answerSwitch = 1;
+		
+		var i = 0;
+		
+		var preValidIndex = 0;
+		var	blaLength = 0;
+		removedLi = 0;
+		var correctNumber = 0;
+		
+			// helper function for orange coloring
+			myArray = []
+					
+			lis.each(function (myIndex, myElem) {
+				
+				myArray.push(lis.eq(myIndex).text().toLowerCase())				
 			
-			myArray.push(lis.eq(myIndex).text().toLowerCase())				
+			})
+			
+			// helper function for orange coloring
+			function getAdjacentElements (currentIndex, conElements) {
+				var string = '';
+				for (xyz = 0; xyz < conElements; xyz++) { 
+					
+					string += myArray[currentIndex +xyz]
+					if (xyz != conElements) { 
+						string = string + ' ';
+					}
 		
-		})
-		
-		// helper function for orange coloring
-		function getAdjacentElements (currentIndex, conElements) {
-			var string = '';
-			for (xyz = 0; xyz < conElements; xyz++) { 
-				
-				string += myArray[currentIndex +xyz]
-				if (xyz != conElements) { 
-					string = string + ' ';
 				}
-	
+				string = $.trim(string);
+				return string;
 			}
-			string = $.trim(string);
-			return string;
-		}
-		
-		var iteDelay = 180;
-		var animSpeed = 130;
-		// skip animation when all are correct
-		if (myArray.join(' ').toLowerCase() == uniqueNames.join(' ').toLowerCase() ) {
 			
-			iteDelay = 0;
-			animSpeed = 0;
-			
-			
-		}
-
-		lis.each(function(index2, elem) { //beginning of lis each function
-			
-			var $this = $(this); 
-			var $thisText = $this.text().toLowerCase();
+			var iteDelay = 180;
+			var animSpeed = 130;
+			// skip animation when all are correct
+			if (myArray.join(' ').toLowerCase() == uniqueNames.join(' ').toLowerCase() ) {
 				
-			if ($thisText.toLowerCase() == uniqueNames[i].toLowerCase()) {
-				correctNumber++;
+				iteDelay = 0;
+				animSpeed = 0;
+				
+				
+			}
 
+			lis.each(function(index2, elem) { //beginning of lis each function
+				
+				var $this = $(this); 
+				var $thisText = $this.text().toLowerCase();
+					
+				if ($thisText.toLowerCase() == uniqueNames[i].toLowerCase()) {
+					correctNumber++;
+
+						var options = {
+							color : "#006400",
+							y: '+=10' 
+						}
+				
+					$this.delay(index2 * iteDelay)
+					.animate(options,animSpeed)
+					.animate({y: '-=10'},animSpeed);
+				
+				}
+				else if ($thisText.toLowerCase() != uniqueNames[i].toLowerCase() || preValidIndex != 0  ) {
+				
+					// function for orange coloring
+					var blabla = 0;
+				
+					for (myI = (myArray.length - index2); myI > 2; myI--) { 
+
+						var temp = getAdjacentElements (index2, myI)
+						if (sent.indexOf(temp) >= 0) {
+							blabla = myI;
+							myI = 0;
+						}
+				
+					}
+										
+					if ( blabla > 2 && blabla > blaLength) {
+						blaLength = blabla;
+						preValidIndex = 0;		
+					}
+									
+					if (preValidIndex < blaLength) {
+						preValidIndex++;
+					}
+					else { 
+						 blaLength = 0;
+						 preValidIndex = 0;
+					}
+			
+					if ( (sent.indexOf(blabla) >= 0) && blaLength > 2 || preValidIndex != 0) {
+					
 					var options = {
-						color : "#006400",
+						color : "#CC9900",
 						y: '+=10' 
 					}
-			
-				$this.delay(index2 * iteDelay)
-				.animate(options,animSpeed)
-				.animate({y: '-=10'},animSpeed);
+					
+					$this.delay(index2 * iteDelay)
+					.animate(options,animSpeed)
+					.animate({y: '-=10'},animSpeed);
+					 
+				}
+				else {
+
+					var options = {
+						color : "#A80000",
+						y: '+=10' 
+					}
+				
+					$this.delay(index2 * iteDelay)
+					.animate(options,animSpeed)
+					.animate({y: '-=10'},animSpeed);
+					
+				}
 			
 			}
-			else if ($thisText.toLowerCase() != uniqueNames[i].toLowerCase() || preValidIndex != 0  ) {
+			i++;
 			
-				// function for orange coloring
-				var blabla = 0;
+			if (correctNumber == uniqueNames.length) {
+				$this.parent().addClass('solved');
+			}
 			
-				for (myI = (myArray.length - index2); myI > 2; myI--) { 
-
-					var temp = getAdjacentElements (index2, myI)
-					if (sent.indexOf(temp) >= 0) {
-						blabla = myI;
-						myI = 0;
-					}
+		}).promise().done(function () {
+			answerSwitch = 0;
 			
-				}
-									
-				if ( blabla > 2 && blabla > blaLength) {
-					blaLength = blabla;
-					preValidIndex = 0;		
-				}
-								
-				if (preValidIndex < blaLength) {
-					preValidIndex++;
-				}
-				else { 
-					 blaLength = 0;
-					 preValidIndex = 0;
-				}
+			$this = $(this);
+			
+			wrongPunish++;
+			setWrongCounter();
+			
+			if (correctNumber == uniqueNames.length) {
 		
-				if ( (sent.indexOf(blabla) >= 0) && blaLength > 2 || preValidIndex != 0) {
+				$textBoxSuffixes.eq(activeIndex).text( prependedSentences[activeIndex].join('') ).addClass('suffixDone');
+				progTransit(prependedSentences.length);
 				
-				var options = {
-					color : "#CC9900",
-					y: '+=10' 
-				}
-				
-				$this.delay(index2 * iteDelay)
-				.animate(options,animSpeed)
-				.animate({y: '-=10'},animSpeed);
-				 
+				$this.parent().children().each(function (counter) {
+						$(this).delay(counter * 50 + 200).transition({opacity: 0},200);
+				}).promise().done(function () {
+						$(this).parent().html( "<p class='solvedToString'>" + prependedSentences[activeIndex].join('') + "</p>" + "<img class='solvedImg' src='css/cssImg/checkButton.png'/>").css({opacity: 0, y: 200}).transition({opacity: 1, y: 0}, 500, 'easeOutQuad');	
+				});
+		
 			}
 			else {
-
-				var options = {
-					color : "#A80000",
-					y: '+=10' 
+				if ( !$('.active').find('.splitList').hasClass('solved') && activeIndex == sly.rel.activePage) {
+					$checkButton.css('text-decoration','none');
 				}
-			
-				$this.delay(index2 * iteDelay)
-				.animate(options,animSpeed)
-				.animate({y: '-=10'},animSpeed);
-				
 			}
 		
-		}
-		i++;
-		
-		if (correctNumber == uniqueNames.length) {
-			$this.parent().addClass('solved');
-		}
-		
-	}).promise().done(function () {
-		answerSwitch = 0;
-		
-		$this = $(this);
-		
-		wrongPunish++;
-		setWrongCounter();
-		
-		if (correctNumber == uniqueNames.length) {
-	
-			$textBoxSuffixes.eq(activeIndex).text( prependedSentences[activeIndex].join('') ).addClass('suffixDone');
-			progTransit(prependedSentences.length);
-			
-			$this.parent().children().each(function (counter) {
-					$(this).delay(counter * 50 + 200).transition({opacity: 0},200);
-			}).promise().done(function () {
-					$(this).parent().html( "<p class='solvedToString'>" + prependedSentences[activeIndex].join('') + "</p>" + "<img class='solvedImg' src='css/cssImg/checkButton.png'/>").css({opacity: 0, y: 200}).transition({opacity: 1, y: 0}, 500, 'easeOutQuad');	
-			});
-	
-		}
-		else {
-			if ( !$('.active').find('.splitList').hasClass('solved') && activeIndex == sly.rel.activePage) {
-				$checkButton.css('text-decoration','none');
+			if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
+				answerSwitch = 1;
+				frame.find('.splitList').find('li').draggable('disable');
+				$('#checkButton').css('text-decoration','line-through');
+				finalFeedback();
 			}
-		}
-	
-		if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
-			answerSwitch = 1;
-			frame.find('.splitList').find('li').draggable('disable');
-			$('#checkButton').css('text-decoration','line-through');
-			finalFeedback();
-		}
+			
+		});
 		
 	});
-	
-});
 } // initAll end
 				
 }); // document ready end
