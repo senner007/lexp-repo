@@ -3,6 +3,10 @@
 //$(window).bind("load", function() {
 $(document).ready(function() {	
 
+if (!$.support.transition) {	
+	$.fn.transition = $.fn.animate;	
+}
+
 
 var $h1text;
 
