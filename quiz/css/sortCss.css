@@ -1,7 +1,10 @@
 *{
   margin:0;
   padding:0;
-  
+  -webkit-transform: translate3d(0, 0, 0);
+   -moz-transform: translate3d(0, 0, 0);
+   -ms-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0); 
 }
 
 #quoteText {
@@ -145,10 +148,7 @@ div.jMyPuzzle {
 width: 495px;
 height: 430px;
 position: absolute;
- -webkit-transform: translate3d(0, 0, 0);
-   -moz-transform: translate3d(0, 0, 0);
-   -ms-transform: translate3d(0, 0, 0);
-   transform: translate3d(0, 0, 0); 
+
    
 }
 ul.splitList {
