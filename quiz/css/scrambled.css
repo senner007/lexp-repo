@@ -65,7 +65,7 @@ margin: 0 auto;
 .frame .slidee { margin: 0; padding: 0; height: 200px; list-style: none; -ms-touch-action: none;}
 .frame .slidee li.lis {
 
-
+	height: inherit;
    float: left;
     margin: 0;
     padding: 0;
@@ -130,46 +130,37 @@ height: 270px;
 
 
 
-div.jMyPuzzle{
+.jMyPuzzle{
 
-	width: 100%;
+	width: 1000px;
 
-	
-	height:200px;
+
+
  -webkit-transform: translate3d(0, 0, 0);
    -moz-transform: translate3d(0, 0, 0);
    -ms-transform: translate3d(0, 0, 0);
    transform: translate3d(0, 0, 0); 
 
-
+margin-top:0px;
 
 
 }
 
-div .jMyPuzzle ul{
+.splitList {
 	
 
 display: block;
 position: relative;
- margin-left: auto;
-    margin-right: auto;
-	margin-top:75px;
+margin-left: auto;
+margin-right: auto;
+margin-top:75px;
 	
 	width:100%; 	/* Do not remove */
 	
 	
 }
 
-.ulBorder {
-margin: 0 auto;
 
-width: 999px;
-height: 200px;
-
-
-
-
-}
 
 #rightAnswerReplace {
 
@@ -204,14 +195,14 @@ list-style: none;
 	padding-right:6px;
 	padding-top:8px;
 	padding-bottom:8px;
-	margin:2px;
+	margin-left:2px;
+	margin-right:2px;
 /* 	box-shadow: 1px 1px 10px -2px #888888;
 	 */
 	cursor:pointer;
 	border: 1px solid rgba(68, 68, 68,1);
 	white-space:nowrap;
 	border-radius: 3px;
-	
  	-webkit-backface-visibility: hidden;
 	-ms-touch-action: none;
 }
@@ -273,17 +264,6 @@ margin-top: 0px;
 }
 
 
-/* #next{
-
-
-
-float: right;
-
-background: rgba(68, 68, 68,1) url('nextButton_white.png') 10% center no-repeat; 
-
-
-} */
-
 
 #checkButton {
 
@@ -293,23 +273,6 @@ opacity: 0;
 background: rgba(68, 68, 68,1) url('cssImg/checkButton.png') 10% center no-repeat;
 margin-left: 880px;
 
-}
-
-#easyHard{
-
-	
-	float: right;
-	font-size: 18px;
-	line-height: 15px;
-	width:137px;
-	
-	
-background: rgba(204, 204, 204,1);
-	border:solid 1px rgba(68, 68, 68,1);
-	outline:solid 1px rgba(187, 187, 187,1);
-	
-	
-	padding:4px 0px 7px 0px;	
 }
 
 #prevButton {
@@ -343,27 +306,6 @@ opacity: 0;
 }
 
 
-
-
-.normal{
-	background-color:transparent;
-}
-
-.notValidMi{
-	background-color:#fb0b1c;
-}
-
-.miValid{
-	background-color:#008000;
-}
-
-.validMi{
-	background-color:#009900;
-}
-
-
-
-
 #progOuter {
 
 width: 986px;
@@ -382,11 +324,6 @@ background-color:rgba(68, 68, 68,1);
 
 }
 
-.ui-progressbar .ui-progressbar-value {
 
-background: rgba(68, 68, 68,1);
-    margin: 0px;
-    height: 100%;
-}
 
 

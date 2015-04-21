@@ -326,7 +326,7 @@ initAll = function () {
 									
 				});
 							
-				myHtmlLis += "<li class='lis'><div class='jMyPuzzle'><div class='ulBorder'><ul class='splitList'>" + myHtml + "</ul></div></div></li>";
+				myHtmlLis += "<li class='lis'><div class='jMyPuzzle'><ul class='splitList'>" + myHtml + "</ul></div></li>";
 					
 					
 			});
