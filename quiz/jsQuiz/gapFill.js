@@ -206,6 +206,7 @@ var init = function () {
 	
 	var lastPart;
 	var setLastPart = 0;
+	var cutOffLimit = 550
 	
 	$('.slidee').find('.time').each(function (i,e) {
 		
@@ -217,35 +218,45 @@ var init = function () {
 		
 			$("<div class='object'></div>").text(lastPart).appendTo($this);
 			setLastPart = 0;
-			hello += parseInt($($this).children().last().css('height')) + 10;
+			hello += $($this).children().last().text().length;
 			/* console.log('height:' + hello)
 			console.log('thisId: ' + $this.attr('id') ); */
 			}
 				
-		while ( hello < 220 && indexes < textArr.length) {
+		while ( hello < cutOffLimit && indexes < textArr.length) {
 			
 			$("<div class='object'></div>").text(textArr[indexes]).appendTo($this);
 			indexes++;
-			hello += parseInt($($this).children().last().css('height')) + 10;
+			hello += $($this).children().last().text().length + 50;
 			/* console.log('height:' + hello)
 			console.log('thisId: ' + $this.attr('id') ); */
 			
 			}
 			
 		
-			if (hello > 320 && $this.find('.object').last().text().length > 150) {
+			var charactersAboveLimit = hello - cutOffLimit;
+			
+			if (hello > cutOffLimit + 100) {
 				
 				//will count the previous amount of characters in the .time element 
 				//and determine appropriate splitNumber 
 				var characters = 0;
-				$this.find('.object:not(:last-child)').each(function (i,e) {
-						characters += $(e).text().length
+				
+				var prevsHeight = 0;
+				$this.find('.object').last().each(function (i,e) {
+						characters += $(e).text().length;
 				});
-				var splitNumber = 500 - characters;
+			
+				var splitNumber = characters - charactersAboveLimit;
+				if (splitNumber < 100) {
+					
+					splitNumber = 55;
+				}
 		
 				var indexChar = 0;
 				var e = $this.find('.object').last().text()
 				var n = e.charAt(splitNumber);
+				
 				while (n != " ") {
 					n = e.charAt((splitNumber) + indexChar)
 					indexChar = indexChar -1;
@@ -254,9 +265,9 @@ var init = function () {
 				
 				var rounded = Math.round((splitNumber) + (indexChar +1));
 				firstPart = e.substr(0,rounded)
-				firstPart = firstPart + '-';
+				firstPart = firstPart + ' -';
 				lastPart = e.substr(rounded,e.length);
-				lastPart = '-' + lastPart;
+				lastPart = ' -' + lastPart;
 				arrRemovePos = i;
 				
 				$this.find('.object').last().remove();
@@ -316,7 +327,7 @@ var init = function () {
 	
 	});
 	
-$("body").css("overflow", "hidden");
+//$("body").css("overflow", "hidden");
 
 if (!$.support.transition) {							
 	$.fn.transition = $.fn.animate;
@@ -336,7 +347,7 @@ enableDragandDrop ();
 
 function changeCode () {
 	
-		var visibleSuffixes = frameSlidee.find('.active').find('.suffixes');
+		var visibleSuffixes = frameSlidee.find('.active').find('.suffixes');					//disable draggable behavior when not visible on ipad
     
 			$suffixes.not(visibleSuffixes).each(function (i,e) {
 				var thisClass = $(this).attr('id');
@@ -385,7 +396,7 @@ function changeCode () {
 		easing: 'easeInOutCirc', 
 		dynamicHandle: 1,
 		clickBar: 1,
-		dragSource:	$('#frame'),
+		dragSource:	'#frame',
 	//	cycleBy:       'pages', // Enable automatic cycling by 'items' or 'pages'.
 	//	cycleInterval: 1600, // Delay between cycles in milliseconds.
 	//	pauseOnHover:  0,    // Pause cycling when mouse hovers over the FRAME.
@@ -406,12 +417,12 @@ function changeCode () {
 var activeSlyPage = 0;
 var slideToNextDelay = 0;
 
-function slideToPage ($this) {			
+function slideToPage ($this) {						// check if last object on page
 		sly.activatePage(activeSlyPage + 1)
 		activeSlyPage++;
 		slideToNextDelay = 700;						
 };
-function checkIfLast ($this) {
+function checkIfLast ($this) {						// check if last droppable on page
 	var conClose = $this.closest('.time');
 	if (conClose.is(':last-child') && $this.attr('id') == conClose.find('.suffixes').last().attr('id') ) {
 			slideToNextDelay += 1000;	
@@ -438,9 +449,10 @@ function checking () {
 					//console.log($this.parent().parent().parent());
 					if ($this.attr('id') == $('.active').find('.suffixes').last().attr('id')) {
 						slideToPage($this);
+						
 					}
 					
-				$this.find('img').animate({opacity: 1});
+				$this.find('img').transition({opacity: 1});
 				}).addClass('solved');
 				
 			checkIfLast($this);
@@ -461,7 +473,7 @@ function checking () {
 						}
 						
 					
-					$this.find('img').animate({opacity: 1});
+					$this.find('img').transition({opacity: 1});
 					});
 				checkIfLast($this);
 			
@@ -478,7 +490,7 @@ function checking () {
 						if ($this.attr('id') == $('.active').find('.suffixes').last().attr('id')) {
 							slideToPage($this);
 						}
-					$this.find('img').animate({opacity: 1});
+					$this.find('img').transition({opacity: 1});
 					});
 				checkIfLast($this);
 			}		
