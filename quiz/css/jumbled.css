@@ -226,12 +226,12 @@ z-index: 9999;
 }
 
 div .jMyPuzzle{
-	display:block;
+
 	
 	width: 1000px;
 
 	margin-top: 0px;
-	height: 190px;
+
 	
 
  -webkit-transform: translate3d(0, 0, 0);
@@ -241,7 +241,7 @@ div .jMyPuzzle{
 	
 }
 
-div .jMyPuzzle ul{
+.splitList{
 	
 	display:block;
 	margin-top:70px;
@@ -263,16 +263,12 @@ div .jMyPuzzle ul li{
 	color:rgb(68, 68, 68);
 	padding-left:14px;
 	padding-right:14px;
-	padding-top:1px;
-	margin-top:-10px;
 	position: absolute;
 	cursor:pointer;
 	border:solid 1px #000000;
 	border-radius: 3px;
 /* 	box-shadow: 1px 1px 10px -2px #888888; */
-	
-
-		-webkit-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 
 }
 
@@ -355,7 +351,7 @@ height: 182px;
 .frame .slidee { margin: 0; padding: 0; height: 100%; list-style: none; }
 .frame .slidee li.lis {
 
-
+	height: inherit;
     float: left;
     margin: 0;
     padding: 0;
