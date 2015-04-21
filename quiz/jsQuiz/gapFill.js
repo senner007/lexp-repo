@@ -247,7 +247,7 @@ var init = function () {
 						characters += $(e).text().length;
 				});
 			
-				var splitNumber = characters - charactersAboveLimit;
+				var splitNumber = characters - charactersAboveLimit +70;
 				if (splitNumber < 100) {
 					
 					splitNumber = 55;
@@ -293,6 +293,7 @@ var init = function () {
 	$li = $('#ulContainer li');
 	
 		var widthIndex = 0;
+		var liTop = $('#ulContainer').outerHeight() - $li.outerHeight();
 		var anumber;
 		
 		// layout li draggable in ul container
@@ -310,6 +311,7 @@ var init = function () {
 			widthIndex = (widthIndex + divWidth) + 25 ;
 			if (widthIndex > 850) {
 				widthIndex = 0;
+				liTop = liTop - $li.outerHeight() - 4;
 				
 			}
 		}); 
