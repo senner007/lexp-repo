@@ -1,131 +1,14 @@
 (function ( $ ) {                 			    // Compliant with jquery.noConflict()
 $.fn.jumbleScramble = function(o) {  
 
-	return this.each(function() { 
-	
-		var div = $(this), ul = $("ul", div), li = $("li", ul);		// Variables declaration
-		var left=0, eltPos = 0;		
-		this.elts = new Array(li.size());
-		var elts = this.elts, n = 0, ulSize = 0;						
-		var autoValidate;
-		var liWidths = [];
-		var liHeights = [];
-		var parentContainment = ( $('#frame').length ? $('#frame') : div )
-
-		initPos();				// init the li position (left position)
+		var transSupport = $.support.transition = (function(){
+			var thisBody = document.body || document.documentElement,
+			thisStyle = thisBody.style,
+			support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined;
+			return support;
+		})();
 		
-		/*
-		 * modified offset function to handle the local position
-		 * @param elt: the jquery element
-		 */
-		function getOffset(elt){												
-			return {left : parseInt(elt.css('left')), top : elt.css('top') == 'auto' ? 0 : parseInt(elt.css('top'))};
-		}
-		/**
-		 * init the positions of the li elements as well as their styles
-		 */
-		function initPos(){
-			var left=0;	
-			var top = 0;												// the first element will be put inside the main div
-			li.each(function(){ 		
-			
-				$this = $(this);								
-		
-				if (o.isHorizontal) {
-					$this.css('top', top + 'px');						// get each li height in case of individual heights.
-					var $thisHeight = $this.outerHeight(true);
-					liHeights.push($thisHeight)
-					top += $thisHeight;
-					
-				}
-				else {
-					$this.css('left', left + 'px');						// get each li width in case of individual widths. (default)
-					var $thisWidth = $this.outerWidth(true);
-					liWidths.push($thisWidth);
-					left += $thisWidth;
-					
-					ulSize += $thisWidth; 									// calculate the size of the ul element
-					
-				}
-				
-			});
-
-		}
-			
-		
-		if (!o.isHorizontal) {			
-			ul.css({width:ulSize, height: li.outerHeight(true) + 'px' });	 	// Update the ul size	
-		}
-		
-		li.each(function(liInd, liElem){ 
-			var elt = $(this);														// currentelement														
-																					// collect information about the element and store 
-																					// them into the object itself
-			elt.completeWidth = liWidths[liInd] || 0;								// its size (with the margin)
-			elt.completeHeight = liHeights[liInd] || 0;								// its height (with the margin)
-			elt.pos = getOffset(elt);												// its position (left and top position)
-			elt.initialN = n;														// its initial position (as per the other elements)
-			elt.n = n;																// its current position (as per the other elements)
-			if (o.isHorizontal ? axis = 'y' : axis = 'false')
-			
-			
-		
-			elt.draggable({											// make the element draggable
-				iframeFix: true,
-				addClasses: false,
-				axis: axis,
-				containment: parentContainment,
-				cancel: '.locked',	
-				drag: function(evt, ui){ onDrag(evt, ui, elt, elts); }, // event on drag
-				start: function(evt, ui){	
-					
-					var	inAnim = ( o.isHorizontal ? ({'box-shadow': '0px 2px 10px rgba(0,0,0,.7)'}) : ({'opacity': 0.4, 'z-index':200}) );
-					
-					elt.css(inAnim);
-				
-				},
-				stop:function(evt, ui){		
-				 
-					var	outAnim = ( o.isHorizontal ? ({x: 0, y: 0, 'box-shadow': '0px 0px 0px'}) : ({ x: 0, y: 0, 'opacity': 1.0, 'z-index':5 }) );
-		 	
-					if (o.setChars && o.reAlign == 2) {											// calls the setChars function
-						setChars();				
-					}
-							
-					elt.transition({'left': elt.pos.left + 'px', top : elt.pos.top, x:  ui.position.left - elt.pos.left, y:  ui.position.top - elt.pos.top },0, function () {
-					
-						if (o.reAlign == 2)	{	// re-align lis after uppercase/lowercase for difficulty setting  2	
-						
-									outAnim = { x: 0, y: 0, 'opacity': 1.0, 'z-index':5 };
-								
-									$(this).transition(outAnim,270);
-									
-									var left=0;			
-									div.find('li').each(function(ind, elem){ 	
-										var $this = $(this)
-										$this.transition({left: left + 'px',top : 0}, 100);
-										left += $this.outerWidth(true);
-									});
-									
-						}		
-						else {  													// for difficulty setting 0
-								
-								$(this).transition(outAnim,240, function () {        // auto color lis when difficulty set to 0 - Senner
-									if (!!o.autoValidate) {
-										o.autoValidate();	 						 // calls the autovalidate function in the plugin calling script
-									}
-								});
-						}
-					}); 
-					
-									
-				}
-			});
-			elts[n++] = elt;
-			
-		});
-		
-		function setChars () {
+		function setChars (div) {
 
 			div.find('li').each(function (i,e) {		
 				var v = $(this).text();
@@ -236,6 +119,132 @@ $.fn.jumbleScramble = function(o) {
 				}
 			}
 		}
+		
+
+	return this.each(function() { 
+	
+		var div = $(this), ul = $("ul", div), li = $("li", ul);		// Variables declaration
+		var left=0, eltPos = 0;		
+		this.elts = new Array(li.size());
+		var elts = this.elts, n = 0, ulSize = 0;						
+		var autoValidate;
+		var liWidths = [];
+		var liHeights = [];
+		var parentContainment = ( $('#frame').length ? $('#frame') : div )
+
+		initPos();				// init the li position (left position)
+		
+		/*
+		 * modified offset function to handle the local position
+		 * @param elt: the jquery element
+		 */
+		function getOffset(elt){												
+			return {left : parseInt(elt.css('left')), top : elt.css('top') == 'auto' ? 0 : parseInt(elt.css('top'))};
+		}
+		/**
+		 * init the positions of the li elements as well as their styles
+		 */
+		function initPos(){
+			var left=0;	
+			var top = 0;												// the first element will be put inside the main div
+			li.each(function(){ 		
+			
+				$this = $(this);								
+		
+				if (o.isHorizontal) {
+					$this.css('top', top + 'px');						// get each li height in case of individual heights.
+					var $thisHeight = $this.outerHeight(true);
+					liHeights.push($thisHeight)
+					top += $thisHeight;
+					
+				}
+				else {
+					$this.css('left', left + 'px');						// get each li width in case of individual widths. (default)
+					var $thisWidth = $this.outerWidth(true);
+					liWidths.push($thisWidth);
+					left += $thisWidth;
+					
+					ulSize += $thisWidth; 									// calculate the size of the ul element
+					
+				}
+				
+			});
+
+		}
+			
+		
+		if (!o.isHorizontal) {			
+			ul.css({width:ulSize, height: li.outerHeight(true) + 'px' });	 	// Update the ul size	
+		}
+		
+		li.each(function(liInd, liElem){ 
+			var elt = $(this);														// currentelement														
+																					// collect information about the element and store 
+																					// them into the object itself
+			elt.completeWidth = liWidths[liInd] || 0;								// its size (with the margin)
+			elt.completeHeight = liHeights[liInd] || 0;								// its height (with the margin)
+			elt.pos = getOffset(elt);												// its position (left and top position)
+			elt.initialN = n;														// its initial position (as per the other elements)
+			elt.n = n;																// its current position (as per the other elements)
+			if (o.isHorizontal ? axis = 'y' : axis = 'false')
+			
+			
+		
+			elt.draggable({											// make the element draggable
+				iframeFix: true,
+				addClasses: false,
+				axis: axis,
+				containment: parentContainment,
+				cancel: '.locked',	
+				drag: function(evt, ui){ onDrag(evt, ui, elt, elts); }, // event on drag
+				start: function(evt, ui){	
+					
+					var	inAnim = ( o.isHorizontal && transSupport ? ({'box-shadow': '0px 2px 10px rgba(0,0,0,.7)'}) : ({'opacity': 0.4, 'z-index':200}) );
+					
+					elt.css(inAnim);
+				
+				},
+				stop:function(evt, ui){		
+				 
+					var	outAnim = ( o.isHorizontal && transSupport ? ({x: 0, y: 0, 'box-shadow': 'none'}) : ({ x: 0, y: 0, 'opacity': 1.0, 'z-index':5 }) );
+		 	
+					if (o.setChars && o.reAlign == 2) {											// calls the setChars function
+						setChars(div);				
+					}
+							
+					elt.transition({'left': elt.pos.left + 'px', top : elt.pos.top, x:  ui.position.left - elt.pos.left, y:  ui.position.top - elt.pos.top },0, function () {
+					
+						if (o.reAlign == 2)	{	// re-align lis after uppercase/lowercase for difficulty setting  2	
+						
+									outAnim = { x: 0, y: 0, 'opacity': 1.0, 'z-index':5 };
+								
+									$(this).transition(outAnim,270);
+									
+									var left=0;			
+									div.find('li').each(function(ind, elem){ 	
+										var $this = $(this)
+										$this.transition({left: left + 'px',top : 0}, 100);
+										left += $this.outerWidth(true);
+									});
+									
+						}		
+						else {  													// for difficulty setting 0
+								
+								$(this).transition(outAnim,240, function () {        // auto color lis when difficulty set to 0 - Senner
+									if (!!o.autoValidate) {
+										o.autoValidate();	 						 // calls the autovalidate function in the plugin calling script
+									}
+								});
+						}
+					}); 
+					
+									
+				}
+			});
+			elts[n++] = elt;
+			
+		});
+			
 				
 	});
 };
