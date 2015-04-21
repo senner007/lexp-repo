@@ -188,7 +188,7 @@ var init = function () {
 	
 	var lastPart;
 	var setLastPart = 0;
-	var cutOffLimit = 550
+	var cutOffLimit = 600
 	
 	$('.slidee').find('.time').each(function (i,e) {
 		
@@ -202,6 +202,10 @@ var init = function () {
 			$("<div class='object'></div>").text(lastPart).appendTo($this);
 			setLastPart = 0;
 			hello += $this.children().last().text().length + 50;
+			
+			nDroppables = ($this.children().last().text().match(/\.\.\./g) || []).length;				//account for number of droppables in text object
+			nDroppablesSize = nDroppables * 12
+			hello += nDroppablesSize
 		}
 			
 				
@@ -210,14 +214,19 @@ var init = function () {
 			$("<div class='object'></div>").text(textArr[indexes]).appendTo($this);
 			indexes++;
 			hello += $this.children().last().text().length + 50;
-		
+
+			nDroppables = ($this.children().last().text().match(/\.\.\./g) || []).length;				//account for number of droppables in text object
+			nDroppablesSize = nDroppables * 12
+			hello += nDroppablesSize
+	
 		}
-			
 		
-		var charactersAboveLimit = hello - cutOffLimit;
-		
-		if (hello > cutOffLimit + 100) {
+	
+		if (hello > (cutOffLimit + 140)) {
 			
+			
+			var charactersAboveLimit = hello - cutOffLimit;
+					
 			var $thisLastObject = $this.find('.object').last();
 			var characters = 0;
 			
@@ -227,7 +236,7 @@ var init = function () {
 			characters = $thisLastObject.text().length;
 		
 		
-			var splitNumber = characters - charactersAboveLimit +70;
+			var splitNumber = characters - charactersAboveLimit;
 			if (splitNumber < 100) {
 				
 				splitNumber = 55;
@@ -299,6 +308,7 @@ var init = function () {
 	var indexSuffix = 0;
 	$('.time').each(function () {
 	var $this = $(this);
+
 		while (indexSuffix < answerArr.length && $this.text().indexOf("...") >= 0) {					// replace ... with drop frame
 		  var newMarkup = $this.html().replace(/\.\.\./, '<span class="suffixes" id="' + 'suffix' +indexSuffix + '">???</span>')
 		indexSuffix++;
