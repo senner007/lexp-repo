@@ -1,13 +1,9 @@
 * {margin: 0; padding:0;
- -webkit-transform: translate3d(0, 0, 0);
+ -webkit-transform: translate3d(0, 0, 0);					/*  Needed for jankfree drag on ipad */
    -moz-transform: translate3d(0, 0, 0);
    -ms-transform: translate3d(0, 0, 0);
    transform: translate3d(0, 0, 0); 
-
-
 }
-
-
 
 .feedback {
 opacity: 0;
@@ -162,10 +158,8 @@ margin: 0 auto;
 
 width: 995px;
 height: 640px;
-overflow: hidden;
+overflow: hidden;  /*  Needed for jankfree drag on ipad */
 
-
-/*   border-top: 5px solid transparent; */
   
 
 }

@@ -6,6 +6,9 @@ $(function() {
 
 	var rightTextArr;
 	
+	var isTablet = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+	
+	if (!isTablet) { $('#container').css('overflow', 'visible')}			//will ensure that draggable can be seen outside container on pc
 				
 	var docWidth = window.parent.$('body').width();	
 	if (docWidth > 1100) {	
@@ -101,7 +104,7 @@ $(function() {
 					 // $( ".suffixes" ).droppable( "enable" );
 				}
 				
-				var color = ui.draggable.css('color');
+				
 				
 				ui.draggable.css({'background-image':"url('../img/3_lighter2.jpg')", color: 'rgb(72,72,72)'});	
 				//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
@@ -110,33 +113,15 @@ $(function() {
 				var $this = $(this);
 				if ( $this.hasClass('occupado') ) { return; }; 
 				$this.addClass('occupado');
-				
-				
+								
 				$suffixes.each(function (i) {
 					var $this = $(this);
-					//console.log($this.css('background-color'))
-			
-					
-					if (($this.css('background-color') == 'transparent' || $this.css('background-color') == 'rgba(0, 0, 0, 0)') && $this.text() != '???' ) {
-						//console.log($this.text() + ' ' + $this.attr('id'));
-						$this.text('???').css('color','rgb(72, 72, 72)');
-						
+				
+					if (($this.css('background-color') == 'transparent' || $this.css('background-color') == 'rgba(0, 0, 0, 0)') && $this.text() != '???' ) {			
+						$this.text('???').css('color','rgb(72, 72, 72)');						
 					}
-				
-					
+									
 				});
-				/* if ( prevSuffix ) {prevSuffix.text('???').css({
-					background: 'transparent',
-					color: 'black'
-					});
-					prevSuffix = null;
-					} */
-			
-				
-				//$li.css({background: 'rgba(187, 187, 187,1)',color: 'rgba(68, 68, 68,1)'});
-				
-
-				
 				$this
 				.html( "<nobr>" + ui.draggable.text() + "</nobr>")
 				.css({
@@ -157,11 +142,8 @@ $(function() {
 			},
 			over: function( event, ui ) {
 				if ( $(this).hasClass('occupado') ) { return; };
-				var thisColor = ui.draggable.css('background-color');  // will only respond if css is saved to a var  
+			//	var thisColor = ui.draggable.css('background-color');  // will only respond if css is saved to a var  
 				ui.draggable.css({background: 'rgb(72, 72, 72)', color: 'rgba(187, 187, 187,1)'});
-				//$h1.find('.bolder').css({background: 'rgba(68, 68, 68,1)', color: thisColor});
-				
-				//$('#ulContainer').css({background: 'rgba(68, 68, 68,1)',color: 'rgba(204, 204, 204,1)'});
 			}
 		});
 	}
@@ -177,7 +159,7 @@ $(function() {
 				var liToMoveParentLiIndex = $this.parents(':eq(2)').index();
 
 				var diff = 0;
-				// code if li is not on current page (+-1000) to offset
+				// code if li is not on current page (+-1000) to offset (width of slide in frame)
 				if ( liToMoveParentLiIndex < sly.rel.activeItem) {
 					diff = -(liToMoveParentLiIndex - sly.rel.activeItem) * 1000;
 				}
@@ -202,7 +184,7 @@ var init = function () {
 	$.each(textArr, function (i,e) {
 		origTextArr.push(e);
 	})
-	//console.log(origTextArr);
+
 	
 	var lastPart;
 	var setLastPart = 0;
@@ -211,6 +193,7 @@ var init = function () {
 	$('.slidee').find('.time').each(function (i,e) {
 		
 		var $this = $(this);
+		
 
 		var hello = 0;
 		
@@ -218,65 +201,62 @@ var init = function () {
 		
 			$("<div class='object'></div>").text(lastPart).appendTo($this);
 			setLastPart = 0;
-			hello += $($this).children().last().text().length;
-			/* console.log('height:' + hello)
-			console.log('thisId: ' + $this.attr('id') ); */
-			}
+			hello += $this.children().last().text().length + 50;
+		}
+			
 				
 		while ( hello < cutOffLimit && indexes < textArr.length) {
 			
 			$("<div class='object'></div>").text(textArr[indexes]).appendTo($this);
 			indexes++;
-			hello += $($this).children().last().text().length + 50;
-			/* console.log('height:' + hello)
-			console.log('thisId: ' + $this.attr('id') ); */
-			
-			}
+			hello += $this.children().last().text().length + 50;
+		
+		}
 			
 		
-			var charactersAboveLimit = hello - cutOffLimit;
-			
-			if (hello > cutOffLimit + 100) {
-				
-				//will count the previous amount of characters in the .time element 
-				//and determine appropriate splitNumber 
-				var characters = 0;
-				
-				var prevsHeight = 0;
-				$this.find('.object').last().each(function (i,e) {
-						characters += $(e).text().length;
-				});
-			
-				var splitNumber = characters - charactersAboveLimit +70;
-				if (splitNumber < 100) {
-					
-					splitNumber = 55;
-				}
+		var charactersAboveLimit = hello - cutOffLimit;
 		
-				var indexChar = 0;
-				var e = $this.find('.object').last().text()
-				var n = e.charAt(splitNumber);
+		if (hello > cutOffLimit + 100) {
+			
+			var $thisLastObject = $this.find('.object').last();
+			var characters = 0;
+			
+			
+			var prevsHeight = 0;
+
+			characters = $thisLastObject.text().length;
+		
+		
+			var splitNumber = characters - charactersAboveLimit +70;
+			if (splitNumber < 100) {
 				
-				while (n != " ") {
-					n = e.charAt((splitNumber) + indexChar)
-					indexChar = indexChar -1;
-					
-				}
-				
-				var rounded = Math.round((splitNumber) + (indexChar +1));
-				firstPart = e.substr(0,rounded)
-				firstPart = firstPart + ' -';
-				lastPart = e.substr(rounded,e.length);
-				lastPart = ' -' + lastPart;
-				arrRemovePos = i;
-				
-				$this.find('.object').last().remove();
-				$("<div class='object'></div>").text(firstPart).appendTo($this);
-				
-				hello = 1000;
-				setLastPart = 1;
-					
+				splitNumber = 55;
 			}
+	
+			var indexChar = 0;
+			var e = $thisLastObject.text();
+			var n = e.charAt(splitNumber);
+			
+			while (n != " ") {
+				n = e.charAt((splitNumber) + indexChar)
+				indexChar = indexChar -1;
+				
+			}
+			
+			var rounded = Math.round((splitNumber) + (indexChar +1));
+			firstPart = e.substr(0,rounded)
+			firstPart = firstPart + ' -';
+			lastPart = e.substr(rounded,e.length);
+			lastPart = ' -' + lastPart;
+			arrRemovePos = i;
+			
+			$thisLastObject.remove();
+			$("<div class='object'></div>").text(firstPart).appendTo($this);
+			
+			hello = 1000;
+			setLastPart = 1;
+				
+		}
 	
 	});
 	// remove li pages in slidee that are empty
@@ -332,6 +312,7 @@ var init = function () {
 if (!$.support.transition) {							
 	$.fn.transition = $.fn.animate;
 } 
+
 		
 $suffixes = $(".suffixes");	
 			
