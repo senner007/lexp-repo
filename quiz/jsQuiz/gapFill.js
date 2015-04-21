@@ -293,7 +293,6 @@ var init = function () {
 	$li = $('#ulContainer li');
 	
 		var widthIndex = 0;
-		var liTop = 0;
 		var anumber;
 		
 		// layout li draggable in ul container
@@ -311,7 +310,6 @@ var init = function () {
 			widthIndex = (widthIndex + divWidth) + 25 ;
 			if (widthIndex > 850) {
 				widthIndex = 0;
-				liTop = liTop + 47;
 				
 			}
 		}); 
