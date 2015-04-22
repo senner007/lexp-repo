@@ -349,13 +349,13 @@ Array.prototype.removeByIndex = function(index) {
 	
 	} else {
 		
-		$('#test').focus();
+		
 	 	setTimeout(function(){		// wait for IE(???)
 			$('#test').focus();
 		
 			//window.parent.$('.fancybox-iframe').find('input').focus();
 
-		},100);  
+		},300);  
 	}
 	
 	$("#test").on('keydown',function (e) {
