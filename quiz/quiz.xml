@@ -346,7 +346,7 @@
         <title>halloween</title>
         <headline>Theme</headline>
         <subTitle>Halloween</subTitle>
-        <selectWords>a I</selectWords>
+        <selectWords>a I orange</selectWords>
 		<lowerCaseCharacters>true</lowerCaseCharacters>
         <quote>Online activities, the mp3 and printable handouts are available for this lesson at http://www.eslholidaylessons.com</quote>
       </info>
@@ -3701,4 +3701,38 @@ Franciscan Media</quote>
       </info>
     </jungleBookBeginning>
   </transition>
+   <transition>
+    <whyTheDoveisTimid>
+      <info>
+        <title>whyTheDoveisTimid</title>
+        <headline>Text</headline>
+        <subTitle>The Book of Nature Myths - Holbrook, F. Why the dove is timid.</subTitle>
+        <textFile>transition</textFile>
+        <quoteText>Source: Project Gutenberg</quoteText>
+		<mustBeBound>What is that</mustBeBound>
+      </info>
+    </whyTheDoveisTimid>
+  </transition>
+  <gapFill>
+    <whyTheDoveisTimidII>
+      <info>
+        <title>whyTheDoveisTimidII</title>
+        <headline>Text</headline>
+		<textSource>whyTheDoveisTimid_gapfill</textSource>
+        <subTitle>The Book of Nature Myths - Holbrook, F. Why the dove is timid. II</subTitle>
+		<quote>Source: Project Gutenberg</quote>
+      </info>
+    </whyTheDoveisTimidII>
+  </gapFill>
+   <jumbled>
+    <whyTheDoveisTimidIII>
+      <info>
+        <title>whyTheDoveisTimidIII</title>
+        <headline>Text</headline>
+        <subTitle>The Book of Nature Myths - Holbrook, F. Why the dove is timid. III</subTitle>
+		<textSource>whyTheDoveisTimid_jumbled</textSource>
+        <quoteText>Source: Project Gutenberg/Slightly modified</quoteText>
+      </info>
+    </whyTheDoveisTimidIII>
+  </jumbled>
 </quizes>
