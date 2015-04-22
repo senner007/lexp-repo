@@ -14,9 +14,16 @@ $(function() {
 	if (docWidth > 1100) {	
 		$('<button id="nextButton"></button><button id="prevButton"></button>').appendTo('#container');
 	};
+	
+	function findText () {
+		var textSource = $(saveData).find(quizTitle).find('textSource').text();	
+		if (typeof textSource === 'string' && textSource.length > 0) { return textSource }
+		else { return quizTitle }	
+	}
+
 
 	var stringData = $.ajax({
-		url: "gapFillTextFiles/" + quizTitle + '.txt',
+		url: "gapFillTextFiles/" + findText() + '.txt',
 		async: false
 	 }).responseText;
 	 
