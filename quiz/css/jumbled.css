@@ -272,6 +272,14 @@ div .jMyPuzzle ul li{
 
 }
 
+.whiteSpace {
+
+text-indent: 100%;
+width: 30px;
+white-space: nowrap;
+overflow: hidden;
+}
+
 
 .suffixes {
 

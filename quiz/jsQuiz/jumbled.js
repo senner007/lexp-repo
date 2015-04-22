@@ -19,8 +19,16 @@ var saveData = window.parent.xmlDataVar;
 
 $('#quoteText').text( $(saveData).find(quizTitle).find('quoteText').text() )
 
+
+function findText () {
+	var textSource = $(saveData).find(quizTitle).find('textSource').text();	
+	if (typeof textSource === 'string' && textSource.length > 0) { return textSource }
+	else { return quizTitle }	
+}
+
+
 var stringData = $.ajax({
-		url: "jumbledTextFiles/" + quizTitle + '.txt',
+		url: "jumbledTextFiles/" + findText() + '.txt',
 		async: false
 	 }).responseText;
 	 
@@ -274,8 +282,10 @@ initAll = function () {							// initAll start
 									
 				var elIndex = $(this).index();
 				var $this = $(this);
+				var $thisText = $(this).text()
+				if ($thisText == '_') { $thisText = ' ' }
 				
-				if ( $(spqr).text() == uniqueNames[elIndex] ) { 
+				if ( $thisText == uniqueNames[elIndex] ) { 
 					// delay is needed or else the css will not be applied
 					$(spqr).addClass('locked').delay(70 * ins).transition({color: '#006400'}, 250, function () {
 
@@ -300,9 +310,7 @@ initAll = function () {							// initAll start
 						}; 
 					});
 				}
-				
-				
-				if ( $(spqr).text() != uniqueNames[elIndex] ) {
+				else {
 					return false;
 				};
 			});
@@ -385,7 +393,7 @@ initAll = function () {							// initAll start
 		
 		$.each(arr, function(index, value) {
 				if (arr[index] == ' ') {
-				arr[index] = '_' 
+				arr[index] = ' ' 
 				//console.log( arr[index] );
 				}
 		}); 
@@ -415,7 +423,9 @@ initAll = function () {							// initAll start
 		var myHtml = "";
 		
 		for (var i=0;i<mixed.length;i++) { 
-			myHtml += "<li>" + mixed[i] + "</li>"; 
+			if (mixed[i] == ' ') { myHtml += "<li class='whiteSpace'>" + '_' + "</li>";  }
+			else { myHtml += "<li>" + mixed[i] + "</li>"; } 
+			
 		}
 		myHtmlLis += "<li class='lis'><div class='jMyPuzzle'><ul class='splitList'>" + myHtml + "</ul></div></li>"
 		
@@ -606,8 +616,10 @@ initAll = function () {							// initAll start
 			myArray = []
 					
 			lis.each(function (myIndex, myElem) {
+				var thisLi = lis.eq(myIndex).text().toLowerCase()
 				
-				myArray.push(lis.eq(myIndex).text().toLowerCase())				
+				if (thisLi == '_') { thisLi = ' '}
+				myArray.push(thisLi)				
 			
 			})
 			
@@ -631,6 +643,7 @@ initAll = function () {							// initAll start
 			// skip animation when all are correct
 			if (myArray.join(' ').toLowerCase() == uniqueNames.join(' ').toLowerCase() ) {
 				
+				
 				iteDelay = 0;
 				animSpeed = 0;
 				
@@ -639,8 +652,13 @@ initAll = function () {							// initAll start
 
 			lis.each(function(index2, elem) { //beginning of lis each function
 				
+				
 				var $this = $(this); 
 				var $thisText = $this.text().toLowerCase();
+				if ($thisText == '_') { $thisText = ' '}
+				
+				
+				
 					
 				if ($thisText.toLowerCase() == uniqueNames[i].toLowerCase()) {
 					correctNumber++;
@@ -724,6 +742,8 @@ initAll = function () {							// initAll start
 			setWrongCounter();
 			
 			if (correctNumber == uniqueNames.length) {
+				
+				
 		
 				$textBoxSuffixes.eq(activeIndex).text( prependedSentences[activeIndex].join('') ).addClass('suffixDone');
 				progTransit(prependedSentences.length);
