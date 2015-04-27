@@ -73,7 +73,7 @@ background:  rgba(68, 68, 68,1) url('cssImg/checkButton.png') 10% center no-repe
 
 
 .imgPos {
-margin-top: -28px;
+margin-top: -18px;
 float: right;
 
 }
@@ -125,10 +125,11 @@ position: absolute;
 width: inherit;
 font-size:18px;
 border-bottom: 1px solid rgb(187, 187, 187);
+padding: 7px;
 padding-right: 3px;
-line-height: 41px;
+height: 28px;
 position: relative;
-top: 0px;
+
 color: rgba(34, 34, 34,1);
 list-style-type:none;
 text-align: right;
@@ -164,10 +165,10 @@ list-style: none;
 width: inherit;
 font-size:18px;
 border-bottom: 1px solid rgb(187, 187, 187);
-padding: 0;
-padding-left: 3px;
-line-height: 41px;
-top: 0px;
+padding: 7px;
+padding-left: 2px;
+height: 28px;
+
 color: rgba(34, 34, 34,1);
 }
 
