@@ -532,8 +532,10 @@ initAll = function () {							// initAll start
 		
 		
 	frame.find(".jMyPuzzle").jumbleScramble({	
-		autoValidate: autoValidate
+		autoValidate: autoValidate,
+		layoutComplete: function () {
 		
+		}
 	});	
 
 	if ( difficulty.setting != 2 ) { 				

@@ -156,7 +156,10 @@ var $h1 = $('h1');
 			$(function() {
 					$(".jMyPuzzle").jumbleScramble({
 						visible: '100%',
-						isHorizontal: true	
+						isHorizontal: true,
+						layoutComplete: function () {
+							
+						}						
 					});						
 				}); 
 			

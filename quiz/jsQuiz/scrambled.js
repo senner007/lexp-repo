@@ -73,266 +73,244 @@ $('.initButton').one('tapclick', function  () {
 
 initAll = function () {
 
-			if (!$.support.transition) {	
-						$.fn.transition = $.fn.animate;	
-					}
-			var $checkButton = $('#checkButton');
-			var sentencesArr = [];
-			var friends = window.parent.shout_text;
-			var saveData = window.parent.xmlDataVar
-			var wrongPunish = 0;
-			var selectWordsArr;
-			var prependedSentences = [];
+	if (!$.support.transition) {	
+				$.fn.transition = $.fn.animate;	
+			}
+	var $checkButton = $('#checkButton');
+	var sentencesArr = [];
+	var friends = window.parent.shout_text;
+	var saveData = window.parent.xmlDataVar
+	var wrongPunish = 0;
+	var selectWordsArr;
+	var prependedSentences = [];
 
-			var selectWords = $(saveData).find(friends).find('selectWords').text();
+	var selectWords = $(saveData).find(friends).find('selectWords').text();
+
+	inputText = $(saveData).find(friends).find('inputText').text();
+	var quoteText = $(saveData).find(friends).find('quote').text();
+	var dontBindWords = $(saveData).find(friends).find('dontBindWords').text();
+	var lowerCaseCharacters = $(saveData).find(friends).find('lowerCaseCharacters').text();
+	$(saveData).find(friends).find('sentences').children().each(function () {
+		sentencesArr.push($(this).text());
+	});
+	
+	var senLength = sentencesArr.length;
+	var frame = $('#frame');
+	selectWordsArr = selectWords.replace(/ /g, " ").split(" ");
+	
+	if (quoteText.length > 0) {
+	$('#quoteText').text(quoteText);
+	}
+	else {
+	$('#quoteText').remove();
+	}
+	
+	
+	difficulty.wrongPunishLimit = (senLength * difficulty.multiply );
+	
+	var $progInner = $('#progInner'),
+	$progOuterWidth = $('#progOuter').outerWidth(); 
+	$progInner.css({x: -$progOuterWidth});
+	
+	var progTransit = function (qCount) {
+	
+		var increment = $progOuterWidth / qCount
 		
-			inputText = $(saveData).find(friends).find('inputText').text();
-			var quoteText = $(saveData).find(friends).find('quote').text();
-			var dontBindWords = $(saveData).find(friends).find('dontBindWords').text();
-			var lowerCaseCharacters = $(saveData).find(friends).find('lowerCaseCharacters').text();
-			$(saveData).find(friends).find('sentences').children().each(function () {
-				sentencesArr.push($(this).text());
-			});
-			
-			var senLength = sentencesArr.length;
-			var frame = $('#frame');
-			selectWordsArr = selectWords.replace(/ /g, " ").split(" ");
-			
-			if (quoteText.length > 0) {
-			$('#quoteText').text(quoteText);
+			if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
+					$progInner.transit({x: 0}, 1000);
 			}
 			else {
-			$('#quoteText').remove();
+			$progInner.transit({x: '+=' + increment}, 1000);
 			}
-			
-			
-			difficulty.wrongPunishLimit = (senLength * difficulty.multiply );
-			
-			var $progInner = $('#progInner'),
-			$progOuterWidth = $('#progOuter').outerWidth(); 
-			$progInner.css({x: -$progOuterWidth});
-			
-			var progTransit = function (qCount) {
-			
-				var increment = $progOuterWidth / qCount
-				
-					if (wrongPunish == difficulty.wrongPunishLimit || frame.find('.solved').size() == prependedSentences.length ) {
-							$progInner.transit({x: 0}, 1000);
-					}
-					else {
-					$progInner.transit({x: '+=' + increment}, 1000);
-					}
 
-			} 
-						
-			function shuffle(o){ //v1.0
-				for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-				return o;
-			};
-			
-			// Prepend selected words 
-			// (example west if sentence: ...west and east...)		
-			prependSelect = function (arr,selectW) {		
+	} 
 				
-				var splitNumber = arr.length
-					var anumber = (jQuery.inArray(selectW, arr));
-						// if the selected must be bound word is the
-						// first in the sentence ( arr[0] ), then append 
-						// next word. Else prepend previous word.						
-						if (anumber == 0) {	
-							  arr.splice(anumber,2, (arr[anumber] + ' ' + arr[anumber + 1])) ;
-						}
-						else {
-						//arr[anumber - 1] = arr[anumber-1] + ' ' + arr[anumber] ;	
-							 arr.splice((anumber - 1),2, (arr[anumber-1] + ' ' + arr[anumber])) ;
-						}	
-				return arr;
-																							
-			 };				
-			
-			randomPrepend = function (arr) {
+	function shuffle(o){ //v1.0
+		for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+		return o;
+	};
+	
+	// Prepend selected words 
+	// (example west if sentence: ...west and east...)		
+	prependSelect = function (arr,selectW) {		
 		
-				var splitNumber = arr.length
-				var anumber = Math.floor((Math.random()*splitNumber * 1));
-					if (anumber == splitNumber -1) {
-						arr.splice((anumber - 1),2, (arr[anumber - 1] + ' ' + arr[anumber]) );
-					}
-					else {
-						arr.splice(anumber,2, (arr[anumber] + ' ' + arr[anumber+1]) );	
-					}	
-				return arr;
-			 };	
-			autoValidate = function () {	
-				if (difficulty.setting == 0) {
-					
-					var activeIndex = $('.slidee').find('.active').index();
-					var uniqueNames = prependedSentences[activeIndex];
-					$('.active').find('.jMyPuzzle').find('li').not('.locked').each(function (ins,spqr) {
-											
-						var elIndex = $(this).index();
-
-						if ( $(spqr).text() == uniqueNames[elIndex] ) { 
-							// delay is needed or else the css will not be applied
-							$(spqr).addClass('locked').delay(100 * ins).transition({color: '#006400'}, 300);
-							
-						};
-						if (elIndex == uniqueNames.length -1 ) {
-							$(spqr).parent().addClass('solved');
-							progTransit(prependedSentences.length);
-							$(this).parent().delay(500).transition({y: -100, opacity: 0},500, 'easeInOutCubic',function () {
-								$(this).html( "<p class='solvedToString'>" + uniqueNames.join(' ') + "</p>" + "<img class='solvedImg' src='css/cssImg/check2.png'/>").delay(200).transition({y: 0, opacity: 1}, 800,'easeOutQuad');
-								
-							});
-							
-						}; 
-						if (frame.find('.solved').size() == prependedSentences.length ) {
-							finalFeedback();
-						}
-						if ( $(spqr).text() != uniqueNames[elIndex] ) {
-							return false;
-						};
-					});
-
-				};
-			};
-			// set lowerCase/UpperCase chars for setting 2
-			setChars = function () {
-				if (difficulty.setting == 2 ) {
-				
-					$('.active').find('.jMyPuzzle').find('li').each(function (i,e) {
-						
-						var v = $(this).text();
-						if ( $(this).hasClass('lower') ) {
-								// v = v.replace( v.charAt(0), v.charAt(0).toLowerCase()); 
-								 $(this).text( v.replace( v.charAt(0), v.charAt(0).toLowerCase() ) );
-							};
-						if (i == 0) {
-							//v = v.replace( v.charAt(0), v.charAt(0).toUpperCase() );
-							$(this).text(v.replace( v.charAt(0), v.charAt(0).toUpperCase() ) );
-							
-						};			
-					});	
-				};
-				//$('.active').find('.jMyPuzzle').find('li').first().draggable( "disable" ).addClass('locked')
-			
-			};
-			finalFeedback = function () {
-					$checkButton.remove();
-					var items = frame.find('.lis').size();
-					var thisIndex = $('.active').index();
-					var solved = frame.find('.solved').size();
-					
-					appendSly = function () {
-						var myHtml = "<p id='feedback'>You finished: " + solved + "<br>" + "Your score is: " + Math.round((100/items) * solved) + " out of 100" + "</p>" ;
-						sly.add("<li class='lis'><div class='jMyPuzzle'><div class='ulBorder'><ul class='splitList'></ul></div></div></li>");
-						frame.find('li').last().find('.splitList').append(myHtml);
-						setTimeout(function(){
-							sly.nextPage();
-							sly.off('moveEnd');
-							sly.on('moveEnd', function () { 
-								sly.set('speed', 400);
-							});
-					
-						},300);		
-					};
-					
-					sly.set('speed', 1500);
-					
-					if (items == thisIndex + 1) {
-						appendSly();	
-					
-					}
-					else {
-						sly.on('moveEnd', function () {
-							appendSly();
-						});	
-						sly.toEnd();
-					};
-				
-					
-			};	
-		
-						
-			var myHtmlLis = '';
-			$.each(sentencesArr, function (i,e) {
-			
-				var arr = e.split(" ");
-				
-				// Uppercase the correct first word for setting 1,2
-				if (difficulty.setting != 2 ) {
-					var arrMinusFirst = arr[0].slice(1,arr[0].length);
-					var arrFirst = arr[0].charAt(0).toUpperCase();
-					arr[0] = (arrFirst + arrMinusFirst);
-				} 
-				
-				var noLower = [];	
-				if (lowerCaseCharacters == 'true') {	
-					$.each(arr, function(i, el){
-						if ( el.charAt(0) == el.charAt(0).toUpperCase() ) {
-							noLower.push(el)
-						}
-					});
-				};
-				
-				$.each(selectWordsArr, function(i,e) {	
-					if (jQuery.inArray(selectWordsArr[i], arr) != -1) { 
-						// while loop if there are more than one
-						// of the selected word in the sentence
-						// ex. (I) : I looked and I walked...
-						while (jQuery.inArray(selectWordsArr[i], arr) != -1) { 
-							arr = prependSelect(arr,selectWordsArr[i]);
-						}
-					}
-				});
-				
-				for (var i=0;i<(difficulty.multiply +1);i++) { 
-				
-					if (arr.length > 7) {
-						arr = randomPrepend(arr);
-				/* 		console.log('randomP'); */
-						
-					}
+		var splitNumber = arr.length
+			var anumber = (jQuery.inArray(selectW, arr));
+				// if the selected must be bound word is the
+				// first in the sentence ( arr[0] ), then append 
+				// next word. Else prepend previous word.						
+				if (anumber == 0) {	
+					  arr.splice(anumber,2, (arr[anumber] + ' ' + arr[anumber + 1])) ;
 				}
-				
-				// prepend modified arr in correct order
-				// to storage array for checking				
-				prependedSentences.push(arr);
-				
-				
-				// create shuffled array and add class 'lower'
-				// to items where the first letter is to be
-				// lowercased or uppercased when shifting pos.
-				var mixed =  shuffle ( arr.slice(0) ) ;
-				var myHtml = "";
-				$.each(mixed, function(index, elem){
-					var array = elem.split(' ');
-					var myClass = 'lower';
-					$.each(noLower, function (i,e) {			
-						if (array[0] == e) {
-							myClass = 'dontLower';					
-						}							
-					})
-				
-					 if (difficulty.setting == 2 && index == 0) {         // Uppercase first letter in first word for hard difficulty
-						
-						var mixedArrMinusFirst = mixed[index].slice(1,mixed[index].length);
-						var mixedArrFirst = mixed[index].charAt(0).toUpperCase();
-						mixed[index] = (mixedArrFirst + mixedArrMinusFirst);
-					}  
-					
-					
-					myHtml += "<li class=" + myClass + ">" + mixed[index] + "</li>";
-					
+				else {
+				//arr[anumber - 1] = arr[anumber-1] + ' ' + arr[anumber] ;	
+					 arr.splice((anumber - 1),2, (arr[anumber-1] + ' ' + arr[anumber])) ;
+				}	
+		return arr;
+																					
+	 };				
+	
+	randomPrepend = function (arr) {
+
+		var splitNumber = arr.length
+		var anumber = Math.floor((Math.random()*splitNumber * 1));
+			if (anumber == splitNumber -1) {
+				arr.splice((anumber - 1),2, (arr[anumber - 1] + ' ' + arr[anumber]) );
+			}
+			else {
+				arr.splice(anumber,2, (arr[anumber] + ' ' + arr[anumber+1]) );	
+			}	
+		return arr;
+	 };	
+	autoValidate = function () {	
+		if (difficulty.setting == 0) {
+			
+			var activeIndex = $('.slidee').find('.active').index();
+			var uniqueNames = prependedSentences[activeIndex];
+			$('.active').find('.jMyPuzzle').find('li').not('.locked').each(function (ins,spqr) {
 									
-				});
-							
-				myHtmlLis += "<li class='lis'><div class='jMyPuzzle'><ul class='splitList'>" + myHtml + "</ul></div></li>";
+				var elIndex = $(this).index();
+
+				if ( $(spqr).text() == uniqueNames[elIndex] ) { 
+					// delay is needed or else the css will not be applied
+					$(spqr).addClass('locked').delay(100 * ins).transition({color: '#006400'}, 300);
 					
+				};
+				if (elIndex == uniqueNames.length -1 ) {
+					$(spqr).parent().addClass('solved');
+					progTransit(prependedSentences.length);
+					$(this).parent().delay(500).transition({y: -100, opacity: 0},500, 'easeInOutCubic',function () {
+						$(this).html( "<p class='solvedToString'>" + uniqueNames.join(' ') + "</p>" + "<img class='solvedImg' src='css/cssImg/check2.png'/>").delay(200).transition({y: 0, opacity: 1}, 800,'easeOutQuad');
+						
+					});
 					
+				}; 
+				if (frame.find('.solved').size() == prependedSentences.length ) {
+					finalFeedback();
+				}
+				if ( $(spqr).text() != uniqueNames[elIndex] ) {
+					return false;
+				};
 			});
+
+		};
+	};
+	finalFeedback = function () {
+			$checkButton.remove();
+			var items = frame.find('.lis').size();
+			var thisIndex = $('.active').index();
+			var solved = frame.find('.solved').size();
+			
+			appendSly = function () {
+				var myHtml = "<p id='feedback'>You finished: " + solved + "<br>" + "Your score is: " + Math.round((100/items) * solved) + " out of 100" + "</p>" ;
+				sly.add("<li class='lis'><div class='jMyPuzzle'><div class='ulBorder'><ul class='splitList'></ul></div></div></li>");
+				frame.find('li').last().find('.splitList').append(myHtml);
+				setTimeout(function(){
+					sly.nextPage();
+					sly.off('moveEnd');
+					sly.on('moveEnd', function () { 
+						sly.set('speed', 400);
+					});
+			
+				},300);		
+			};
+			
+			sly.set('speed', 1500);
+			
+			if (items == thisIndex + 1) {
+				appendSly();	
+			
+			}
+			else {
+				sly.on('moveEnd', function () {
+					appendSly();
+				});	
+				sly.toEnd();
+			};
+			
+	};	
+
+				
+	var myHtmlLis = '';
+	$.each(sentencesArr, function (i,e) {
+	
+		var arr = e.split(" ");
+		
+		// Uppercase the correct first word for setting 1,2
+		if (difficulty.setting != 2 ) {
+			var arrMinusFirst = arr[0].slice(1,arr[0].length);
+			var arrFirst = arr[0].charAt(0).toUpperCase();
+			arr[0] = (arrFirst + arrMinusFirst);
+		} 
+		
+		var noLower = [];	
+		if (lowerCaseCharacters == 'true') {	
+			$.each(arr, function(i, el){
+				if ( el.charAt(0) == el.charAt(0).toUpperCase() ) {
+					noLower.push(el)
+				}
+			});
+		};
+		
+		$.each(selectWordsArr, function(i,e) {	
+			if (jQuery.inArray(selectWordsArr[i], arr) != -1) { 
+				// while loop if there are more than one
+				// of the selected word in the sentence
+				// ex. (I) : I looked and I walked...
+				while (jQuery.inArray(selectWordsArr[i], arr) != -1) { 
+					arr = prependSelect(arr,selectWordsArr[i]);
+				}
+			}
+		});
+		
+		for (var i=0;i<(difficulty.multiply +1);i++) { 
+		
+			if (arr.length > 7) {
+				arr = randomPrepend(arr);
+		/* 		console.log('randomP'); */
+				
+			}
+		}
+		
+		// prepend modified arr in correct order
+		// to storage array for checking				
+		prependedSentences.push(arr);
+		
+		
+		// create shuffled array and add class 'lower'
+		// to items where the first letter is to be
+		// lowercased or uppercased when shifting pos.
+		var mixed =  shuffle ( arr.slice(0) ) ;
+		var myHtml = "";
+		$.each(mixed, function(index, elem){
+			var array = elem.split(' ');
+			var myClass = 'lower';
+			$.each(noLower, function (i,e) {			
+				if (array[0] == e) {
+					myClass = 'dontLower';					
+				}							
+			})
+		
+			 if (difficulty.setting == 2 && index == 0) {         // Uppercase first letter in first word for hard difficulty
+				
+				var mixedArrMinusFirst = mixed[index].slice(1,mixed[index].length);
+				var mixedArrFirst = mixed[index].charAt(0).toUpperCase();
+				mixed[index] = (mixedArrFirst + mixedArrMinusFirst);
+			}  
+			
+			
+			myHtml += "<li class=" + myClass + ">" + mixed[index] + "</li>";
+			
+							
+		});
+					
+		myHtmlLis += "<li class='lis'><div class='jMyPuzzle'><ul class='splitList'>" + myHtml + "</ul></div></li>";
+			
+			
+	});
 							
 			
-			frame.find('.slidee').append(myHtmlLis);
+		frame.find('.slidee').append(myHtmlLis);
 		
 		var pagesInteract = 'click';
 		if (agentID) {
@@ -369,10 +347,12 @@ initAll = function () {
     	
  	$(function() {
 					frame.find(".jMyPuzzle").jumbleScramble({
-						reAlign: difficulty.setting,
 						autoValidate: autoValidate,
-						setChars: true,
-						isHorizontal: false	
+						setChars: (difficulty.setting == 2),
+						isHorizontal: false,
+						layoutComplete: function () {
+							
+						}
 					});						
 				}); 
 			
