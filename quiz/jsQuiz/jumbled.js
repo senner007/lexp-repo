@@ -387,7 +387,7 @@ initAll = function () {							// initAll start
 		
 	removedLi = 0;
 	var myHtmlLis = '';
-	$.each(answers, function (index,e) {
+	$.each(answers, function (ind,e) {
 		var arr = e.split("");
 		//console.log(arr);
 		
@@ -427,7 +427,7 @@ initAll = function () {							// initAll start
 			else { myHtml += "<li>" + mixed[i] + "</li>"; } 
 			
 		}
-		myHtmlLis += "<li class='lis'><div class='jMyPuzzle'><ul class='splitList'>" + myHtml + "</ul></div></li>"
+		myHtmlLis += "<li class='lis'><div class='jMyPuzzle' id='jMyPuzzleId" + ind  + "'><ul class='splitList'>" + myHtml + "</ul></div></li>"
 		
 		/*   var newMarkup = $('#textBox').html().replace(/\.\.\./, "<span class='suffixes' id='suf" + index + "'>"  + mixed.join('') + "</span>")
 		$('#textBox').html(newMarkup);  */
@@ -450,7 +450,7 @@ initAll = function () {							// initAll start
 		startAt: 0,
 		activateMiddle: 1,
 		touchDragging: 1,
-		interactive: $('.splitList li'),
+		interactive: '.splitList li',
 		releaseSwing:  1,
 		elasticBounds: 1,
 		easing: 'easeInOutCirc', 
@@ -530,14 +530,15 @@ initAll = function () {							// initAll start
 
 	difficulty.wrongPunishLimit = (answerArr.length * difficulty.multiply );
 		
-		
+	
 	frame.find(".jMyPuzzle").jumbleScramble({	
 		autoValidate: autoValidate,
 		layoutComplete: function () {
-		
+				
 		}
 	});	
-
+	
+	
 	if ( difficulty.setting != 2 ) { 				
 		frame.find(".jMyPuzzle").each(function () {				
 			$(this).find('li').first().css('opacity','0.5').addClass('locked'); 			

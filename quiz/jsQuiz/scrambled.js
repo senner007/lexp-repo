@@ -232,7 +232,7 @@ initAll = function () {
 
 				
 	var myHtmlLis = '';
-	$.each(sentencesArr, function (i,e) {
+	$.each(sentencesArr, function (ind,e) {
 	
 		var arr = e.split(" ");
 		
@@ -304,7 +304,7 @@ initAll = function () {
 							
 		});
 					
-		myHtmlLis += "<li class='lis'><div class='jMyPuzzle'><ul class='splitList'>" + myHtml + "</ul></div></li>";
+		myHtmlLis += "<li class='lis'><div class='jMyPuzzle' id='jMyPuzzleId" + ind  + "'><ul class='splitList'>" + myHtml + "</ul></div></li>";
 			
 			
 	});
