@@ -355,7 +355,7 @@ Array.prototype.removeByIndex = function(index) {
 		
 			//window.parent.$('.fancybox-iframe').find('input').focus();
 
-		},300);  
+		},700);  
 	}
 	
 	$("#test").on('keydown',function (e) {
