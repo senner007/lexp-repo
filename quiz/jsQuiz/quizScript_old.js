@@ -522,7 +522,9 @@ Array.prototype.removeByIndex = function(index) {
 		
 		/* qnumber = qnumber + 1; */
 		progTransit(totalq);
+		qnumber = qnumber + 1;
 			if (qnumber == totalq)	{
+				console.log('hello finished')
 					unbindButtons = true;
 					window.setTimeout('initQuiz()', 5000);
 					$feedback.transition({opacity: 0});
