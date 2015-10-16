@@ -324,7 +324,6 @@ height: 4000px;
 
 margin-top: 0px;
 
-
 	
     -webkit-transition: opacity 0.3s; /** Chrome & Safari **/
     -moz-transition: all 0.3s; /** Firefox **/
@@ -332,13 +331,7 @@ margin-top: 0px;
 	 transition: opacity 	0.4s;
 
 
-
 }
-
-
-
-	
-
 
 
 @media all and (max-width: 1200px) and (min-width: 500px) {
@@ -363,49 +356,60 @@ margin-top: 140px;
   clear: both;
  */
 }
+h1 {
+font-size: 64px;
+font-weight: normal;
+font-family: 'UnderwoodChampionRegular';
+}
 
 
  #headline {
-	letter-spacing: -3px;
-	word-spacing:-10px;
-	color: rgba(85, 85, 85,1);
-	
-	margin-left: 15px; 
-	width: 960px;
-	margin-top: 8px;
-	height: 90px;
-	padding:0px;
-
-	position: absolute;
-
+letter-spacing: -4px;
+word-spacing:-10px;
+color: rgba(85, 85, 85,1);
+margin-left: 15px; 
+width: 960px;
+margin-top: 8px;
+height: 90px;
+padding:0px;
+position: absolute;
 
 
 }
 
-@media all and (max-width: 1200px) and (min-width: 500px) {
-	 #headline {
-	font-size: 29px;
-	letter-spacing: -4px;
-	}
-}
+/* @media all and (max-width: 1200px) and (min-width: 500px) {
+  h1 {
+	margin-top: 10px;
+    font-size: 52px;
+	font-weight: bold;
+	margin-top: 10px;
+  }
+  #headline {
+  	text-decoration: underline;
+  }
+  
+} */
 
-h1 {
-font-size: 64px;
 
-font-family: 'UnderwoodChampionRegular';
-}
+
+
 #textThe
  { 
-color:rgba(68, 68, 68,1);
-position: absolute;
-font-family: 'UnderwoodChampionRegular';
-font-weight: bold;
-width: 500px;
-font-size: 19px;
-margin-left: 39px;
-margin-top: 19px;
-letter-spacing: -1px;
+	color:rgba(68, 68, 68,1);
+	position: absolute;
+	font-family: 'UnderwoodChampionRegular';
+	font-weight: normal;
+	width: 500px;
+	font-size: 26px;
+	margin-left: 37px;
+	margin-top: 14px;
+	letter-spacing: -2px;
 }
+
+
+
+
+
 
 
 
