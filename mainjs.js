@@ -139,6 +139,10 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 				imgVar += '<a data-abc="Verbs" rel="gallery" id="VerbsIrrImg" href="img/wordleVerbsIrr.jpg" class="item colimg2 fancybox" title="Ring rang rung"><img src="img/wordleVerbsIrrSmall.jpg" /></a>';
 				
 				imgVar += '<a data-abc="Prepositions" rel="gallery" id="PrepImg" href="img/preps2.png" class="item colimg2 fancybox" title="Prepositions"><img src="img/preps3.png" /></a>';
+				
+				imgVar += '<a data-abc="LexpAlice" rel="gallery" id="lexpAliceRabbit" href="img/new/lexpAlice_big.jpg" class="item colimg2 fancybox" title="LexpAlice"><img src="img/new/lexpAlice_small.jpg" /></a>';
+				
+				//imgVar += '<a data-abc="lexp" rel="gallery" id="lexpAliceTable" href="img/new/lexpAlice2.jpg" class="item colimg2 fancybox" title="Alice in Wonderland"><img src="img/new/lexpAlice2.jpg" /></a>';
 
 					
 				$(imgVar).appendTo('#containerIsotope');
@@ -149,7 +153,9 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 					"img/adverbs2.png",
 					"img/preps2.png",
 					"img/wordleVerbsIrr.jpg",
-					"img/uncountableNouns.jpg"
+					"img/uncountableNouns.jpg",
+					"img/new/lexpAlice.jpg",
+					"img/new/lexpAlice2.jpg"
 				]);
 
 			
@@ -169,11 +175,10 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 	   		$loaderGif.hide();
 					
 			$('.colimg2').css('visibility','visible');
-			
-		
-						 
+									 
 			$container.isotope({ 		
 				itemSelector: '.item',
+				percentPosition: false,
 				layoutMode: 'packery',
 				resizesContainer: false,
 				resizable: false,
@@ -189,10 +194,7 @@ $.ajax({    	// ------------------------------------Beginning of Ajax function--
 			
 			$container.isotope({ transitionDuration: '0.7s' })
 			
-			
-			
-			
-				
+
 				$itemGrammar = $container.find($(".exc:contains('Grammar')"));
 				$itemVocab = $container.find($(".exc:contains('Vocabulary')"));
 				$itemTrueFalseTheme = $container.find($(".exc:contains('Theme')"));
