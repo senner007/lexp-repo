@@ -3735,4 +3735,15 @@ Franciscan Media</quote>
       </info>
     </whyTheDoveisTimidIII>
   </jumbled>
+   <transition>
+    <whyTheDoveisTimid>
+      <info>
+        <title>redRidinghood</title>
+        <headline>Text</headline>
+        <subTitle>The little red riding hood.</subTitle>
+        <textFile>transition</textFile>
+        <quoteText>Source: Project Gutenberg</quoteText>
+      </info>
+    </whyTheDoveisTimid>
+  </transition>
 </quizes>
