@@ -3499,7 +3499,57 @@ Franciscan Media</quote>
       </info>
     </nurseryRhymeCroakToad>
   </transition>
-<sortable title="British Isles - Geography"><quizBritishHistory><info><title>quizBritishHistory</title><headline>Theme</headline><subTitle>Britain - Geography</subTitle> <wordsOnly>false</wordsOnly> <alignCenter>true</alignCenter></info><sentences><sentence>England + Scotland + Wales</sentence><answer>Great Britain(GB)</answer></sentences><sentences><sentence>England + Scotland + Wales + Northern Ireland</sentence><answer>The United Kingdom(UK)</answer></sentences><sentences><sentence>The United Kingdom + Ireland + more than 6000 islands</sentence><answer>The British Islands</answer></sentences><sentences><sentence>The capital of Wales</sentence><answer>Cardiff</answer></sentences><sentences><sentence>The capital of Scotland</sentence><answer>Edinburgh</answer></sentences><sentences><sentence>The capital of Northern Ireland</sentence><answer>Belfast</answer></sentences><sentences><sentence>The capital of Ireland</sentence><answer>Dublin</answer></sentences><sentences><sentence>The capital of England</sentence><answer>London</answer></sentences><sentences><sentence>Other cities found in England</sentence><answer>Birmingham, Leeds, Liverpool, Manchester, Sheffield</answer></sentences><sentences><sentence>Other cities found in Scotland</sentence><answer>Glasgow, Aberdeen, Dundee</answer></sentences></quizBritishHistory></sortable>
+<sortable title="British Isles - Geography">
+	<quizBritishHistory>
+		<info>
+			<title>quizBritishHistory</title>
+			<headline>Theme</headline>
+			<subTitle>Britain - Geography</subTitle>
+			<wordsOnly>false</wordsOnly>
+			<alignCenter>true</alignCenter>
+		</info>
+		<sentences>
+			<sentence>England + Scotland + Wales</sentence>
+			<answer>Great Britain(GB)</answer>
+		</sentences>
+		<sentences>
+			<sentence>England + Scotland + Wales + Northern Ireland</sentence>
+			<answer>The United Kingdom(UK)</answer>
+		</sentences>
+		<sentences>
+			<sentence>The United Kingdom + Ireland + more than 6000 islands</sentence>
+			<answer>The British Islands</answer>
+		</sentences>
+		<sentences>
+			<sentence>The capital of Wales</sentence>
+			<answer>Cardiff</answer>
+		</sentences>
+		<sentences>
+			<sentence>The capital of Scotland</sentence>
+			<answer>Edinburgh</answer>
+		</sentences>
+		<sentences>
+			<sentence>The capital of Northern Ireland</sentence>
+			<answer>Belfast</answer>
+		</sentences>
+		<sentences>
+			<sentence>The capital of Ireland</sentence>
+			<answer>Dublin</answer>
+		</sentences>
+		<sentences>
+			<sentence>The capital of England</sentence>
+			<answer>London</answer>
+		</sentences>
+		<sentences>
+			<sentence>Other cities found in England</sentence>
+			<answer>Birmingham, Leeds, Liverpool, Manchester, Sheffield</answer>
+		</sentences>
+		<sentences>
+			<sentence>Other cities found in Scotland</sentence>
+			<answer>Glasgow, Aberdeen, Dundee</answer>
+		</sentences>
+	</quizBritishHistory>
+</sortable>
   <gapFill>
     <britainShortHistory>
       <info>
@@ -3603,7 +3653,98 @@ Franciscan Media</quote>
     </theWolvesOfTheSea>
   </gapFill>
   
-<quiz title="Britain - The British Isles"><britainVocabulary><info><title>britainVocabulary</title><headline>Vocabulary</headline><subTitle>Britain - The British Isles</subTitle> <inputText></inputText> <showAnswers>True</showAnswers> <multiChoice>False</multiChoice></info><questions><question>These Indians were Ottawas; and later we became very friendly with them and their ..., even to the degree of attending one of their dances.</question><answer>tribe</answer></questions><questions><question>They did not bury him at sea. At his earnest request they took him back to his own land to be laid with his ...</question><answer>ancestors</answer></questions><questions><question>(v) Capture, conquer, invade</question><answer>occupy</answer></questions><questions><question>When he had become so unpopular that no one would speak to him, the ... heard about it and commanded him to emigrate to America.</question><answer>emperor</answer></questions><questions><question>... the balloon swelled out and rose into the air, until finally the basket just touched the ground.</question><answer>Gradually</answer></questions><questions><question>(n) Heir, offspring, children</question><answer>descendants</answer></questions><questions><question>..he had fought a hundred successful battles, and ... a nation of foes.</question><answer>subdued</answer></questions><questions><question>A great ... in the world’s history happened in the year 1745. It was nothing less than the capture and imprisonment of wild, daring, dashing Electricity.</question><answer>event</answer></questions><questions><question>(n) Abbey, cloister, friary</question><answer>monastery</answer></questions><questions><question>(v) Burglarize, grab, rob</question><answer>loot</answer></questions><questions><question>I launched my first ship myself; owned her; commanded and ... her, and was wrecked on my first voyage.</question><answer>navigated</answer></questions><questions><question>(adj) Bitter, brutal, cruel</question><answer>harsh</answer></questions><questions><question>(n) Inhabitants of a place, community, people</question><answer>population</answer></questions><questions><question>(v) Irritate, upset, agitate</question><answer>annoy</answer></questions><questions><question>(adj) Hilly, alpine, large</question><answer>mountainous</answer></questions><questions><question>The gate of the ... stone wall was battered off the hinges, the front door of the house was open, the garden was trampled.</question><answer>surrounding</answer></questions><questions><question>(adj) having to do with the middle ages, antique, primitive</question><answer>medieval</answer></questions><questions><question>“the cave is at all events dry, and a good ... in case of a visit from pirates.”</question><answer>stronghold</answer></questions><questions><question>However, at sight of her dear son, the poor woman ..., and slowly recovered health.</question><answer>revived</answer></questions><questions><question>(n) A small branch</question><answer>twig</answer></questions></britainVocabulary></quiz>
+<quiz title="Britain - The British Isles">
+	<britainVocabulary>
+		<info>
+			<title>britainVocabulary</title>
+			<headline>Vocabulary</headline>
+			<subTitle>Britain - The British Isles</subTitle>
+			<inputText/>
+			<showAnswers>True</showAnswers>
+			<multiChoice>False</multiChoice>
+		</info>
+		<questions>
+			<question>These Indians were Ottawas; and later we became very friendly with them and their ..., even to the degree of attending one of their dances.</question>
+			<answer>tribe</answer>
+		</questions>
+		<questions>
+			<question>They did not bury him at sea. At his earnest request they took him back to his own land to be laid with his ...</question>
+			<answer>ancestors</answer>
+		</questions>
+		<questions>
+			<question>(v) Capture, conquer, invade</question>
+			<answer>occupy</answer>
+		</questions>
+		<questions>
+			<question>When he had become so unpopular that no one would speak to him, the ... heard about it and commanded him to emigrate to America.</question>
+			<answer>emperor</answer>
+		</questions>
+		<questions>
+			<question>... the balloon swelled out and rose into the air, until finally the basket just touched the ground.</question>
+			<answer>Gradually</answer>
+		</questions>
+		<questions>
+			<question>(n) Heir, offspring, children</question>
+			<answer>descendants</answer>
+		</questions>
+		<questions>
+			<question>..he had fought a hundred successful battles, and ... a nation of foes.</question>
+			<answer>subdued</answer>
+		</questions>
+		<questions>
+			<question>A great ... in the world’s history happened in the year 1745. It was nothing less than the capture and imprisonment of wild, daring, dashing Electricity.</question>
+			<answer>event</answer>
+		</questions>
+		<questions>
+			<question>(n) Abbey, cloister, friary</question>
+			<answer>monastery</answer>
+		</questions>
+		<questions>
+			<question>(v) Burglarize, grab, rob</question>
+			<answer>loot</answer>
+		</questions>
+		<questions>
+			<question>I launched my first ship myself; owned her; commanded and ... her, and was wrecked on my first voyage.</question>
+			<answer>navigated</answer>
+		</questions>
+		<questions>
+			<question>(adj) Bitter, brutal, cruel</question>
+			<answer>harsh</answer>
+		</questions>
+		<questions>
+			<question>(n) Inhabitants of a place, community, people</question>
+			<answer>population</answer>
+		</questions>
+		<questions>
+			<question>(v) Irritate, upset, agitate</question>
+			<answer>annoy</answer>
+		</questions>
+		<questions>
+			<question>(adj) Hilly, alpine, large</question>
+			<answer>mountainous</answer>
+		</questions>
+		<questions>
+			<question>The gate of the ... stone wall was battered off the hinges, the front door of the house was open, the garden was trampled.</question>
+			<answer>surrounding</answer>
+		</questions>
+		<questions>
+			<question>(adj) having to do with the middle ages, antique, primitive</question>
+			<answer>medieval</answer>
+		</questions>
+		<questions>
+			<question>“the cave is at all events dry, and a good ... in case of a visit from pirates.”</question>
+			<answer>stronghold</answer>
+		</questions>
+		<questions>
+			<question>However, at sight of her dear son, the poor woman ..., and slowly recovered health.</question>
+			<answer>revived</answer>
+		</questions>
+		<questions>
+			<question>(n) A small branch</question>
+			<answer>twig</answer>
+		</questions>
+	</britainVocabulary>
+</quiz>
  <gapFill>
     <discourseMarkers>
       <info>
@@ -3658,7 +3799,188 @@ Franciscan Media</quote>
       </info>
     </jungleBookExcerptIII>
   </gapFill>
-<quiz title="Pronouns - Which/Who/Whom"><quizWhoWhom><info><title>quizWhoWhom</title><headline>Grammar</headline><subTitle>Pronouns - Relative(Which, Who, Whom)</subTitle> <inputText>Choose which, who or whom</inputText> <showAnswers>False</showAnswers> <multiChoice>True</multiChoice></info><questions><question>Of course we carried our arms, not knowing ... we should meet with.</question><answer>whom</answer></questions><questions><question>“They are the men from ... we have just escaped,” said I to Big Otter;</question><answer>whom</answer></questions><questions><question>“For ... are these pretty things, my dear?” asked Mrs Liston.</question><answer>whom</answer></questions><questions><question>Once upon a time in the old, old days there were two brothers, one of ... was rich and the other poor.</question><answer>whom</answer></questions><questions><question>When his youngest son, ... he loved most of all, asked naturally what was to be his share, the father replied:</question><answer>whom</answer></questions><questions><question>"I am sad at heart. My victory is no comfort to me, for to-day I have lost a friend ... I believed true."</question><answer>whom</answer></questions><questions><question>The giant read: 'Seven at one stroke,' and thought that they had been men ... the tailor had killed,</question><answer>whom</answer></questions><questions><question>There was once upon a time a queen to ... God had given no children.</question><answer>whom</answer></questions><questions><question>There was a hole in the ground close beside them ... contained a small fire;</question><answer>which</answer></questions><questions><question>It is a frame-house, or cottage, ..., if not built according to the most approved rules of architecture, is at least neat, clean, comfortable-looking, and what one might style pretty.</question><answer>which</answer></questions><questions><question>Big Otter and I, rode slowly up the winding path ... led to this cottage.</question><answer>which</answer></questions><questions><question>I felt that there are some things ... some minds cannot understand;</question><answer>which</answer></questions><questions><question>Uncle Henry sat upon the doorstep and looked anxiously at the sky, ... was even grayer than usual.</question><answer>which</answer></questions><questions><question>"She is my aunt ... lives in Kansas, where I came from."</question><answer>who</answer></questions><questions><question>The Scarecrow, ... was never tired, stood up in another corner and waited patiently until morning came.</question><answer>who</answer></questions><questions><question>"I was born the son of a woodman ... chopped down trees in the forest and sold the wood for a living."</question><answer>who</answer></questions><questions><question>"That's all right," said the Stork, ... was flying along beside them.</question><answer>who</answer></questions></quizWhoWhom></quiz><sortable title="Modals - Ability(can, could, be able to)"><modalsAbilitySortable><info><title>modalsAbilitySortable</title><headline>Grammar</headline><subTitle>Modals - Ability(can, could, be able to)</subTitle> <wordsOnly>false</wordsOnly> <alignCenter>true</alignCenter></info><sentences><sentence>Maria can play the piano.</sentence><answer>It sounds like she has been doing it for years.</answer></sentences><sentences><sentence>I could read when I was four.</sentence><answer>Few kids can do that.</answer></sentences><sentences><sentence>He couldn't swim at all until he took lessons.</sentence><answer>Now he can do it alone.</answer></sentences><sentences><sentence>I will be able to fly a spaceship in 2 years.</sentence><answer>I am currently practising with a simulator.</answer></sentences><sentences><sentence>I have been able to visit many countries in my life.</sentence><answer>Now that I am old I prefer to stay at home.</answer></sentences><sentences><sentence>She won't be able to speak Italian in a week!</sentence><answer>It will take months.</answer></sentences><sentences><sentence>He could have learned Chineese.</sentence><answer>He didn’t have time, however.</answer></sentences><sentences><sentence>He couldn’t breathe very well.</sentence><answer>He should have stayed at home.</answer></sentences><sentences><sentence>I will not be able to go to the party tonight.</sentence><answer>I have homework to do.</answer></sentences><sentences><sentence>She can’t dance very well.</sentence><answer>It almost looks dangerous.</answer></sentences></modalsAbilitySortable></sortable><sortable title="Modals - Possibility(must, might, could, should, may, can't)"><modalsPossibilitySortable><info><title>modalsPossibilitySortable</title><headline>Grammar</headline><subTitle>Modals - Possibility(must, might, could, should, may, can't)</subTitle> <wordsOnly>false</wordsOnly> <alignCenter>true</alignCenter></info><sentences><sentence>They must be very rich. </sentence><answer>Look at the house.</answer></sentences><sentences><sentence>They must be really good friends.</sentence><answer>They are always hanging out together.</answer></sentences><sentences><sentence>They can't be at home.</sentence><answer>All the lights are turned off.</answer></sentences><sentences><sentence>She will be at stadium by now.</sentence><answer>The competition is very important to her.</answer></sentences><sentences><sentence>He should be there by now.</sentence><answer>He left over an hour ago.</answer></sentences><sentences><sentence>He could be in his room.</sentence><answer>He usually does his homework at this hour.</answer></sentences><sentences><sentence>They must have left early.</sentence><answer>If not they would have picked up the phone.</answer></sentences><sentences><sentence>He might be away on holiday.</sentence><answer>At least he is not at the office.</answer></sentences><sentences><sentence>She may not pass the exam.</sentence><answer>I'm sure she didn't study.</answer></sentences><sentences><sentence>It can't be correct.</sentence><answer>This is too difficult for someone at that age..</answer></sentences></modalsPossibilitySortable></sortable>
+<quiz title="Pronouns - Which/Who/Whom">
+	<quizWhoWhom>
+		<info>
+			<title>quizWhoWhom</title>
+			<headline>Grammar</headline>
+			<subTitle>Pronouns - Relative(Which, Who, Whom)</subTitle>
+			<inputText>Choose which, who or whom</inputText>
+			<showAnswers>False</showAnswers>
+			<multiChoice>True</multiChoice>
+		</info>
+		<questions>
+			<question>Of course we carried our arms, not knowing ... we should meet with.</question>
+			<answer>whom</answer>
+		</questions>
+		<questions>
+			<question>“They are the men from ... we have just escaped,” said I to Big Otter;</question>
+			<answer>whom</answer>
+		</questions>
+		<questions>
+			<question>“For ... are these pretty things, my dear?” asked Mrs Liston.</question>
+			<answer>whom</answer>
+		</questions>
+		<questions>
+			<question>Once upon a time in the old, old days there were two brothers, one of ... was rich and the other poor.</question>
+			<answer>whom</answer>
+		</questions>
+		<questions>
+			<question>When his youngest son, ... he loved most of all, asked naturally what was to be his share, the father replied:</question>
+			<answer>whom</answer>
+		</questions>
+		<questions>
+			<question>"I am sad at heart. My victory is no comfort to me, for to-day I have lost a friend ... I believed true."</question>
+			<answer>whom</answer>
+		</questions>
+		<questions>
+			<question>The giant read: 'Seven at one stroke,' and thought that they had been men ... the tailor had killed,</question>
+			<answer>whom</answer>
+		</questions>
+		<questions>
+			<question>There was once upon a time a queen to ... God had given no children.</question>
+			<answer>whom</answer>
+		</questions>
+		<questions>
+			<question>There was a hole in the ground close beside them ... contained a small fire;</question>
+			<answer>which</answer>
+		</questions>
+		<questions>
+			<question>It is a frame-house, or cottage, ..., if not built according to the most approved rules of architecture, is at least neat, clean, comfortable-looking, and what one might style pretty.</question>
+			<answer>which</answer>
+		</questions>
+		<questions>
+			<question>Big Otter and I, rode slowly up the winding path ... led to this cottage.</question>
+			<answer>which</answer>
+		</questions>
+		<questions>
+			<question>I felt that there are some things ... some minds cannot understand;</question>
+			<answer>which</answer>
+		</questions>
+		<questions>
+			<question>Uncle Henry sat upon the doorstep and looked anxiously at the sky, ... was even grayer than usual.</question>
+			<answer>which</answer>
+		</questions>
+		<questions>
+			<question>"She is my aunt ... lives in Kansas, where I came from."</question>
+			<answer>who</answer>
+		</questions>
+		<questions>
+			<question>The Scarecrow, ... was never tired, stood up in another corner and waited patiently until morning came.</question>
+			<answer>who</answer>
+		</questions>
+		<questions>
+			<question>"I was born the son of a woodman ... chopped down trees in the forest and sold the wood for a living."</question>
+			<answer>who</answer>
+		</questions>
+		<questions>
+			<question>"That's all right," said the Stork, ... was flying along beside them.</question>
+			<answer>who</answer>
+		</questions>
+	</quizWhoWhom>
+</quiz>
+<sortable title="Modals - Ability(can, could, be able to)">
+	<modalsAbilitySortable>
+		<info>
+			<title>modalsAbilitySortable</title>
+			<headline>Grammar</headline>
+			<subTitle>Modals - Ability(can, could, be able to)</subTitle>
+			<wordsOnly>false</wordsOnly>
+			<alignCenter>true</alignCenter>
+		</info>
+		<sentences>
+			<sentence>Maria can play the piano.</sentence>
+			<answer>It sounds like she has been doing it for years.</answer>
+		</sentences>
+		<sentences>
+			<sentence>I could read when I was four.</sentence>
+			<answer>Few kids can do that.</answer>
+		</sentences>
+		<sentences>
+			<sentence>He couldn't swim at all until he took lessons.</sentence>
+			<answer>Now he can do it alone.</answer>
+		</sentences>
+		<sentences>
+			<sentence>I will be able to fly a spaceship in 2 years.</sentence>
+			<answer>I am currently practising with a simulator.</answer>
+		</sentences>
+		<sentences>
+			<sentence>I have been able to visit many countries in my life.</sentence>
+			<answer>Now that I am old I prefer to stay at home.</answer>
+		</sentences>
+		<sentences>
+			<sentence>She won't be able to speak Italian in a week!</sentence>
+			<answer>It will take months.</answer>
+		</sentences>
+		<sentences>
+			<sentence>He could have learned Chineese.</sentence>
+			<answer>He didn’t have time, however.</answer>
+		</sentences>
+		<sentences>
+			<sentence>He couldn’t breathe very well.</sentence>
+			<answer>He should have stayed at home.</answer>
+		</sentences>
+		<sentences>
+			<sentence>I will not be able to go to the party tonight.</sentence>
+			<answer>I have homework to do.</answer>
+		</sentences>
+		<sentences>
+			<sentence>She can’t dance very well.</sentence>
+			<answer>It almost looks dangerous.</answer>
+		</sentences>
+	</modalsAbilitySortable>
+</sortable>
+<sortable title="Modals - Possibility(must, might, could, should, may, can't)">
+	<modalsPossibilitySortable>
+		<info>
+			<title>modalsPossibilitySortable</title>
+			<headline>Grammar</headline>
+			<subTitle>Modals - Possibility(must, might, could, should, may, can't)</subTitle>
+			<wordsOnly>false</wordsOnly>
+			<alignCenter>true</alignCenter>
+		</info>
+		<sentences>
+			<sentence>They must be very rich. </sentence>
+			<answer>Look at the house.</answer>
+		</sentences>
+		<sentences>
+			<sentence>They must be really good friends.</sentence>
+			<answer>They are always hanging out together.</answer>
+		</sentences>
+		<sentences>
+			<sentence>They can't be at home.</sentence>
+			<answer>All the lights are turned off.</answer>
+		</sentences>
+		<sentences>
+			<sentence>She will be at stadium by now.</sentence>
+			<answer>The competition is very important to her.</answer>
+		</sentences>
+		<sentences>
+			<sentence>He should be there by now.</sentence>
+			<answer>He left over an hour ago.</answer>
+		</sentences>
+		<sentences>
+			<sentence>He could be in his room.</sentence>
+			<answer>He usually does his homework at this hour.</answer>
+		</sentences>
+		<sentences>
+			<sentence>They must have left early.</sentence>
+			<answer>If not they would have picked up the phone.</answer>
+		</sentences>
+		<sentences>
+			<sentence>He might be away on holiday.</sentence>
+			<answer>At least he is not at the office.</answer>
+		</sentences>
+		<sentences>
+			<sentence>She may not pass the exam.</sentence>
+			<answer>I'm sure she didn't study.</answer>
+		</sentences>
+		<sentences>
+			<sentence>It can't be correct.</sentence>
+			<answer>This is too difficult for someone at that age..</answer>
+		</sentences>
+	</modalsPossibilitySortable>
+</sortable>
 <gapFill>
     <freedomWantRockwell>
       <info>
@@ -3736,14 +4058,15 @@ Franciscan Media</quote>
     </whyTheDoveisTimidIII>
   </jumbled>
    <transition>
-    <whyTheDoveisTimid>
+    <redRidinghood>
       <info>
         <title>redRidinghood</title>
         <headline>Text</headline>
-        <subTitle>The little red riding hood.</subTitle>
+        <subTitle>Little Red Riding-Hood - Marshall, L. Favorite Fairy Tales</subTitle>
         <textFile>transition</textFile>
         <quoteText>Source: Project Gutenberg</quoteText>
+		<mustBeBound>I have got a bad cold, The better to see you with, The better to hear you with, The better to hug you with</mustBeBound>
       </info>
-    </whyTheDoveisTimid>
+    </redRidinghood>
   </transition>
 </quizes>
