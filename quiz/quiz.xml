@@ -4077,25 +4077,34 @@ Franciscan Media</quote>
 			<subTitle>Space - Neil Armstrong</subTitle>
 			<wordsOnly>false</wordsOnly>
 			<alignCenter>false</alignCenter>
+			<quote>Source: https://en.wikipedia.org/wiki/Neil_Armstrong - Creative Commons Attribution-ShareAlike 3.0 Unported License</quote>
 		</info>
 		<sentences>
+			<sentence>Neil Alden Armstrong was an American astronaut and the</sentence>
+			<answer>first person to walk on the Moon</answer>
 		</sentences>
 		<sentences>
+			<sentence>He was also an aerospace engineer, naval aviator,</sentence>
 			<answer>test pilot, and university professor</answer>
 		</sentences>
 		<sentences>
+			<sentence>Before becoming an astronaut, Armstrong was an</sentence>
 			<answer>officer in the U.S. Navy and served in the Korean War</answer>
 		</sentences>
 		<sentences>
 			<sentence>He made his first space flight as command pilot in March 1966,</sentence>
+			<answer>becoming NASA's first civilian astronaut to fly in space</answer>
 		</sentences>
 		<sentences>
 			<sentence>Armstrong's second and last spaceflight was as commander of</sentence>
 			<answer>Apollo 11, the first manned Moon landing mission in July 1969</answer>
 		</sentences>
 		<sentences>
+			<sentence>Armstrong and Buzz Aldrin landed on the moon</sentence>
+			<answer>and spent two and a half hours outside the spacecraft</answer>
 		</sentences>
 		<sentences>
+			<sentence>Michael Collins stayed in lunar orbit</sentence>
 			<answer>in the Command/Service Module</answer>
 		</sentences>
 		<sentences>
@@ -4103,9 +4112,12 @@ Franciscan Media</quote>
 			<answer>Presidential Medal of Freedom by President Richard Nixon</answer>
 		</sentences>
 		<sentences>
+			<sentence>President Jimmy Carter presented Armstrong the Congressional</sentence>
+			<answer>Space Medal of Honor in 1978</answer>
 		</sentences>
 		<sentences>
 			<sentence>Armstrong died in Cincinnati, Ohio on August 25, 2012, at</sentence>
+			<answer>the age of 82, after complications following heart surgery</answer>
 		</sentences>
 	</neilArmstrongSortable>
 </sortable>
