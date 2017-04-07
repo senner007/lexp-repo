@@ -4069,4 +4069,44 @@ Franciscan Media</quote>
       </info>
     </redRidinghood>
   </transition>
+  <sortable title="Neil Armstrong">
+	<neilArmstrongSortable>
+		<info>
+			<title>neilArmstrongSortable</title>
+			<headline>Theme</headline>
+			<subTitle>Space - Neil Armstrong</subTitle>
+			<wordsOnly>false</wordsOnly>
+			<alignCenter>false</alignCenter>
+		</info>
+		<sentences>
+		</sentences>
+		<sentences>
+			<answer>test pilot, and university professor</answer>
+		</sentences>
+		<sentences>
+			<answer>officer in the U.S. Navy and served in the Korean War</answer>
+		</sentences>
+		<sentences>
+			<sentence>He made his first space flight as command pilot in March 1966,</sentence>
+		</sentences>
+		<sentences>
+			<sentence>Armstrong's second and last spaceflight was as commander of</sentence>
+			<answer>Apollo 11, the first manned Moon landing mission in July 1969</answer>
+		</sentences>
+		<sentences>
+		</sentences>
+		<sentences>
+			<answer>in the Command/Service Module</answer>
+		</sentences>
+		<sentences>
+			<sentence>Along with Collins and Aldrin, Armstrong was awarded the</sentence>
+			<answer>Presidential Medal of Freedom by President Richard Nixon</answer>
+		</sentences>
+		<sentences>
+		</sentences>
+		<sentences>
+			<sentence>Armstrong died in Cincinnati, Ohio on August 25, 2012, at</sentence>
+		</sentences>
+	</neilArmstrongSortable>
+</sortable>
 </quizes>
